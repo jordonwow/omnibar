@@ -1,0 +1,17 @@
+## Interface: 70200
+## Title: OmniBar
+## Notes: Tracks enemy cooldowns
+## Version: @project-version@
+## Author: Jordon
+## DefaultState: Enabled
+## SavedVariables: OmniBarDB
+## OptionalDeps: Masque, LibStub, CallbackHandler-1.0, Ace3, LibDualSpec-1.0
+
+#@no-lib-strip@
+embeds.xml
+#@end-no-lib-strip@
+
+locale\locale.xml
+OmniBar.xml
+OmniBar.lua
+Options.lua
