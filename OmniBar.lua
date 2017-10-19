@@ -136,7 +136,7 @@ OmniBar.cooldowns = {
 		[196762] = { duration = 30, class = "PRIEST", specID = { 257 } }, -- Inner Focus
 		[197268] = { duration = 60, class = "PRIEST", specID = { 257 } }, -- Ray of Hope
 		[200183] = { duration = 180, class = "PRIEST", specID = { 257 } }, -- Apotheosis
-		[213610] = { duration = 45, class = "PRIEST", specID = { 257 } }, -- Holy Ward
+		[213610] = { duration = 30, class = "PRIEST", specID = { 257 } }, -- Holy Ward
 		[215769] = { duration = 300, class = "PRIEST", specID = { 257 } }, -- Spirit of Redemption
 
 		-- Shadow

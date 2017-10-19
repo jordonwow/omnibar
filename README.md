@@ -2,6 +2,13 @@
 
 OmniBar is an _extremely lightweight_ addon that tracks enemy cooldowns.
 
+## v8.1
+
+* Fixed localization issue
+* Updated for patch 7.3.0
+* Fixed Holy Ward cooldown
+* Fixed Enraged Maim cooldown
+
 ## v8.0
 
 * **Custom Spells tab added**
