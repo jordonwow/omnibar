@@ -1053,9 +1053,11 @@ function OmniBar_SetZone(self, refresh)
 
 end
 
+local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
+
 function OmniBar_OnEvent(self, event, ...)
 	if event == "COMBAT_LOG_EVENT_UNFILTERED" then
-		local _, event, _, sourceGUID, sourceName, sourceFlags, _,_,_,_,_, spellID = ...
+		local _, event, _, sourceGUID, sourceName, sourceFlags, _,_,_,_,_, spellID = CombatLogGetCurrentEventInfo()
 		if self.disabled then return end
 		if (event == "SPELL_CAST_SUCCESS" or event == "SPELL_AURA_APPLIED") and bit.band(sourceFlags, COMBATLOG_OBJECT_REACTION_HOSTILE) ~= 0 then
 			if cooldowns[spellID] then
