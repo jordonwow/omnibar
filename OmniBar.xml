@@ -54,7 +54,7 @@
 					<AbsDimension x="1" y="1"/>
 				</Size>
 				<Anchors>
-					<Anchor point="CENTER" relativeTo="OmniBarAnchor"/>
+					<Anchor point="CENTER" relativeTo="$parentAnchor"/>
 				</Anchors>
 			</Frame>
 		</Frames>

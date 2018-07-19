@@ -51,7 +51,7 @@ OmniBar.cooldowns = {
 
 		[42650] = { duration = 600, class = "DEATHKNIGHT", specID = { 252 } }, -- Army of the Dead
 		[63560] = { duration = 60, class = "DEATHKNIGHT", specID = { 252 } }, -- Dark Transformation
-		[43265] = { duration = 30, class = "DEATHKNIGHT", specID = { 252 } }, -- Death and Decay 
+		[43265] = { duration = 30, class = "DEATHKNIGHT", specID = { 252 } }, -- Death and Decay
 			[152280] = { parent = 43265 }, -- Defile
 		[47481] = { duration = 90, class = "DEATHKNIGHT", specID = { 252 } }, -- Gnaw (Ghoul)
 		[47482] = { duration = 30, class = "DEATHKNIGHT", specID = { 252 } }, -- Leap (Ghoul)
@@ -88,11 +88,11 @@ OmniBar.cooldowns = {
 
 		[201467] = { duration = 60, class = "DEMONHUNTER", specID = { 577 } }, -- Fury of the Illidari
 		[206491] = { duration = 120, class = "DEMONHUNTER", specID = { 577 } }, -- Nemesis
-		[211048] = { duration = 120, class = "DEMONHUNTER", specID = { 577 } }, -- Chaos Blades
+		--[211048] = { duration = 120, class = "DEMONHUNTER", specID = { 577 } }, -- Chaos Blades
 		[211881] = { duration = 35, class = "DEMONHUNTER", specID = { 577, 581 } }, -- Fel Eruption
 
 		-- Vengeance
-		
+
 		[202137] = { duration = 60, class = "DEMONHUNTER", specID = { 581 } }, -- Sigil of Silence
 		[202138] = { duration = 120, class = "DEMONHUNTER", specID = { 581 } }, -- Sigil of Chains
 		[204021] = { duration = 60, class = "DEMONHUNTER", specID = { 581 } }, -- Fiery Brand
@@ -101,7 +101,7 @@ OmniBar.cooldowns = {
 		[205630] = { duration = 90, class = "DEMONHUNTER", specID = { 581 } }, -- Illidan's Grasp
 		[207684] = { duration = 60, class = "DEMONHUNTER", specID = { 581 } }, -- Sigil of Misery
 		[207810] = { duration = 120, class = "DEMONHUNTER", specID = { 581 } }, -- Nether Bond
-		[218256] = { duration = 20, class = "DEMONHUNTER", specID = { 581 } }, -- Empower Wards
+		--[218256] = { duration = 20, class = "DEMONHUNTER", specID = { 581 } }, -- Empower Wards
 		[227225] = { duration = 20, class = "DEMONHUNTER", specID = { 581 } }, -- Soul Barrier
 
 	-- Priest
@@ -235,7 +235,7 @@ OmniBar.cooldowns = {
 		[102543] = { duration = 180, class = "DRUID", specID = { 103 } }, -- Incarnation: King of the Jungle
 		[106839] = { default = true, duration = 15, class = "DRUID", specID = { 103, 104 } }, -- Skull Bash
 		[106898] = { duration = 120, class = "DRUID", specID = { 103, 104 } }, -- Stampeding Roar
-		[106951] = { duration = 180, class = "DRUID", specID = { 103 } }, -- Berserk 
+		[106951] = { duration = 180, class = "DRUID", specID = { 103 } }, -- Berserk
 		[202060] = { duration = 45, class = "DRUID", specID = { 103 } }, -- Elune's Guidance
 		[203242] = { duration = 60, class = "DRUID", specID = { 103 } }, -- Rip and Tear
 		[210722] = { duration = 75, class = "DRUID", specID = { 103 } }, -- Ashamane's Frenzy
@@ -260,7 +260,7 @@ OmniBar.cooldowns = {
 		[197721] = { duration = 60, class = "DRUID", specID = { 105} }, -- Flourish
 		[201664] = { duration = 60, class = "DRUID", specID = { 105} }, -- Demoralizing Roar
 		[203651] = { duration = 45, class = "DRUID", specID = { 105} }, -- Overgrowth
-		[203727] = { duration = 45, class = "DRUID", specID = { 105} }, -- Thorns
+		--[203727] = { duration = 45, class = "DRUID", specID = { 105} }, -- Thorns
 		[208253] = { duration = 90, class = "DRUID", specID = { 105} }, -- Essence of G'Hanir
 
 	-- Warrior
@@ -288,7 +288,7 @@ OmniBar.cooldowns = {
 		[167105] = { duration = 45, class = "WARRIOR", specID = { 71 } }, -- Colossus Smash
 		[197690] = { duration = 10, class = "WARRIOR", specID = { 71 } }, -- Defensive Stance
 		[198817] = { duration = 45, class = "WARRIOR", specID = { 71 } }, -- Sharpen Blade
-		[209577] = { duration = 60, class = "WARRIOR", specID = { 71 } }, -- Warbreaker 
+		[209577] = { duration = 60, class = "WARRIOR", specID = { 71 } }, -- Warbreaker
 		[227847] = { duration = 90, class = "WARRIOR", specID = { 71, 72 } }, -- Bladestorm (Arms)
 			[46924] = { parent = 227847 }, -- Bladestorm (Fury)
 			[152277] = { parent = 227847, duration = 60 }, -- Ravager
@@ -318,11 +318,11 @@ OmniBar.cooldowns = {
 	[6360] = { duration = 25, class = "WARLOCK" }, -- Whiplash
 		[115770] = { parent = 6360 }, -- Fellash
 	[6789] = { duration = 45, class = "WARLOCK" }, -- Mortal Coil
-	[18540] = { duration = 180, class = "WARLOCK" }, -- Summon Doomguard
+	--[18540] = { duration = 180, class = "WARLOCK" }, -- Summon Doomguard
 	[20707] = { duration = 600, class = "WARLOCK" }, -- Soulstone
 	[104773] = { duration = 180, class = "WARLOCK" }, -- Unending Resolve
 	[108416] = { duration = 60, class = "WARLOCK" }, -- Dark Pact
-	[108501] = { duration = 90, class = "WARLOCK" }, -- Grimoire of Service	
+	[108501] = { duration = 90, class = "WARLOCK" }, -- Grimoire of Service
 	[111896] = { duration = 90, class = "WARLOCK" }, -- Grimoire: Succubus
 	[119910] = { default = true, duration = 24, class = "WARLOCK" }, -- Spell Lock (Command Demon)
 		[19647] = { parent = 119910 }, -- Spell Lock (Felhunter)
@@ -472,7 +472,7 @@ OmniBar.cooldowns = {
 		-- Survival
 
 		[53271] = { duration = 45, class = "HUNTER", specID = { 255 } }, -- Master's Call
-		[186289] = { duration = 96, class = "HUNTER", specID = { 255 } }, -- Aspect of the Eagle		
+		[186289] = { duration = 96, class = "HUNTER", specID = { 255 } }, -- Aspect of the Eagle
 		[187698] = { duration = 20, class = "HUNTER", specID = { 255 } }, -- Tar Trap
 		[187707] = { default = true, duration = 15, class = "HUNTER", specID = { 255 } }, -- Muzzle
 		[190925] = { duration = 20, class = "HUNTER", specID = { 255 } }, -- Harpoon
@@ -562,7 +562,7 @@ OmniBar.cooldowns = {
 			[199743] = { parent = 2094, duration = 20 }, -- Parley
 		[13750] = { duration = 150, class = "ROGUE", specID = { 260 } }, -- Adrenaline Rush
 		[51690] = { duration = 120, class = "ROGUE", specID = { 260 } }, -- Killing Spree
-		[185767] = { duration = 60, class = "ROGUE", specID = { 260 } }, -- Cannonball Barrage
+		--[185767] = { duration = 60, class = "ROGUE", specID = { 260 } }, -- Cannonball Barrage
 		[195457] = { duration = 30, class = "ROGUE", specID = { 260 } }, -- Grappling Hook
 		[198529] = { duration = 120, class = "ROGUE", specID = { 260 } }, -- Plunder Armor
 		[199754] = { duration = 120, class = "ROGUE", specID = { 260 } }, -- Riposte
@@ -591,7 +591,7 @@ OmniBar.cooldowns = {
 	[122278] = { duration = 120, class = "MONK" }, -- Dampen Harm
 	[122783] = { duration = 120, class = "MONK" }, -- Diffuse Magic
 	[123986] = { duration = 30, class = "MONK" }, -- Chi Burst
-	[137648] = { duration = 120, class = "MONK" }, -- Nimble Brew
+	--[137648] = { duration = 120, class = "MONK" }, -- Nimble Brew
 
 		-- Brewmaster
 
@@ -616,7 +616,7 @@ OmniBar.cooldowns = {
 		[123904] = { duration = 180, class = "MONK", specID = { 269 } }, -- Invoke Xuen, the White Tiger
 		[137639] = { duration = 90, class = "MONK", specID = { 269 }, charges = 2 }, -- Storm, Earth, and Fire
 		[152175] = { duration = 24, class = "MONK", specID = { 269 } }, -- Whirling Dragon Punch
-		[201318] = { duration = 90, class = "MONK", specID = { 269 } }, -- Fortifying Elixir		
+		[201318] = { duration = 90, class = "MONK", specID = { 269 } }, -- Fortifying Elixir
 
 		-- Mistweaver
 
@@ -624,7 +624,7 @@ OmniBar.cooldowns = {
 		[116680] = { duration = 30, class = "MONK", specID = { 270 } }, -- Thunder Focus Tea
 		[116849] = { duration = 90, class = "MONK", specID = { 270 } }, -- Life Cocoon
 		[197908] = { duration = 90, class = "MONK", specID = { 270 } }, -- Mana Tea
-		[197945] = { duration = 20, class = "MONK", specID = { 270 }, charges = 2 }, -- Mistwalk
+		--[197945] = { duration = 20, class = "MONK", specID = { 270 }, charges = 2 }, -- Mistwalk
 		[198664] = { duration = 180, class = "MONK", specID = { 270 } }, -- Invoke Chi-Ji, the Red Crane
 		[198898] = { duration = 30, class = "MONK", specID = { 270 } }, -- Song of Chi-Ji
 		[216113] = { duration = 45, class = "MONK", specID = { 270 } }, -- Way of the Crane
@@ -700,7 +700,7 @@ function OmniBar:OnEnable()
 	if not OmniBarDB or not OmniBarDB.version or OmniBarDB.version < SETTINGS_VERSION then OmniBarDB = { version = SETTINGS_VERSION } end
 
 	self.db = LibStub("AceDB-3.0"):New("OmniBarDB", { profile = { bars = {} } }, true)
-	
+
 	self.index = 1
 
 	for i = #self.bars, 1, -1 do
@@ -774,7 +774,7 @@ function OmniBar:CopyCooldown(cooldown)
 		else
 			copy.duration = { default = cooldown.duration }
 		end
-	end	
+	end
 
 	if cooldown.specID then
 		copy.specID = {}
@@ -880,7 +880,7 @@ function OmniBar:Create()
 			return
 		end
 	end
-	
+
 end
 
 function OmniBar:Refresh(full)
@@ -910,7 +910,7 @@ end
 -- create a lookup table to translate spec names into IDs
 local specNames = {}
 for classID = 1, MAX_CLASSES do
-	local _, classToken = GetClassInfoByID(classID)
+	local _, classToken = GetClassInfo(classID)
 	specNames[classToken] = {}
 	for i = 1, GetNumSpecializationsForClassID(classID) do
 		local id, name = GetSpecializationInfoForClassID(classID, i)
@@ -1036,7 +1036,7 @@ function OmniBar_SetZone(self, refresh)
 	self.disabled = (zone == "arena" and not self.settings.arena) or
 		(rated and not self.settings.ratedBattleground) or
 		(zone == "pvp" and not self.settings.battleground and not rated) or
-		(zone == "scenario" and not self.settings.scenario) or 
+		(zone == "scenario" and not self.settings.scenario) or
 		(zone ~= "arena" and zone ~= "pvp" and zone ~= "scenario" and not self.settings.world)
 
 	if refresh or disabled ~= self.disabled then
@@ -1050,7 +1050,7 @@ function OmniBar_SetZone(self, refresh)
 			OmniBar_OnEvent(self, "ARENA_OPPONENT_UPDATE")
 		end
 	end
-	
+
 end
 
 function OmniBar_OnEvent(self, event, ...)
@@ -1082,7 +1082,7 @@ function OmniBar_OnEvent(self, event, ...)
 
 	elseif event == "PLAYER_ENTERING_WORLD" then
 		OmniBar_SetZone(self, true)
-		
+
 	elseif event == "ZONE_CHANGED_NEW_AREA" then
 		OmniBar_SetZone(self, true)
 
@@ -1141,7 +1141,7 @@ function OmniBar_OnEvent(self, event, ...)
 end
 
 function OmniBar_LoadSettings(self)
-	
+
 	-- Set the scale
 	self.container:SetScale(self.settings.size/BASE_ICON_SIZE)
 
@@ -1164,7 +1164,7 @@ function OmniBar_SavePosition(self, set)
 		if set.frameStrata then frameStrata = set.frameStrata end
 	end
 
-	if not self.settings.position then 
+	if not self.settings.position then
 		self.settings.position = {}
 	end
 	self.settings.position.point = point
@@ -1526,7 +1526,7 @@ function OmniBar_Position(self)
 				else
 					self.active[i]:SetPoint(self.settings.align, self.anchor, self.settings.align, 0, (BASE_ICON_SIZE+padding)*rows*grow)
 				end
-				
+
 				count = 0
 				rows = rows + 1
 			else
@@ -1536,7 +1536,7 @@ function OmniBar_Position(self)
 					self.active[i]:SetPoint("TOPLEFT", self.active[i-1], "TOPRIGHT", padding, 0)
 				end
 			end
-			
+
 		else
 			if self.settings.align == "CENTER" then
 				self.active[i]:SetPoint("CENTER", self.anchor, "CENTER", (-BASE_ICON_SIZE-padding)*(columns-1)/2, 0)

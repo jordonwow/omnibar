@@ -86,7 +86,7 @@ local function GetSpells()
 		},
 	}
 	for i = 1, MAX_CLASSES do
-		
+
 		spells[CLASS_SORT_ORDER[i]] = {
 			name = LOCALIZED_CLASS_NAMES_MALE[CLASS_SORT_ORDER[i]],
 			type = "group",
@@ -101,9 +101,6 @@ local function GetSpells()
 				if string.len(text) > 25 then
 					text = string.sub(text, 0, 22) .. "..."
 				end
-				local duration = type(spell.duration) == "number" and spell.duration or spell.duration.default
-				local extra = "\n\n|cffffd700 "..L["Spell ID"].."|r "..spellID..
-					"\n\n|cffffd700 "..L["Cooldown"].."|r "..SecondsToTime(duration)
 
 				spells[CLASS_SORT_ORDER[i]].args["spell"..spellID] = {
 					name = text,
@@ -111,14 +108,21 @@ local function GetSpells()
 					get = IsSpellEnabled,
 					width = "full",
 					arg = spellID,
-					desc = GetSpellTooltipText(spellID)..extra,
+					desc = function()
+						local duration = type(spell.duration) == "number" and spell.duration or spell.duration.default
+						local s = Spell:CreateFromSpellID(spellID)
+						local spellDesc = s:GetSpellDescription() or ""
+						local extra = "\n\n|cffffd700 "..L["Spell ID"].."|r "..spellID..
+							"\n\n|cffffd700 "..L["Cooldown"].."|r "..SecondsToTime(duration)
+						return spellDesc..extra
+					end,
 					name = function()
 						return format("|T%s:20|t %s", GetSpellTexture(spellID), text)
 					end,
 				}
 
 			end
-			
+
 		end
 	end
 	return spells
@@ -580,7 +584,7 @@ function OmniBar:AddBarToOptions(key, refresh)
 					OmniBar_CreateIcon(_G[key])
 					self:Refresh(true)
 				end,
-			},			
+			},
 			lock = {
 				type = "execute",
 				name = self.db.profile.bars[key].locked and L["Unlock"] or L["Lock"],
@@ -632,7 +636,7 @@ local customSpellInfo = {
 		name = L["Delete"],
 		desc = L["Delete the cooldown"],
 		func = function(info)
-			local spellId = info[#info-1]:gsub("spell", "")					
+			local spellId = info[#info-1]:gsub("spell", "")
 			spellId = tonumber(spellId)
 			OmniBarDB.cooldowns[spellId] = nil
 			OmniBar.cooldowns[spellId] = nil
@@ -659,13 +663,13 @@ local customSpellInfo = {
 		step = 1,
 		order = 4,
 		set = function(info, state)
-			local spellId = info[#info-1]:gsub("spell", "")					
+			local spellId = info[#info-1]:gsub("spell", "")
 			spellId = tonumber(spellId)
 			OmniBarDB.cooldowns[spellId].duration.default = state
 			OmniBar:AddCustomSpells()
 		end,
 		get = function(info)
-			local spellId = info[#info-1]:gsub("spell", "")					
+			local spellId = info[#info-1]:gsub("spell", "")
 			spellId = tonumber(spellId)
 			return OmniBarDB.cooldowns[spellId].duration.default
 		end,
@@ -689,8 +693,8 @@ local customSpellInfo = {
 		end,
 		get = function(info)
 			local option = info[#info]
-			local spellId = info[#info-1]:gsub("spell", "")					
-			spellId = tonumber(spellId)			
+			local spellId = info[#info-1]:gsub("spell", "")
+			spellId = tonumber(spellId)
 			local value = OmniBarDB.cooldowns[spellId][option]
 			if not value then return 1 end
 			return OmniBarDB.cooldowns[spellId][option]
@@ -759,7 +763,7 @@ local customSpells = {
 				LibStub("AceConfigRegistry-3.0"):NotifyChange("OmniBar")
 			end
 		end,
-	},	
+	},
 }
 
 for i = 1, #specIDs do
@@ -767,7 +771,7 @@ for i = 1, #specIDs do
 	local _, name, _, icon = GetSpecializationInfoByID(specID)
 	customSpellInfo["spec"..specID] = {
 		name = format("|T%s:20|t %s", icon, name),
-		hidden = function(info)			
+		hidden = function(info)
 			local spellId = info[#info-1]:gsub("spell", "")
 			spellId = tonumber(spellId)
 			local specID = info[#info]:gsub("spec", "")
@@ -785,7 +789,7 @@ for i = 1, #specIDs do
 				order = 1,
 				get = function(info)
 					local option = info[#info]
-					local spellId = info[#info-2]:gsub("spell", "")					
+					local spellId = info[#info-2]:gsub("spell", "")
 					spellId = tonumber(spellId)
 					local specID = info[#info-1]:gsub("spec", "")
 					specID = tonumber(specID)
@@ -817,7 +821,7 @@ for i = 1, #specIDs do
 						if not state and OmniBarDB.cooldowns[spellId].specID[i] == specID then
 							table.remove(OmniBarDB.cooldowns[spellId].specID, i)
 							break
-						end						
+						end
 					end
 
 					-- add if we checked it
@@ -851,7 +855,7 @@ for i = 1, #specIDs do
 				end,
 				get = function(info)
 					local option = info[#info]
-					local spellId = info[#info-2]:gsub("spell", "")					
+					local spellId = info[#info-2]:gsub("spell", "")
 					spellId = tonumber(spellId)
 					local specID = info[#info-1]:gsub("spec", "")
 					specID = tonumber(specID)
@@ -871,7 +875,7 @@ function OmniBar:SetupOptions()
 			childGroups = "tab",
 			args = customSpellInfo,
 			icon = GetSpellTexture(spellId),
-		}		
+		}
 	end
 
 	self.options = {
@@ -935,7 +939,7 @@ function OmniBar:SetupOptions()
 				end,
 				get = function(info)
 					local option = info[#info]
-					local spellId = info[#info-1]:gsub("spell", "")					
+					local spellId = info[#info-1]:gsub("spell", "")
 					spellId = tonumber(spellId)
 					if not spellId then return end
 					return OmniBarDB.cooldowns[spellId][option]
