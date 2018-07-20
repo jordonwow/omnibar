@@ -1053,6 +1053,8 @@ function OmniBar_SetZone(self, refresh)
 
 end
 
+local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
+
 function OmniBar_OnEvent(self, event, ...)
 	if event == "COMBAT_LOG_EVENT_UNFILTERED" then
 		local _, event, _, sourceGUID, sourceName, sourceFlags, _,_,_,_,_, spellID = CombatLogGetCurrentEventInfo()
