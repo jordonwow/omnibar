@@ -804,6 +804,14 @@ function OmniBar:AddCustomSpells()
 		end
 		cooldowns[k] = v
 	end
+
+	-- Populate cooldowns with spell names and icons
+	for spellId,_ in pairs(cooldowns) do
+		local name, _, icon = GetSpellInfo(spellId)
+		cooldowns[spellId].icon = icon
+		cooldowns[spellId].name = name
+	end
+
 end
 
 function OmniBar:Initialize(key, name)
@@ -904,12 +912,6 @@ function OmniBar:Refresh(full)
 end
 
 local Masque = LibStub and LibStub("Masque", true)
-
-for spellID,_ in pairs(cooldowns) do
-	local name, _, icon = GetSpellInfo(spellID)
-	cooldowns[spellID].icon = icon
-	cooldowns[spellID].name = name
-end
 
 -- create a lookup table to translate spec names into IDs
 local specNames = {}

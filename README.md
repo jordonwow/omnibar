@@ -8,6 +8,10 @@ https://wow.curseforge.com/projects/omnibar/issues
 Submit a pull request:
 https://github.com/jordonwow/omnibar/pulls
 
+## v9.3
+
+* Fix invisible icons for custom spells
+
 ## v9.2
 
 * Update cooldowns for BFA (thanks domzae)
