@@ -2,11 +2,16 @@
 
 OmniBar is an _extremely lightweight_ addon that tracks enemy cooldowns.
 
-Open a ticket to report any issues:
-https://wow.curseforge.com/projects/omnibar/issues
+**Open a ticket to report any issues:**
+https://github.com/jordonwow/omnibar/issues
 
-Submit a pull request:
+**Submit a pull request:**
 https://github.com/jordonwow/omnibar/pulls
+
+## v9.4
+
+* Fix Vendetta cooldown
+* Fix spell list not showing with spellTexture check
 
 ## v9.3
 
