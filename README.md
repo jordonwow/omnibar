@@ -8,6 +8,12 @@ https://github.com/jordonwow/omnibar/issues
 **Submit a pull request:**
 https://github.com/jordonwow/omnibar/pulls
 
+## v9.5
+* Update for 8.1
+* Fix icon positioning on cooldown finish
+* Add Roar of Sacrifice
+
+
 ## v9.4
 
 * Fix Vendetta cooldown
