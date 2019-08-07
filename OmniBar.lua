@@ -488,6 +488,7 @@ OmniBar.cooldowns = {
 		[203415] = { duration = 45, class = "HUNTER", specID = { 255 } }, -- Fury of the Eagle
 		[205691] = { duration = 120, class = "HUNTER", specID = { 255 } }, -- Dire Beast: Basilisk
 		[212640] = { duration = 25, class = "HUNTER", specID = { 255 } }, -- Mending Bandage
+		[266779] = { duration = 20, class = "HUNTER", specID = { 255 } }, -- Coordinated Assault
 
 	-- Mage
 
