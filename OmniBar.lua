@@ -1,11 +1,13 @@
 
 -- OmniBar by Jordon
 
+local addonName, addon = ...
+
 OmniBar = LibStub("AceAddon-3.0"):NewAddon("OmniBar", "AceEvent-3.0", "AceHook-3.0")
 
+local cooldowns = addon.Cooldowns
 
-
-local cooldowns = OmniBar.cooldowns
+OmniBar.cooldowns = cooldowns
 
 local order = {
 	["DEMONHUNTER"] = 1,
@@ -120,12 +122,14 @@ function OmniBar:Delete(key, keepProfile)
 	bar:UnregisterEvent("PLAYER_ENTERING_WORLD")
 	bar:UnregisterEvent("ZONE_CHANGED_NEW_AREA")
 	bar:UnregisterEvent("PLAYER_TARGET_CHANGED")
-	bar:UnregisterEvent("PLAYER_FOCUS_CHANGED")
 	bar:UnregisterEvent("PLAYER_REGEN_DISABLED")
-	bar:UnregisterEvent("ARENA_OPPONENT_UPDATE")
-	bar:UnregisterEvent("ARENA_PREP_OPPONENT_SPECIALIZATIONS")
 	bar:UnregisterEvent("UPDATE_BATTLEFIELD_SCORE")
 	bar:UnregisterEvent("UPDATE_BATTLEFIELD_STATUS")
+	if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+		bar:UnregisterEvent("PLAYER_FOCUS_CHANGED")
+		bar:UnregisterEvent("ARENA_OPPONENT_UPDATE")
+		bar:UnregisterEvent("ARENA_PREP_OPPONENT_SPECIALIZATIONS")
+	end
 	bar:Hide()
 	if not keepProfile then self.db.profile.bars[key] = nil end
 	self.options.args.bars.args[key] = nil
@@ -196,8 +200,6 @@ function OmniBar:Initialize(key, name)
 		end
 	end
 
-	OmniBarDB.cooldowns = OmniBarDB.cooldowns or {}
-
 	self:AddCustomSpells()
 
 	local f = _G[key] or CreateFrame("Frame", key, UIParent, "OmniBarTemplate")
@@ -242,10 +244,14 @@ function OmniBar:Initialize(key, name)
 	f:RegisterEvent("PLAYER_ENTERING_WORLD")
 	f:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 	f:RegisterEvent("PLAYER_TARGET_CHANGED")
-	f:RegisterEvent("PLAYER_FOCUS_CHANGED")
 	f:RegisterEvent("PLAYER_REGEN_DISABLED")
-	f:RegisterEvent("ARENA_OPPONENT_UPDATE")
-	f:RegisterEvent("ARENA_PREP_OPPONENT_SPECIALIZATIONS")
+
+	if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+		f:RegisterEvent("PLAYER_FOCUS_CHANGED")
+		f:RegisterEvent("ARENA_OPPONENT_UPDATE")
+		f:RegisterEvent("ARENA_PREP_OPPONENT_SPECIALIZATIONS")
+	end
+
 	f:RegisterEvent("UPDATE_BATTLEFIELD_SCORE")
 	f:RegisterEvent("UPDATE_BATTLEFIELD_STATUS")
 
@@ -289,12 +295,14 @@ local Masque = LibStub and LibStub("Masque", true)
 
 -- create a lookup table to translate spec names into IDs
 local specNames = {}
-for classID = 1, MAX_CLASSES do
-	local _, classToken = GetClassInfo(classID)
-	specNames[classToken] = {}
-	for i = 1, GetNumSpecializationsForClassID(classID) do
-		local id, name = GetSpecializationInfoForClassID(classID, i)
-		specNames[classToken][name] = id
+if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+	for classID = 1, MAX_CLASSES do
+		local _, classToken = GetClassInfo(classID)
+		specNames[classToken] = {}
+		for i = 1, GetNumSpecializationsForClassID(classID) do
+			local id, name = GetSpecializationInfoForClassID(classID, i)
+			specNames[classToken][name] = id
+		end
 	end
 end
 
@@ -412,7 +420,7 @@ function OmniBar_SetZone(self, refresh)
 	-- end
 
 	self.zone = zone
-	local rated = IsRatedBattleground()
+	local rated = IsRatedBattleground and IsRatedBattleground()
 	self.disabled = (zone == "arena" and not self.settings.arena) or
 		(rated and not self.settings.ratedBattleground) or
 		(zone == "pvp" and not self.settings.battleground and not rated) or
