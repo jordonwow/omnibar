@@ -639,7 +639,7 @@ local customSpellInfo = {
 		func = function(info)
 			local spellId = info[#info-1]:gsub("spell", "")
 			spellId = tonumber(spellId)
-			OmniBarDB.cooldowns[spellId] = nil
+			OmniBar.db.global.cooldowns[spellId] = nil
 			OmniBar.cooldowns[spellId] = nil
 			OmniBar:AddCustomSpells()
 			OmniBar.options.args.customSpells.args[info[#info-1]] = nil
@@ -666,13 +666,13 @@ local customSpellInfo = {
 		set = function(info, state)
 			local spellId = info[#info-1]:gsub("spell", "")
 			spellId = tonumber(spellId)
-			OmniBarDB.cooldowns[spellId].duration.default = state
+			OmniBar.db.global.cooldowns[spellId].duration.default = state
 			OmniBar:AddCustomSpells()
 		end,
 		get = function(info)
 			local spellId = info[#info-1]:gsub("spell", "")
 			spellId = tonumber(spellId)
-			return OmniBarDB.cooldowns[spellId].duration.default
+			return OmniBar.db.global.cooldowns[spellId].duration.default
 		end,
 
 	},
@@ -689,16 +689,16 @@ local customSpellInfo = {
 			local spellId = info[#info-1]:gsub("spell", "")
 			spellId = tonumber(spellId)
 			if state == 1 then state = nil end
-			OmniBarDB.cooldowns[spellId][option] = state
+			OmniBar.db.global.cooldowns[spellId][option] = state
 			OmniBar:AddCustomSpells()
 		end,
 		get = function(info)
 			local option = info[#info]
 			local spellId = info[#info-1]:gsub("spell", "")
 			spellId = tonumber(spellId)
-			local value = OmniBarDB.cooldowns[spellId][option]
+			local value = OmniBar.db.global.cooldowns[spellId][option]
 			if not value then return 1 end
-			return OmniBarDB.cooldowns[spellId][option]
+			return OmniBar.db.global.cooldowns[spellId][option]
 		end,
 	},
 	class = {
@@ -711,9 +711,9 @@ local customSpellInfo = {
 			local option = info[#info]
 			local spellId = info[#info-1]:gsub("spell", "")
 			spellId = tonumber(spellId)
-			OmniBarDB.cooldowns[spellId].specID = nil
-			OmniBarDB.cooldowns[spellId].duration = { default = OmniBarDB.cooldowns[spellId].duration.default }
-			OmniBarDB.cooldowns[spellId][option] = state
+			OmniBar.db.global.cooldowns[spellId].specID = nil
+			OmniBar.db.global.cooldowns[spellId].duration = { default = OmniBar.db.global.cooldowns[spellId].duration.default }
+			OmniBar.db.global.cooldowns[spellId][option] = state
 			OmniBar:OnEnable() -- to refresh the bar spells tab
 			OmniBar:AddCustomSpells()
 		end,
@@ -727,29 +727,29 @@ local customSpells = {
 		set = function(info, state)
 			spellId = tonumber(state)
 			local name = GetSpellInfo(spellId)
-			if OmniBarDB.cooldowns[spellId] then return end
+			if OmniBar.db.global.cooldowns[spellId] then return end
 			if spellId and name then
-				OmniBarDB.cooldowns[spellId] = OmniBar.cooldowns[spellId] or { custom = true, duration = { default = 30 } , class = "DEATHKNIGHT" }
+				OmniBar.db.global.cooldowns[spellId] = OmniBar.cooldowns[spellId] or { custom = true, duration = { default = 30 } , class = "DEATHKNIGHT" }
 
 				local duration
 				-- If it's a child convert it
-				if OmniBarDB.cooldowns[spellId].parent then
+				if OmniBar.db.global.cooldowns[spellId].parent then
 					-- If the child has a custom duration, save it so we can restore it after we copy from parent
-					if OmniBarDB.cooldowns[spellId].duration then
-						duration = OmniBarDB.cooldowns[spellId].duration
+					if OmniBar.db.global.cooldowns[spellId].duration then
+						duration = OmniBar.db.global.cooldowns[spellId].duration
 					end
 
-					OmniBarDB.cooldowns[spellId] = OmniBar:CopyCooldown(OmniBar.cooldowns[OmniBarDB.cooldowns[spellId].parent])
+					OmniBar.db.global.cooldowns[spellId] = OmniBar:CopyCooldown(OmniBar.cooldowns[OmniBar.db.global.cooldowns[spellId].parent])
 
 					-- Restore child's duration
 					if duration then
-						OmniBarDB.cooldowns[spellId].duration = duration
+						OmniBar.db.global.cooldowns[spellId].duration = duration
 					end
 				end
 
 				-- convert duration to array
-				if type(OmniBarDB.cooldowns[spellId].duration) == "number" then
-					OmniBarDB.cooldowns[spellId].duration = { default = OmniBarDB.cooldowns[spellId].duration }
+				if type(OmniBar.db.global.cooldowns[spellId].duration) == "number" then
+					OmniBar.db.global.cooldowns[spellId].duration = { default = OmniBar.db.global.cooldowns[spellId].duration }
 				end
 				OmniBar:AddCustomSpells()
 
@@ -869,7 +869,7 @@ end
 
 function OmniBar:SetupOptions()
 
-	for spellId, spell in pairs(OmniBarDB.cooldowns) do
+	for spellId, spell in pairs(OmniBar.db.global.cooldowns) do
 		customSpells["spell"..spellId] = {
 			name = GetSpellInfo(spellId),
 			type = "group",
@@ -935,7 +935,7 @@ function OmniBar:SetupOptions()
 					local option = info[#info]
 					local spellId = info[#info-1]:gsub("spell", "")
 					spellId = tonumber(spellId)
-					OmniBarDB.cooldowns[spellId][option] = state
+					OmniBar.db.global.cooldowns[spellId][option] = state
 					self:AddCustomSpells()
 				end,
 				get = function(info)
@@ -943,7 +943,7 @@ function OmniBar:SetupOptions()
 					local spellId = info[#info-1]:gsub("spell", "")
 					spellId = tonumber(spellId)
 					if not spellId then return end
-					return OmniBarDB.cooldowns[spellId][option]
+					return OmniBar.db.global.cooldowns[spellId][option]
 				end,
 			},
 

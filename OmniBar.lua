@@ -58,7 +58,7 @@ local defaults = {
 	align                = "CENTER",
 }
 
-local SETTINGS_VERSION = 3
+local DB_VERSION = 4
 
 local MAX_DUPLICATE_ICONS = 5
 
@@ -71,9 +71,13 @@ OmniBar.index = 1
 OmniBar.bars = {}
 
 function OmniBar:OnEnable()
-	if not OmniBarDB or not OmniBarDB.version or OmniBarDB.version < SETTINGS_VERSION then OmniBarDB = { version = SETTINGS_VERSION } end
+	self.db = LibStub("AceDB-3.0"):New("OmniBarDB", {
+		global = { version = DB_VERSION, cooldowns = {} },
+		profile = { bars = {} }
+	}, true)
 
-	self.db = LibStub("AceDB-3.0"):New("OmniBarDB", { profile = { bars = {} } }, true)
+	-- import older version cooldowns
+	self.db.global.cooldowns = OmniBarDB.cooldowns and OmniBarDB.cooldowns or {}
 
 	self.index = 1
 
@@ -167,7 +171,7 @@ function OmniBar:AddCustomSpells()
 	end
 
 	-- Add custom spells
-	for k,v in pairs(OmniBarDB.cooldowns) do
+	for k,v in pairs(self.db.global.cooldowns) do
 		-- Backup if we are going to override
 		if cooldowns[k] and not cooldowns[k].custom and not self.BackupCooldowns[k] then
 			self.BackupCooldowns[k] = self:CopyCooldown(cooldowns[k])
