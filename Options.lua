@@ -92,7 +92,8 @@ local function GetSpells()
 			name = LOCALIZED_CLASS_NAMES_MALE[CLASS_SORT_ORDER[i]],
 			type = "group",
 			args = {},
-			icon = "Interface\\Icons\\ClassIcon_"..CLASS_SORT_ORDER[i],
+			icon = "Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Classes",
+			iconCoords = CLASS_ICON_TCOORDS[CLASS_SORT_ORDER[i]]
 		}
 
 		for spellID, spell in pairs(OmniBar.cooldowns) do
@@ -621,12 +622,6 @@ local specIDs = {
 	261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 577, 581
 }
 
-local classesWithIcons = {}
-for i = 1, MAX_CLASSES do
-	local class = CLASS_SORT_ORDER[i]
-	classesWithIcons[class] = format("|T%s:20|t %s", "Interface\\Icons\\ClassIcon_"..class, LOCALIZED_CLASS_NAMES_MALE[class])
-end
-
 local customSpellInfo = {
 	spellId = {
 		order = 1,
@@ -650,7 +645,6 @@ local customSpellInfo = {
 			OmniBar:OnEnable() -- to refresh the bar spells tab
 			LibStub("AceConfigRegistry-3.0"):NotifyChange("OmniBar")
 		end,
-		arg = key,
 		order = 2,
 	},
 	lb = {
@@ -709,7 +703,7 @@ local customSpellInfo = {
 		name = L["Class"],
 		desc = L["Set the class of the cooldown"],
 		type = "select",
-		values = classesWithIcons,
+		values = LOCALIZED_CLASS_NAMES_MALE,
 		order = 5,
 		set = function(info, state)
 			local option = info[#info]
