@@ -454,6 +454,7 @@ addon.Cooldowns = {
     [187650] = { duration = { default = 30, [255] = 20 }, class = "HUNTER" }, -- Freezing Trap
     [202914] = { duration = 60, class = "HUNTER" }, -- Spider Sting
     [209997] = { duration = 30, class = "HUNTER" }, -- Play Dead
+    [266779] = { duration = 30, class = "HUNTER" }, -- Coordinated Assault
 
         -- Beast Mastery
 
