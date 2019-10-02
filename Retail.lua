@@ -110,7 +110,7 @@ addon.Cooldowns = {
         [207684] = { duration = 90, class = "DEMONHUNTER", specID = { 581 } }, -- Sigil of Misery
         [207810] = { duration = 120, class = "DEMONHUNTER", specID = { 581 } }, -- Nether Bond
         --[218256] = { duration = 20, class = "DEMONHUNTER", specID = { 581 } }, -- Empower Wards
-        [227225] = { duration = 20, class = "DEMONHUNTER", specID = { 581 } }, -- Soul Barrier
+        [263648] = { duration = 20, class = "DEMONHUNTER", specID = { 581 } }, -- Soul Barrier
 
     -- Priest
 
