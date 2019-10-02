@@ -134,7 +134,6 @@ local function GetSpells()
 	return spells
 end
 
-
 function OmniBar:AddBarToOptions(key, refresh)
 	self.options.args.bars.args[key] = {
 		name = self.db.profile.bars[key].name,
@@ -249,13 +248,6 @@ function OmniBar:AddBarToOptions(key, refresh)
 						width = "normal",
 						type = "toggle",
 						order = 9,
-					},
-					highlightFocus = {
-						name = L["Highlight Focus"],
-						desc = L["Draw a border around your focus"],
-						width = "normal",
-						type = "toggle",
-						order = 10,
 					},
 					names = {
 						name = L["Show Names"],
@@ -541,33 +533,12 @@ function OmniBar:AddBarToOptions(key, refresh)
 				end,
 				order = 12,
 				args = {
-					arena = {
-						name = L["Show in Arena"],
-						desc = L["Show the icons in arena"],
-						width = "double",
-						type = "toggle",
-						order = 11,
-					},
-					ratedBattleground = {
-						name = L["Show in Rated Battlegrounds"],
-						desc = L["Show the icons in rated battlegrounds"],
-						width = "double",
-						type = "toggle",
-						order = 12,
-					},
 					battleground = {
 						name = L["Show in Battlegrounds"],
 						desc = L["Show the icons in battlegrounds"],
 						width = "double",
 						type = "toggle",
 						order = 13,
-					},
-					scenario = {
-						name = L["Show in Scenarios"],
-						desc = L["Show the icons in scenarios"],
-						width = "double",
-						type = "toggle",
-						order = 14,
 					},
 					world = {
 						name = L["Show in World"],
@@ -613,6 +584,41 @@ function OmniBar:AddBarToOptions(key, refresh)
 			},
 		},
 	}
+
+	if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+		self.options.args.bars.args[key].args.settings.args.highlightFocus = {
+			name = L["Highlight Focus"],
+			desc = L["Draw a border around your focus"],
+			width = "normal",
+			type = "toggle",
+			order = 10,
+		}
+
+		self.options.args.bars.args[key].args.visibility.args.arena = {
+			name = L["Show in Arena"],
+			desc = L["Show the icons in arena"],
+			width = "double",
+			type = "toggle",
+			order = 11,
+		}
+
+		self.options.args.bars.args[key].args.visibility.args.ratedBattleground = {
+			name = L["Show in Rated Battlegrounds"],
+			desc = L["Show the icons in rated battlegrounds"],
+			width = "double",
+			type = "toggle",
+			order = 12,
+		}
+
+		self.options.args.bars.args[key].args.visibility.args.scenario = {
+			name = L["Show in Scenarios"],
+			desc = L["Show the icons in scenarios"],
+			width = "double",
+			type = "toggle",
+			order = 14,
+		}
+	end
+
 	if refresh then LibStub("AceConfigRegistry-3.0"):NotifyChange("OmniBar") end
 end
 
