@@ -24,12 +24,7 @@ local order = {
 	["MONK"] = 12,
 }
 
-local resets = {
-	--[[ Grimoire: Felhunter
-	     - Spell Lock
-	  ]]
-	[111897] = { 119910 },
-}
+local resets = addon.Resets
 
 -- Defaults
 local defaults = {

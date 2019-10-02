@@ -2,6 +2,13 @@ local addonName, addon = ...
 
 if WOW_PROJECT_ID == WOW_PROJECT_CLASSIC then return end
 
+addon.Resets = {
+    --[[ Grimoire: Felhunter
+         - Spell Lock
+      ]]
+    [111897] = { 119910 },
+}
+
 addon.Cooldowns = {
 
     -- Death Knight

@@ -2,6 +2,28 @@ local addonName, addon = ...
 
 if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then return end
 
+addon.Resets = {
+    --[[ Cold Snap
+        - Ice Barrier
+        - Frost Ward
+        - Frost Nova
+        - Ice Block
+      ]]
+    [12472] = { 11426, 6143, 122, 11958 },
+
+    --[[ Preparation
+        - Blade Flurry
+        - Kidney Shot
+        - Blind
+        - Sprint
+        - Evasion
+        - Gouge
+        - Ghostly Strike
+        - Premeditation
+      ]]
+    [14185] = { 13877, 408, 2094, 2983, 5277, 1776, 14278, 14183 },
+}
+
 addon.Cooldowns = {
     -- Classic Interrupts
     [16979] = { default = true, duration = 15, class = "DRUID" }, -- Feral Charge
