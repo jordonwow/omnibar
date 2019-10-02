@@ -85,6 +85,7 @@ local function GetSpells()
 			order = 2,
 		},
 	}
+	local descriptions = {}
 	for i = 1, MAX_CLASSES do
 
 		spells[CLASS_SORT_ORDER[i]] = {
@@ -98,10 +99,14 @@ local function GetSpells()
 
 			if spell.class and spell.class == CLASS_SORT_ORDER[i] then
 				local text = GetSpellInfo(spellID) or ""
-                              local spellTexture = GetSpellTexture(spellID) or ""
+				local spellTexture = GetSpellTexture(spellID) or ""
 				if string.len(text) > 25 then
 					text = string.sub(text, 0, 22) .. "..."
 				end
+				local s = Spell:CreateFromSpellID(spellID)
+				s:ContinueOnSpellLoad(function()
+					descriptions[spellID] = s:GetSpellDescription()
+				end)
 
 				spells[CLASS_SORT_ORDER[i]].args["spell"..spellID] = {
 					name = text,
@@ -111,8 +116,7 @@ local function GetSpells()
 					arg = spellID,
 					desc = function()
 						local duration = type(spell.duration) == "number" and spell.duration or spell.duration.default
-						local s = Spell:CreateFromSpellID(spellID)
-						local spellDesc = s:GetSpellDescription() or ""
+						local spellDesc = descriptions[spellID] or ""
 						local extra = "\n\n|cffffd700 "..L["Spell ID"].."|r "..spellID..
 							"\n\n|cffffd700 "..L["Cooldown"].."|r "..SecondsToTime(duration)
 						return spellDesc..extra
