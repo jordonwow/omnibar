@@ -723,7 +723,7 @@ local customSpells = {
 		name = L["Spell ID"],
 		type = "input",
 		set = function(info, state)
-			spellId = tonumber(state)
+			local spellId = tonumber(state)
 			local name = GetSpellInfo(spellId)
 			if OmniBar.db.global.cooldowns[spellId] then return end
 			if spellId and name then

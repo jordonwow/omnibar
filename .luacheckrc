@@ -47,6 +47,13 @@ globals = {
     "Spell",
     "OmniBar_Position",
     "OmniBar_CreateIcon",
+    "OmniBar_IsSpellEnabled",
+    "OmniBar_AddIcon",
+    "CombatLogGetCurrentEventInfo",
+    "OmniBar_CooldownFinish",
+    "OmniBar_StartCooldown",
+    "OmniBar_Test",
+    "InterfaceOptionsFrame_OpenToCategory",
 
     -- framexml misc
     "C_Timer",

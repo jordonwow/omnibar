@@ -212,8 +212,7 @@ function OmniBar:Initialize(key, name)
 	f.numIcons = 0
 	f:RegisterForDrag("LeftButton")
 
-	local name = f.settings.name
-	f.anchor.text:SetText(name)
+	f.anchor.text:SetText(f.settings.name)
 
 	-- Load the settings
 	OmniBar_LoadSettings(f)
