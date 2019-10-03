@@ -133,6 +133,7 @@ addon.Cooldowns = {
         [197871] = { duration = 60, class = "PRIEST", specID = { 256 } }, -- Dark Archangel
         [204263] = { duration = 45, class = "PRIEST", specID = { 256, 257 } }, -- Shining Force
         [209780] = { duration = 12, class = "PRIEST", specID = { 256} }, -- Premonition
+          [209885] = { parent = 209780 },
 
         -- Holy
 
