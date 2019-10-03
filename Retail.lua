@@ -184,7 +184,7 @@ addon.Cooldowns = {
         [114158] = { duration = 60, class = "PALADIN", specID = { 65 } }, -- Light's Hammer
         [183415] = { duration = 180, class = "PALADIN", specID = { 65 } }, -- Aura of Mercy
         [200652] = { duration = 90, class = "PALADIN", specID = { 65 } }, -- Tyr's Deliverance
-        [210294] = { duration = 45, class = "PALADIN", specID = { 65 } }, -- Divine Favor
+        [210294] = { duration = 25, class = "PALADIN", specID = { 65 } }, -- Divine Favor
         [214202] = { duration = 30, class = "PALADIN", specID = { 65 }, charges = 2 }, -- Rule of Law
 
         -- Protection
