@@ -65,7 +65,7 @@ addon.Cooldowns = {
 
     -- Shaman
 
-    [8177] = { class = "SHAMAN", duration = 13 }, -- Grounding Totem Effect
+    [8177] = { class = "SHAMAN", duration = 13 }, -- Grounding Totem
     [16188] = { class = "SHAMAN", duration = 180 }, -- Nature's Swiftness
 
     -- Paladin
