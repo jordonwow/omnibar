@@ -8,6 +8,9 @@ https://github.com/jordonwow/omnibar/issues
 **Submit a pull request:**
 https://github.com/jordonwow/omnibar/pulls
 
+## v10.3
+* Bug fixes
+
 ## v10.2
 * Fix Coordinated Assault
 * Fix Divine Favor cooldown

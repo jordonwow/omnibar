@@ -571,9 +571,12 @@ end
 function OmniBar_LoadPosition(self)
 	self:ClearAllPoints()
 	if self.settings.position then
-		local relativeTo = self.settings.position.relativeTo and self.settings.position.relativeTo or "UIParent"
-		self:SetPoint(self.settings.position.point, self.settings.position.relativeTo, self.settings.position.relativePoint,
-			self.settings.position.xOfs, self.settings.position.yOfs)
+		local point = self.settings.position.point or "CENTER"
+		local relativeTo = self.settings.position.relativeTo or "UIParent"
+		local relativePoint = self.settings.position.relativePoint or "CENTER"
+		local xOfs = self.settings.position.xOfs or 0
+		local yOfs = self.settings.position.yOfs or 0
+		self:SetPoint(point, relativeTo, relativePoint, xOfs, yOfs)
 		if not self.settings.position.frameStrata then self.settings.position.frameStrata = "MEDIUM" end
 		self:SetFrameStrata(self.settings.position.frameStrata)
 	else
