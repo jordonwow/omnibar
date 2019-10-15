@@ -28,17 +28,36 @@ addon.Cooldowns = {
 
     -- Interrupts
 
-    [16979] = { default = true, duration = 15, class = "DRUID" }, -- Feral Charge
-    [2139] = { default = true, duration = 30, class = "MAGE" }, -- Mage
-    [1766] = { default = true, duration = 10, class = "ROGUE" }, -- Rogue
+    [16979] = { default = true, duration = 15, class = "DRUID" }, -- Feral Charge (Druid)
+    [2139] = { default = true, duration = 30, class = "MAGE" }, -- Counterspell (Mage)
+    [1766] = { default = true, duration = 10, class = "ROGUE" }, -- Kick (Rogue)
         [1767] = { parent = 1766 },
         [1768] = { parent = 1766 },
         [1769] = { parent = 1766 },
-    [6552] = { default = true, duration = 10, class = "WARRIOR" }, -- Pummel
+    [6552] = { default = true, duration = 10, class = "WARRIOR" }, -- Pummel (Warrior)
         [6554] = { parent = 6552 },
-    [72] = { default = true, duration = 12, class = "WARRIOR" }, -- Shield Bash
+    [72] = { default = true, duration = 12, class = "WARRIOR" }, -- Shield Bash (Warrior)
         [1671] = { parent = 72 },
         [1672] = { parent = 72 },
+    [8042] = { default = true, duration = 5, class = "SHAMAN" }, -- Earth Shock (Shaman)
+        [8044] = { parent = 8042 },
+        [8045] = { parent = 8042 },
+        [8046] = { parent = 8042 },
+        [10412] = { parent = 8042 },
+        [10413] = { parent = 8042 },
+        [10414] = { parent = 8042 },
+        -- Flame Shock (shares CD)
+        [8050] = { parent = 8042 },
+        [8052] = { parent = 8042 },
+        [8053] = { parent = 8042 },
+        [10447] = { parent = 8042 },
+        [10448] = { parent = 8042 },
+        [29228] = { parent = 8042 },
+        -- Frost Shock (shares CD)
+        [8056] = { parent = 8042 },
+        [8058] = { parent = 8042 },
+        [10472] = { parent = 8042 },
+        [10473] = { parent = 8042 },
 
     -- Priest
 
