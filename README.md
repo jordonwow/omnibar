@@ -8,6 +8,9 @@ https://github.com/jordonwow/omnibar/issues
 **Submit a pull request:**
 https://github.com/jordonwow/omnibar/pulls
 
+## v10.5
+* Fix Custom Spells
+
 ## v10.4
 * Add Earth Shock for Classic
 
