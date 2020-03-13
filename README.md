@@ -8,8 +8,11 @@ https://github.com/jordonwow/omnibar/issues
 **Submit a pull request:**
 https://github.com/jordonwow/omnibar/pulls
 
+## v10.8
+* Update for Classic 1.13.4
+
 ## v10.7
-* Update for 1.13.3
+* Update for Classic 1.13.3
 
 ## v10.6
 * Bug fixes
