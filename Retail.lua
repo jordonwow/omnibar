@@ -132,8 +132,7 @@ addon.Cooldowns = {
         [197862] = { duration = 60, class = "PRIEST", specID = { 256 } }, -- Archangel
         [197871] = { duration = 60, class = "PRIEST", specID = { 256 } }, -- Dark Archangel
         [204263] = { duration = 45, class = "PRIEST", specID = { 256, 257 } }, -- Shining Force
-        [209780] = { duration = 12, class = "PRIEST", specID = { 256} }, -- Premonition
-          [209885] = { parent = 209780 },
+        [305498] = { duration = 12, class = "PRIEST", specID = { 256} }, -- Premonition
 
         -- Holy
 
@@ -368,7 +367,7 @@ addon.Cooldowns = {
         [205181] = { duration = 14, class = "WARLOCK", specID = { 266 }, charges = 2 }, -- Shadowflame
         [211714] = { duration = 45, class = "WARLOCK", specID = { 266 } }, -- Thal'kiel's Consumption
         [212459] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Call Fel Lord
-        [212619] = { duration = 24, class = "WARLOCK", specID = { 266 } }, -- Call Felhunter
+        [212619] = { default = true, duration = 24, class = "WARLOCK", specID = { 266 } }, -- Call Felhunter
         [212623] = { duration = 15, class = "WARLOCK", specID = { 266 } }, -- Singe Magic
 
         --  Destruction
