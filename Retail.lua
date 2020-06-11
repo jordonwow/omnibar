@@ -115,7 +115,7 @@ addon.Cooldowns = {
     -- Priest
 
     [586] = { duration = 30, class = "PRIEST" }, -- Fade
-        [213602] = { parent = 586 }, -- Greater Fade
+        [213602] = { parent = 586, duration = 45 }, -- Greater Fade
     [32375] = { duration = 45, class = "PRIEST" }, -- Mass Dispel
 
         -- Discipline
@@ -551,7 +551,7 @@ addon.Cooldowns = {
     [1766] = { default = true, duration = 15, class = "ROGUE" }, -- Kick
     [1856] = { duration = { default = 120, [261] = 30 }, class = "ROGUE" }, -- Vanish
     [2983] = { duration = { default = 60, [259] = 51 }, class = "ROGUE" }, -- Sprint
-    [31224] = { duration = { default = 90, [259] = 81 }, class = "ROGUE" }, -- Cloak of Shadows
+    [31224] = { duration = { default = 120, [259] = 81 }, class = "ROGUE" }, -- Cloak of Shadows
     [57934] = { duration = 30, class = "ROGUE" }, -- Tricks of the Trade
     [137619] = { duration = 40, class = "ROGUE" }, -- Marked for Death
     [152150] = { duration = 20, class = "ROGUE" }, -- Death from Above
