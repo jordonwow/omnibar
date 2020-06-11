@@ -10,6 +10,7 @@ local cooldowns = addon.Cooldowns
 OmniBar.cooldowns = cooldowns
 
 local order = {
+	["COMMON"] = 0,
 	["DEMONHUNTER"] = 1,
 	["DEATHKNIGHT"] = 2,
 	["PALADIN"] = 3,
