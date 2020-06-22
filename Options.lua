@@ -1,3 +1,8 @@
+local LOCALIZED_CLASS_NAMES_MALE_WITH_COMMON = LOCALIZED_CLASS_NAMES_MALE
+LOCALIZED_CLASS_NAMES_MALE_WITH_COMMON["COMMON"] ="Common"
+local CLASS_SORT_ORDER_WITH_COMMON = CLASS_SORT_ORDER
+CLASS_SORT_ORDER_WITH_COMMON[0] = "COMMON"
+
 local OmniBar = LibStub("AceAddon-3.0"):GetAddon("OmniBar")
 local L = LibStub("AceLocale-3.0"):GetLocale("OmniBar")
 
@@ -86,19 +91,19 @@ local function GetSpells()
 		},
 	}
 	local descriptions = {}
-	for i = 1, MAX_CLASSES do
+	for i = 0, MAX_CLASSES do
 
-		spells[CLASS_SORT_ORDER[i]] = {
-			name = LOCALIZED_CLASS_NAMES_MALE[CLASS_SORT_ORDER[i]],
+		spells[CLASS_SORT_ORDER_WITH_COMMON[i]] = {
+			name = LOCALIZED_CLASS_NAMES_MALE_WITH_COMMON[CLASS_SORT_ORDER_WITH_COMMON[i]],
 			type = "group",
 			args = {},
 			icon = "Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Classes",
-			iconCoords = CLASS_ICON_TCOORDS[CLASS_SORT_ORDER[i]]
+			iconCoords = CLASS_ICON_TCOORDS[CLASS_SORT_ORDER_WITH_COMMON[i]]
 		}
 
 		for spellID, spell in pairs(OmniBar.cooldowns) do
 
-			if spell.class and spell.class == CLASS_SORT_ORDER[i] then
+			if spell.class and spell.class == CLASS_SORT_ORDER_WITH_COMMON[i] then
 				local text = GetSpellInfo(spellID) or ""
 				local spellTexture = GetSpellTexture(spellID) or ""
 				if string.len(text) > 25 then
@@ -109,7 +114,7 @@ local function GetSpells()
 					descriptions[spellID] = s:GetSpellDescription()
 				end)
 
-				spells[CLASS_SORT_ORDER[i]].args["spell"..spellID] = {
+				spells[CLASS_SORT_ORDER_WITH_COMMON[i]].args["spell"..spellID] = {
 					name = text,
 					type = "toggle",
 					get = IsSpellEnabled,
@@ -709,7 +714,7 @@ local customSpellInfo = {
 		name = L["Class"],
 		desc = L["Set the class of the cooldown"],
 		type = "select",
-		values = LOCALIZED_CLASS_NAMES_MALE,
+		values = LOCALIZED_CLASS_NAMES_MALE_WITH_COMMON,
 		order = 5,
 		set = function(info, state)
 			local option = info[#info]
@@ -733,7 +738,7 @@ local customSpells = {
 			local name = GetSpellInfo(spellId)
 			if OmniBar.db.global.cooldowns[spellId] then return end
 			if spellId and name then
-				OmniBar.db.global.cooldowns[spellId] = OmniBar.cooldowns[spellId] or { custom = true, duration = { default = 30 } , class = "DEATHKNIGHT" }
+				OmniBar.db.global.cooldowns[spellId] = OmniBar.cooldowns[spellId] or { custom = true, duration = { default = 30 } , class = "COMMON" }
 
 				local duration
 				-- If it's a child convert it
