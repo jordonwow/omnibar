@@ -19,7 +19,7 @@ addon.Cooldowns = {
     [49576] = { duration = 25, class = "DEATHKNIGHT", charges = 2 }, -- Death Grip
     [51052] = { duration = 120, class = "DEATHKNIGHT" }, -- Anti-Magic Zone
     [61999] = { duration = 600, class = "DEATHKNIGHT" }, -- Raise Ally
-    [77606] = { duration = 25, class = "DEATHKNIGHT" }, -- Dark Simulacrum
+    [77606] = { duration = 20, class = "DEATHKNIGHT" }, -- Dark Simulacrum
     [212552] = { duration = 60, class = "DEATHKNIGHT" }, -- Wraith Walk
 
         -- Blood
