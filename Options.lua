@@ -104,10 +104,7 @@ local function GetSpells()
 				if string.len(text) > 25 then
 					text = string.sub(text, 0, 22) .. "..."
 				end
-				local s = Spell:CreateFromSpellID(spellID)
-				s:ContinueOnSpellLoad(function()
-					descriptions[spellID] = s:GetSpellDescription()
-				end)
+				descriptions[spellID] = GetSpellDescription(spellID)
 
 				spells[CLASS_SORT_ORDER[i]].args["spell"..spellID] = {
 					name = text,
