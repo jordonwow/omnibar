@@ -171,7 +171,7 @@ addon.Cooldowns = {
         [8696] = { parent = 2983 },
         [11305] = { parent = 2983 },
     [5277] = { class = "ROGUE", duration = 180 }, -- Evasion
-    [1776] = { class = "ROGUE", duration = 10 }, -- Gouge (eventually change to 9 when PvP gear is released)
+    [1776] = { class = "ROGUE", duration = 9 }, -- Gouge
         [1777] = { parent = 1776 },
         [8629] = { parent = 1776 },
         [8629] = { parent = 1776 },
