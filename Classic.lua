@@ -81,6 +81,7 @@ addon.Cooldowns = {
         [11739] = { parent = 6229 },
         [11740] = { parent = 6229 },
         [28610] = { parent = 6229 },
+    [18288] = { class ="WARLOCK", duration = 180 },  -- Amplify Curse
 
     -- Shaman
 
@@ -189,5 +190,11 @@ addon.Cooldowns = {
     [12328] = { class = "WARRIOR", duration = 180 }, -- Death Wish
     [18499] = { class = "WARRIOR", duration = 30 }, -- Berserker Rage
     [12809] = { class = "WARRIOR", duration = 45 }, -- Concussion Blow
+    [100] = { class = "WARRIOR", duration = 15 }, -- Charge
+        [6178] = { parent = 100 },
+        [11578] = { parent = 100 },
+    [20252] = { class = "WARRIOR", duration = 25 }, -- Intercept
+        [20616] = { parent = 20252 },
+        [20617] = { parent = 20252 },
 
 }
