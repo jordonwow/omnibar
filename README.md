@@ -8,6 +8,17 @@ https://github.com/jordonwow/omnibar/issues
 **Submit a pull request:**
 https://github.com/jordonwow/omnibar/pulls
 
+## v10.9
+* Update for Retail 9.0.1
+* Update for Classic 1.13.5
+* Fix bug caused by removed spells
+* Fix Dark Simulacrum
+* Update Gouge cooldown for Classic
+* Add Amplify Curse
+* Add Charge
+* Add Intercept
+* Make font more readable
+
 ## v10.8
 * Update for Classic 1.13.4
 
