@@ -8,6 +8,9 @@ https://github.com/jordonwow/omnibar/issues
 **Submit a pull request:**
 https://github.com/jordonwow/omnibar/pulls
 
+## v10.10
+* Fix Premonition
+
 ## v10.9
 * Update for Retail 9.0.1
 * Update for Classic 1.13.5
