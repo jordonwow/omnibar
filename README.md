@@ -8,6 +8,12 @@ https://github.com/jordonwow/omnibar/issues
 **Submit a pull request:**
 https://github.com/jordonwow/omnibar/pulls
 
+## v10.11
+* Jax Updates
+* CD Reset Tracking
+* Unit specific bars
+* Copy spells from existing bar
+
 ## v10.10
 * Fix Premonition
 
