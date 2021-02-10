@@ -7,7 +7,7 @@ addon.Resets = {
          - Spell Lock
       ]]
     [111897] = { {spell = 119910, amount = 24} },
-    [133] = { {spell = 190319, amount = 5} }
+    [133] = { {spell = 190319, amount = 3} }
 }
 
 addon.Cooldowns = {

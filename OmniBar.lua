@@ -467,15 +467,12 @@ function OmniBar_OnEvent(self, event, ...)
 						for j = 1, #resets[spellID] do
 							if resets[spellID][j].spell == self.active[i].spellID then
 								local startTime, startDuration = self.active[i].cooldown:GetCooldownTimes()
-								print(GetTime() - startTime)
 								local currCD = (startDuration - (GetTime()*1000 - startTime))/1000
-								print(currCD)
 								local newDuration = currCD - resets[spellID][j].amount
 								if (newDuration <= 0) then									
 									self.active[i].cooldown:Hide()
 									OmniBar_CooldownFinish(self.active[i].cooldown, true)
 								else
-									print(newDuration)
 									self.active[i].cooldown:SetCooldown(GetTime(), newDuration)
 									self.active[i].cooldown.finish = GetTime() + newDuration
 								end
