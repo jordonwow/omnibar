@@ -53,6 +53,8 @@ globals = {
     "OmniBar_CooldownFinish",
     "OmniBar_StartCooldown",
     "OmniBar_Test",
+    "OmniBar_IsUnitEnabled",
+    "OmniBar_ToggleUnit",
     "InterfaceOptionsFrame_OpenToCategory",
 
     -- framexml misc
