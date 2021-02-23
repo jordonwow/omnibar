@@ -97,7 +97,7 @@ local function GetSpells()
 			desc = "Copys all enabled spells from the selected OmniBar",
 			type = "select",
 			width = "normal",
-			values = GetBars(k),
+			values = GetBars(),
 			set = 	function(info, state)
 						local key = info[#info-2]
 						OmniBar.db.profile.bars[key].noDefault = true

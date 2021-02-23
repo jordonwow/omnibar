@@ -469,7 +469,7 @@ function OmniBar_OnEvent(self, event, ...)
 								local startTime, startDuration = self.active[i].cooldown:GetCooldownTimes()
 								local currCD = (startDuration - (GetTime()*1000 - startTime))/1000
 								local newDuration = currCD - resets[spellID][j].amount
-								if (newDuration <= 0) then									
+								if (newDuration <= 0) then
 									self.active[i].cooldown:Hide()
 									OmniBar_CooldownFinish(self.active[i].cooldown, true)
 								else
@@ -716,7 +716,7 @@ function OmniBar_AddIcon(self, spellID, sourceGUID, sourceName, init, test, spec
 	-- Check for parent spellID
 	local originalSpellID = spellID
 	if cooldowns[spellID].parent then spellID = cooldowns[spellID].parent end
-	unitID = 0
+	local unitID = 0
 	if sourceGUID ~= nil then
 		if UnitGUID("arena1") == sourceGUID or sourceGUID == 1 then
 			unitID = 1
