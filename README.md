@@ -8,6 +8,9 @@ https://github.com/jordonwow/omnibar/issues
 **Submit a pull request:**
 https://github.com/jordonwow/omnibar/pulls
 
+## v10.13
+* Minor bug fix
+
 ## v10.12
 * Updated for hotfixes
 
