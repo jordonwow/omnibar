@@ -119,7 +119,6 @@ addon.Cooldowns = {
     [32375] = { duration = 45, class = "PRIEST" }, -- Mass Dispel
 	[323673] = { duration = 45, class = "PRIEST" }, -- Mindgames
 
-
         -- Discipline
 
         [8122] = { duration = 30, class = "PRIEST", specID = { 256, 257, 258 } }, -- Psychic Scream
@@ -405,7 +404,6 @@ addon.Cooldowns = {
     [204331] = { duration = 45, class = "SHAMAN" }, -- Counterstrike Totem
     [204332] = { duration = 30, class = "SHAMAN" }, -- Windfury Totem
 
-
         -- Elemental
 
         [16166] = { duration = 120, class = "SHAMAN", specID = { 262 } }, -- Elemental Mastery
@@ -418,7 +416,7 @@ addon.Cooldowns = {
         [198103] = { duration = 120, class = "SHAMAN", specID = { 262 } }, -- Earth Elemental
         [204437] = { duration = 30, class = "SHAMAN", specID = { 262 } }, -- Lightning Lasso
         [191634] = { duration = 60, class = "SHAMAN", specID = { 262 } }, -- Stormkeeper
-		[326059] = { duration = 45, class = "SHAMAN", specID = { 262 } }, -- Primodial Wave
+		[326059] = { duration = 45, class = "SHAMAN", specID = { 262 } }, -- Primordial Wave
 
         -- Enhancement
 
