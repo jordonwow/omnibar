@@ -8,6 +8,9 @@ https://github.com/jordonwow/omnibar/issues
 **Submit a pull request:**
 https://github.com/jordonwow/omnibar/pulls
 
+## v10.15
+* Added certain covenant spells
+
 ## v10.14
 * Update for 9.0.5
 
