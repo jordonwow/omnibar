@@ -311,7 +311,6 @@ addon.Cooldowns = {
         [1160] = { duration = 45, class = "WARRIOR", specID = { 73 } }, -- Demoralizing Shout
         [12975] = { duration = 180, class = "WARRIOR", specID = { 73 } }, -- Last Stand
         [118000] = { duration = 35, class = "WARRIOR", specID = { 73 } }, -- Dragon Roar
-        [198304] = { duration = 20, class = "WARRIOR", specID = { 73 }, charges = 2 }, -- Intercept
         [206572] = { duration = 20, class = "WARRIOR", specID = { 73 } }, -- Dragon Charge
         [213871] = { duration = 15, class = "WARRIOR", specID = { 73 } }, -- Bodyguard
         [228920] = { duration = 60, class = "WARRIOR", specID = { 73 } }, -- Ravager
