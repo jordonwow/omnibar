@@ -396,9 +396,9 @@ addon.Cooldowns = {
     [108271] = { duration = 90, class = "SHAMAN" }, -- Astral Shift
         [210918] = { parent = 108271, duration = 45 }, -- Ethereal Form
     [114049] = { duration = 180, class = "SHAMAN" }, -- Ascendance
-        [114050] = { parent = 114050 }, -- Ascendance (Elemental)
-        [114051] = { parent = 114050 }, -- Ascendance (Enhancement)
-        [114052] = { parent = 114050 }, -- Ascendance (Restoration)
+        [114050] = { parent = 114049 }, -- Ascendance (Elemental)
+        [114051] = { parent = 114049 }, -- Ascendance (Enhancement)
+        [114052] = { parent = 114049 }, -- Ascendance (Restoration)
     [192058] = { duration = 60, class = "SHAMAN" }, -- Capacitor
     [192077] = { duration = 120, class = "SHAMAN" }, -- Wind Rush Totem
     [204330] = { duration = 45, class = "SHAMAN" }, -- Skyfury Totem
