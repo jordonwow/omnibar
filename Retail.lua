@@ -290,7 +290,7 @@ addon.Cooldowns = {
 
         [5246] = { duration = 90, class = "WARRIOR", specID = { 71, 72 } }, -- Intimidating Shout
         [97462] = { duration = 180, class = "WARRIOR", specID = { 71, 72, 73 } }, -- Rallying Cry
-        [118038] = { duration = 180, class = "WARRIOR", specID = { 71 } }, -- Die by the Sword
+        [118038] = { duration = 120, class = "WARRIOR", specID = { 71 } }, -- Die by the Sword
         [167105] = { duration = 45, class = "WARRIOR", specID = { 71 } }, -- Colossus Smash
             [262161] = { parent = 167105 }, -- Warbreaker
         [197690] = { duration = 10, class = "WARRIOR", specID = { 71 } }, -- Defensive Stance
