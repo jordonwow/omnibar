@@ -713,6 +713,8 @@ end
 
 
 function OmniBar_AddIcon(self, spellID, sourceGUID, sourceName, init, test, specID)
+	-- Filter the spells which cast by Creatures.
+	if (strsplit("-", sourceGUID)) == "Creature" then return end
 	-- Check for parent spellID
 	local originalSpellID = spellID
 	if cooldowns[spellID].parent then spellID = cooldowns[spellID].parent end
