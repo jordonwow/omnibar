@@ -27,7 +27,6 @@ addon.Cooldowns = {
 
         -- Blood
 
-        [43265] = { duration = 30, class = "DEATHKNIGHT", specID = { 250, 252 } }, -- Death and Decay
         [47476] = { duration = 60, class = "DEATHKNIGHT", specID = { 250 } }, -- Strangulate
         [49028] = { duration = 120, class = "DEATHKNIGHT", specID = { 250 } }, -- Dancing Rune Weapon
         [55233] = { duration = 90, class = "DEATHKNIGHT", specID = { 250 } }, -- Vampiric Blood

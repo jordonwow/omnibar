@@ -141,7 +141,6 @@ local function GetSpells()
 					end)
 
 					spells[CLASS_SORT_ORDER[i]].args["spell"..spellID] = {
-						name = spellName,
 						type = "toggle",
 						get = IsSpellEnabled,
 						width = "full",

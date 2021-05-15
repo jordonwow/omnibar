@@ -132,7 +132,6 @@ addon.Cooldowns = {
     [5211] = { class = "DRUID", duration = 60 }, -- Bash
         [6798] = { parent = 5211 },
         [8983] = { parent = 5211 },
-    [16979] = { class = "DRUID", duration = 15 }, -- Feral Charge
     [1850] = { class = "DRUID", duration = 300 }, -- Dash
         [9821] = { parent = 1850 },
 
@@ -174,7 +173,6 @@ addon.Cooldowns = {
     [5277] = { class = "ROGUE", duration = 180 }, -- Evasion
     [1776] = { class = "ROGUE", duration = 9 }, -- Gouge
         [1777] = { parent = 1776 },
-        [8629] = { parent = 1776 },
         [8629] = { parent = 1776 },
         [11285] = { parent = 1776 },
         [11286] = { parent = 1776 },
