@@ -27,3 +27,7 @@ jobs:
           args: -g classic
 
       - uses: BigWigsMods/packager@master
+        with:
+          args: -g bc
+
+      - uses: BigWigsMods/packager@master

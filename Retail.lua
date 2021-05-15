@@ -2,6 +2,8 @@ local addonName, addon = ...
 
 if WOW_PROJECT_ID == WOW_PROJECT_CLASSIC then return end
 
+addon.MAX_ARENA_SIZE = 3
+
 addon.Resets = {
     --[[ Grimoire: Felhunter
          - Spell Lock

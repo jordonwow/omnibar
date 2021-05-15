@@ -1,6 +1,10 @@
 local OmniBar = LibStub("AceAddon-3.0"):GetAddon("OmniBar")
 local L = LibStub("AceLocale-3.0"):GetLocale("OmniBar")
 
+local addonName, addon = ...
+
+local MAX_ARENA_SIZE = addon.MAX_ARENA_SIZE
+
 local _
 
 local points = {
@@ -70,7 +74,6 @@ local function GetSpells()
 						OmniBar.db.profile.bars[key][option] = false
 					end
 				end
-				OmniBar.db.profile.bars[key].noDefault = true
 				OmniBar:Refresh(true)
 			end,
 			order = 1,
@@ -81,7 +84,6 @@ local function GetSpells()
 			func = function(info)
 				local key = info[#info-2]
 				local bar = _G[key]
-				OmniBar.db.profile.bars[key].noDefault = nil
 				for spellID, spell in pairs(OmniBar.cooldowns) do
 					if spell.default then
 						OmniBar_CreateIcon(bar)
@@ -100,7 +102,6 @@ local function GetSpells()
 			values = GetBars(),
 			set = 	function(info, state)
 						local key = info[#info-2]
-						OmniBar.db.profile.bars[key].noDefault = true
 						for spellID, spell in pairs(OmniBar.cooldowns) do
 							if OmniBar.db.profile.bars[key]["spell"..spellID]~=nil then
 								OmniBar.db.profile.bars[key]["spell"..spellID] = nil
@@ -161,41 +162,6 @@ local function GetSpells()
 		end
 	end
 	return spells
-end
-
-local function GetUnits()
-	local units = {
-		AllEnemies = {
-			name = "All Enemies",
-			type = "group",
-			args = {
-				enabled0 = {
-					name = "Enable All Enemies",
-					type = "toggle",
-					get = IsUnitEnabled,
-					width = "full",
-					arg = 0,
-					desc = "Enable All Enemies",
-				} },
-		}
-	}
-	for i = 1, 3 do
-		units["arena"..i] = {
-			name = "arena"..i,
-			type = "group",
-			args = {},
-		}
-		units["arena"..i].args["enabled"..i] = {
-					name = "Enable Arena "..i,
-					type = "toggle",
-					get = IsUnitEnabled,
-					width = "full",
-					arg = i,
-					desc = "Track Cooldowns for Arena "..i,
-				}
-	end
-
-	return units
 end
 
 function OmniBar:AddBarToOptions(key, refresh)
@@ -626,19 +592,6 @@ function OmniBar:AddBarToOptions(key, refresh)
 					self:Refresh(true)
 				end,
 			},
-						units = {
-				name = "Units",
-				type = "group",
-				order = 14,
-				arg = key,
-				args = GetUnits(),
-				set = function(info, state)
-					local option = info[#info]
-					self.db.profile.bars[key][option] = state
-					OmniBar_ToggleUnit(_G[key], option)
-					self:Refresh(true)
-				end,
-			},
 			lock = {
 				type = "execute",
 				name = self.db.profile.bars[key].locked and L["Unlock"] or L["Lock"],
@@ -663,6 +616,45 @@ function OmniBar:AddBarToOptions(key, refresh)
 	}
 
 	if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+		local units = {
+			all = {
+				name = "All Enemies",
+				type = "toggle",
+				width = "full",
+				desc = "Track Cooldowns for all enemies ",
+			}
+		}
+
+		for i = 1, MAX_ARENA_SIZE do
+			units["arena" .. i] = {
+				name = "Arena " .. i,
+				disabled = function()
+					return self.db.profile.bars[key].all
+				end,
+				type = "toggle",
+				width = "full",
+				desc = "Track Cooldowns for Arena " .. i,
+			}
+		end
+
+		self.options.args.bars.args[key].args.units = {
+			name = "Units",
+			type = "group",
+			order = 14,
+			arg = key,
+			args = units,
+			get = function(info, state)
+				local option = info[#info]
+				return self.db.profile.bars[key].units[option]
+			end,
+			set = function(info, state)
+				local option = info[#info]
+				self.db.profile.bars[key].units = self.db.profile.bars.units or {}
+				self.db.profile.bars[key].units[option] = state
+				self:Refresh(true)
+			end,
+		}
+
 		self.options.args.bars.args[key].args.settings.args.highlightFocus = {
 			name = L["Highlight Focus"],
 			desc = L["Draw a border around your focus"],

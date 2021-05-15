@@ -26,6 +26,8 @@ local order = {
 
 local resets = addon.Resets
 
+local MAX_ARENA_SIZE = addon.MAX_ARENA_SIZE
+
 -- Defaults
 local units = {
 	enabled0 = {default = true},
@@ -213,6 +215,7 @@ function OmniBar:Initialize(key, name)
 	local f = _G[key] or CreateFrame("Frame", key, UIParent, "OmniBarTemplate")
 	f:Show()
 	f.settings = self.db.profile.bars[key]
+	f.settings.units = f.settings.units or { all = true }
 	f.settings.align = f.settings.align or "CENTER"
 	f.settings.maxIcons = f.settings.maxIcons or 500
 	f.key = key
@@ -597,31 +600,20 @@ function OmniBar_LoadPosition(self)
 end
 
 function OmniBar_IsSpellEnabled(self, spellID)
-	if not spellID then return end
-	-- Check for an explicit rule
+	if (not spellID) then return end
 	local key = "spell"..spellID
-	if type(self.settings[key]) == "boolean" then
-		if self.settings[key] then
-			return true
-		end
-	elseif not self.settings.noDefault and cooldowns[spellID].default then
-		-- Not user-set, but a default cooldown
-		return true
-	end
-end
-function OmniBar_IsUnitEnabled(self, unitID)
-	if not unitID then return end
+
 	-- Check for an explicit rule
-	local key = "enabled"..unitID
-	if type(self.settings[key]) == "boolean" then
-		if self.settings[key] then
-			return true
-		end
-	elseif not self.settings.noDefault and units[key].default then
-		-- Not user-set, but a default cooldown
+	if type(self.settings[key]) == "boolean" and self.settings[key] then
 		return true
 	end
-	return false
+
+	return cooldowns[spellID].default
+end
+
+function OmniBar_IsUnitEnabled(self, unit)
+	if self.settings.units.all then return true end
+	if unit and self.settings.units[unit] then return true end
 end
 
 function OmniBar_Center(self)
@@ -716,21 +708,20 @@ function OmniBar_AddIcon(self, spellID, sourceGUID, sourceName, init, test, spec
 	-- Check for parent spellID
 	local originalSpellID = spellID
 	if cooldowns[spellID].parent then spellID = cooldowns[spellID].parent end
-	local unitID = 0
+	local unit
 	if sourceGUID ~= nil then
-		if UnitGUID("arena1") == sourceGUID or sourceGUID == 1 then
-			unitID = 1
-			else if UnitGUID("arena2") == sourceGUID or sourceGUID == 2 then
-				unitID = 2
-				else if UnitGUID("arena3") == sourceGUID or sourceGUID == 3 then
-					unitID = 3
-				end
+		for i = 1, MAX_ARENA_SIZE do
+			local u = "arena" .. i
+			if UnitGUID(u) == sourceGUID then
+				unit = u
+				break
 			end
 		end
 	end
 
-	if not OmniBar_IsSpellEnabled(self, spellID) then return end
-	if not test then if not OmniBar_IsUnitEnabled(self, unitID) then return end end
+	if (not OmniBar_IsUnitEnabled(self, unit)) then return end
+	if (not OmniBar_IsSpellEnabled(self, spellID)) then return end
+	if (not test) then return end
 
 	local icon, duplicate
 
@@ -903,6 +894,7 @@ function OmniBar_UpdateIcons(self)
 end
 
 function OmniBar_Test(self)
+	if (not self) then return end
 	self.disabled = nil
 	OmniBar_RefreshIcons(self)
 	for k,v in pairs(cooldowns) do
@@ -981,8 +973,7 @@ function OmniBar_Position(self)
 	end
 	OmniBar_ShowAnchor(self)
 end
-function OmniBar_ToggleUnit(self, unitID)
-end
+
 function OmniBar:Test()
 	for key,_ in pairs(self.db.profile.bars) do
 		OmniBar_Test(_G[key])
