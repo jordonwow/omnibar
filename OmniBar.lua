@@ -729,7 +729,6 @@ function OmniBar_AddIcon(self, spellID, sourceGUID, sourceName, init, test, spec
 	end
 
 	if (not OmniBar_IsSpellEnabled(self, spellID)) then return end
-	if (not test) then return end
 
 	local icon, duplicate
 
