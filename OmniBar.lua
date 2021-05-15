@@ -713,18 +713,21 @@ function OmniBar_AddIcon(self, spellID, sourceGUID, sourceName, init, test, spec
 	-- Check for parent spellID
 	local originalSpellID = spellID
 	if cooldowns[spellID].parent then spellID = cooldowns[spellID].parent end
-	local unit
-	if sourceGUID ~= nil then
-		for i = 1, MAX_ARENA_SIZE do
-			local u = "arena" .. i
-			if UnitGUID(u) == sourceGUID then
-				unit = u
-				break
+
+	if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+		local unit
+		if sourceGUID ~= nil then
+			for i = 1, MAX_ARENA_SIZE do
+				local u = "arena" .. i
+				if UnitGUID(u) == sourceGUID then
+					unit = u
+					break
+				end
 			end
 		end
+		if (not OmniBar_IsUnitEnabled(self, unit)) then return end
 	end
 
-	if (not OmniBar_IsUnitEnabled(self, unit)) then return end
 	if (not OmniBar_IsSpellEnabled(self, spellID)) then return end
 	if (not test) then return end
 
