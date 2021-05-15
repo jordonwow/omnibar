@@ -128,6 +128,8 @@ function OmniBar:Delete(key, keepProfile)
 	if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
 		bar:UnregisterEvent("PLAYER_FOCUS_CHANGED")
 		bar:UnregisterEvent("ARENA_OPPONENT_UPDATE")
+	end
+	if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
 		bar:UnregisterEvent("ARENA_PREP_OPPONENT_SPECIALIZATIONS")
 	end
 	bar:Hide()
@@ -259,6 +261,9 @@ function OmniBar:Initialize(key, name)
 	if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
 		f:RegisterEvent("PLAYER_FOCUS_CHANGED")
 		f:RegisterEvent("ARENA_OPPONENT_UPDATE")
+	end
+
+	if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
 		f:RegisterEvent("ARENA_PREP_OPPONENT_SPECIALIZATIONS")
 	end
 
@@ -305,7 +310,7 @@ local Masque = LibStub and LibStub("Masque", true)
 
 -- create a lookup table to translate spec names into IDs
 local specNames = {}
-if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
 	for classID = 1, MAX_CLASSES do
 		local _, classToken = GetClassInfo(classID)
 		specNames[classToken] = {}

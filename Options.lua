@@ -670,7 +670,9 @@ function OmniBar:AddBarToOptions(key, refresh)
 			type = "toggle",
 			order = 11,
 		}
+	end
 
+	if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
 		self.options.args.bars.args[key].args.visibility.args.ratedBattleground = {
 			name = L["Show in Rated Battlegrounds"],
 			desc = L["Show the icons in rated battlegrounds"],
@@ -840,7 +842,7 @@ local customSpells = {
 	},
 }
 
-if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
 	for i = 1, #specIDs do
 		local specID = specIDs[i]
 		local _, name, _, icon = GetSpecializationInfoByID(specID)
@@ -1025,7 +1027,7 @@ function OmniBar:SetupOptions()
 		},
 	}
 
-	if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
+	if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
 		local LibDualSpec = LibStub('LibDualSpec-1.0')
 		LibDualSpec:EnhanceDatabase(self.db, "OmniBarDB")
 		LibDualSpec:EnhanceOptions(self.options.plugins.profiles.profiles, self.db)
