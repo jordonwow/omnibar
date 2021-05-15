@@ -12,6 +12,7 @@
 ## SavedVariables: OmniBarDB
 ## OptionalDeps: Masque, LibStub, CallbackHandler-1.0, Ace3, LibDualSpec-1.0
 ## X-Curse-Project-ID: 85814
+## X-Wago-ID: BO678XK3
 
 #@no-lib-strip@
 Libs\LibStub\LibStub.lua
