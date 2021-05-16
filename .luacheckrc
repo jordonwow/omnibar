@@ -36,6 +36,7 @@ read_globals = {
     "GetSpellTexture",
     "GetTime",
     "GetUnitName",
+    "GetZonePVPInfo",
     "InCombatLockdown",
     "InterfaceOptionsFrame_OpenToCategory",
     "IsInInstance",

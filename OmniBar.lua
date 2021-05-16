@@ -456,7 +456,8 @@ function OmniBar_SetZone(self, refresh)
 
 	self.zone = zone
 	local rated = IsRatedBattleground and IsRatedBattleground()
-	self.disabled = (zone == "arena" and not self.settings.arena) or
+	self.disabled = (GetZonePVPInfo() == "sanctuary") or
+		(zone == "arena" and not self.settings.arena) or
 		(rated and not self.settings.ratedBattleground) or
 		(zone == "pvp" and not self.settings.battleground and not rated) or
 		(zone == "scenario" and not self.settings.scenario) or
