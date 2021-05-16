@@ -29,12 +29,6 @@ local resets = addon.Resets
 local MAX_ARENA_SIZE = addon.MAX_ARENA_SIZE
 
 -- Defaults
-local units = {
-	enabled0 = {default = true},
-	enabled1 = {default = true},
-	enabled2 = {default = true},
-	enabled3 = {default = true},
-}
 local defaults = {
 	size                 = 40,
 	columns              = 8,
@@ -532,7 +526,7 @@ function OmniBar_OnEvent(self, event, ...)
 
 	elseif event == "ARENA_PREP_OPPONENT_SPECIALIZATIONS" or event == "ARENA_OPPONENT_UPDATE" then
 		if self.disabled or not self.settings.adaptive then return end
-		for i = 1, 5 do
+		for i = 1, MAX_ARENA_SIZE do
 			local specID = GetArenaOpponentSpec(i)
 			if specID and specID > 0 then
 				-- only add icons if show unused is checked
