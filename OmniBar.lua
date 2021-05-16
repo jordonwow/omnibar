@@ -3,11 +3,49 @@
 
 local addonName, addon = ...
 
+local ARENA = ARENA
+local COMBATLOG_FILTER_STRING_UNKNOWN_UNITS = COMBATLOG_FILTER_STRING_UNKNOWN_UNITS
+local COMBATLOG_OBJECT_REACTION_HOSTILE = COMBATLOG_OBJECT_REACTION_HOSTILE
+local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
+local CreateFrame = CreateFrame
+local FOCUS = FOCUS
+local GetArenaOpponentSpec = GetArenaOpponentSpec
+local GetBattlefieldScore = GetBattlefieldScore
+local GetClassInfo = GetClassInfo
+local GetNumBattlefieldScores = GetNumBattlefieldScores
+local GetNumSpecializationsForClassID = GetNumSpecializationsForClassID
+local GetPlayerInfoByGUID = GetPlayerInfoByGUID
+local GetSpecializationInfoByID = GetSpecializationInfoByID
+local GetSpecializationInfoForClassID = GetSpecializationInfoForClassID
+local GetSpellInfo = GetSpellInfo
+local GetTime = GetTime
+local GetUnitName = GetUnitName
+local GetZonePVPInfo = GetZonePVPInfo
+local InCombatLockdown = InCombatLockdown
+local InterfaceOptionsFrame_OpenToCategory = InterfaceOptionsFrame_OpenToCategory
+local IsInInstance = IsInInstance
+local IsRatedBattleground = IsRatedBattleground
+local LibStub = LibStub
+local MAX_CLASSES = MAX_CLASSES
+local PLAYER = PLAYER
+local SlashCmdList = SlashCmdList
+local TARGET = TARGET
+local UIParent = UIParent
+local UnitClass = UnitClass
+local UnitGUID = UnitGUID
+local UnitIsPlayer = UnitIsPlayer
+local UnitIsPossessed = UnitIsPossessed
+local UnitReaction = UnitReaction
+local WOW_PROJECT_CLASSIC = WOW_PROJECT_CLASSIC
+local WOW_PROJECT_ID = WOW_PROJECT_ID
+local WOW_PROJECT_MAINLINE = WOW_PROJECT_MAINLINE
+local bit_band = bit.band
+local wipe = wipe
+
 OmniBar = LibStub("AceAddon-3.0"):NewAddon("OmniBar", "AceEvent-3.0", "AceHook-3.0")
 
-local cooldowns = addon.Cooldowns
 
-OmniBar.cooldowns = cooldowns
+local cooldowns = addon.Cooldowns
 
 local order = {
 	["DEMONHUNTER"] = 1,
@@ -26,7 +64,7 @@ local order = {
 
 local resets = addon.Resets
 
-local MAX_ARENA_SIZE = addon.MAX_ARENA_SIZE
+local MAX_ARENA_SIZE = addon.MAX_ARENA_SIZE or 0
 
 -- Defaults
 local defaults = {
@@ -63,10 +101,6 @@ local MAX_DUPLICATE_ICONS = 5
 
 local BASE_ICON_SIZE = 36
 
-local _
-
-OmniBar.index = 1
-
 OmniBar.bars = {}
 
 function OmniBar:OnEnable()
@@ -78,7 +112,7 @@ function OmniBar:OnEnable()
 	self.index = 1
 
 	for i = #self.bars, 1, -1 do
-		OmniBar:Delete(self.bars[i].key, true)
+		self:Delete(self.bars[i].key, true)
 		table.remove(self.bars, i)
 	end
 
@@ -336,7 +370,7 @@ end
 
 local function IsHostilePlayer(unit)
 	if not unit then return end
-	local reaction = UnitReaction("player", unit)
+	local reaction = UnitReaction(PLAYER, unit)
 	if not reaction then return end -- out of range
 	return UnitIsPlayer(unit) and reaction < 4 and not UnitIsPossessed(unit)
 end
@@ -391,13 +425,13 @@ function OmniBar_UpdateBorders(self)
 		local border
 		local guid = self.active[i].sourceGUID
 		if guid then
-			if self.settings.highlightFocus and IconIsSource(guid, UnitGUID("focus")) then
+			if self.settings.highlightFocus and IconIsSource(guid, UnitGUID(FOCUS)) then
 				self.active[i].FocusTexture:SetAlpha(1)
 				border = true
 			else
 				self.active[i].FocusTexture:SetAlpha(0)
 			end
-			if self.settings.highlightTarget and IconIsSource(guid, UnitGUID("target")) then
+			if self.settings.highlightTarget and IconIsSource(guid, UnitGUID(TARGET)) then
 				self.active[i].FocusTexture:SetAlpha(0)
 				self.active[i].TargetTexture:SetAlpha(1)
 				border = true
@@ -405,15 +439,15 @@ function OmniBar_UpdateBorders(self)
 				self.active[i].TargetTexture:SetAlpha(0)
 			end
 		else
-			local class = select(2, UnitClass("focus"))
-			if self.settings.highlightFocus and class and IsHostilePlayer("focus") and class == self.active[i].class then
+			local class = select(2, UnitClass(FOCUS))
+			if self.settings.highlightFocus and class and IsHostilePlayer(FOCUS) and class == self.active[i].class then
 				self.active[i].FocusTexture:SetAlpha(1)
 				border = true
 			else
 				self.active[i].FocusTexture:SetAlpha(0)
 			end
-			class = select(2, UnitClass("target"))
-			if self.settings.highlightTarget and class and IsHostilePlayer("target") and class == self.active[i].class then
+			class = select(2, UnitClass(TARGET))
+			if self.settings.highlightTarget and class and IsHostilePlayer(TARGET) and class == self.active[i].class then
 				self.active[i].FocusTexture:SetAlpha(0)
 				self.active[i].TargetTexture:SetAlpha(1)
 				border = true
@@ -472,7 +506,7 @@ function OmniBar_SetZone(self, refresh)
 end
 
 local function IsSourceHostile(sourceFlags)
-	local band = bit.band(sourceFlags, COMBATLOG_OBJECT_REACTION_HOSTILE)
+	local band = bit_band(sourceFlags, COMBATLOG_OBJECT_REACTION_HOSTILE)
 	if UnitIsPossessed(PLAYER) and band == 0 then return true end
 	return band == COMBATLOG_OBJECT_REACTION_HOSTILE
 end
@@ -560,7 +594,7 @@ function OmniBar_OnEvent(self, event, ...)
 		-- only add icons when we're in combat
 		--if event == "PLAYER_TARGET_CHANGED" and not InCombatLockdown() then return end
 
-		local unit = "playertarget"
+		local unit = PLAYER .. TARGET
 		if IsHostilePlayer(unit) then
 			local guid = UnitGUID(unit)
 			local _, class = UnitClass(unit)
@@ -732,17 +766,15 @@ function OmniBar_AddIcon(self, spellID, sourceGUID, sourceName, init, test, spec
 	if cooldowns[spellID].parent then spellID = cooldowns[spellID].parent end
 
 	if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
-		local unit
 		if sourceGUID ~= nil then
 			for i = 1, MAX_ARENA_SIZE do
-				local u = "arena" .. i
-				if UnitGUID(u) == sourceGUID then
-					unit = u
+				local enemy = ARENA .. i
+				if UnitGUID(enemy) == sourceGUID then
+					if (not OmniBar_IsUnitEnabled(self, enemy)) then return end
 					break
 				end
 			end
 		end
-		if (not OmniBar_IsUnitEnabled(self, unit)) then return end
 	end
 
 	if (not OmniBar_IsSpellEnabled(self, spellID)) then return end

@@ -16,6 +16,7 @@ ignore = {
     "433",
 }
 read_globals = {
+    "ARENA",
     "CLASS_ICON_TCOORDS",
     "CLASS_SORT_ORDER",
     "COMBATLOG_FILTER_STRING_UNKNOWN_UNITS",
@@ -23,6 +24,7 @@ read_globals = {
     "CombatLogGetCurrentEventInfo",
     "CreateFrame",
     "DELETE",
+    "FOCUS",
     "GetAddOnMetadata",
     "GetArenaOpponentSpec",
     "GetBattlefieldScore",
@@ -49,6 +51,7 @@ read_globals = {
     "SecondsToTime",
     "Spell",
     "StaticPopup_Show",
+    "TARGET",
     "UIParent",
     "UnitClass",
     "UnitGUID",
