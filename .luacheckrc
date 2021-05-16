@@ -45,6 +45,7 @@ read_globals = {
     "LibStub",
     "MAX_CLASSES",
     "NO",
+    "PLAYER",
     "SecondsToTime",
     "Spell",
     "StaticPopup_Show",

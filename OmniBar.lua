@@ -471,11 +471,17 @@ function OmniBar_SetZone(self, refresh)
 
 end
 
+local function IsSourceHostile(sourceFlags)
+	local band = bit.band(sourceFlags, COMBATLOG_OBJECT_REACTION_HOSTILE)
+	if UnitIsPossessed(PLAYER) and band == 0 then return true end
+	return band == COMBATLOG_OBJECT_REACTION_HOSTILE
+end
+
 function OmniBar_OnEvent(self, event, ...)
 	if event == "COMBAT_LOG_EVENT_UNFILTERED" then
 		if self.disabled then return end
 		local _, subEvent, _, sourceGUID, sourceName, sourceFlags, _,_,_,_,_, spellID, spellName = CombatLogGetCurrentEventInfo()
-		if (subEvent == "SPELL_CAST_SUCCESS" or subEvent == "SPELL_AURA_APPLIED") and bit.band(sourceFlags, COMBATLOG_OBJECT_REACTION_HOSTILE) ~= 0 then
+		if (subEvent == "SPELL_CAST_SUCCESS" or subEvent == "SPELL_AURA_APPLIED") and IsSourceHostile(sourceFlags) then
 			if spellID == 0 and spellIdByName then spellID = spellIdByName[spellName] end
 			if cooldowns[spellID] then
 				OmniBar_UpdateArenaSpecs(self)
