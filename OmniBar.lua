@@ -232,6 +232,24 @@ function OmniBar:Initialize(key, name)
 
 	f.anchor.text:SetText(f.settings.name)
 
+	-- Upgrade custom spells
+	for k,v in pairs(f.settings) do
+		local spellID = tonumber(k:match("^spell(%d+)"))
+		if spellID then
+			if (not f.settings.spells) then
+				f.settings.spells = {}
+				if (not f.settings.noDefault) then
+					for k,v in pairs(cooldowns) do
+						if v.default then f.settings.spells[k] = true end
+					end
+				end
+			end
+			f.settings.spells[spellID] = v
+			f.settings[k] = nil
+		end
+	end
+	f.settings.noDefault = nil
+
 	-- Load the settings
 	OmniBar_LoadSettings(f)
 
@@ -284,6 +302,7 @@ function OmniBar:Create()
 		if not self.db.profile.bars[key] then
 			self:Initialize(key, "OmniBar "..self.index - 1)
 			self:AddBarToOptions(key, true)
+			self:OnEnable()
 			return
 		end
 	end
@@ -607,14 +626,10 @@ end
 
 function OmniBar_IsSpellEnabled(self, spellID)
 	if (not spellID) then return end
-	local key = "spell"..spellID
 
-	-- Check for an explicit rule
-	if type(self.settings[key]) == "boolean" and self.settings[key] then
-		return true
-	end
+	if (not self.settings.spells) then return cooldowns[spellID].default end
 
-	return cooldowns[spellID].default
+	return self.settings.spells[spellID]
 end
 
 function OmniBar_IsUnitEnabled(self, unit)
