@@ -416,8 +416,9 @@ function OmniBar_UpdateBorders(self)
 end
 
 function OmniBar_UpdateArenaSpecs(self)
+	if WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE then return end
 	if self.zone ~= "arena" then return end
-	for i = 1, 5 do
+	for i = 1, MAX_ARENA_SIZE do
 		local specID = GetArenaOpponentSpec(i)
 		if specID and specID > 0 then
 			local name = GetUnitName("arena"..i, true)
