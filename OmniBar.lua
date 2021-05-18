@@ -571,18 +571,34 @@ function OmniBar_OnEvent(self, event, ...)
 			end
 		end
 
-	elseif event == "ARENA_PREP_OPPONENT_SPECIALIZATIONS" or event == "ARENA_OPPONENT_UPDATE" then
-		if self.disabled or not self.settings.adaptive then return end
+	elseif event == "ARENA_PREP_OPPONENT_SPECIALIZATIONS" then
+		if self.disabled or (not self.settings.adaptive) or (not self.settings.showUnused) then return end
 		for i = 1, MAX_ARENA_SIZE do
 			local specID = GetArenaOpponentSpec(i)
 			if specID and specID > 0 then
-				-- only add icons if show unused is checked
-				if not self.settings.showUnused then return end
-				if not self.detected[i] then
-					local class = select(6, GetSpecializationInfoByID(specID))
-					OmniBar_AddIconsByClass(self, class, i, specID)
-					self.detected[i] = class
+				if (not self.detected[i]) then
+					local _,_,_,_,_, class = GetSpecializationInfoByID(specID)
+					if class then
+						OmniBar_AddIconsByClass(self, class, i, specID)
+						self.detected[i] = class
+					end
 				end
+			end
+		end
+
+	elseif event == "ARENA_OPPONENT_UPDATE" then
+		if self.disabled or (not self.settings.adaptive) or (not self.settings.showUnused) then return end
+
+		local unit = ...
+
+		if (not unit) or (not UnitIsPlayer(unit)) then return end
+
+		local _, class = UnitClass(unit)
+		if class then
+			local i = tonumber(unit:match("%d+"))
+			if (not self.detected[i]) then
+				self.detected[i] = class
+				OmniBar_AddIconsByClass(self, class, i)
 			end
 		end
 
@@ -608,7 +624,7 @@ function OmniBar_OnEvent(self, event, ...)
 			if class then
 				if self.detected[guid] then return end
 				self.detected[guid] = class
-				OmniBar_AddIconsByClass(self, class)
+				OmniBar_AddIconsByClass(self, class, guid)
 			end
 		end
 	end
