@@ -692,7 +692,7 @@ end
 
 function OmniBar_IsUnitEnabled(self, unit)
 	if self.settings.units.all then return true end
-	if unit and self.settings.units[unit] then return true end
+	if unit and self.settings.units[unit:lower()] then return true end
 end
 
 function OmniBar_Center(self)
@@ -792,7 +792,7 @@ function OmniBar_AddIcon(self, spellID, sourceGUID, sourceName, init, test, spec
 		if sourceGUID ~= nil then
 			for i = 1, MAX_ARENA_SIZE do
 				local enemy = ARENA .. i
-				if UnitGUID(enemy) == sourceGUID then
+				if sourceGUID == i or sourceGUID == UnitGUID(enemy) then
 					if (not OmniBar_IsUnitEnabled(self, enemy)) then return end
 					break
 				end
