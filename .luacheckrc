@@ -6,6 +6,7 @@ exclude_files = {
 }
 ignore = {
     "11./SLASH_.*",
+    "122",
     "211",
     "212",
     "213",
@@ -25,6 +26,7 @@ read_globals = {
     "CreateFrame",
     "DELETE",
     "FOCUS",
+    "GENERAL",
     "GetAddOnMetadata",
     "GetArenaOpponentSpec",
     "GetBattlefieldScore",
@@ -65,6 +67,7 @@ read_globals = {
     "YES",
     "bit",
     "format",
+    "nop",
     "wipe",
 }
 globals = {
