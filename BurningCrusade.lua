@@ -568,7 +568,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [1022] = { duration = 300, class = "PALADIN" }, -- Blessing of Protection (Rank 1)
+    [1022] = { duration = 300, class = "PALADIN", decrease = 120 }, -- Blessing of Protection (Rank 1)
         [5599] = { parent = 1022 }, -- Blessing of Protection (Rank 2)
         [10278] = { parent = 1022 }, -- Blessing of Protection (Rank 3)
 
