@@ -304,7 +304,7 @@ addon.Cooldowns = {
         [27271] = { parent = 17735 }, -- Suffering (Rank 5)
         [33701] = { parent = 17735 }, -- Suffering (Rank 6)
 
-    [19244] = { duration = 24, class = "WARLOCK" }, -- Spell Lock (Rank 1)
+    [19244] = { duration = 24, class = "WARLOCK", default = true }, -- Spell Lock (Rank 1)
         [19647] = { parent = 19244 }, -- Spell Lock (Rank 2)
 
     [19505] = { duration = 8, class = "WARLOCK" }, -- Devour Magic (Rank 1)
@@ -373,7 +373,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [8042] = { duration = 5, class = "SHAMAN" }, -- Earth Shock (Rank 1)
+    [8042] = { duration = 5, class = "SHAMAN", default = true }, -- Earth Shock (Rank 1)
         [8044] = { parent = 8042 }, -- Earth Shock (Rank 2)
         [8045] = { parent = 8042 }, -- Earth Shock (Rank 3)
         [8046] = { parent = 8042 }, -- Earth Shock (Rank 4)
@@ -1112,7 +1112,7 @@ addon.Cooldowns = {
         [17402] = { parent = 16914 }, -- Hurricane (Rank 3)
         [27012] = { parent = 16914 }, -- Hurricane (Rank 4)
 
-    [16979] = { duration = 15, class = "DRUID" }, -- Feral Charge
+    [16979] = { duration = 15, class = "DRUID", default = true }, -- Feral Charge
 
     --[[ Nature's Swiftness Modifiers
 
@@ -1264,7 +1264,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [2139] = { duration = 24, class = "MAGE" }, -- Counterspell
+    [2139] = { duration = 24, class = "MAGE", default = true }, -- Counterspell
 
     [6143] = { duration = 30, class = "MAGE" }, -- Frost Ward (Rank 1)
         [8461] = { parent = 6143 }, -- Frost Ward (Rank 2)
@@ -1390,7 +1390,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [1766] = { duration = 10, class = "ROGUE" }, -- Kick (Rank 1)
+    [1766] = { duration = 10, class = "ROGUE", default = true }, -- Kick (Rank 1)
         [1767] = { parent = 1766 }, -- Kick (Rank 2)
         [1768] = { parent = 1766 }, -- Kick (Rank 3)
         [1769] = { parent = 1766 }, -- Kick (Rank 4)
@@ -1544,7 +1544,7 @@ addon.Cooldowns = {
 
     -- Warrior
 
-    [72] = { duration = 12, class = "WARRIOR" }, -- Shield Bash (Rank 1)
+    [72] = { duration = 12, class = "WARRIOR", default = true }, -- Shield Bash (Rank 1)
         [1671] = { parent = 72 }, -- Shield Bash (Rank 2)
         [1672] = { parent = 72 }, -- Shield Bash (Rank 3)
         [29704] = { parent = 72 }, -- Shield Bash (Rank 4)
@@ -1670,7 +1670,7 @@ addon.Cooldowns = {
         [11581] = { parent = 6343 }, -- Thunder Clap (Rank 6)
         [25264] = { parent = 6343 }, -- Thunder Clap (Rank 7)
 
-    [6552] = { duration = 10, class = "WARRIOR" }, -- Pummel (Rank 1)
+    [6552] = { duration = 10, class = "WARRIOR", default = true }, -- Pummel (Rank 1)
         [6554] = { parent = 6552 }, -- Pummel (Rank 2)
 
     [6572] = { duration = 5, class = "WARRIOR" }, -- Revenge (Rank 1)
