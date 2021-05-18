@@ -44,6 +44,13 @@ local wipe = wipe
 
 OmniBar = LibStub("AceAddon-3.0"):NewAddon("OmniBar", "AceEvent-3.0", "AceHook-3.0")
 
+-- Apply cooldown reductions
+for k,v in pairs(addon.Cooldowns) do
+	if v['decrease'] then
+		addon.Cooldowns[k]['duration'] = v['duration'] - v['decrease']
+		addon.Cooldowns[k]['decrease'] = nil
+	end
+end
 
 local cooldowns = addon.Cooldowns
 
