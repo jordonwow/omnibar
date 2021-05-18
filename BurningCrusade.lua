@@ -158,8 +158,61 @@ addon.Cooldowns = {
     [30283] = { duration = 20, class = "WARLOCK" }, -- Shadowfury (Rank 1)
         [30413] = { parent = 30283 }, -- Shadowfury (Rank 2)
         [30414] = { parent = 30283 }, -- Shadowfury (Rank 3)
-    [19244] = { duration = 30, class = "WARLOCK" }, -- Spell Lock
-        [19647] = { parent = 19244 },
+
+    -- Warlock Pets
+
+    [3716] = { duration = 5, class = "WARLOCK" }, -- Torment (Rank 1)
+        [7809] = { parent = 3716 }, -- Torment (Rank 2)
+        [7810] = { parent = 3716 }, -- Torment (Rank 3)
+        [7811] = { parent = 3716 }, -- Torment (Rank 4)
+        [11774] = { parent = 3716 }, -- Torment (Rank 5)
+        [11775] = { parent = 3716 }, -- Torment (Rank 6)
+        [27270] = { parent = 3716 }, -- Torment (Rank 7)
+
+    [4511] = { duration = 10, class = "WARLOCK" }, -- Phase Shift
+
+    [6360] = { duration = 4, class = "WARLOCK" }, -- Soothing Kiss (Rank 1)
+        [7813] = { parent = 6360 }, -- Soothing Kiss (Rank 2)
+        [11784] = { parent = 6360 }, -- Soothing Kiss (Rank 3)
+        [11785] = { parent = 6360 }, -- Soothing Kiss (Rank 4)
+        [27275] = { parent = 6360 }, -- Soothing Kiss (Rank 5)
+
+    --[[ Lash of Pain Modifiers
+
+    - Improved Lash of Pain (Rank 1)
+      Reduces the cooldown of your Succubus' Lash of Pain spell by 3 sec.
+      https://tbc.wowhead.com/spell=18128
+
+    - Improved Lash of Pain (Rank 2)
+      Reduces the cooldown of your Succubus' Lash of Pain spell by 6 sec.
+      https://tbc.wowhead.com/spell=18129
+
+    --]]
+
+    [7814] = { duration = 12, class = "WARLOCK", decrease = 6 }, -- Lash of Pain (Rank 1)
+        [7815] = { parent = 7814 }, -- Lash of Pain (Rank 2)
+        [7816] = { parent = 7814 }, -- Lash of Pain (Rank 3)
+        [11778] = { parent = 7814 }, -- Lash of Pain (Rank 4)
+        [11779] = { parent = 7814 }, -- Lash of Pain (Rank 5)
+        [11780] = { parent = 7814 }, -- Lash of Pain (Rank 6)
+        [27274] = { parent = 7814 }, -- Lash of Pain (Rank 7)
+
+    [17735] = { duration = 120, class = "WARLOCK" }, -- Suffering (Rank 1)
+        [17750] = { parent = 17735 }, -- Suffering (Rank 2)
+        [17751] = { parent = 17735 }, -- Suffering (Rank 3)
+        [17752] = { parent = 17735 }, -- Suffering (Rank 4)
+        [27271] = { parent = 17735 }, -- Suffering (Rank 5)
+        [33701] = { parent = 17735 }, -- Suffering (Rank 6)
+
+    [19244] = { duration = 24, class = "WARLOCK" }, -- Spell Lock (Rank 1)
+        [19647] = { parent = 19244 }, -- Spell Lock (Rank 2)
+
+    [19505] = { duration = 8, class = "WARLOCK" }, -- Devour Magic (Rank 1)
+        [19731] = { parent = 19505 }, -- Devour Magic (Rank 2)
+        [19734] = { parent = 19505 }, -- Devour Magic (Rank 3)
+        [19736] = { parent = 19505 }, -- Devour Magic (Rank 4)
+        [27276] = { parent = 19505 }, -- Devour Magic (Rank 5)
+        [27277] = { parent = 19505 }, -- Devour Magic (Rank 6)
 
     -- Shaman
 
@@ -380,6 +433,81 @@ addon.Cooldowns = {
         [24133] = { parent = 19386 }, -- Wyvern Sting (Rank 3)
         [27068] = { parent = 19386 }, -- Wyvern Sting (Rank 4)
     [25999] = { duration = 25, class = "HUNTER" }, -- Boar Charge
+
+    -- Hunter Pets
+
+    [1742] = { duration = 5, class = "HUNTER" }, -- Cower (Rank 1)
+        [1753] = { parent = 1742 }, -- Cower (Rank 2)
+        [1754] = { parent = 1742 }, -- Cower (Rank 3)
+        [1755] = { parent = 1742 }, -- Cower (Rank 4)
+        [1756] = { parent = 1742 }, -- Cower (Rank 5)
+        [16697] = { parent = 1742 }, -- Cower (Rank 6)
+        [27048] = { parent = 1742 }, -- Cower (Rank 7)
+
+    [2649] = { duration = 5, class = "HUNTER" }, -- Growl (Rank 1)
+        [14916] = { parent = 2649 }, -- Growl (Rank 2)
+        [14917] = { parent = 2649 }, -- Growl (Rank 3)
+        [14918] = { parent = 2649 }, -- Growl (Rank 4)
+        [14919] = { parent = 2649 }, -- Growl (Rank 5)
+        [14920] = { parent = 2649 }, -- Growl (Rank 6)
+        [14921] = { parent = 2649 }, -- Growl (Rank 7)
+        [27047] = { parent = 2649 }, -- Growl (Rank 8)
+
+    [7371] = { duration = 25, class = "HUNTER" }, -- Charge (Rank 1)
+        [26177] = { parent = 7371 }, -- Charge (Rank 2)
+        [26178] = { parent = 7371 }, -- Charge (Rank 3)
+        [26179] = { parent = 7371 }, -- Charge (Rank 4)
+        [26201] = { parent = 7371 }, -- Charge (Rank 5)
+        [27685] = { parent = 7371 }, -- Charge (Rank 6)
+
+    [17253] = { duration = 10, class = "HUNTER" }, -- Bite (Rank 1)
+        [17255] = { parent = 17253 }, -- Bite (Rank 2)
+        [17256] = { parent = 17253 }, -- Bite (Rank 3)
+        [17257] = { parent = 17253 }, -- Bite (Rank 4)
+        [17258] = { parent = 17253 }, -- Bite (Rank 5)
+        [17259] = { parent = 17253 }, -- Bite (Rank 6)
+        [17260] = { parent = 17253 }, -- Bite (Rank 7)
+        [17261] = { parent = 17253 }, -- Bite (Rank 8)
+        [27050] = { parent = 17253 }, -- Bite (Rank 9)
+
+    [23099] = { duration = 30, class = "HUNTER" }, -- Dash (Rank 1)
+        [23109] = { parent = 23099 }, -- Dash (Rank 2)
+        [23110] = { parent = 23099 }, -- Dash (Rank 3)
+
+    [23145] = { duration = 30, class = "HUNTER" }, -- Dive (Rank 1)
+        [23147] = { parent = 23145 }, -- Dive (Rank 2)
+        [23148] = { parent = 23145 }, -- Dive (Rank 3)
+
+    [24450] = { duration = 10, class = "HUNTER" }, -- Prowl (Rank 1)
+        [24452] = { parent = 24450 }, -- Prowl (Rank 2)
+        [24453] = { parent = 24450 }, -- Prowl (Rank 3)
+
+    [24640] = { duration = 4, class = "HUNTER" }, -- Scorpid Poison (Rank 1)
+        [24583] = { parent = 24640 }, -- Scorpid Poison (Rank 2)
+        [24586] = { parent = 24640 }, -- Scorpid Poison (Rank 3)
+        [24587] = { parent = 24640 }, -- Scorpid Poison (Rank 4)
+        [27060] = { parent = 24640 }, -- Scorpid Poison (Rank 5)
+
+    [24604] = { duration = 10, class = "HUNTER" }, -- Furious Howl (Rank 1)
+        [24605] = { parent = 24604 }, -- Furious Howl (Rank 2)
+        [24603] = { parent = 24604 }, -- Furious Howl (Rank 3)
+        [24597] = { parent = 24604 }, -- Furious Howl (Rank 4)
+
+    [26064] = { duration = 180, class = "HUNTER" }, -- Shell Shield
+
+    [26090] = { duration = 60, class = "HUNTER" }, -- Thunderstomp (Rank 1)
+        [26187] = { parent = 26090 }, -- Thunderstomp (Rank 2)
+        [26188] = { parent = 26090 }, -- Thunderstomp (Rank 3)
+        [27063] = { parent = 26090 }, -- Thunderstomp (Rank 4)
+
+    [34889] = { duration = 10, class = "HUNTER" }, -- Fire Breath (Rank 1)
+        [35323] = { parent = 34889 }, -- Fire Breath (Rank 2)
+
+    [35346] = { duration = 15, class = "HUNTER" }, -- Warp
+
+    [35387] = { duration = 10, class = "HUNTER" }, -- Poison Spit (Rank 1)
+        [35389] = { parent = 35387 }, -- Poison Spit (Rank 2)
+        [35392] = { parent = 35387 }, -- Poison Spit (Rank 3)
 
     -- Druid
 
