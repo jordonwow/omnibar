@@ -84,6 +84,7 @@ globals = {
     "OmniBar_OnEvent",
     "OmniBar_Position",
     "OmniBar_RefreshIcons",
+    "OmniBar_ResetPosition",
     "OmniBar_SavePosition",
     "OmniBar_SetZone",
     "OmniBar_ShowAnchor",

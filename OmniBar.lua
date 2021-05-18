@@ -665,11 +665,23 @@ function OmniBar_SavePosition(self, set)
 	self.settings.position.frameStrata = frameStrata
 end
 
+function OmniBar_ResetPosition(self)
+	self.settings.position.relativeTo = "UIParent"
+	self.settings.position.relativePoint = "CENTER"
+	self.settings.position.xOfs = 0
+	self.settings.position.yOfs = 0
+	OmniBar_LoadPosition(self)
+end
+
 function OmniBar_LoadPosition(self)
 	self:ClearAllPoints()
 	if self.settings.position then
 		local point = self.settings.position.point or "CENTER"
 		local relativeTo = self.settings.position.relativeTo or "UIParent"
+		if (not _G[relativeTo]) then
+			OmniBar_ResetPosition(self)
+			return
+		end
 		local relativePoint = self.settings.position.relativePoint or "CENTER"
 		local xOfs = self.settings.position.xOfs or 0
 		local yOfs = self.settings.position.yOfs or 0
