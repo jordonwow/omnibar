@@ -778,7 +778,7 @@ local customSpellInfo = {
 		desc = L["Set the duration of the cooldown"],
 		type = "range",
 		min = 1,
-		max = WOW_PROJECT_ID == WOW_PROJECT_CLASSIC and 1200 or 600,
+		softMax = WOW_PROJECT_ID == WOW_PROJECT_CLASSIC and 1200 or 600,
 		step = 1,
 		order = 4,
 		set = function(info, state)
@@ -958,7 +958,7 @@ if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
 					desc = L["Set the duration of the cooldown"],
 					type = "range",
 					min = 1,
-					max = 600,
+					softMax = 600,
 					step = 1,
 					order = 2,
 					set = function(info, state)
