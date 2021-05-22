@@ -239,6 +239,15 @@ function OmniBar:AddCustomSpells()
 
 end
 
+local function OmniBar_IsAdaptive(self)
+	if self.settings.adaptive then return true end
+	for k,v in pairs(self.settings.units) do
+		if v and (not k:match("^arena")) then return end
+	end
+	-- only arena targets are checked, so force adaptive
+	return true
+end
+
 function OmniBar:Initialize(key, name)
 	if not self.db.profile.bars[key] then
 		self.db.profile.bars[key] = { name = name }
@@ -255,6 +264,7 @@ function OmniBar:Initialize(key, name)
 	f.settings.units = f.settings.units or { all = true }
 	f.settings.align = f.settings.align or "CENTER"
 	f.settings.maxIcons = f.settings.maxIcons or 500
+	f.adaptive = OmniBar_IsAdaptive(f)
 	f.key = key
 	f.icons = {}
 	f.active = {}
@@ -350,6 +360,7 @@ function OmniBar:Refresh(full)
 		if f then
 			f.container:SetScale(f.settings.size/BASE_ICON_SIZE)
 			if full then
+				f.adaptive = OmniBar_IsAdaptive(f)
 				OmniBar_OnEvent(f, "PLAYER_ENTERING_WORLD")
 			else
 				OmniBar_LoadPosition(f)
@@ -572,7 +583,7 @@ function OmniBar_OnEvent(self, event, ...)
 		end
 
 	elseif event == "ARENA_PREP_OPPONENT_SPECIALIZATIONS" then
-		if self.disabled or (not self.settings.adaptive) or (not self.settings.showUnused) then return end
+		if self.disabled or (not self.adaptive) or (not self.settings.showUnused) then return end
 		for i = 1, MAX_ARENA_SIZE do
 			local specID = GetArenaOpponentSpec(i)
 			if specID and specID > 0 then
@@ -587,7 +598,7 @@ function OmniBar_OnEvent(self, event, ...)
 		end
 
 	elseif event == "ARENA_OPPONENT_UPDATE" then
-		if self.disabled or (not self.settings.adaptive) or (not self.settings.showUnused) then return end
+		if self.disabled or (not self.adaptive) or (not self.settings.showUnused) then return end
 
 		local unit = ...
 
@@ -612,7 +623,7 @@ function OmniBar_OnEvent(self, event, ...)
 		if self.zone == "arena" then return end
 
 		-- only add icons if show adaptive is checked
-		if not self.settings.showUnused or not self.settings.adaptive then return end
+		if not self.settings.showUnused or (not self.adaptive) then return end
 
 		-- only add icons when we're in combat
 		--if event == "PLAYER_TARGET_CHANGED" and not InCombatLockdown() then return end
@@ -777,7 +788,7 @@ function OmniBar_RefreshIcons(self)
 
 	if self.disabled then return end
 
-	if self.settings.showUnused and not self.settings.adaptive then
+	if self.settings.showUnused and (not self.adaptive) then
 		for spellID,_ in pairs(cooldowns) do
 			if OmniBar_IsSpellEnabled(self, spellID) then
 				OmniBar_AddIcon(self, spellID, nil, nil, true)
