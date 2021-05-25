@@ -28,6 +28,10 @@ addon.Resets = {
 
 addon.Cooldowns = {
 
+    -- General
+
+    [42292] = { duration = 300, class = "GENERAL", default = true }, -- PvP Trinket
+
     -- Priest
 
     [17] = { duration = 4, class = "PRIEST" }, -- Power Word: Shield (Rank 1)
