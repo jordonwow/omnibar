@@ -156,7 +156,7 @@ local function GetSpells()
 			if spell.class and spell.class == CLASS_SORT_ORDER_WITH_GENERAL[i] then
 				local spellName = GetSpellInfo(spellID)
 				if spellName then
-					local spellTexture = GetSpellTexture(spellID) or ""
+					local spellTexture = OmniBar:GetSpellTexture(spellID) or ""
 					if string.len(spellName) > 25 then
 						spellName = string.sub(spellName, 0, 22) .. "..."
 					end
@@ -856,6 +856,22 @@ local customSpellInfo = {
 			OmniBar:AddCustomSpells()
 		end,
 	},
+	icon = {
+		name = "Icon",
+		desc = "Set the icon of the cooldown",
+		type = "input",
+		get = function(info)
+			local spellId = info[#info-1]
+			return tostring(OmniBar:GetSpellTexture(spellId))
+		end,
+		set = function(info, state)
+			local option = info[#info]
+			local spellId = info[#info-1]
+			OmniBar.db.global.cooldowns[tonumber(spellId)][option] = tonumber(state)
+			OmniBar:OnEnable() -- to refresh the bar spells tab
+			OmniBar:AddCustomSpells()
+		end,
+	},
 }
 
 local customSpells = {
@@ -896,7 +912,7 @@ local customSpells = {
 					type = "group",
 					childGroups = "tab",
 					args = customSpellInfo,
-					icon = GetSpellTexture(spellId),
+					icon = OmniBar:GetSpellTexture(spellId),
 				}
 				OmniBar:OnEnable() -- to refresh the bar spells tab
 				LibStub("AceConfigRegistry-3.0"):NotifyChange("OmniBar")
@@ -1015,7 +1031,7 @@ function OmniBar:SetupOptions()
 			type = "group",
 			childGroups = "tab",
 			args = customSpellInfo,
-			icon = GetSpellTexture(spellId),
+			icon = function() return OmniBar:GetSpellTexture(spellId) end,
 		}
 	end
 

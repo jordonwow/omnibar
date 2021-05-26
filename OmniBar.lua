@@ -716,6 +716,11 @@ end
 function OmniBar_IsUnitEnabled(self, unit)
 	if self.settings.units.all then return true end
 	if unit and self.settings.units[unit:lower()] then return true end
+function OmniBar:GetSpellTexture(spellID)
+	spellID = tonumber(spellID)
+	return (addon.Cooldowns[spellID] and addon.Cooldowns[spellID].icon) or GetSpellTexture(spellID)
+end
+
 end
 
 function OmniBar_Center(self)
