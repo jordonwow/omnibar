@@ -18,7 +18,6 @@ local MAX_CLASSES = MAX_CLASSES
 local NO = NO
 local OmniBar_CreateIcon = OmniBar_CreateIcon
 local OmniBar_IsSpellEnabled = OmniBar_IsSpellEnabled
-local OmniBar_IsUnitEnabled = OmniBar_IsUnitEnabled
 local OmniBar_LoadPosition = OmniBar_LoadPosition
 local OmniBar_OnEvent = OmniBar_OnEvent
 local OmniBar_Position = OmniBar_Position
@@ -38,7 +37,7 @@ local nop = nop
 local OmniBar = LibStub("AceAddon-3.0"):GetAddon("OmniBar")
 local L = LibStub("AceLocale-3.0"):GetLocale("OmniBar")
 
-local MAX_ARENA_SIZE = addon.MAX_ARENA_SIZE
+local MAX_ARENA_SIZE = addon.MAX_ARENA_SIZE or 0
 
 local LOCALIZED_CLASS_NAMES_MALE_WITH_GENERAL = LOCALIZED_CLASS_NAMES_MALE
 LOCALIZED_CLASS_NAMES_MALE_WITH_GENERAL["GENERAL"] = GENERAL
@@ -73,11 +72,6 @@ local function IsSpellEnabled(info)
 	local spellID = tonumber(info[#info])
 	local key = info[2]
 	return OmniBar_IsSpellEnabled(_G[key], spellID)
-end
-
-local function IsUnitEnabled(info)
-	local key = info[2]
-	return OmniBar_IsUnitEnabled(_G[key], OmniBar.options.args.bars.args[key].args.units.args[info[4]].args[info[5]].arg)
 end
 
 StaticPopupDialogs["OMNIBAR_DELETE"] = {
@@ -128,6 +122,24 @@ local function GetSpells()
 				OmniBar:Refresh(true)
 			end,
 			order = 2,
+		},
+		checkAll = {
+			name = "Check All Spells",
+			type = "execute",
+			func = function(info)
+				local key = info[#info-2]
+				local bar = _G[key]
+
+				bar.settings.spells = {}
+				for k,v in pairs(addon.Cooldowns) do
+					if (not v.parent) then
+						bar.settings.spells[k] = true
+					end
+				end
+
+				OmniBar:Refresh(true)
+			end,
+			order = 3,
 		},
 	}
 	local descriptions = {}
@@ -190,6 +202,36 @@ local function GetSpells()
 end
 
 function OmniBar:AddBarToOptions(key, refresh)
+	local trackUnits = {
+		ENEMY = "All Enemies",
+		GROUP = "Group Members",
+		PLAYER = PLAYER,
+		TARGET = TARGET,
+		FOCUS = FOCUS,
+		party1 = PARTY .. " 1",
+		party2 = PARTY .. " 2",
+		party3 = PARTY .. " 3",
+		party4 = PARTY .. " 4",
+	}
+
+	local trackUnitsOrder = {
+		"ENEMY",
+		"PLAYER",
+		"TARGET",
+		"FOCUS",
+		"GROUP",
+		"party1",
+		"party2",
+		"party3",
+		"party4",
+	}
+
+	for i = 1, MAX_ARENA_SIZE do
+		local unit = "arena" .. i
+		trackUnits[unit] = ARENA .. " " .. i
+		tinsert(trackUnitsOrder, unit)
+	end
+
 	self.options.args.bars.args[key] = {
 		name = self.db.profile.bars[key].name,
 		type = "group",
@@ -227,24 +269,36 @@ function OmniBar:AddBarToOptions(key, refresh)
 						end,
 						order = 1,
 					},
+					trackUnit = {
+						name = "Track",
+						type = "select",
+						values = trackUnits,
+						sorting = trackUnitsOrder,
+						set = function(info, state)
+							local option = info[#info]
+							self.db.profile.bars[key][option] = state
+							self:Refresh(true)
+						end,
+						order = 2,
+					},
 					lb1 = {
 						name = "",
 						type = "description",
-						order = 2,
+						order = 3,
 					},
 					center = {
 						name = L["Center Lock"],
 						desc = L["Keep the bar centered horizontally"],
 						width = "normal",
 						type = "toggle",
-						order = 3,
+						order = 4,
 					},
 					showUnused = {
 						name = L["Show Unused Icons"],
 						desc = L["Icons will always remain visible"],
 						width = "normal",
 						type = "toggle",
-						order = 4,
+						order = 5,
 						set = function(info, state)
 							local option = info[#info]
 							self.db.profile.bars[key][option] = state
@@ -255,11 +309,11 @@ function OmniBar:AddBarToOptions(key, refresh)
 						name = L["As Enemies Appear"],
 						desc = L["Only show unused icons for arena opponents or enemies you target while in combat"],
 						disabled = function()
-							return not self.db.profile.bars[key].showUnused
+							return (not self.db.profile.bars[key].showUnused) or self.db.profile.bars[key].trackUnit ~= "ENEMY"
 						end,
 						width = "normal",
 						type = "toggle",
-						order = 5,
+						order = 6,
 						set = function(info, state)
 							local option = info[#info]
 							self.db.profile.bars[key][option] = state
@@ -271,7 +325,7 @@ function OmniBar:AddBarToOptions(key, refresh)
 						desc = L["Toggle the grow direction of the icons"],
 						width = "normal",
 						type = "toggle",
-						order = 6,
+						order = 7,
 						set = function(info, state)
 							local option = info[#info]
 							self.db.profile.bars[key][option] = state
@@ -288,21 +342,29 @@ function OmniBar:AddBarToOptions(key, refresh)
 							self.db.profile.bars[key][option] = state
 							self:Refresh(true)
 						end,
-						order = 7,
+						order = 8,
 					},
 					border = {
 						name = L["Show Border"],
 						desc = L["Draw a border around the icons"],
 						width = "normal",
 						type = "toggle",
-						order = 8,
+						order = 9,
 					},
 					highlightTarget = {
 						name = L["Highlight Target"],
 						desc = L["Draw a border around your target"],
 						width = "normal",
 						type = "toggle",
-						order = 9,
+						order = 10,
+						disabled = function()
+							return self.db.profile.bars[key].trackUnit ~= "ENEMY"
+						end,
+						set = function(info, state)
+							local option = info[#info]
+							self.db.profile.bars[key][option] = state
+							self:Refresh(true)
+						end,
 					},
 					names = {
 						name = L["Show Names"],
@@ -315,6 +377,9 @@ function OmniBar:AddBarToOptions(key, refresh)
 						name = L["Track Multiple Players"],
 						desc = L["If another player is detected using the same ability, a duplicate icon will be created and tracked separately"],
 						width = "normal",
+						disabled = function()
+							return self.db.profile.bars[key].trackUnit ~= "ENEMY"
+						end,
 						type = "toggle",
 						order = 16,
 					},
@@ -678,52 +743,20 @@ function OmniBar:AddBarToOptions(key, refresh)
 	}
 
 	if WOW_PROJECT_ID ~= WOW_PROJECT_CLASSIC then
-		local units = {
-			all = {
-				name = "All Enemies",
-				type = "toggle",
-				width = "full",
-				desc = "Track Cooldowns for all enemies ",
-			}
-		}
-
-		for i = 1, MAX_ARENA_SIZE do
-			local name = ARENA .. " " .. i
-			units["arena" .. i] = {
-				name = name,
-				disabled = function()
-					return self.db.profile.bars[key].units.all
-				end,
-				type = "toggle",
-				width = "full",
-				desc = "Track Cooldowns for " .. name,
-			}
-		end
-
-		self.options.args.bars.args[key].args.units = {
-			name = "Units",
-			type = "group",
-			order = 14,
-			arg = key,
-			args = units,
-			get = function(info, state)
-				local option = info[#info]
-				return self.db.profile.bars[key].units[option]
-			end,
-			set = function(info, state)
-				local option = info[#info]
-				self.db.profile.bars[key].units = self.db.profile.bars.units or {}
-				self.db.profile.bars[key].units[option] = state
-				self:Refresh(true)
-			end,
-		}
-
 		self.options.args.bars.args[key].args.settings.args.highlightFocus = {
 			name = L["Highlight Focus"],
 			desc = L["Draw a border around your focus"],
 			width = "normal",
 			type = "toggle",
 			order = 10,
+			disabled = function()
+				return self.db.profile.bars[key].trackUnit ~= "ENEMY"
+			end,
+			set = function(info, state)
+				local option = info[#info]
+				self.db.profile.bars[key][option] = state
+				self:Refresh(true)
+			end,
 		}
 
 		self.options.args.bars.args[key].args.visibility.args.arena = {
