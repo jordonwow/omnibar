@@ -1119,6 +1119,9 @@ function OmniBar_StartCooldown(self, icon, start)
 end
 
 function OmniBar_AddIcon(self, info)
+	-- Filter the spells which cast by Creatures.
+	if (strsplit("-", sourceGUID)) == "Creature" then return end
+	
 	if (not OmniBar_IsUnitEnabled(self, info)) then return end
 	if (not OmniBar_IsSpellEnabled(self, info.spellID)) then return end
 
