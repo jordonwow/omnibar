@@ -1364,6 +1364,8 @@ addon.Cooldowns = {
 
     [31687] = { duration = 180, class = "MAGE" }, -- Summon Water Elemental
 
+    [33395] = { duration = 25, class = "MAGE" }, -- Freeze (Water Elemental)
+
     [43987] = { duration = 300, class = "MAGE" }, -- Ritual of Refreshment
 
     --[[ Ice Block Modifiers
