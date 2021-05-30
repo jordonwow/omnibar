@@ -730,7 +730,7 @@ function OmniBar_OnEvent(self, event, ...)
 		OmniBar_SetZone(self, true)
 
 	elseif event == "UPDATE_BATTLEFIELD_STATUS" then -- IsRatedBattleground() doesn't return valid response until this event
-		if self.zone ~= "pvp" then return end
+		if self.disabled or self.zone ~= "pvp" then return end
 		if (not self.rated) and IsRatedBattleground() then OmniBar_SetZone(self) end
 
 	elseif event == "UPDATE_BATTLEFIELD_SCORE" then
@@ -911,6 +911,7 @@ function OmniBar:GetSpellTexture(spellID)
 end
 
 function OmniBar_SpecUpdated(self, event, name)
+	if self.disabled then return end
 	if self.settings.trackUnit == "GROUP" or UnitIsUnit(self.settings.trackUnit, name) then
 		OmniBar_Refresh(self)
 	end
@@ -1043,6 +1044,8 @@ function OmniBar_CooldownFinish(self, force)
 end
 
 function OmniBar_ReplaySpellCasts(self)
+	if self.disabled then return end
+
 	local now = GetTime()
 
 	for name,_ in pairs(self.spellCasts) do
