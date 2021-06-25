@@ -386,8 +386,8 @@ addon.Cooldowns = {
 
     -- Shaman
 
-    [2825] = { duration = 60, class = "SHAMAN" }, -- Bloodlust
-        [32182] = { parent = 2825 }, -- Heroism
+    [204361] = { duration = 60, class = "SHAMAN" }, -- Bloodlust
+        [204362] = { parent = 2825 }, -- Heroism
     [20608] = { duration = 1800, class = "SHAMAN" }, -- Reincarnation
     [51485] = { duration = 30, class = "SHAMAN" }, -- Earthgrab Totem
     [51514] = { duration = { default = 30, [264] = 10 }, class = "SHAMAN" }, -- Hex
