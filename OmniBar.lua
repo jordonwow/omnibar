@@ -1288,7 +1288,8 @@ function OmniBar_Position(self)
 	if self.settings.showUnused then
 		table.sort(self.active, function(a, b)
 			local x, y = a.ownerName or a.sourceName or "", b.ownerName or b.sourceName or ""
-			if a.class == b.class then
+			local aClass, bClass = a.class or 0, b.class or 0
+			if aClass == bClass then
 				-- if we are tracking a single unit we don't need to sort by name
 				if self.settings.trackUnit ~= "ENEMY" and self.settings.trackUnit ~= "GROUP" then
 					return a.spellID < b.spellID
@@ -1296,7 +1297,7 @@ function OmniBar_Position(self)
 				if x < y then return true end
 				if x == y then return a.spellID < b.spellID end
 			end
-			return CLASS_ORDER[a.class] < CLASS_ORDER[b.class]
+			return CLASS_ORDER[aClass] < CLASS_ORDER[bClass]
 		end)
 	else
 		-- if we aren't showing unused, just sort by added time
