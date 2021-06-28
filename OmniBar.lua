@@ -930,10 +930,14 @@ function OmniBar:GetSpecs()
 		self.specs[PLAYER_NAME] = GetSpecializationInfo(GetSpecialization())
 		self:SendMessage("OmniBar_SpecUpdated", PLAYER_NAME)
 	end
+	if self.lastInspect and GetTime() - self.lastInspect < 3 then
+		return
+	end
 	for i = 1, GetNumGroupMembers() do
 		local name, _,_,_,_, class = GetRaidRosterInfo(i)
 		if name and (not self.specs[name]) and (not UnitIsUnit("player", name)) and CanInspect(name) then
 			self.inspectUnit = name
+			self.lastInspect = GetTime()
 			self:RegisterEvent("INSPECT_READY")
 			NotifyInspect(name)
 			return
