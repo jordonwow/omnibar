@@ -302,6 +302,13 @@ function OmniBar:Initialize(key, name)
 	f.settings.units = nil
 	if (not f.settings.trackUnit) then f.settings.trackUnit = "ENEMY" end
 
+	-- Remove invalid spells
+	if f.settings.spells then
+		for k,_ in pairs(f.settings.spells) do
+			if (not addon.Cooldowns[k]) or addon.Cooldowns[k].parent then f.settings.spells[k] = nil end
+		end
+	end
+
 	f.adaptive = OmniBar_IsAdaptive(f)
 
 	-- Upgrade custom spells
