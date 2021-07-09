@@ -35,7 +35,7 @@ addon.Cooldowns = {
 
     -- General
 
-    [42292] = { duration = 300, class = "GENERAL", icon = 133453, default = true }, -- PvP Trinket
+    [42292] = { duration = 300, class = "GENERAL", icon = 133453 }, -- PvP Trinket
 
     -- Priest
 
