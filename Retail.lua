@@ -24,10 +24,10 @@ addon.Cooldowns = {
     [61999] = { duration = 600, class = "DEATHKNIGHT" }, -- Raise Ally
     [77606] = { duration = 20, class = "DEATHKNIGHT" }, -- Dark Simulacrum
     [212552] = { duration = 60, class = "DEATHKNIGHT" }, -- Wraith Walk
+    [47476] = { duration = 60, class = "DEATHKNIGHT" }, -- Strangulate
 
         -- Blood
 
-        [47476] = { duration = 60, class = "DEATHKNIGHT", specID = { 250 } }, -- Strangulate
         [49028] = { duration = 120, class = "DEATHKNIGHT", specID = { 250 } }, -- Dancing Rune Weapon
         [55233] = { duration = 90, class = "DEATHKNIGHT", specID = { 250 } }, -- Vampiric Blood
         [108199] = { duration = 120, class = "DEATHKNIGHT", specID = { 250 } }, -- Gorefiend's Grasp
@@ -91,7 +91,7 @@ addon.Cooldowns = {
         [196555] = { parent = 212800, duration = 90 }, -- Netherwalk
     [214743] = { duration = 60, class = "DEMONHUNTER" }, -- Soul Carver
         [207407] = { parent = 214743 }, -- Soul Carver (Vengeance)
-    [221527] = { duration = 60, class = "DEMONHUNTER" }, -- Imprison
+    [221527] = { duration = 45, class = "DEMONHUNTER" }, -- Imprison
     [323639] = { duration = 90, class = "DEMONHUNTER" }, -- The Hunt
 
         -- Havoc
