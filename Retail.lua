@@ -265,7 +265,7 @@ addon.Cooldowns = {
         [740] = { duration = 180, class = "DRUID", specID = { 105} }, -- Tranquility
         [18562] = { duration = 25, class = "DRUID", specID = { 105}, charges = 2 }, -- Swiftmend
         [33891] = { duration = 180, class = "DRUID", specID = { 105} }, -- Incarnation: Tree of Life
-        [102342] = { duration = 60, class = "DRUID", specID = { 105} }, -- Ironbark
+        [102342] = { duration = 90, class = "DRUID", specID = { 105} }, -- Ironbark
         [102351] = { duration = 30, class = "DRUID", specID = { 105} }, -- Cenarion Ward
         [102793] = { duration = 60, class = "DRUID", specID = { 105} }, -- Ursol's Vortex
         [197721] = { duration = 90, class = "DRUID", specID = { 105} }, -- Flourish
@@ -360,6 +360,7 @@ addon.Cooldowns = {
         [86121] = { duration = 20, class = "WARLOCK", specID = { 265 } }, -- Soul Swap
         [113860] = { duration = 120, class = "WARLOCK", specID = { 265 } }, -- Dark Soul: Misery
         [205179] = { duration = 45, class = "WARLOCK", specID = { 265 } }, -- Phantom Singularity
+        [205180] = { duration = 180, class = "WARLOCK", specID = { 265 } }, -- Summon Darkglare
 
         -- Demonology
 
@@ -367,7 +368,7 @@ addon.Cooldowns = {
             [115831] = { parent = 89751 }, -- Wrathstorm
         [89766] = { duration = 30, class = "WARLOCK", specID = { 266 } }, -- Axe Toss
         [201996] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Call Observer
-        [205180] = { duration = 24, class = "WARLOCK", specID = { 266 } }, -- Summon Darkglare
+        [265187] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Summon Demonic Tyrant
         [205181] = { duration = 14, class = "WARLOCK", specID = { 266 }, charges = 2 }, -- Shadowflame
         [211714] = { duration = 45, class = "WARLOCK", specID = { 266 } }, -- Thal'kiel's Consumption
         [212459] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Call Fel Lord
