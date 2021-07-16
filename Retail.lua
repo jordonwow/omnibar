@@ -518,7 +518,6 @@ addon.Cooldowns = {
     [45438] = { duration = 300, class = "MAGE", charges = 2 }, -- Ice Block
     [55342] = { duration = 120, class = "MAGE" }, -- Mirror Image
     [80353] = { duration = 300, class = "MAGE" }, -- Time Warp
-    [30449] = { duration = 30, class = "MAGE" }, -- Spellsteal (Kleptomania)
     [108839] = { duration = 20, class = "MAGE", charges = 3 }, -- Ice Floes
     [113724] = { duration = 45, class = "MAGE" }, -- Ring of Frost
     [116011] = { duration = 40, class = "MAGE", charges = 2 }, -- Rune of Power
@@ -534,6 +533,7 @@ addon.Cooldowns = {
         [198158] = { duration = 60, class = "MAGE", specID = { 62 } }, -- Mass Invisibility
         [205025] = { duration = 60, class = "MAGE", specID = { 62 } }, -- Presence of Mind
         [224968] = { duration = 60, class = "MAGE", specID = { 62 } }, -- Mark of Aluneth
+        [30449] = { duration = 30, class = "MAGE", specID = { 62 } }, -- Spellsteal (Kleptomania)
 
         -- Fire
 
