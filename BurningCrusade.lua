@@ -1775,7 +1775,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [20252] = { duration = 30, class = "WARRIOR" }, -- Intercept (Rank 1)
+    [20252] = { duration = 30, class = "WARRIOR", decrease = 15 }, -- Intercept (Rank 1)
         [20616] = { parent = 20252 }, -- Intercept (Rank 2)
         [20617] = { parent = 20252 }, -- Intercept (Rank 3)
         [25272] = { parent = 20252 }, -- Intercept (Rank 4)
