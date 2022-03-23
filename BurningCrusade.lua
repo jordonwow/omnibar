@@ -145,7 +145,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [8122] = { duration = 30, class = "PRIEST", decrease = 4 }, -- Psychic Scream (Rank 1)
+    [8122] = { duration = 30, class = "PRIEST", decrease = 3 }, -- Psychic Scream (Rank 1)
         [8124] = { parent = 8122 }, -- Psychic Scream (Rank 2)
         [10888] = { parent = 8122 }, -- Psychic Scream (Rank 3)
         [10890] = { parent = 8122 }, -- Psychic Scream (Rank 4)
