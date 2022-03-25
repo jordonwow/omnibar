@@ -707,18 +707,32 @@ function OmniBar:AddBarToOptions(key, refresh)
 				arg = key,
 				func = "ToggleLock",
 				handler = OmniBar,
+				width = 0.75,
 				order = 1,
+			},
+			test = {
+				type = "execute",
+				name = L["Test"],
+				desc = L["Activate the icons for testing"],
+				order = 2,
+				width = 0.75,
+				func = function(info)
+					local key = info[#info-1]
+					local bar = _G[key]
+					OmniBar_Test(bar)
+				end,
 			},
 			delete = {
 				type = "execute",
 				name = L["Delete"],
+				width = 0.75,
 				desc = L["Delete the bar"],
 				func = function()
 					local popup = StaticPopup_Show("OMNIBAR_DELETE", self.db.profile.bars[key].name)
 					if popup then popup.data = key end
 				end,
 				arg = key,
-				order = 2,
+				order = 3,
 			},
 		},
 	}
@@ -1096,15 +1110,6 @@ function OmniBar:SetupOptions()
 				name = "|cffffd700 "..L["Author"].."|r Jordon\n",
 				cmdHidden = true
 			},
-			test = {
-				type = "execute",
-				name = L["Test"],
-				desc = L["Activate the icons for testing"],
-				order = 3,
-				func = "Test",
-				handler = OmniBar,
-			},
-
 			bars = {
 				name = L["Bars"],
 				type = "group",
@@ -1118,6 +1123,17 @@ function OmniBar:SetupOptions()
 						order = 1,
 						func = "Create",
 						handler = OmniBar,
+						width = 0.7,
+					},
+					test = {
+						type = "execute",
+						name = L["Test All"],
+						desc = L["Activate the icons for testing"],
+						order = 2,
+						func = "Test",
+						handler = OmniBar,
+						width = 0.7,
+					},
 					},
 				},
 			},

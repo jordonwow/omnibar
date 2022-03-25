@@ -116,3 +116,4 @@ L["Version"] = true
 L["Visibility"] = true
 L["X"] = true
 L["Y"] = true
+L["Test All"] = true
