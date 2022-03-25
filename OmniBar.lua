@@ -204,7 +204,6 @@ local function GetDefaultCommChannel()
 end
 
 function OmniBar:SendVersion(distribution)
-	print("SendVersion")
 	if (not self.version) then return end
 	self:SendCommMessage("OmniBarVersion", tostring(self.version), distribution or GetDefaultCommChannel())
 end
