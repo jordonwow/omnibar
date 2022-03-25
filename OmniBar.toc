@@ -1,6 +1,6 @@
-## Interface: 90100
-## Interface-Classic: 11307
-## Interface-BCC: 20502
+## Interface: 90200
+## Interface-Classic: 11402
+## Interface-BCC: 20504
 ## Title: OmniBar
 ## Notes: Tracks enemy cooldowns
 ## Version: @project-version@
