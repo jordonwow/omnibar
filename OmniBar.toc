@@ -33,5 +33,6 @@ OmniBar.xml
 Retail.lua
 Classic.lua
 BurningCrusade.lua
+UnitInfoHelper.lua
 OmniBar.lua
 Options.lua

@@ -1132,9 +1132,11 @@ function OmniBar_IsUnitEnabled(self, info)
 
 	local name = info.ownerName or info.sourceName
 
-	local isHostile = IsSourceHostile(info.sourceFlags)
+	if self.settings.trackUnit == "ENEMY" and IsSourceHostile(info.sourceFlags) then
+		return true
+	end
 
-	if self.settings.trackUnit == "ENEMY" and isHostile then
+	if self.settings.trackUnit == "ARENA" and addon.IsSourceArena(info.sourceGUID) then
 		return true
 	end
 
@@ -1182,22 +1184,6 @@ end
 function OmniBar_CooldownFinish(self, force)
 	local icon = self:GetParent()
 	if icon.cooldown and icon.cooldown:GetCooldownTimes() > 0 and (not force) then return end -- not complete
-	local charges = icon.charges
-	if charges then
-		charges = charges - 1
-		if charges > 0 then
-			-- remove a charge
-			icon.charges = charges
-			icon.Count:SetText(charges)
-			if self.omnicc then
-				self.omnicc:HookScript('OnHide', function()
-					OmniBar_StartCooldown(icon:GetParent():GetParent(), icon, GetTime())
-				end)
-			end
-			OmniBar_StartCooldown(icon:GetParent():GetParent(), icon, GetTime())
-			return
-		end
-	end
 
 	local bar = icon:GetParent():GetParent()
 
@@ -1350,19 +1336,18 @@ function OmniBar_AddIcon(self, info)
 	icon.duration = info.test and math.random(5,30) or info.duration
 	icon.added = GetTime()
 
+	-- icon.Count shows remaining charges available
 	if icon.charges and info.charges and icon:IsVisible() then
-		local start, duration = icon.cooldown:GetCooldownTimes()
-		if icon.cooldown.finish and icon.cooldown.finish - GetTime() > 1 then
-			-- add a charge
-			local charges = icon.charges + 1
-			icon.charges = charges
-			icon.Count:SetText(charges)
+		if icon.cooldown.finish and icon.cooldown.finish - GetTime() > 1 then -- Optional second charge detected
+			icon.charges = info.charges -- Don't track more than 2 charges
+			addon.EnableCharges(info.sourceGUID, info.spellID)
+			icon.Count:SetText(nil) -- Optional charge used, no remaining charge
 			OmniBar_StartAnimation(self, icon)
 			return icon
 		end
-	elseif info.charges then
-		icon.charges = 1
-		icon.Count:SetText("1")
+	elseif info.charges then -- Icon with opt_charges activated from hidden state, check whether its opt_charges is enabled
+		icon.charges = 1;
+		icon.Count:SetText(addon.GetCharges(info.sourceGUID, info.spellID))
 	else
 		icon.charges = nil
 		icon.Count:SetText(nil)
