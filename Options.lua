@@ -211,6 +211,7 @@ end
 function OmniBar:AddBarToOptions(key, refresh)
 	local trackUnits = {
 		ENEMY = "All Enemies",
+		ARENA = "Arena",
 		GROUP = "Group Members",
 		PLAYER = PLAYER,
 		TARGET = TARGET,
@@ -223,6 +224,7 @@ function OmniBar:AddBarToOptions(key, refresh)
 
 	local trackUnitsOrder = {
 		"ENEMY",
+		"ARENA",
 		"PLAYER",
 		"TARGET",
 		"FOCUS",
@@ -385,7 +387,7 @@ function OmniBar:AddBarToOptions(key, refresh)
 						desc = L["If another player is detected using the same ability, a duplicate icon will be created and tracked separately"],
 						width = "normal",
 						disabled = function()
-							return self.db.profile.bars[key].trackUnit ~= "ENEMY"
+							return self.db.profile.bars[key].trackUnit ~= "ENEMY" and self.db.profile.bars[key].trackUnit ~= "ARENA"
 						end,
 						type = "toggle",
 						order = 16,
