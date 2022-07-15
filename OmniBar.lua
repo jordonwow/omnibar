@@ -920,10 +920,28 @@ function OmniBar_Refresh(self)
 	OmniBar_ReplaySpellCasts(self)
 end
 
+local function Omnibar_ARENA_PREP_OPPONENT_SPECIALIZATIONS(self)
+	if WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE then return end
+	if self.disabled or (not self.adaptive) or (not self.settings.showUnused) then return end
+
+	for i = 1, MAX_ARENA_SIZE do
+		if self.settings.trackUnit == "ENEMY" or self.settings.trackUnit == "arena" .. i then
+			local specID = GetArenaOpponentSpec(i)
+			if specID and specID > 0 and (not self.detected[i]) then
+				local _,_,_,_,_, class = GetSpecializationInfoByID(specID)
+				if class then
+					self.detected[i] = class
+					OmniBar_AddIconsByClass(self, class, i, specID)
+				end
+			end
+		end
+	end
+end
+
 function OmniBar_OnEvent(self, event, ...)
 	if event == "PLAYER_ENTERING_WORLD" then
 		OmniBar_SetZone(self, true)
-		OmniBar_OnEvent(self, "ARENA_PREP_OPPONENT_SPECIALIZATIONS")
+		Omnibar_ARENA_PREP_OPPONENT_SPECIALIZATIONS(self)
 
 	elseif event == "ZONE_CHANGED_NEW_AREA" then
 		OmniBar_SetZone(self, true)
@@ -944,27 +962,15 @@ function OmniBar_OnEvent(self, event, ...)
 		end
 
 	elseif event == "ARENA_PREP_OPPONENT_SPECIALIZATIONS" then
-		if WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE then return end
-		if self.disabled or (not self.adaptive) or (not self.settings.showUnused) then return end
-		for i = 1, MAX_ARENA_SIZE do
-			if self.settings.trackUnit == "ENEMY" or self.settings.trackUnit == "arena" .. i then
-				local specID = GetArenaOpponentSpec(i)
-				if specID and specID > 0 and (not self.detected[i]) then
-					local _,_,_,_,_, class = GetSpecializationInfoByID(specID)
-					if class then
-						self.detected[i] = class
-						OmniBar_AddIconsByClass(self, class, i, specID)
-					end
-				end
-			end
-		end
+		OmniBar_SetZone(self, true)
+		Omnibar_ARENA_PREP_OPPONENT_SPECIALIZATIONS(self);
 
 	elseif event == "ARENA_OPPONENT_UPDATE" then
 		if self.disabled or (not self.settings.showUnused) then return end
 
 		-- we get the info from ARENA_PREP_OPPONENT_SPECIALIZATIONS on retail
 		if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
-			OmniBar_OnEvent(self, "ARENA_PREP_OPPONENT_SPECIALIZATIONS")
+			Omnibar_ARENA_PREP_OPPONENT_SPECIALIZATIONS(self)
 			return
 		end
 
