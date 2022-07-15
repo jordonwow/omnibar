@@ -211,6 +211,7 @@ end
 function OmniBar:AddBarToOptions(key, refresh)
 	local trackUnits = {
 		ENEMY = "All Enemies",
+		ARENA = "Arena",
 		GROUP = "Group Members",
 		PLAYER = PLAYER,
 		TARGET = TARGET,
@@ -223,6 +224,7 @@ function OmniBar:AddBarToOptions(key, refresh)
 
 	local trackUnitsOrder = {
 		"ENEMY",
+		"ARENA",
 		"PLAYER",
 		"TARGET",
 		"FOCUS",
