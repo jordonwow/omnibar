@@ -66,7 +66,7 @@ addon.Cooldowns = {
         [47482] = { duration = 30, class = "DEATHKNIGHT", specID = { 252 } }, -- Leap (Ghoul)
         [49206] = { duration = 180, class = "DEATHKNIGHT", specID = { 252 } }, -- Summon Gargoyle
             [207349] = { parent = 49206 }, -- Dark Arbiter
-        [91802] = { duration = 30, class = "DEATHKNIGHT", specID = { 252 } }, -- Shambling Rush (Ghoul)
+        [91807] = { duration = 30, class = "DEATHKNIGHT", specID = { 252 } }, -- Shambling Rush (Ghoul)
         [207289] = { duration = 120, class = "DEATHKNIGHT", specID = { 252 } }, -- Unholy Frenzy
         [207319] = { duration = 60, class = "DEATHKNIGHT", specID = { 252 } }, -- Corpse Shield
         [220143] = { duration = 90, class = "DEATHKNIGHT", specID = { 252 } }, -- Apocalypse
