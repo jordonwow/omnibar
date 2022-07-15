@@ -827,8 +827,11 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 	if (not addon.Cooldowns[spellID]) then return end
 
 	-- Validate subEvent
-	if ( addon.Cooldowns[spellID].trackEvent == "SPELL_AURA_REMOVED" ) and ( event ~= "SPELL_AURA_REMOVED" ) then return end
-	if ( event ~= "SPELL_CAST_SUCCESS" ) and ( event ~= "SPELL_AURA_APPLIED" ) then return end
+	if ( addon.Cooldowns[spellID].trackEvent == "SPELL_AURA_REMOVED" ) then
+		if ( event ~= "SPELL_AURA_REMOVED" ) then return end
+	elseif ( event ~= "SPELL_CAST_SUCCESS" ) and ( event ~= "SPELL_AURA_APPLIED" ) then
+		return
+	end
 
 	local now = GetTime()
 	local isLocal = (not serverTime)
