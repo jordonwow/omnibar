@@ -140,7 +140,7 @@ addon.Cooldowns = {
     -- Priest
 
     [586] = { duration = 30, class = "PRIEST" }, -- Fade
-    [213602] = { duration = 45 }, -- Greater Fade
+    [213602] = { duration = 45, class = "PRIEST" }, -- Greater Fade
     [32375] = { duration = 45, class = "PRIEST", opt_lower_cd = 25 }, -- Mass Dispel
 	[323673] = { duration = 45, class = "PRIEST" }, -- Mindgames
     [316262] = { duration = 90, class = "PRIEST" }, -- Thoughtsteal
@@ -392,13 +392,13 @@ addon.Cooldowns = {
         [89751] = { duration = 45, class = "WARLOCK", specID = { 266 } }, -- Felstorm
             [115831] = { parent = 89751 }, -- Wrathstorm
         [89766] = { duration = 30, class = "WARLOCK", specID = { 266 } }, -- Axe Toss
-        [119914] = { duration = 30, class = "WARLOCK", specID = { 266 } }, -- Axe Toss (player)
+            [119914] = { parent = 89766 }, -- Axe Toss (player)
         [201996] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Call Observer
         [265187] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Summon Demonic Tyrant
         [205181] = { duration = 14, class = "WARLOCK", specID = { 266 }, charges = 2 }, -- Shadowflame
         [211714] = { duration = 45, class = "WARLOCK", specID = { 266 } }, -- Thal'kiel's Consumption
         [212459] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Call Fel Lord
-        [212619] = { duration = 24, class = "WARLOCK", specID = { 266 } }, -- Call Felhunter
+        [212619] = { default = true, duration = 24, class = "WARLOCK", specID = { 266 } }, -- Call Felhunter
         [212623] = { duration = 15, class = "WARLOCK", specID = { 266 } }, -- Singe Magic
 
         --  Destruction

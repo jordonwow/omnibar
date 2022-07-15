@@ -786,7 +786,6 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 	if self.spellCasts[sourceName] and self.spellCasts[sourceName][spellID_HoJ] and ( not addon.FistOfJusticeDisabled(sourceGUID) ) and ( event == "SPELL_CAST_SUCCESS" ) then
 		local cost = GetSpellPowerCost(spellID);
 		if cost and cost[1] and ( cost[1].type == Enum.PowerType.HolyPower ) then
-			print("Fist of Justice")
 			self.spellCasts[sourceName][spellID_HoJ].duration = self.spellCasts[sourceName][spellID_HoJ].duration - 6
 			if ( self.spellCasts[sourceName][spellID_HoJ].duration < 1 ) then
 				self.spellCasts[sourceName][spellID_HoJ] = nil
