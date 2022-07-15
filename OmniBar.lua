@@ -772,6 +772,29 @@ local function GetCooldownDuration(cooldown, specID)
 end
 
 function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellID, serverTime)
+	-- Update Fist of Justice
+	if sourceGUID and ( event == "SPELL_CAST_START" ) and ( spellID == addon.DisableHoJ.track_cast_start ) then
+		addon.DisableFistOfJustice(sourceGUID);
+		return;
+	elseif sourceGUID and ( event == "SPELL_CAST_SUCCESS" ) and ( spellID == addon.DisableHoJ.track_cast_success ) then
+		addon.DisableFistOfJustice(sourceGUID);
+		return;
+	end
+
+	-- Check if there is a HOJ to reduce
+	local spellID_HoJ = 853;
+	if self.spellCasts[sourceName] and self.spellCasts[sourceName][spellID_HoJ] and ( not addon.FistOfJusticeDisabled(sourceGUID) ) and ( event == "SPELL_CAST_SUCCESS" ) then
+		local cost = GetSpellPowerCost(spellID);
+		if cost and cost[1] and ( cost[1].type == Enum.PowerType.HolyPower ) then
+			print("Fist of Justice")
+			self.spellCasts[sourceName][spellID_HoJ].duration = self.spellCasts[sourceName][spellID_HoJ].duration - 6
+			if ( self.spellCasts[sourceName][spellID_HoJ].duration < 1 ) then
+				self.spellCasts[sourceName][spellID_HoJ] = nil
+			end
+			self:SendMessage("OmniBar_ResetSpellCast", sourceName, spellID);
+		end
+	end
+
 	if (not addon.Resets[spellID]) and (not addon.Cooldowns[spellID]) then return end
 
 	-- unset unknown sourceName
@@ -802,6 +825,10 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 	end
 
 	if (not addon.Cooldowns[spellID]) then return end
+
+	-- Validate subEvent
+	if ( addon.Cooldowns[spellID].trackEvent == "SPELL_AURA_REMOVED" ) and ( event ~= "SPELL_AURA_REMOVED" ) then return end
+	if ( event ~= "SPELL_CAST_SUCCESS" ) and ( event ~= "SPELL_AURA_APPLIED" ) then return end
 
 	local now = GetTime()
 	local isLocal = (not serverTime)
@@ -840,6 +867,7 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 	self.spellCasts[name][spellID] = {
 		charges = charges,
 		duration = duration,
+		opt_lower_cd = addon.Cooldowns[spellID].opt_lower_cd,
 		event = event,
 		expires = now + duration,
 		ownerName = ownerName,
@@ -879,7 +907,7 @@ end
 
 function OmniBar:COMBAT_LOG_EVENT_UNFILTERED()
 	local _, event, _, sourceGUID, sourceName, sourceFlags, _,_,_,_,_, spellID, spellName = CombatLogGetCurrentEventInfo()
-	if (event == "SPELL_CAST_SUCCESS" or event == "SPELL_AURA_APPLIED") then
+	if (event == "SPELL_CAST_SUCCESS" or event == "SPELL_AURA_APPLIED" or event == "SPELL_AURA_REMOVED" or event == "SPELL_CAST_START") then
 		if spellID == 0 and SPELL_ID_BY_NAME then spellID = SPELL_ID_BY_NAME[spellName] end
 		self:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellID)
 	end
@@ -1336,18 +1364,26 @@ function OmniBar_AddIcon(self, info)
 	icon.duration = info.test and math.random(5,30) or info.duration
 	icon.added = GetTime()
 
+	-- Check if opt_lower_cd should be enabled
+	if info.opt_lower_cd and icon:IsVisible() then
+		if icon.cooldown.finish and ( icon.cooldown.finish - GetTime() > 1 ) then -- opt_lower_cd detected
+			addon.EnableOptLowerCooldown(info.sourceGUID, info.spellID)
+			icon.duration = info.opt_lower_cd;
+		end
+	end
+
 	-- icon.Count shows remaining charges available
 	if icon.charges and info.charges and icon:IsVisible() then
 		if icon.cooldown.finish and icon.cooldown.finish - GetTime() > 1 then -- Optional second charge detected
 			icon.charges = info.charges -- Don't track more than 2 charges
-			addon.EnableCharges(info.sourceGUID, info.spellID)
+			addon.EnableOptCharges(info.sourceGUID, info.spellID)
 			icon.Count:SetText(nil) -- Optional charge used, no remaining charge
 			OmniBar_StartAnimation(self, icon)
 			return icon
 		end
 	elseif info.charges then -- Icon with opt_charges activated from hidden state, check whether its opt_charges is enabled
 		icon.charges = 1;
-		icon.Count:SetText(addon.GetCharges(info.sourceGUID, info.spellID))
+		icon.Count:SetText(addon.GetOptCharges(info.sourceGUID, info.spellID))
 	else
 		icon.charges = nil
 		icon.Count:SetText(nil)

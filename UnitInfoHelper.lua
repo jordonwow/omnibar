@@ -1,6 +1,6 @@
 local addonName, addon = ...
 
-addon.arenaInfo = {
+local arenaInfo = {
     unitGUID = {},
 
     -- Only supports arena1/2/3 (via GetArenaOpponentSpec) and player
@@ -9,18 +9,24 @@ addon.arenaInfo = {
 
     -- Key: unitGUID-spellID, value: whether opt charge is enabled
     charges = {},
+
+    -- Key: unitGUID-spellID, value: whether opt_lower_cd is enabled
+    opt_lower_cd = {},
+
+    -- Key: unitGUID, value: whether Fist of Justice is disabled
+    no_hoj_cdr = {},
 };
 
 local arenaInfoFrame = CreateFrame('Frame');
 arenaInfoFrame:RegisterEvent("PLAYER_ENTERING_WORLD");
 arenaInfoFrame:RegisterEvent("ARENA_PREP_OPPONENT_SPECIALIZATIONS");
 arenaInfoFrame:SetScript("OnEvent", function ()
-    addon.arenaInfo.unitGUID = {};
-    addon.arenaInfo.spec = {};
-    addon.arenaInfo.charges = {};
+    arenaInfo.unitGUID = {};
+    arenaInfo.spec = {};
+    arenaInfo.charges = {};
+    arenaInfo.opt_lower_cd = {};
+    arenaInfo.no_hoj_cdr = {};
 end);
-
-local arenaInfo = addon.arenaInfo;
 
 local function updateArenaInfo(unitId, index)
     if ( not arenaInfo.unitGUID[unitId] ) then
@@ -49,12 +55,24 @@ addon.IsSourceArena = function (sourceGUID)
     end
 end
 
-addon.EnableCharges = function (sourceGUID, spellID)
-    arenaInfo.charges[sourceGUID.."-"..spellID] = true
+addon.EnableOptCharges = function (sourceGUID, spellID)
+    arenaInfo.charges[sourceGUID .. "-" .. spellID] = true
 end
 
-addon.GetCharges = function (sourceGUID, spellID)
-    if arenaInfo.charges[sourceGUID.."-"..spellID] then
+addon.GetOptCharges = function (sourceGUID, spellID)
+    if arenaInfo.charges[sourceGUID .. "-" .. spellID] then
         return 1
     end
+end
+
+addon.EnableOptLowerCooldown = function (sourceGUID, spellID)
+    arenaInfo.opt_lower_cd[sourceGUID .. "-" .. spellID] = true
+end
+
+addon.DisableFistOfJustice = function (sourceGUID)
+    arenaInfo.no_hoj_cdr[sourceGUID] = true
+end
+
+addon.FistOfJusticeDisabled = function (sourceGUID)
+    return arenaInfo.no_hoj_cdr[sourceGUID]
 end

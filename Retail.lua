@@ -9,8 +9,32 @@ addon.Resets = {
          - Spell Lock
       ]]
     [111897] = { 119910 },
-    [133] = { { spellID = 190319, amount = 3 } }
+    [133] = { { spellID = 190319, amount = 3 } },
+    -- Shifting Power
+    [314791] = {
+        { spellID = 31661, amount = 10 },
+        { spellID = 113724, amount = 10 },
+        { spellID = 2139, amount = 10 },
+        { spellID = 45438, amount = 10 },
+    },
+    -- Cold Snap
+    [235219] = { 45438 },
+
+    -- Apotheosis
+    [200183] = { 88625 },
+
+    -- Vanish (Memory of Invigorating Shadowdust)
+    [1856] = {
+        { spellID = 2094, amount = 20, },
+        { spellID = 408, amount = 20, },
+        { spellID = 212182, amount = 20, },
+    },
 }
+
+addon.DisableHoJ = {
+    track_cast_start = 20066,
+    track_cast_success = 115750,
+};
 
 addon.Cooldowns = {
 
@@ -123,7 +147,7 @@ addon.Cooldowns = {
 
         -- Discipline
 
-        [8122] = { duration = 30, class = "PRIEST", specID = { 256, 257, 258 } }, -- Psychic Scream
+        [8122] = { duration = 60, class = "PRIEST", specID = { 256, 257, 258 }, opt_lower_cd = 30 }, -- Psychic Scream
         [10060] = { duration = 120, class = "PRIEST", specID = { 256, 258 } }, -- Power Infusion
         [33206] = { duration = 180, class = "PRIEST", specID = { 256 } }, -- Pain Suppression
         [34433] = { duration = 180, class = "PRIEST", specID = { 256, 258 } }, -- Shadowfiend
@@ -166,7 +190,7 @@ addon.Cooldowns = {
 
     [633] = { duration = 600, class = "PALADIN" }, -- Lay on Hands
     [642] = { duration = 300, class = "PALADIN" }, -- Divine Shield
-    [853] = { duration = 60, class = "PALADIN" }, -- Hammer of Justice
+    [853] = { hoj = true, duration = 60, class = "PALADIN" }, -- Hammer of Justice
     [1022] = { duration = 300, class = "PALADIN", charges = 2 }, -- Blessing of Protection
         [204018] = { parent = 1022, duration = 180 }, -- Blessing of Spellwarding
     [1044] = { duration = 25, class = "PALADIN", charges = 2 }, -- Blessing of Freedom
@@ -202,7 +226,7 @@ addon.Cooldowns = {
         [152262] = { duration = 45, class = "PALADIN", specID = { 66 } }, -- Seraphim
         [190784] = { duration = 45, class = "PALADIN", specID = { 66 } }, -- Divine Steed
         [209202] = { duration = 60, class = "PALADIN", specID = { 66 } }, -- Eye of Tyr
-        [215652] = { duration = 45, class = "PALADIN", specID = { 66 } }, -- Shield of Virtue
+        [215652] = { duration = 45, class = "PALADIN", specID = { 66 }, trackEvent = "SPELL_AURA_REMOVED" }, -- Shield of Virtue
 
         -- Retribution
 
