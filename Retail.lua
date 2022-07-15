@@ -49,6 +49,7 @@ addon.Cooldowns = {
     [77606] = { duration = 20, class = "DEATHKNIGHT" }, -- Dark Simulacrum
     [212552] = { duration = 60, class = "DEATHKNIGHT" }, -- Wraith Walk
     [47476] = { duration = 60, class = "DEATHKNIGHT" }, -- Strangulate
+    [315443] = { duration = 120, class = "DEATHKNIGHT" }, -- Abomination Limb
 
         -- Blood
 
@@ -139,8 +140,8 @@ addon.Cooldowns = {
     -- Priest
 
     [586] = { duration = 30, class = "PRIEST" }, -- Fade
-        [213602] = { parent = 586, duration = 45 }, -- Greater Fade
-    [32375] = { duration = 45, class = "PRIEST" }, -- Mass Dispel
+    [213602] = { duration = 45 }, -- Greater Fade
+    [32375] = { duration = 45, class = "PRIEST", opt_lower_cd = 25 }, -- Mass Dispel
 	[323673] = { duration = 45, class = "PRIEST" }, -- Mindgames
     [316262] = { duration = 90, class = "PRIEST" }, -- Thoughtsteal
     [32379] = { duration = 15, class = "PRIEST" }, -- Shadow Word: Death
@@ -170,14 +171,14 @@ addon.Cooldowns = {
         [196762] = { duration = 30, class = "PRIEST", specID = { 257 } }, -- Inner Focus
         [197268] = { duration = 60, class = "PRIEST", specID = { 257 } }, -- Ray of Hope
         [200183] = { duration = 120, class = "PRIEST", specID = { 257 } }, -- Apotheosis
-        [213610] = { duration = 30, class = "PRIEST", specID = { 257 } }, -- Holy Ward
+        [213610] = { duration = 45, class = "PRIEST", specID = { 257 } }, -- Holy Ward
         [215769] = { duration = 300, class = "PRIEST", specID = { 257 } }, -- Spirit of Redemption
         [88625] = { duration = 60, class = "PRIEST", specID = { 257 } }, -- Holy Word: Chastise
 
         -- Shadow
 
         [15286] = { duration = 120, class = "PRIEST", specID = { 258 } }, -- Vampiric Embrace
-        [15487] = { duration = 45, class = "PRIEST", specID = { 258 } }, -- Silence
+        [15487] = { duration = 45, class = "PRIEST", specID = { 258 }, opt_lower_cd = 30 }, -- Silence
         [47585] = { duration = 120, class = "PRIEST", specID = { 258 } }, -- Dispersion
         [64044] = { duration = 45, class = "PRIEST", specID = { 258 } }, -- Psychic Horror
         [108968] = { duration = 300, class = "PRIEST", specID = { 258 } }, -- Void Shift
@@ -241,7 +242,7 @@ addon.Cooldowns = {
 
     [1850] = { duration = 120, class = "DRUID" }, -- Dash
         [252216] = { parent = 1850, duration = 45 }, -- Tiger Dash
-    [5211] = { duration = 50, class = "DRUID" }, -- Mighty Bash
+    [5211] = { duration = 48, class = "DRUID" }, -- Mighty Bash
     [20484] = { duration = 600, class = "DRUID" }, -- Rebirth
     [102280] = { duration = 30, class = "DRUID" }, -- Displacer Beast
     [102359] = { duration = 30, class = "DRUID" }, -- Mass Entanglement
@@ -301,7 +302,7 @@ addon.Cooldowns = {
 
     -- Warrior
 
-    [100] = { duration = 20, class = "WARRIOR" }, -- Charge
+    [100] = { duration = 20, class = "WARRIOR", charges = 2, opt_lower_cd = 17 }, -- Charge
     [147833] = {duration = 30, class = "WARRIOR" }, -- Intervene
     [1719] = { duration = 90, class = "WARRIOR" }, -- Recklessness
     [6544] = { duration = 30, class = "WARRIOR", charges = 2 }, -- Heroic Leap
@@ -315,7 +316,7 @@ addon.Cooldowns = {
     [107574] = { duration = 90, class = "WARRIOR" }, -- Avatar
     [236077] = { duration = 45, class = "WARRIOR" }, -- Disarm
         [236236] = { parent = 236077 }, -- Disarm (Protection)
-    [307865] = { duration = 60, class = "WARRIOR" }, -- Spear of Bastion
+    [307865] = { duration = 50, class = "WARRIOR" }, -- Spear of Bastion
 
         -- Arms
 
@@ -391,6 +392,7 @@ addon.Cooldowns = {
         [89751] = { duration = 45, class = "WARLOCK", specID = { 266 } }, -- Felstorm
             [115831] = { parent = 89751 }, -- Wrathstorm
         [89766] = { duration = 30, class = "WARLOCK", specID = { 266 } }, -- Axe Toss
+        [119914] = { duration = 30, class = "WARLOCK", specID = { 266 } }, -- Axe Toss (player)
         [201996] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Call Observer
         [265187] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Summon Demonic Tyrant
         [205181] = { duration = 14, class = "WARLOCK", specID = { 266 }, charges = 2 }, -- Shadowflame
@@ -481,7 +483,7 @@ addon.Cooldowns = {
 
     [136] = { duration = 10, class = "HUNTER" }, -- Mend Pet
     [1543] = { duration = 20, class = "HUNTER" }, -- Flare
-    [5384] = { duration = 30, class = "HUNTER" }, -- Feign Death
+    [5384] = { duration = 25, class = "HUNTER" }, -- Feign Death
     [53480] = { duration = 60, class = "HUNTER" }, -- Roar of Sacrifice
     [109304] = { duration = 120, class = "HUNTER" }, -- Exhilaration (Beast Mastery, Survival)
     [131894] = { duration = 60, class = "HUNTER" }, -- A Murder of Crows (Beast Mastery, Marksmanship)
@@ -598,7 +600,7 @@ addon.Cooldowns = {
         [408] = { duration = 20, class = "ROGUE", specID = { 259, 261 } }, -- Kidney Shot
         [703] = { duration = 6, class = "ROGUE", specID = { 259 } }, -- Garrote
         [5277] = { duration = 120, class = "ROGUE", specID = { 259, 261 } }, -- Evasion
-        [36554] = { duration = 30, class = "ROGUE", specID = { 259, 261 } }, -- Shadowstep
+        [36554] = { duration = 30, class = "ROGUE", specID = { 259, 261 }, charges = 2 }, -- Shadowstep
         [79140] = { duration = 120, class = "ROGUE", specID = { 259 } }, -- Vendetta
         [192759] = { duration = 45, class = "ROGUE", specID = { 259 } }, -- Kingsbane
         [200806] = { duration = 45, class = "ROGUE", specID = { 259 } }, -- Exsanguinate
@@ -607,7 +609,7 @@ addon.Cooldowns = {
         -- Outlaw
 
         [1776] = { duration = 15, class = "ROGUE", specID = { 260 } }, -- Gouge
-        [2094] = { duration = 120, class = "ROGUE", specID = { 260, 261 } }, -- Blind
+        [2094] = { duration = 120, class = "ROGUE", specID = { 260, 261 }, opt_lower_cd = 90 }, -- Blind
             [199743] = { parent = 2094, duration = 20 }, -- Parley
         [13750] = { duration = 150, class = "ROGUE", specID = { 260 } }, -- Adrenaline Rush
         [51690] = { duration = 120, class = "ROGUE", specID = { 260 } }, -- Killing Spree
@@ -631,7 +633,7 @@ addon.Cooldowns = {
 
     [109132] = { duration = 15, class = "MONK", charges = 3 }, -- Roll
         [115008] = { parent = 109132 }, -- Chi Torpedo
-    [115078] = { duration = 45, class = "MONK" }, -- Paralysis
+    [115078] = { duration = 30, class = "MONK" }, -- Paralysis
     [116841] = { duration = 30, class = "MONK" }, -- Tiger's Lust
     [116844] = { duration = 45, class = "MONK" }, -- Ring of Peace
     [119381] = { duration = 60, class = "MONK" }, -- Leg Sweep
