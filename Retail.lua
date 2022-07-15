@@ -392,7 +392,7 @@ addon.Cooldowns = {
         [89751] = { duration = 45, class = "WARLOCK", specID = { 266 } }, -- Felstorm
             [115831] = { parent = 89751 }, -- Wrathstorm
         [89766] = { duration = 30, class = "WARLOCK", specID = { 266 } }, -- Axe Toss
-            [119914] = { parent = 89766 }, -- Axe Toss (player)
+            --[119914] = { parent = 89766 }, -- Axe Toss (player)
         [201996] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Call Observer
         [265187] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Summon Demonic Tyrant
         [205181] = { duration = 14, class = "WARLOCK", specID = { 266 }, charges = 2 }, -- Shadowflame
