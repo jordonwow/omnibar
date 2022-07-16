@@ -849,6 +849,7 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 
 	local duration = GetCooldownDuration(addon.Cooldowns[spellID])
 	local charges = addon.Cooldowns[spellID].charges
+	local opt_charges = addon.Cooldowns[spellID].opt_charges
 
 	-- child doesn't have custom charges, use parent
 	if (not charges) then
@@ -868,6 +869,7 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 	self.spellCasts[name] = self.spellCasts[name] or {}
 	self.spellCasts[name][spellID] = {
 		charges = charges,
+		opt_charges = opt_charges,
 		duration = duration,
 		opt_lower_cd = addon.Cooldowns[spellID].opt_lower_cd,
 		event = event,
@@ -1316,6 +1318,25 @@ function OmniBar_StartCooldown(self, icon, start)
 	icon:SetAlpha(1)
 end
 
+local function ShouldUseCharge(info)
+	local chargeExpire = addon.GetOptCharge(info);
+	-- Second charge never used, hasn't been detected, or already off cooldown
+	if ( info.charges or info.opt_charges ) and ( ( not chargeExpire ) or ( chargeExpire - GetTime() <= 1 ) ) then
+		return true
+	end
+end
+
+local function IsChargeAvailable(info)
+	local chargeExpire = addon.GetOptCharge(info);
+	-- 2 charges baseline, second charge is available if it's never used or already off cooldown
+	-- For opt_charges, second charge is only available if it's been detected and off cooldown
+	if info.charges and ( ( not chargeExpire ) or ( chargeExpire - GetTime() <= 1 ) ) then
+		return true
+	elseif info.opt_charges and chargeExpire and ( chargeExpire - GetTime() <= 1 ) then
+		return true
+	end
+end
+
 function OmniBar_AddIcon(self, info)
 	if (not OmniBar_IsUnitEnabled(self, info)) then return end
 	if (not OmniBar_IsSpellEnabled(self, info.spellID)) then return end
@@ -1374,30 +1395,36 @@ function OmniBar_AddIcon(self, info)
 
 	-- Check if opt_lower_cd should be enabled
 	if info.opt_lower_cd and icon:IsVisible() then
-		if icon.cooldown.finish and ( icon.cooldown.finish - GetTime() > 1 ) then -- opt_lower_cd detected
-			addon.EnableOptLowerCooldown(info.sourceGUID, info.spellID)
+		if ( not addon.OptLowerCooldownEnabled(info) ) and icon.cooldown.finish and ( icon.cooldown.finish - GetTime() > 1 ) then -- opt_lower_cd detected
+			addon.EnableOptLowerCooldown(info)
+			icon.cooldown.finish = icon.cooldown.finish - ( info.duration - info.opt_lower_cd );
 		end
 	end
 
-	if addon.OptLowerCooldownEnabled(info.sourceGUID, info.spellID) then
+	if addon.OptLowerCooldownEnabled(info) then
 		icon.duration = info.opt_lower_cd;
 	end
 
 	-- icon.Count shows remaining charges available
-	if icon.charges and info.charges and icon:IsVisible() then
-		if icon.cooldown.finish and icon.cooldown.finish - GetTime() > 1 then -- Optional second charge detected
-			icon.charges = info.charges -- Don't track more than 2 charges
-			addon.EnableOptCharges(info.sourceGUID, info.spellID)
-			icon.Count:SetText(nil) -- Optional charge used, no remaining charge
-			OmniBar_StartAnimation(self, icon)
-			return icon
+	if ( info.charges or info.opt_charges ) and icon:IsVisible() then
+		if icon.cooldown.finish and ( icon.cooldown.finish - GetTime() > 1 ) then
+			if ShouldUseCharge(info) then
+				addon.StartOptCharge(info, icon.duration);
+				icon.Count:SetText(nil); -- Second charge used here, none available
+				OmniBar_StartAnimation(self, icon)
+				return icon
+			else
+				icon.Count:SetText(nil);
+			end
 		end
-	elseif info.charges then -- Icon with opt_charges activated from hidden state, check whether its opt_charges is enabled
-		icon.charges = 1;
-		icon.Count:SetText(addon.GetOptCharges(info.sourceGUID, info.spellID))
+	elseif info.charges or info.opt_charges then
+		if IsChargeAvailable(info) then
+			icon.Count:SetText("1")
+		else
+			icon.Count:SetText(nil)
+		end
 	else
-		icon.charges = nil
-		icon.Count:SetText(nil)
+		icon.Count:SetText(nil);
 	end
 
 	if self.settings.names then
@@ -1470,12 +1497,12 @@ function OmniBar_Test(self)
 	OmniBar_ResetIcons(self)
 	if self.settings.spells then
 		for k,v in pairs(self.settings.spells) do
-			OmniBar_AddIcon(self, { spellID = k, test = true })
+			OmniBar_AddIcon(self, { sourceGUID = UnitGUID("player"), spellID = k, test = true })
 		end
 	else
 		for k,v in pairs(addon.Cooldowns) do
 			if v.default then
-				OmniBar_AddIcon(self, { spellID = k, test = true })
+				OmniBar_AddIcon(self, { sourceGUID = UnitGUID("player"), spellID = k, test = true })
 			end
 		end
 	end

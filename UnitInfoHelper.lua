@@ -7,7 +7,7 @@ local arenaInfo = {
     -- Key: unitGUID, value: spec ID
     spec = {},
 
-    -- Key: unitGUID-spellID, value: whether opt charge is enabled
+    -- Key: unitGUID-spellID, value: second charge expirationTime
     charges = {},
 
     -- Key: unitGUID-spellID, value: whether opt_lower_cd is enabled
@@ -55,22 +55,20 @@ addon.IsSourceArena = function (sourceGUID)
     end
 end
 
-addon.EnableOptCharges = function (sourceGUID, spellID)
-    arenaInfo.charges[sourceGUID .. "-" .. spellID] = true
+addon.StartOptCharge = function (info, cooldown)
+    arenaInfo.charges[info.sourceGUID .. "-" .. info.spellID] = GetTime() + cooldown
 end
 
-addon.GetOptCharges = function (sourceGUID, spellID)
-    if arenaInfo.charges[sourceGUID .. "-" .. spellID] then
-        return 1
-    end
+addon.GetOptCharge = function (info)
+    return arenaInfo.charges[info.sourceGUID .. "-" .. info.spellID]
 end
 
-addon.EnableOptLowerCooldown = function (sourceGUID, spellID)
-    arenaInfo.opt_lower_cd[sourceGUID .. "-" .. spellID] = true
+addon.EnableOptLowerCooldown = function (info)
+    arenaInfo.opt_lower_cd[info.sourceGUID .. "-" .. info.spellID] = true
 end
 
-addon.OptLowerCooldownEnabled = function (sourceGUID, spellID)
-    return arenaInfo.opt_lower_cd[sourceGUID .. "-" .. spellID]
+addon.OptLowerCooldownEnabled = function (info)
+    return arenaInfo.opt_lower_cd[info.sourceGUID .. "-" .. info.spellID]
 end
 
 addon.DisableFistOfJustice = function (sourceGUID)
