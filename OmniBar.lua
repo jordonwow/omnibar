@@ -1376,8 +1376,11 @@ function OmniBar_AddIcon(self, info)
 	if info.opt_lower_cd and icon:IsVisible() then
 		if icon.cooldown.finish and ( icon.cooldown.finish - GetTime() > 1 ) then -- opt_lower_cd detected
 			addon.EnableOptLowerCooldown(info.sourceGUID, info.spellID)
-			icon.duration = info.opt_lower_cd;
 		end
+	end
+
+	if addon.OptLowerCooldownEnabled(info.sourceGUID, info.spellID) then
+		icon.duration = info.opt_lower_cd;
 	end
 
 	-- icon.Count shows remaining charges available

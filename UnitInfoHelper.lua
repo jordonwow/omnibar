@@ -69,6 +69,10 @@ addon.EnableOptLowerCooldown = function (sourceGUID, spellID)
     arenaInfo.opt_lower_cd[sourceGUID .. "-" .. spellID] = true
 end
 
+addon.OptLowerCooldownEnabled = function (sourceGUID, spellID)
+    return arenaInfo.opt_lower_cd[sourceGUID .. "-" .. spellID]
+end
+
 addon.DisableFistOfJustice = function (sourceGUID)
     arenaInfo.no_hoj_cdr[sourceGUID] = true
 end
