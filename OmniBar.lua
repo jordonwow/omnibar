@@ -850,6 +850,7 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 	local duration = GetCooldownDuration(addon.Cooldowns[spellID])
 	local charges = addon.Cooldowns[spellID].charges
 	local opt_charges = addon.Cooldowns[spellID].opt_charges
+	local trackPet = addon.Cooldowns[spellID].trackPet
 
 	-- child doesn't have custom charges, use parent
 	if (not charges) then
@@ -872,6 +873,7 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 		opt_charges = opt_charges,
 		duration = duration,
 		opt_lower_cd = addon.Cooldowns[spellID].opt_lower_cd,
+		trackPet = trackPet,
 		event = event,
 		expires = now + duration,
 		ownerName = ownerName,
@@ -1174,7 +1176,7 @@ function OmniBar_IsUnitEnabled(self, info)
 		return true
 	end
 
-	if self.settings.trackUnit == "ARENA" and addon.IsSourceArena(info.sourceGUID) then
+	if self.settings.trackUnit == "ARENA" and addon.IsSourceArena(info.trackPet, info.sourceGUID) then
 		return true
 	end
 

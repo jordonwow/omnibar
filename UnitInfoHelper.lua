@@ -47,9 +47,11 @@ local function arenaUnitGUID(unitId, index)
     return arenaInfo.unitGUID[unitId];
 end
 
-addon.IsSourceArena = function (sourceGUID)
+addon.IsSourceArena = function (trackPet, sourceGUID)
     for i = 1, addon.MAX_ARENA_SIZE do
         if ( sourceGUID == arenaUnitGUID("arena"..i, i) ) then
+            return true
+        elseif trackPet and ( sourceGUID == UnitGUID("arenapet"..i) ) then
             return true
         end
     end

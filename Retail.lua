@@ -91,7 +91,7 @@ addon.Cooldowns = {
         [47482] = { duration = 30, class = "DEATHKNIGHT", specID = { 252 } }, -- Leap (Ghoul)
         [49206] = { duration = 180, class = "DEATHKNIGHT", specID = { 252 } }, -- Summon Gargoyle
             [207349] = { parent = 49206 }, -- Dark Arbiter
-        [91807] = { duration = 30, class = "DEATHKNIGHT", specID = { 252 } }, -- Shambling Rush (Ghoul)
+        [91807] = { duration = 30, class = "DEATHKNIGHT", specID = { 252 }, trackPet = true }, -- Shambling Rush (Ghoul)
         [207289] = { duration = 120, class = "DEATHKNIGHT", specID = { 252 } }, -- Unholy Frenzy
         [207319] = { duration = 60, class = "DEATHKNIGHT", specID = { 252 } }, -- Corpse Shield
         [220143] = { duration = 90, class = "DEATHKNIGHT", specID = { 252 } }, -- Apocalypse
@@ -362,7 +362,7 @@ addon.Cooldowns = {
     [108416] = { duration = 60, class = "WARLOCK" }, -- Dark Pact
     [108501] = { duration = 90, class = "WARLOCK" }, -- Grimoire of Service
     [111896] = { duration = 90, class = "WARLOCK" }, -- Grimoire: Succubus
-    [119910] = { default = true, duration = 24, class = "WARLOCK" }, -- Spell Lock (Command Demon)
+    [119910] = { default = true, duration = 24, class = "WARLOCK", trackPet = true }, -- Spell Lock (Command Demon)
         [19647] = { parent = 119910 }, -- Spell Lock (Felhunter)
         [119911] = { parent = 119910 }, -- Optical Blast (Command Demon)
         [115781] = { parent = 119910 }, -- Optical Blast (Observer)
@@ -391,8 +391,8 @@ addon.Cooldowns = {
 
         [89751] = { duration = 45, class = "WARLOCK", specID = { 266 } }, -- Felstorm
             [115831] = { parent = 89751 }, -- Wrathstorm
-        [89766] = { duration = 30, class = "WARLOCK", specID = { 266 } }, -- Axe Toss
-            --[119914] = { parent = 89766 }, -- Axe Toss (player)
+        [89766] = { duration = 30, class = "WARLOCK", specID = { 266 }, trackPet = true }, -- Axe Toss
+            --[119914] = { parent = 89766 }, -- Axe Toss (Command Demon)
         [201996] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Call Observer
         [265187] = { duration = 90, class = "WARLOCK", specID = { 266 } }, -- Summon Demonic Tyrant
         [205181] = { duration = 14, class = "WARLOCK", specID = { 266 } }, -- Shadowflame
