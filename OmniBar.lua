@@ -66,11 +66,14 @@ local wipe = wipe
 OmniBar = LibStub("AceAddon-3.0"):NewAddon("OmniBar", "AceEvent-3.0", "AceComm-3.0", "AceSerializer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("OmniBar")
 
--- Apply cooldown reductions
+-- Apply cooldown adjustments
 for k,v in pairs(addon.Cooldowns) do
-	if v['decrease'] then
-		addon.Cooldowns[k]['duration'] = v['duration'] - v['decrease']
-		addon.Cooldowns[k]['decrease'] = nil
+	if v.duration and type(v.duration) == "number" then
+		local adjust = v.adjust or 0
+		if type(adjust) == "table" then
+			adjust = adjust.default or 0 -- use default for now
+		end
+		addon.Cooldowns[k].duration = v.duration + adjust
 	end
 end
 
