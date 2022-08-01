@@ -805,7 +805,15 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 
 	if (not name) then return end
 
-	if addon.Resets[spellID] and self.spellCasts[name] and event == "SPELL_CAST_SUCCESS" then
+	if addon.Cooldowns[spellID] and addon.Cooldowns[spellID].reduce_on_interrupt and self.spellCasts[name] and event == "SPELL_INTERRUPT" then
+		if self.spellCasts[name][spellID] then
+			self.spellCasts[name][spellID].duration = self.spellCasts[name][spellID].duration - addon.Cooldowns[spellID].reduce_on_interrupt;
+			if self.spellCasts[name][spellID].duration < 1 then
+				self.spellCasts[name][spellID] = nil
+			end
+		end
+		self:SendMessage("OmniBar_ResetSpellCast", name, spellID)
+	elseif addon.Resets[spellID] and self.spellCasts[name] and event == "SPELL_CAST_SUCCESS" then
 		for i = 1, #addon.Resets[spellID] do
 			local reset = addon.Resets[spellID][i]
 			if type(reset) == "table" and reset.amount then
@@ -913,7 +921,7 @@ end
 
 function OmniBar:COMBAT_LOG_EVENT_UNFILTERED()
 	local _, event, _, sourceGUID, sourceName, sourceFlags, _,_,_,_,_, spellID, spellName = CombatLogGetCurrentEventInfo()
-	if (event == "SPELL_CAST_SUCCESS" or event == "SPELL_AURA_APPLIED" or event == "SPELL_AURA_REMOVED" or event == "SPELL_CAST_START") then
+	if (event == "SPELL_CAST_SUCCESS" or event == "SPELL_AURA_APPLIED" or event == "SPELL_AURA_REMOVED" or event == "SPELL_CAST_START" or event == "SPELL_INTERRUPT") then
 		if spellID == 0 and SPELL_ID_BY_NAME then spellID = SPELL_ID_BY_NAME[spellName] end
 		self:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellID)
 	end

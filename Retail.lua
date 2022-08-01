@@ -140,7 +140,7 @@ addon.Cooldowns = {
     -- Priest
 
     [586] = { duration = 30, class = "PRIEST" }, -- Fade
-    [213602] = { duration = 45, class = "PRIEST" }, -- Greater Fade
+    [213602] = { duration = 60, class = "PRIEST" }, -- Greater Fade
     [32375] = { duration = 45, class = "PRIEST", opt_lower_cd = 25 }, -- Mass Dispel
 	[323673] = { duration = 45, class = "PRIEST" }, -- Mindgames
     [316262] = { duration = 90, class = "PRIEST" }, -- Thoughtsteal
@@ -540,7 +540,7 @@ addon.Cooldowns = {
         [110959] = { parent = 66, duration = 75 }, -- Greater Invisibility
     [1953] = { duration = 15, class = "MAGE"}, -- Blink
         [212653] = { parent = 1953, duration = 20, charges = true }, -- Shimmer
-    [2139] = { default = true, duration = 24, class = "MAGE" }, -- Counterspell
+    [2139] = { default = true, duration = 24, class = "MAGE", reduce_on_interrupt = 4 }, -- Counterspell
     [11426] = { duration = 25, class = "MAGE" }, -- Ice Barrier
     [45438] = { duration = 300, class = "MAGE", opt_charges = true }, -- Ice Block
     [55342] = { duration = 120, class = "MAGE" }, -- Mirror Image
