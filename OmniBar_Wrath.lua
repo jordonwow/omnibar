@@ -12,8 +12,10 @@ addon.Resets = {
         - Ice Block
         - Icy Veins
         - Summon Water Elemental
+        - Deep Freeze
+        - Cone of Cold
       ]]
-    [11958] = { 11426, 6143, 122, 45438, 12472, 31687 },
+    [11958] = { 11426, 6143, 122, 45438, 12472, 31687, 44572, 120 },
 
     --[[ Preparation
         - Evasion
@@ -21,12 +23,11 @@ addon.Resets = {
         - Vanish
         - Cold Blood
         - Shadowstep
-        - Premeditation
         - Blade Flurry (Glyph of Preparation)
         - Kick (Glyph of Preparation)
         - Dismantle (Glyph of Preparation)
       ]]
-    [14185] = { 5277, 2983, 1856, 14177, 36554, 14183, 13877, 1766, 51722 },
+    [14185] = { 5277, 2983, 1856, 14177, 36554, 13877, 1766, 51722 },
 
     --[[ Readiness
         - Concussive Shot
