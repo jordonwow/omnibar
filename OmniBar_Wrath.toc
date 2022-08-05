@@ -1,4 +1,4 @@
-## Interface: 90205
+## Interface: 30400
 ## Title: OmniBar
 ## Notes: Tracks enemy cooldowns
 ## Version: @project-version@
@@ -20,13 +20,11 @@ Libs\AceGUI-3.0\AceGUI-3.0.xml
 Libs\AceConfig-3.0\AceConfig-3.0.xml
 Libs\AceLocale-3.0\AceLocale-3.0.xml
 Libs\AceSerializer-3.0\AceSerializer-3.0.xml
-Libs\LibDualSpec-1.0\LibDualSpec-1.0.lua
 Libs\LibDeflate\LibDeflate.lua
 #@end-no-lib-strip@
 
 Locales\Locales.xml
 OmniBar.xml
-OmniBar_Mainline.lua
-UnitInfoHelper.lua
+OmniBar_Wrath.lua
 OmniBar.lua
 Options.lua

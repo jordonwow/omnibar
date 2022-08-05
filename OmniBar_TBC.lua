@@ -68,7 +68,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [586] = { duration = 30, class = "PRIEST", decrease = 6 }, -- Fade (Rank 1)
+    [586] = { duration = 30, class = "PRIEST", adjust = -6 }, -- Fade (Rank 1)
         [9578] = { parent = 586 }, -- Fade (Rank 2)
         [9579] = { parent = 586 }, -- Fade (Rank 3)
         [9592] = { parent = 586 }, -- Fade (Rank 4)
@@ -117,7 +117,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [8092] = { duration = 8, class = "PRIEST", decrease = 2.5 }, -- Mind Blast (Rank 1)
+    [8092] = { duration = 8, class = "PRIEST", adjust = -2.5 }, -- Mind Blast (Rank 1)
         [8102] = { parent = 8092 }, -- Mind Blast (Rank 2)
         [8103] = { parent = 8092 }, -- Mind Blast (Rank 3)
         [8104] = { parent = 8092 }, -- Mind Blast (Rank 4)
@@ -145,7 +145,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [8122] = { duration = 30, class = "PRIEST", decrease = 3 }, -- Psychic Scream (Rank 1)
+    [8122] = { duration = 30, class = "PRIEST", adjust = -3 }, -- Psychic Scream (Rank 1)
         [8124] = { parent = 8122 }, -- Psychic Scream (Rank 2)
         [10888] = { parent = 8122 }, -- Psychic Scream (Rank 3)
         [10890] = { parent = 8122 }, -- Psychic Scream (Rank 4)
@@ -298,7 +298,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [7814] = { duration = 12, class = "WARLOCK", decrease = 6 }, -- Lash of Pain (Rank 1)
+    [7814] = { duration = 12, class = "WARLOCK", adjust = -6 }, -- Lash of Pain (Rank 1)
         [7815] = { parent = 7814 }, -- Lash of Pain (Rank 2)
         [7816] = { parent = 7814 }, -- Lash of Pain (Rank 3)
         [11778] = { parent = 7814 }, -- Lash of Pain (Rank 4)
@@ -427,7 +427,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [8177] = { duration = 15, class = "SHAMAN", decrease = 2 }, -- Grounding Totem
+    [8177] = { duration = 15, class = "SHAMAN", adjust = -2 }, -- Grounding Totem
 
     [16166] = { duration = 180, class = "SHAMAN" }, -- Elemental Mastery
 
@@ -479,7 +479,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [20608] = { duration = 3600, class = "SHAMAN", decrease = 1200 }, -- Reincarnation
+    [20608] = { duration = 3600, class = "SHAMAN", adjust = -1200 }, -- Reincarnation
 
     [30823] = { duration = 120, class = "SHAMAN" }, -- Shamanistic Rage
 
@@ -508,7 +508,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [633] = { duration = 3600, class = "PALADIN", decrease = 1200 }, -- Lay on Hands (Rank 1)
+    [633] = { duration = 3600, class = "PALADIN", adjust = -1200 }, -- Lay on Hands (Rank 1)
         [2800] = { parent = 633 }, -- Lay on Hands (Rank 2)
         [10310] = { parent = 633 }, -- Lay on Hands (Rank 3)
         [27154] = { parent = 633 }, -- Lay on Hands (Rank 4)
@@ -550,7 +550,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [853] = { duration = 60, class = "PALADIN", decrease = 15 }, -- Hammer of Justice (Rank 1)
+    [853] = { duration = 60, class = "PALADIN", adjust = -15 }, -- Hammer of Justice (Rank 1)
         [5588] = { parent = 853 }, -- Hammer of Justice (Rank 2)
         [5589] = { parent = 853 }, -- Hammer of Justice (Rank 3)
         [10308] = { parent = 853 }, -- Hammer of Justice (Rank 4)
@@ -577,7 +577,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [1022] = { duration = 300, class = "PALADIN", decrease = 120 }, -- Blessing of Protection (Rank 1)
+    [1022] = { duration = 300, class = "PALADIN", adjust = -120 }, -- Blessing of Protection (Rank 1)
         [5599] = { parent = 1022 }, -- Blessing of Protection (Rank 2)
         [10278] = { parent = 1022 }, -- Blessing of Protection (Rank 3)
 
@@ -644,7 +644,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [20271] = { duration = 10, class = "PALADIN", decrease = 2 }, -- Judgement
+    [20271] = { duration = 10, class = "PALADIN", adjust = -2 }, -- Judgement
 
     [20473] = { duration = 15, class = "PALADIN" }, -- Holy Shock (Rank 1)
         [20929] = { parent = 20473 }, -- Holy Shock (Rank 2)
@@ -715,7 +715,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [1499] = { duration = 30, class = "HUNTER", decrease = 6 }, -- Freezing Trap (Rank 1)
+    [1499] = { duration = 30, class = "HUNTER", adjust = -6 }, -- Freezing Trap (Rank 1)
         [14310] = { parent = 1499 }, -- Freezing Trap (Rank 2)
         [14311] = { parent = 1499 }, -- Freezing Trap (Rank 3)
 
@@ -784,7 +784,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [3044] = { duration = 6, class = "HUNTER", decrease = 1 }, -- Arcane Shot (Rank 1)
+    [3044] = { duration = 6, class = "HUNTER", adjust = -1 }, -- Arcane Shot (Rank 1)
         [14281] = { parent = 3044 }, -- Arcane Shot (Rank 2)
         [14282] = { parent = 3044 }, -- Arcane Shot (Rank 3)
         [14283] = { parent = 3044 }, -- Arcane Shot (Rank 4)
@@ -813,7 +813,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [3045] = { duration = 300, class = "HUNTER", decrease = 120 }, -- Rapid Fire
+    [3045] = { duration = 300, class = "HUNTER", adjust = -120 }, -- Rapid Fire
 
     --[[ Concussive Shot Modifiers
 
@@ -827,7 +827,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [5116] = { duration = 12, class = "HUNTER", decrease = 1 }, -- Concussive Shot
+    [5116] = { duration = 12, class = "HUNTER", adjust = -1 }, -- Concussive Shot
 
     --[[ Feign Death Modifiers
 
@@ -859,7 +859,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [13795] = { duration = 30, class = "HUNTER", decrease = 6 }, -- Immolation Trap (Rank 1)
+    [13795] = { duration = 30, class = "HUNTER", adjust = -6 }, -- Immolation Trap (Rank 1)
         [14302] = { parent = 13795 }, -- Immolation Trap (Rank 2)
         [14303] = { parent = 13795 }, -- Immolation Trap (Rank 3)
         [14304] = { parent = 13795 }, -- Immolation Trap (Rank 4)
@@ -886,7 +886,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [13809] = { duration = 30, class = "HUNTER", decrease = 6 }, -- Frost Trap
+    [13809] = { duration = 30, class = "HUNTER", adjust = -6 }, -- Frost Trap
 
     --[[ Explosive Trap Modifiers
 
@@ -908,7 +908,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [13813] = { duration = 30, class = "HUNTER", decrease = 6 }, -- Explosive Trap (Rank 1)
+    [13813] = { duration = 30, class = "HUNTER", adjust = -6 }, -- Explosive Trap (Rank 1)
         [14316] = { parent = 13813 }, -- Explosive Trap (Rank 2)
         [14317] = { parent = 13813 }, -- Explosive Trap (Rank 3)
         [27025] = { parent = 13813 }, -- Explosive Trap (Rank 4)
@@ -977,7 +977,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [34600] = { duration = 30, class = "HUNTER", decrease = 6 }, -- Snake Trap
+    [34600] = { duration = 30, class = "HUNTER", adjust = -6 }, -- Snake Trap
 
     -- Hunter Pets
 
@@ -1197,7 +1197,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [120] = { duration = 10, class = "MAGE", decrease = 2 }, -- Cone of Cold (Rank 1)
+    [120] = { duration = 10, class = "MAGE", adjust = -2 }, -- Cone of Cold (Rank 1)
         [8492] = { parent = 120 }, -- Cone of Cold (Rank 2)
         [10159] = { parent = 120 }, -- Cone of Cold (Rank 3)
         [10160] = { parent = 120 }, -- Cone of Cold (Rank 4)
@@ -1216,7 +1216,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [122] = { duration = 25, class = "MAGE", decrease = 4 }, -- Frost Nova (Rank 1)
+    [122] = { duration = 25, class = "MAGE", adjust = -4 }, -- Frost Nova (Rank 1)
         [865] = { parent = 122 }, -- Frost Nova (Rank 2)
         [6131] = { parent = 122 }, -- Frost Nova (Rank 3)
         [10230] = { parent = 122 }, -- Frost Nova (Rank 4)
@@ -1237,7 +1237,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [1953] = { duration = 15, class = "MAGE", decrease = 2 }, -- Blink
+    [1953] = { duration = 15, class = "MAGE", adjust = -2 }, -- Blink
 
     --[[ Fire Blast Modifiers
 
@@ -1255,7 +1255,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [2136] = { duration = 8, class = "MAGE", decrease = 1.5 }, -- Fire Blast (Rank 1)
+    [2136] = { duration = 8, class = "MAGE", adjust = -1.5 }, -- Fire Blast (Rank 1)
         [2137] = { parent = 2136 }, -- Fire Blast (Rank 2)
         [2138] = { parent = 2136 }, -- Fire Blast (Rank 3)
         [8412] = { parent = 2136 }, -- Fire Blast (Rank 4)
@@ -1312,7 +1312,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [11426] = { duration = 30, class = "MAGE", decrease = 6 }, -- Ice Barrier (Rank 1)
+    [11426] = { duration = 30, class = "MAGE", adjust = -6 }, -- Ice Barrier (Rank 1)
         [13031] = { parent = 11426 }, -- Ice Barrier (Rank 2)
         [13032] = { parent = 11426 }, -- Ice Barrier (Rank 3)
         [13033] = { parent = 11426 }, -- Ice Barrier (Rank 4)
@@ -1331,7 +1331,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [11958] = { duration = 480, class = "MAGE", decrease = 96 }, -- Cold Snap
+    [11958] = { duration = 480, class = "MAGE", adjust = -96 }, -- Cold Snap
 
     [12042] = { duration = 180, class = "MAGE" }, -- Arcane Power
 
@@ -1384,7 +1384,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [45438] = { duration = 300, class = "MAGE", decrease = 60 }, -- Ice Block
+    [45438] = { duration = 300, class = "MAGE", adjust = -60 }, -- Ice Block
 
     -- Rogue
 
@@ -1415,7 +1415,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [1776] = { duration = 10, class = "ROGUE", decrease = 1 }, -- Gouge (Rank 1)
+    [1776] = { duration = 10, class = "ROGUE", adjust = -1 }, -- Gouge (Rank 1)
         [1777] = { parent = 1776 }, -- Gouge (Rank 2)
         [8629] = { parent = 1776 }, -- Gouge (Rank 3)
         [11285] = { parent = 1776 }, -- Gouge (Rank 4)
@@ -1446,7 +1446,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [1784] = { duration = 10, class = "ROGUE", decrease = 5 }, -- Stealth (Rank 1)
+    [1784] = { duration = 10, class = "ROGUE", adjust = -5 }, -- Stealth (Rank 1)
         [1785] = { parent = 1784 }, -- Stealth (Rank 2)
         [1786] = { parent = 1784 }, -- Stealth (Rank 3)
         [1787] = { parent = 1784 }, -- Stealth (Rank 4)
@@ -1471,7 +1471,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [1856] = { duration = 300, class = "ROGUE", decrease = 90 }, -- Vanish (Rank 1)
+    [1856] = { duration = 300, class = "ROGUE", adjust = -90 }, -- Vanish (Rank 1)
         [1857] = { parent = 1856 }, -- Vanish (Rank 2)
         [26889] = { parent = 1856 }, -- Vanish (Rank 3)
 
@@ -1498,7 +1498,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [2094] = { duration = 180, class = "ROGUE", decrease = 90 }, -- Blind
+    [2094] = { duration = 180, class = "ROGUE", adjust = -90 }, -- Blind
 
     --[[ Sprint Modifiers
 
@@ -1512,7 +1512,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [2983] = { duration = 300, class = "ROGUE", decrease = 90 }, -- Sprint (Rank 1)
+    [2983] = { duration = 300, class = "ROGUE", adjust = -90 }, -- Sprint (Rank 1)
         [8696] = { parent = 2983 }, -- Sprint (Rank 2)
         [11305] = { parent = 2983 }, -- Sprint (Rank 3)
 
@@ -1532,7 +1532,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [5277] = { duration = 300, class = "ROGUE", decrease = 90 }, -- Evasion (Rank 1)
+    [5277] = { duration = 300, class = "ROGUE", adjust = -90 }, -- Evasion (Rank 1)
         [26669] = { parent = 5277 }, -- Evasion (Rank 2)
 
     [13750] = { duration = 300, class = "ROGUE" }, -- Adrenaline Rush
@@ -1601,7 +1601,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [871] = { duration = 1800, class = "WARRIOR", decrease = 600 }, -- Shield Wall
+    [871] = { duration = 1800, class = "WARRIOR", adjust = -600 }, -- Shield Wall
 
     --[[ Challenging Shout Modifiers
 
@@ -1615,7 +1615,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [1161] = { duration = 600, class = "WARRIOR", decrease = 180 }, -- Challenging Shout
+    [1161] = { duration = 600, class = "WARRIOR", adjust = -180 }, -- Challenging Shout
 
     --[[ Whirlwind Modifiers
 
@@ -1650,7 +1650,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [1719] = { duration = 1800, class = "WARRIOR", decrease = 600 }, -- Recklessness
+    [1719] = { duration = 1800, class = "WARRIOR", adjust = -600 }, -- Recklessness
 
     [2565] = { duration = 5, class = "WARRIOR" }, -- Shield Block
 
@@ -1723,7 +1723,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [12294] = { duration = 6, class = "WARRIOR", decrease = 1 }, -- Mortal Strike (Rank 1)
+    [12294] = { duration = 6, class = "WARRIOR", adjust = -1 }, -- Mortal Strike (Rank 1)
         [21551] = { parent = 12294 }, -- Mortal Strike (Rank 2)
         [21552] = { parent = 12294 }, -- Mortal Strike (Rank 3)
         [21553] = { parent = 12294 }, -- Mortal Strike (Rank 4)
@@ -1757,7 +1757,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [20230] = { duration = 1800, class = "WARRIOR", decrease = 600 }, -- Retaliation
+    [20230] = { duration = 1800, class = "WARRIOR", adjust = -600 }, -- Retaliation
 
     --[[ Intercept Modifiers
 
@@ -1775,7 +1775,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [20252] = { duration = 30, class = "WARRIOR", decrease = 15 }, -- Intercept (Rank 1)
+    [20252] = { duration = 30, class = "WARRIOR", adjust = -15 }, -- Intercept (Rank 1)
         [20616] = { parent = 20252 }, -- Intercept (Rank 2)
         [20617] = { parent = 20252 }, -- Intercept (Rank 3)
         [25272] = { parent = 20252 }, -- Intercept (Rank 4)

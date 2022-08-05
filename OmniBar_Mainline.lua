@@ -25,9 +25,10 @@ addon.Resets = {
 
     -- Vanish (Memory of Invigorating Shadowdust)
     [1856] = {
-        { spellID = 2094, amount = 20, },
-        { spellID = 408, amount = 20, },
-        { spellID = 212182, amount = 20, },
+        { spellID = 2094, amount = 10, },
+        { spellID = 408, amount = 10, },
+        { spellID = 212182, amount = 10, },
+        { spellID = 1766, amount = 10 },
     },
 }
 
