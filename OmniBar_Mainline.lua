@@ -114,7 +114,7 @@ addon.Cooldowns = {
     [206649] = { duration = 45, class = "DEMONHUNTER" }, -- Eye of Leotheras
     [206803] = { duration = 60, class = "DEMONHUNTER" }, -- Rain from Above
     [212800] = { duration = 60, class = "DEMONHUNTER" }, -- Blur
-        [196555] = { parent = 212800, duration = 90 }, -- Netherwalk
+    [196555] = { duration = 180, class = "DEMONHUNTER" }, -- Netherwalk
     [214743] = { duration = 60, class = "DEMONHUNTER" }, -- Soul Carver
         [207407] = { parent = 214743 }, -- Soul Carver (Vengeance)
     [221527] = { duration = 45, class = "DEMONHUNTER" }, -- Imprison
@@ -166,7 +166,7 @@ addon.Cooldowns = {
         -- Holy
 
         [19236] = { duration = 90, class = "PRIEST", specID = { 256, 257 } }, -- Desperate Prayer
-        [47788] = { duration = 180, class = "PRIEST", specID = { 257 } }, -- Guardian Spirit
+        [47788] = { duration = 60, class = "PRIEST", specID = { 257 } }, -- Guardian Spirit
         [64843] = { duration = 180, class = "PRIEST", specID = { 257 } }, -- Divine Hymn
         [64901] = { duration = 300, class = "PRIEST", specID = { 257 } }, -- Symbol of Hope
         [196762] = { duration = 30, class = "PRIEST", specID = { 257 } }, -- Inner Focus
@@ -180,7 +180,7 @@ addon.Cooldowns = {
 
         [15286] = { duration = 120, class = "PRIEST", specID = { 258 } }, -- Vampiric Embrace
         [15487] = { duration = 45, class = "PRIEST", specID = { 258 }, opt_lower_cd = 30 }, -- Silence
-        [47585] = { duration = 120, class = "PRIEST", specID = { 258 } }, -- Dispersion
+        [47585] = { duration = 90, class = "PRIEST", specID = { 258 } }, -- Dispersion
         [64044] = { duration = 45, class = "PRIEST", specID = { 258 } }, -- Psychic Horror
         [108968] = { duration = 300, class = "PRIEST", specID = { 258 } }, -- Void Shift
         [193223] = { duration = 240, class = "PRIEST", specID = { 258 } }, -- Surrender to Madness
@@ -323,7 +323,7 @@ addon.Cooldowns = {
 
         [5246] = { duration = 90, class = "WARRIOR", specID = { 71, 72 } }, -- Intimidating Shout
         [97462] = { duration = 180, class = "WARRIOR", specID = { 71, 72, 73 } }, -- Rallying Cry
-        [118038] = { duration = 120, class = "WARRIOR", specID = { 71 } }, -- Die by the Sword
+        [118038] = { duration = 80, class = "WARRIOR", specID = { 71 } }, -- Die by the Sword
         [167105] = { duration = 45, class = "WARRIOR", specID = { 71 } }, -- Colossus Smash
             [262161] = { parent = 167105 }, -- Warbreaker
         [197690] = { duration = 10, class = "WARRIOR", specID = { 71 } }, -- Defensive Stance
@@ -336,7 +336,7 @@ addon.Cooldowns = {
 
         -- Fury
 
-        [184364] = { duration = 120, class = "WARRIOR", specID = { 72 } }, -- Enraged Regeneration
+        [184364] = { duration = 80, class = "WARRIOR", specID = { 72 } }, -- Enraged Regeneration
         [205545] = { duration = 45, class = "WARRIOR", specID = { 72 } }, -- Odyn's Fury
 
         -- Protection
@@ -430,7 +430,7 @@ addon.Cooldowns = {
         [309328] = { parent = 51514 }, -- Hex (Living Honey)
     [57994] = { default = true, duration = 12, class = "SHAMAN" }, -- Wind Shear
     [108271] = { duration = 90, class = "SHAMAN" }, -- Astral Shift
-        [210918] = { parent = 108271, duration = 45 }, -- Ethereal Form
+    [210918] = { duration = 45, class = "SHAMAN" }, -- Ethereal Form
     [114049] = { duration = 180, class = "SHAMAN" }, -- Ascendance
         [114050] = { parent = 114049 }, -- Ascendance (Elemental)
         [114051] = { parent = 114049 }, -- Ascendance (Enhancement)
@@ -490,7 +490,7 @@ addon.Cooldowns = {
     [131894] = { duration = 60, class = "HUNTER" }, -- A Murder of Crows (Beast Mastery, Marksmanship)
         [206505] = { parent = 131894 }, -- A Murder of Crows (Survival)
     [186257] = { duration = { default = 180, [253] = 120, [255] = 144 }, class = "HUNTER" }, -- Aspect of the Cheetah
-    [186265] = { duration = { default = 180, [255] = 144 }, class = "HUNTER" }, -- Aspect of the Turtle
+    [186265] = { duration = 180, class = "HUNTER" }, -- Aspect of the Turtle
     [187650] = { duration = 25, class = "HUNTER" }, -- Freezing Trap
     [202914] = { duration = 60, class = "HUNTER" }, -- Spider Sting
     [209997] = { duration = 30, class = "HUNTER" }, -- Play Dead
@@ -572,6 +572,7 @@ addon.Cooldowns = {
         [190319] = { duration = 120, class = "MAGE", specID = { 63 } }, -- Combustion
         [194466] = { duration = 45, class = "MAGE", specID = { 63 }, charges = true }, -- Phoenix's Flames
         [205029] = { duration = 45, class = "MAGE", specID = { 63 } }, -- Flame On
+        [87024] = { duration = 300, class = "MAGE", specID = { 63 } }, -- Cauterize
 
         -- Frost
 
@@ -589,9 +590,9 @@ addon.Cooldowns = {
 
     [1725] = { duration = 30, class = "ROGUE" }, -- Distract
     [1766] = { default = true, duration = 15, class = "ROGUE" }, -- Kick
-    [1856] = { duration = { default = 120, [261] = 30 }, class = "ROGUE" }, -- Vanish
+    [1856] = { duration = 120, class = "ROGUE" }, -- Vanish
     [2983] = { duration = { default = 60, [259] = 51 }, class = "ROGUE" }, -- Sprint
-    [31224] = { duration = { default = 90, [259] = 81 }, class = "ROGUE" }, -- Cloak of Shadows
+    [31224] = { duration = 90, class = "ROGUE" }, -- Cloak of Shadows
     [57934] = { duration = 30, class = "ROGUE" }, -- Tricks of the Trade
     [137619] = { duration = 40, class = "ROGUE" }, -- Marked for Death
     [152150] = { duration = 20, class = "ROGUE" }, -- Death from Above
@@ -600,7 +601,7 @@ addon.Cooldowns = {
 
         [408] = { duration = 20, class = "ROGUE", specID = { 259, 261 } }, -- Kidney Shot
         [703] = { duration = 6, class = "ROGUE", specID = { 259 } }, -- Garrote
-        [5277] = { duration = 120, class = "ROGUE", specID = { 259, 261 } }, -- Evasion
+        [5277] = { duration = 120, class = "ROGUE" }, -- Evasion
         [36554] = { duration = 30, class = "ROGUE", specID = { 259, 261 }, charges = true }, -- Shadowstep
         [79140] = { duration = 120, class = "ROGUE", specID = { 259 } }, -- Vendetta
         [192759] = { duration = 45, class = "ROGUE", specID = { 259 } }, -- Kingsbane
@@ -674,7 +675,7 @@ addon.Cooldowns = {
 
         [115310] = { duration = 180, class = "MONK", specID = { 270 } }, -- Revival
         [116680] = { duration = 30, class = "MONK", specID = { 270 } }, -- Thunder Focus Tea
-        [116849] = { duration = 120, class = "MONK", specID = { 270 } }, -- Life Cocoon
+        [116849] = { duration = 120, class = "MONK", specID = { 270 }, opt_lower_cd = 75 }, -- Life Cocoon
         [197908] = { duration = 90, class = "MONK", specID = { 270 } }, -- Mana Tea
         [198898] = { duration = 30, class = "MONK", specID = { 270 } }, -- Song of Chi-Ji
         [115450] = { duration = 8, class = "MONK", specID = { 270 } }, -- Detox
