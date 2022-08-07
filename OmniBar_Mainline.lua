@@ -51,6 +51,7 @@ addon.Cooldowns = {
     [212552] = { duration = 60, class = "DEATHKNIGHT" }, -- Wraith Walk
     [47476] = { duration = 60, class = "DEATHKNIGHT" }, -- Strangulate
     [315443] = { duration = 120, class = "DEATHKNIGHT" }, -- Abomination Limb
+    [49039] = { duration = 120, class = "DEATHKNIGHT" }, -- Lichborne
 
         -- Blood
 
