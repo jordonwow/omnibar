@@ -73,7 +73,7 @@ addon.Cooldowns = {
 
         [47568] = { duration = 120, class = "DEATHKNIGHT", specID = { 251 } }, -- Empower Rune Weapon
             [207127] = { parent = 47568 }, -- Hungering Rune Weapon
-        [48792] = { duration = 180, class = "DEATHKNIGHT", specID = { 251, 252 } }, -- Icebound Fortitude
+        [48792] = { duration = 140, class = "DEATHKNIGHT", specID = { 251, 252 } }, -- Icebound Fortitude
         [51271] = { duration = 45, class = "DEATHKNIGHT", specID = { 251 } }, -- Pillar of Frost
         [152279] = { duration = 120, class = "DEATHKNIGHT", specID = { 251} }, -- Breath of Sindragosa
         [196770] = { duration = 20, class = "DEATHKNIGHT", specID = { 251 } }, -- Remorseless Winter
@@ -192,7 +192,7 @@ addon.Cooldowns = {
     -- Paladin
 
     [633] = { duration = 600, class = "PALADIN" }, -- Lay on Hands
-    [642] = { duration = 300, class = "PALADIN" }, -- Divine Shield
+    [642] = { duration = 300, class = "PALADIN", opt_lower_cd = 210 }, -- Divine Shield
     [853] = { hoj = true, duration = 60, class = "PALADIN" }, -- Hammer of Justice
     [1022] = { duration = 300, class = "PALADIN", opt_charges = true }, -- Blessing of Protection
         [204018] = { parent = 1022, duration = 180 }, -- Blessing of Spellwarding
@@ -544,7 +544,7 @@ addon.Cooldowns = {
         [212653] = { parent = 1953, duration = 20, charges = true }, -- Shimmer
     [2139] = { default = true, duration = 24, class = "MAGE", reduce_on_interrupt = 4 }, -- Counterspell
     [11426] = { duration = 25, class = "MAGE" }, -- Ice Barrier
-    [45438] = { duration = 300, class = "MAGE", opt_charges = true }, -- Ice Block
+    [45438] = { duration = 300, class = "MAGE" }, -- Ice Block
     [55342] = { duration = 120, class = "MAGE" }, -- Mirror Image
     [80353] = { duration = 300, class = "MAGE" }, -- Time Warp
     [108839] = { duration = 20, class = "MAGE", charges = true }, -- Ice Floes

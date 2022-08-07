@@ -70,6 +70,8 @@ addon.EnableOptLowerCooldown = function (info)
 end
 
 addon.OptLowerCooldownEnabled = function (info)
+    if ( not info.sourceGUID ) then return end
+
     return arenaInfo.opt_lower_cd[info.sourceGUID .. "-" .. info.spellID]
 end
 
