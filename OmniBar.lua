@@ -780,8 +780,7 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 		addon.DisableFistOfJustice(sourceGUID);
 		return;
 	elseif sourceGUID and ( event == "SPELL_CAST_SUCCESS" ) and ( spellID == addon.DisableHoJ.track_cast_success ) then
-		addon.DisableFistOfJustice(sourceGUID);
-		return;
+		addon.DisableFistOfJustice(sourceGUID); -- Continue to track cooldown of Blinding Light
 	end
 
 	-- Check if there is a HOJ to reduce
