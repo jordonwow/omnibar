@@ -1,7 +1,5 @@
 local addonName, addon = ...
 
-if WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE then return end
-
 addon.MAX_ARENA_SIZE = 3
 
 addon.Resets = {
