@@ -115,6 +115,16 @@ addon.Cooldowns = {
     -- General
 
     [42292] = { duration = 120, class = "GENERAL", icon = 133453 }, -- PvP Trinket
+    [7744] = { duration = 120, class = "GENERAL" }, -- Will of the Forsaken
+    [25046] = { duration = 120, class = "GENERAL" }, -- Arcane Torrent (Energy)
+        [28730] = { parent = 25046 }, -- Arcane Torrent (Mana)
+        [50613] = { parent = 25046 }, -- Arcane Torrent (Runic Power)
+    [20594] = { duration = 120, class = "GENERAL" }, -- Stoneform
+    [20549] = { duration = 120, class = "GENERAL" }, -- War Stomp
+    [26297] = { duration = 180, class = "GENERAL" }, -- Berserking
+    [20572] = { duration = 120, class = "GENERAL" }, -- Blood Fury
+      [33697] = { parent = 20572 },
+      [33702] = { parent = 20572 },
 
     -- Priest
 
