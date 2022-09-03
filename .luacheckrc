@@ -96,6 +96,7 @@ read_globals = {
     "nop",
     "tinsert",
     "wipe",
+    "tContains",
 }
 globals = {
     "OmniBar",

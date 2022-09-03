@@ -2,6 +2,8 @@ local addonName, addon = ...
 
 addon.MAX_ARENA_SIZE = 3
 
+addon.Shared = {}
+
 addon.Resets = {
     --[[ Grimoire: Felhunter
          - Spell Lock

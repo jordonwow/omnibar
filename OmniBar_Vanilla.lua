@@ -1,5 +1,6 @@
 local addonName, addon = ...
 
+addon.Shared = {}
 
 addon.Resets = {
     --[[ Cold Snap

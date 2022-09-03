@@ -2,6 +2,51 @@ local addonName, addon = ...
 
 addon.MAX_ARENA_SIZE = 5
 
+addon.Shared = {
+    -- PvP Trinket, Will of the Forsaken
+    {
+        spells = { 42292, 7744 },
+        amount = 45,
+    },
+
+    -- Freezing Arrow, Freezing Trap, Frost Trap
+    {
+        spells = { 60192, 1499, 14310, 14311, 13809 },
+        amount = { Survival = 22, default = 28 }
+    },
+
+    -- Immolation Trap, Explosive Trap
+    {
+        spells = { 13795, 14302, 14303, 14304, 14305, 27023, 49055, 49056, 13813, 14316, 14317, 27025, 49066, 49067 },
+        amount = { Survival = 22, default = 28 }
+    },
+
+    -- Aimed Shot, Multi-Shot
+    {
+        spells = { 19434, 20900, 20901, 20902, 20903, 20904, 27065, 49049, 49050, 2643, 14288, 14289, 14290, 25294, 27021, 49047, 49048 },
+        amount = 10,
+    },
+
+    -- Feral Charge - Bear, Feral Charge - Cat
+    {
+        spells = { 16979, 49376 },
+        amount = 15,
+    },
+
+    -- Recklessness, Shield Wall, Retaliation
+    {
+        spells = { 1719, 871, 20230 },
+        amount = 12
+    },
+
+    -- Avenging Wrath → Divine Protection, Divine Shield, Lay on Hands
+    {
+        triggers = { 31884 },
+        spells = { 498, 642, 633, 2800, 10310, 27154, 48788 },
+        amount = 30
+    },
+}
+
 addon.Resets = {
     --[[ Cold Snap
         - Ice Barrier

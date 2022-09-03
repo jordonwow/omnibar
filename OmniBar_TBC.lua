@@ -2,6 +2,8 @@ local addonName, addon = ...
 
 addon.MAX_ARENA_SIZE = 5
 
+addon.Shared = {}
+
 addon.Resets = {
     --[[ Cold Snap
         - Ice Barrier
