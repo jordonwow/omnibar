@@ -1046,7 +1046,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [8042] = { duration = 6, class = "SHAMAN", default = true, adjust = { Elemental = -1, Enhancement = -1 } }, -- Earth Shock (Rank 1)
+    [8042] = { duration = 6, class = "SHAMAN", adjust = { Elemental = -1, Enhancement = -1 } }, -- Earth Shock (Rank 1)
         [8044] = { parent = 8042 }, -- Earth Shock (Rank 2)
         [8045] = { parent = 8042 }, -- Earth Shock (Rank 3)
         [8046] = { parent = 8042 }, -- Earth Shock (Rank 4)
@@ -2169,7 +2169,7 @@ addon.Cooldowns = {
 
     [34477] = { duration = 30, class = "HUNTER" }, -- Misdirection
 
-    [34490] = { duration = 20, class = "HUNTER" }, -- Silencing Shot
+    [34490] = { duration = 20, class = "HUNTER", default = true }, -- Silencing Shot
 
     --[[ Snake Trap Modifiers
 
@@ -3476,7 +3476,7 @@ addon.Cooldowns = {
 
     [16857] = { duration = 6, class = "DRUID" }, -- Faerie Fire (Feral)
 
-    [16979] = { duration = 15, class = "DRUID" }, -- Feral Charge - Bear
+    [16979] = { duration = 15, class = "DRUID", default = true }, -- Feral Charge - Bear
 
     [17116] = { duration = 180, class = "DRUID" }, -- Nature's Swiftness
 
@@ -3679,7 +3679,7 @@ addon.Cooldowns = {
         [42872] = { parent = 2136 }, -- Fire Blast (Rank 10)
         [42873] = { parent = 2136 }, -- Fire Blast (Rank 11)
 
-    [2139] = { duration = 24, class = "MAGE" }, -- Counterspell
+    [2139] = { duration = 24, class = "MAGE", default = true }, -- Counterspell
 
     [6143] = { duration = 30, class = "MAGE" }, -- Frost Ward (Rank 1)
         [8461] = { parent = 6143 }, -- Frost Ward (Rank 2)
@@ -3881,7 +3881,7 @@ addon.Cooldowns = {
 
     [1725] = { duration = 30, class = "ROGUE", adjust = { Subtlety = -10 } }, -- Distract
 
-    [1766] = { duration = 10, class = "ROGUE" }, -- Kick
+    [1766] = { duration = 10, class = "ROGUE", default = true }, -- Kick
 
     [1776] = { duration = 10, class = "ROGUE" }, -- Gouge
 
@@ -4069,7 +4069,7 @@ addon.Cooldowns = {
 
     -- Warrior
 
-    [72] = { duration = 12, class = "WARRIOR" }, -- Shield Bash
+    [72] = { duration = 12, class = "WARRIOR", default = true }, -- Shield Bash
 
     --[[ Charge Modifiers
 
@@ -4211,7 +4211,7 @@ addon.Cooldowns = {
         [47501] = { parent = 6343 }, -- Thunder Clap (Rank 8)
         [47502] = { parent = 6343 }, -- Thunder Clap (Rank 9)
 
-    [6552] = { duration = 10, class = "WARRIOR" }, -- Pummel
+    [6552] = { duration = 10, class = "WARRIOR", default = true }, -- Pummel
 
     --[[ Revenge Modifiers
 
