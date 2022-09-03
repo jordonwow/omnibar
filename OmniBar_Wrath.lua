@@ -1818,7 +1818,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [1499] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2} }, -- Freezing Trap (Rank 1)
+    [1499] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2 } }, -- Freezing Trap (Rank 1)
         [14310] = { parent = 1499 }, -- Freezing Trap (Rank 2)
         [14311] = { parent = 1499 }, -- Freezing Trap (Rank 3)
 
@@ -1980,7 +1980,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [13795] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2} }, -- Immolation Trap (Rank 1), cooldown incurred when Black Arrow is cast
+    [13795] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2 } }, -- Immolation Trap (Rank 1), cooldown incurred when Black Arrow is cast
         [14302] = { parent = 13795 }, -- Immolation Trap (Rank 2)
         [14303] = { parent = 13795 }, -- Immolation Trap (Rank 3)
         [14304] = { parent = 13795 }, -- Immolation Trap (Rank 4)
@@ -2009,7 +2009,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [13809] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2} }, -- Frost Trap
+    [13809] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2 } }, -- Frost Trap
 
     --[[ Explosive Trap Modifiers
 
@@ -2032,7 +2032,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [13813] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2} }, -- Explosive Trap (Rank 1), cooldown incurred when Black Arrow is cast
+    [13813] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2 } }, -- Explosive Trap (Rank 1), cooldown incurred when Black Arrow is cast
         [14316] = { parent = 13813 }, -- Explosive Trap (Rank 2)
         [14317] = { parent = 13813 }, -- Explosive Trap (Rank 3)
         [27025] = { parent = 13813 }, -- Explosive Trap (Rank 4)
@@ -2191,7 +2191,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [34600] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2} }, -- Snake Trap
+    [34600] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2 } }, -- Snake Trap
 
     --[[ Chimera Shot Modifiers
 
@@ -2250,7 +2250,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [60192] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2} }, -- Freezing Arrow
+    [60192] = { duration = 30, class = "HUNTER", adjust = { Survival = -8, default = -2 } }, -- Freezing Arrow
 
     [62757] = { duration = 300, class = "HUNTER" }, -- Call Stabled Pet
 
@@ -2342,7 +2342,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [4167] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12} }, -- Web
+    [4167] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12 } }, -- Web
 
     --[[ Dive Modifiers
 
@@ -2376,7 +2376,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [23145] = { duration = 32, class = "HUNTER", adjust = { ["Beast Mastery"] = -20.8, default = -16} }, -- Dive
+    [23145] = { duration = 32, class = "HUNTER", adjust = { ["Beast Mastery"] = -20.8, default = -16 } }, -- Dive
 
     --[[ Demoralizing Screech Modifiers
 
@@ -2394,7 +2394,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [24423] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3} }, -- Demoralizing Screech (Rank 1)
+    [24423] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3 } }, -- Demoralizing Screech (Rank 1)
         [24577] = { parent = 24423 }, -- Demoralizing Screech (Rank 2)
         [24578] = { parent = 24423 }, -- Demoralizing Screech (Rank 3)
         [24579] = { parent = 24423 }, -- Demoralizing Screech (Rank 4)
@@ -2417,7 +2417,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [24450] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3} }, -- Prowl (Rank 1)
+    [24450] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3 } }, -- Prowl (Rank 1)
         [24452] = { parent = 24450 }, -- Prowl (Rank 2)
         [24453] = { parent = 24450 }, -- Prowl (Rank 3)
 
@@ -2437,7 +2437,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [24640] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3} }, -- Scorpid Poison (Rank 1)
+    [24640] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3 } }, -- Scorpid Poison (Rank 1)
         [24583] = { parent = 24640 }, -- Scorpid Poison (Rank 2)
         [24586] = { parent = 24640 }, -- Scorpid Poison (Rank 3)
         [24587] = { parent = 24640 }, -- Scorpid Poison (Rank 4)
@@ -2460,7 +2460,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [24604] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12} }, -- Furious Howl (Rank 1)
+    [24604] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12 } }, -- Furious Howl (Rank 1)
         [64491] = { parent = 24604 }, -- Furious Howl (Rank 2)
         [64492] = { parent = 24604 }, -- Furious Howl (Rank 3)
         [64493] = { parent = 24604 }, -- Furious Howl (Rank 4)
@@ -2483,7 +2483,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [24844] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3} }, -- Lightning Breath (Rank 1)
+    [24844] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3 } }, -- Lightning Breath (Rank 1)
         [25008] = { parent = 24844 }, -- Lightning Breath (Rank 2)
         [25009] = { parent = 24844 }, -- Lightning Breath (Rank 3)
         [25010] = { parent = 24844 }, -- Lightning Breath (Rank 4)
@@ -2506,7 +2506,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [26064] = { duration = 60, class = "HUNTER", adjust = { ["Beast Mastery"] = -18} }, -- Shell Shield
+    [26064] = { duration = 60, class = "HUNTER", adjust = { ["Beast Mastery"] = -18 } }, -- Shell Shield
 
     --[[ Pummel Modifiers
 
@@ -2524,7 +2524,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [26090] = { duration = 30, class = "HUNTER", adjust = { ["Beast Mastery"] = -9} }, -- Pummel
+    [26090] = { duration = 30, class = "HUNTER", adjust = { ["Beast Mastery"] = -9 } }, -- Pummel
 
     --[[ Fire Breath Modifiers
 
@@ -2542,7 +2542,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [34889] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3} }, -- Fire Breath (Rank 1)
+    [34889] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3 } }, -- Fire Breath (Rank 1)
         [35323] = { parent = 34889 }, -- Fire Breath (Rank 2)
         [55482] = { parent = 34889 }, -- Fire Breath (Rank 3)
         [55483] = { parent = 34889 }, -- Fire Breath (Rank 4)
@@ -2565,7 +2565,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [35290] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3} }, -- Gore (Rank 1)
+    [35290] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3 } }, -- Gore (Rank 1)
         [35291] = { parent = 35290 }, -- Gore (Rank 2)
         [35292] = { parent = 35290 }, -- Gore (Rank 3)
         [35293] = { parent = 35290 }, -- Gore (Rank 4)
@@ -2606,7 +2606,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [35387] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3} }, -- Poison Spit (Rank 1)
+    [35387] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3 } }, -- Poison Spit (Rank 1)
         [35389] = { parent = 35387 }, -- Poison Spit (Rank 2)
         [35392] = { parent = 35387 }, -- Poison Spit (Rank 3)
         [55555] = { parent = 35387 }, -- Poison Spit (Rank 4)
@@ -2629,7 +2629,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [50245] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12} }, -- Pin (Rank 1)
+    [50245] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12 } }, -- Pin (Rank 1)
         [53544] = { parent = 50245 }, -- Pin (Rank 2)
         [53545] = { parent = 50245 }, -- Pin (Rank 3)
         [53546] = { parent = 50245 }, -- Pin (Rank 4)
@@ -2675,7 +2675,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [50271] = { duration = 20, class = "HUNTER", adjust = { ["Beast Mastery"] = -6} }, -- Tendon Rip (Rank 1)
+    [50271] = { duration = 20, class = "HUNTER", adjust = { ["Beast Mastery"] = -6 } }, -- Tendon Rip (Rank 1)
         [53571] = { parent = 50271 }, -- Tendon Rip (Rank 2)
         [53572] = { parent = 50271 }, -- Tendon Rip (Rank 3)
         [53573] = { parent = 50271 }, -- Tendon Rip (Rank 4)
@@ -2698,7 +2698,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [50274] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3} }, -- Spore Cloud (Rank 1)
+    [50274] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3 } }, -- Spore Cloud (Rank 1)
         [53593] = { parent = 50274 }, -- Spore Cloud (Rank 2)
         [53594] = { parent = 50274 }, -- Spore Cloud (Rank 3)
         [53596] = { parent = 50274 }, -- Spore Cloud (Rank 4)
@@ -2721,7 +2721,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [50285] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12} }, -- Dust Cloud
+    [50285] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12 } }, -- Dust Cloud
 
     --[[ Serenity Dust Modifiers
 
@@ -2739,7 +2739,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [50318] = { duration = 60, class = "HUNTER", adjust = { ["Beast Mastery"] = -18} }, -- Serenity Dust (Rank 1)
+    [50318] = { duration = 60, class = "HUNTER", adjust = { ["Beast Mastery"] = -18 } }, -- Serenity Dust (Rank 1)
         [52012] = { parent = 50318 }, -- Serenity Dust (Rank 2)
         [52013] = { parent = 50318 }, -- Serenity Dust (Rank 3)
         [52014] = { parent = 50318 }, -- Serenity Dust (Rank 4)
@@ -2762,7 +2762,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [50433] = { duration = 120, class = "HUNTER", adjust = { ["Beast Mastery"] = -36} }, -- Bad Attitude (Rank 1)
+    [50433] = { duration = 120, class = "HUNTER", adjust = { ["Beast Mastery"] = -36 } }, -- Bad Attitude (Rank 1)
         [52395] = { parent = 50433 }, -- Bad Attitude (Rank 2)
         [52396] = { parent = 50433 }, -- Bad Attitude (Rank 3)
         [52397] = { parent = 50433 }, -- Bad Attitude (Rank 4)
@@ -2785,7 +2785,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [50479] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12} }, -- Nether Shock (Rank 1)
+    [50479] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12 } }, -- Nether Shock (Rank 1)
         [53584] = { parent = 50479 }, -- Nether Shock (Rank 2)
         [53586] = { parent = 50479 }, -- Nether Shock (Rank 3)
         [53587] = { parent = 50479 }, -- Nether Shock (Rank 4)
@@ -2832,7 +2832,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [50518] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12} }, -- Ravage (Rank 1)
+    [50518] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12 } }, -- Ravage (Rank 1)
         [53558] = { parent = 50518 }, -- Ravage (Rank 2)
         [53559] = { parent = 50518 }, -- Ravage (Rank 3)
         [53560] = { parent = 50518 }, -- Ravage (Rank 4)
@@ -3163,7 +3163,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [54706] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12} }, -- Venom Web Spray (Rank 1)
+    [54706] = { duration = 40, class = "HUNTER", adjust = { ["Beast Mastery"] = -12 } }, -- Venom Web Spray (Rank 1)
         [55505] = { parent = 54706 }, -- Venom Web Spray (Rank 2)
         [55506] = { parent = 54706 }, -- Venom Web Spray (Rank 3)
         [55507] = { parent = 54706 }, -- Venom Web Spray (Rank 4)
