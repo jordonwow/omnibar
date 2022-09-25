@@ -883,6 +883,8 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 		opt_charges = opt_charges,
 		duration = duration,
 		opt_lower_cd = addon.Cooldowns[spellID].opt_lower_cd,
+		specID = addon.Cooldowns[spellID].specID,
+		filterBySpec = addon.Cooldowns[spellID].filterBySpec,
 		trackPet = trackPet,
 		event = event,
 		expires = now + duration,
@@ -1188,13 +1190,35 @@ function OmniBar_IsUnitEnabled(self, info)
 	end
 
 	if self.settings.trackUnit == "ARENA" and addon.IsSourceArena(info.trackPet, info.sourceGUID) then
-		return true
+		if info.filterBySpec and info.specID then
+			local spec = addon.ArenaSpec(info.sourceGUID)
+			local specs = info.specID
+			for i = 1, #specs do
+				if ( spec == specs[i] ) then
+					return true
+				end
+			end
+			return false
+		else
+			return true
+		end
 	end
 
 	local isPlayer = UnitIsUnit("player", name)
 
 	if self.settings.trackUnit == "PLAYER" and isPlayer then
-		return true
+		if info.filterBySpec and info.specID then
+			local spec = addon.PlayerSpec()
+			local specs = info.specID
+			for i = 1, #specs do
+				if ( spec == specs[i] ) then
+					return true
+				end
+			end
+			return false
+		else
+			return true
+		end
 	end
 
 	if self.settings.trackUnit == "TARGET" and (UnitGUID("target") == guid or GetUnitName("target", true) == name) then

@@ -562,7 +562,7 @@ addon.Cooldowns = {
         [198158] = { duration = 60, class = "MAGE", specID = { 62 } }, -- Mass Invisibility
         [205025] = { duration = 60, class = "MAGE", specID = { 62 } }, -- Presence of Mind
         [224968] = { duration = 60, class = "MAGE", specID = { 62 } }, -- Mark of Aluneth
-        [30449] = { duration = 30, class = "MAGE", specID = { 62 } }, -- Spellsteal (Kleptomania)
+        [30449] = { duration = 30, class = "MAGE", specID = { 62 }, filterBySpec = true }, -- Spellsteal (Kleptomania)
 
         -- Fire
 

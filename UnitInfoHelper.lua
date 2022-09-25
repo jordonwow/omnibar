@@ -1,5 +1,22 @@
 local addonName, addon = ...
 
+local playerSpec = nil
+
+local playerInfoFrame = CreateFrame('Frame')
+playerInfoFrame:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
+playerInfoFrame:SetScript("OnEvent", function()
+    playerSpec = nil
+end)
+
+addon.PlayerSpec = function ()
+    if ( not playerSpec ) then
+        local currentSpec = GetSpecialization();
+        playerSpec = GetSpecializationInfo(currentSpec);
+    end
+
+    return playerSpec;
+end
+
 local arenaInfo = {
     unitGUID = {},
 
@@ -55,6 +72,10 @@ addon.IsSourceArena = function (trackPet, sourceGUID)
             return true
         end
     end
+end
+
+addon.ArenaSpec = function (sourceGUID)
+    return arenaInfo.spec[sourceGUID]
 end
 
 addon.StartOptCharge = function (info, cooldown)
