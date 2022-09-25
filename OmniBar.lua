@@ -62,6 +62,7 @@ local bit_band = bit.band
 local date = date
 local tinsert = tinsert
 local wipe = wipe
+local tContains = tContains
 
 OmniBar = LibStub("AceAddon-3.0"):NewAddon("OmniBar", "AceEvent-3.0", "AceComm-3.0", "AceSerializer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("OmniBar")
@@ -774,7 +775,37 @@ local function GetCooldownDuration(cooldown, specID)
 	end
 end
 
-function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellID, serverTime)
+function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellID, serverTime, customDuration)
+	local isLocal = (not serverTime)
+	serverTime = serverTime or GetServerTime()
+
+	-- activate shared cooldowns
+	if (not customDuration) then
+		for i = 1, #addon.Shared do
+			local shared = addon.Shared[i]
+			if (shared.triggers and tContains(shared.triggers, spellID)) or tContains(shared.spells, spellID) then
+				for i = 1, #shared.spells do
+					if spellID ~= shared.spells[i] then
+						local amount = shared.amount
+						-- use default until we add spec detection
+						if type(amount) == "table" then amount = shared.amount.default end
+						if addon.Cooldowns[shared.spells[i]] and (not addon.Cooldowns[shared.spells[i]].parent) then
+							self:AddSpellCast(
+								event,
+								sourceGUID,
+								sourceName,
+								sourceFlags,
+								shared.spells[i],
+								nil, -- set to `serverTime` to disable sync
+								amount
+							)
+						end
+					end
+				end
+			end
+		end
+	end
+
 	-- Update Fist of Justice
 	if sourceGUID and ( event == "SPELL_CAST_START" ) and ( spellID == addon.DisableHoJ.track_cast_start ) then
 		addon.DisableFistOfJustice(sourceGUID);
@@ -843,21 +874,23 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 	end
 
 	local now = GetTime()
-	local isLocal = (not serverTime)
-	serverTime = serverTime or GetServerTime()
 
 	-- make sure spellID is parent
 	spellID = addon.Cooldowns[spellID].parent or spellID
 
-	-- make sure we aren't adding a duplicate
-	if self.spellCasts[name] and self.spellCasts[name][spellID] and self.spellCasts[name][spellID].serverTime == serverTime then
+	-- make sure we aren't adding a duplicate,
+	-- and if it is a shared cooldown make sure we don't overwrite
+	if  self.spellCasts[name] and
+		self.spellCasts[name][spellID] and
+		(customDuration or self.spellCasts[name][spellID].serverTime == serverTime)
+	then
 		return
 	end
 
 	-- only track players and their pets
 	if (not ownerName) and bit_band(sourceFlags, COMBATLOG_OBJECT_TYPE_PLAYER) == 0 then return end
 
-	local duration = GetCooldownDuration(addon.Cooldowns[spellID])
+	local duration = customDuration or GetCooldownDuration(addon.Cooldowns[spellID])
 	local charges = addon.Cooldowns[spellID].charges
 	local opt_charges = addon.Cooldowns[spellID].opt_charges
 	local trackPet = addon.Cooldowns[spellID].trackPet

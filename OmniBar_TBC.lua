@@ -1,8 +1,8 @@
 local addonName, addon = ...
 
-if WOW_PROJECT_ID ~= WOW_PROJECT_BURNING_CRUSADE_CLASSIC then return end
-
 addon.MAX_ARENA_SIZE = 5
+
+addon.Shared = {}
 
 addon.Resets = {
     --[[ Cold Snap
