@@ -886,9 +886,9 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 	end
 
 	-- combat log is clamped in classic, so make sure our raid members detect the cast
-	if WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE and isLocal then
-		self:AlertGroup(event, sourceGUID, sourceName, sourceFlags, spellID, serverTime)
-	end
+	-- if WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE and isLocal then
+	-- 	self:AlertGroup(event, sourceGUID, sourceName, sourceFlags, spellID, serverTime)
+	-- end
 
 	self.spellCasts[name] = self.spellCasts[name] or {}
 	self.spellCasts[name][spellID] = {
