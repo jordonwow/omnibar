@@ -554,6 +554,7 @@ function OmniBar:AddBarToOptions(key, refresh)
 					set[option] = state
 					OmniBar_SavePosition(_G[key], set)
 					OmniBar_LoadPosition(_G[key])
+					OmniBar_Position(_G[key])
 				end,
 				args = {
 					reset = {

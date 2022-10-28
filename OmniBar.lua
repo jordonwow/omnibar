@@ -1104,6 +1104,8 @@ function OmniBar_LoadPosition(self)
 	self:ClearAllPoints()
 	if self.settings.position then
 		local point = self.settings.position.point or "CENTER"
+		self.anchor:ClearAllPoints()
+		self.anchor:SetPoint(point, self, point, 0, 0)
 		local relativeTo = self.settings.position.relativeTo or "UIParent"
 		if (not _G[relativeTo]) then
 			OmniBar_ResetPosition(self)
