@@ -160,23 +160,41 @@ function OmniBar:OnInitialize()
 	end)
 
 	-- Check if update available
-	self.version = tonumber((GetAddOnMetadata(addonName, "Version") or ""):sub(2))
-	if self.version then
-		self:RegisterComm("OmniBarVersion", function(_, payload)
-			local version = tonumber(payload)
-			if (not version) or self.version >= version then return end
-			self:UnregisterComm("OmniBarVersion")
-			self:Print(L.UPDATE_AVAILABLE)
-		end)
+	self.version = { string = GetAddOnMetadata(addonName, "Version") or "" }
+	self.version.major, self.version.minor = self.version.string:match("(%d+)%.(%d+)")
 
-		self:RegisterEvent("ZONE_CHANGED_NEW_AREA", "SendVersion")
-
-		C_Timer_After(10, function()
-			self:SendVersion()
-			if IsInGuild() then self:SendVersion("GUILD") end
-			self:SendVersion("YELL")
-		end)
+	-- dev version
+	if self.version.string:match("project%-version") then
+		self.version.string = "dev"
+		self.version.major = 999
+		self.version.minor = 999
+		self.version.dev = true
 	end
+
+	self.version.major = tonumber(self.version.major)
+	self.version.minor = tonumber(self.version.minor)
+
+	self:RegisterComm("OmniBarVersion", function(_, payload, _, sender)
+		self.sender = sender
+		if (not payload) or type(payload) ~= "string" then return end
+		local major, minor = payload:match("(%d+)%.(%d+)")
+		major = tonumber(major)
+		minor = tonumber(minor)
+		if (not major) or (not minor) then return end
+		if major < self.version.major then return end
+		if major == self.version.major and minor <= self.version.minor then return end
+		if self.nextWarn and self.nextWarn > GetTime() then return end
+		self.nextWarn = GetTime() + 1800
+		self:Print(L.UPDATE_AVAILABLE)
+	end)
+
+	self:RegisterEvent("ZONE_CHANGED_NEW_AREA", "SendVersion")
+
+	C_Timer_After(10, function()
+		self:SendVersion()
+		if IsInGuild() then self:SendVersion("GUILD") end
+		self:SendVersion("YELL")
+	end)
 
 	-- Remove invalid custom cooldowns
 	for k,v in pairs(self.db.global.cooldowns) do
@@ -208,8 +226,8 @@ local function GetDefaultCommChannel()
 end
 
 function OmniBar:SendVersion(distribution)
-	if (not self.version) then return end
-	self:SendCommMessage("OmniBarVersion", tostring(self.version), distribution or GetDefaultCommChannel())
+	if (not self.version) or self.version.dev then return end
+	self:SendCommMessage("OmniBarVersion", self.version.string, distribution or GetDefaultCommChannel())
 end
 
 function OmniBar:OnEnable()
