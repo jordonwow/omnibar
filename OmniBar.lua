@@ -910,7 +910,7 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 end
 
 function OmniBar:AlertGroup(...)
-	if (not IsInGroup()) then return end
+	if (not IsInGroup()) or GetNumGroupMembers() > 5 then return end
 	local event, sourceGUID, sourceName, sourceFlags, spellID, serverTime = ...
 	self:SendCommMessage("OmniBarSpell", self:Serialize(...), GetDefaultCommChannel(), nil, "ALERT")
 end
