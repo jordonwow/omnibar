@@ -125,6 +125,7 @@ addon.Cooldowns = {
     [20572] = { duration = 120, class = "GENERAL" }, -- Blood Fury
       [33697] = { parent = 20572 },
       [33702] = { parent = 20572 },
+    [54998] = { duration = 60, class = "GENERAL" }, -- Hand-Mounted Pyro Rocket
 
     -- Priest
 
