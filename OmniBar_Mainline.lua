@@ -26,7 +26,7 @@ addon.Resets = {
     -- Smite
     [585] = { { spellID = 88625, amount = 4 } },
     -- Holy Fire
-    [14914] = { { spellID = 88625, amount = 2 } },
+    [14914] = { { spellID = 88625, amount = 4 } },
 
     -- Vanish (Memory of Invigorating Shadowdust)
     [1856] = {
