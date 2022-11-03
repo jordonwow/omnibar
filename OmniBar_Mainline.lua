@@ -44,7 +44,7 @@ addon.Cooldowns = {
     [47528] = { default = true, duration = 15, class = "DEATHKNIGHT" }, -- Mind Freeze
     [48265] = { duration = 45, class = "DEATHKNIGHT" }, -- Death's Advance
     [48707] = { duration = 60, class = "DEATHKNIGHT" }, -- Anti-Magic Shell
-    [49576] = { duration = 25, class = "DEATHKNIGHT", opt_charges = true }, -- Death Grip
+    [49576] = { duration = 25, class = "DEATHKNIGHT", charges = true }, -- Death Grip
     [51052] = { duration = 120, class = "DEATHKNIGHT" }, -- Anti-Magic Zone
     [61999] = { duration = 600, class = "DEATHKNIGHT" }, -- Raise Ally
     [77606] = { duration = 20, class = "DEATHKNIGHT" }, -- Dark Simulacrum

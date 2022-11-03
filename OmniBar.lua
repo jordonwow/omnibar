@@ -902,8 +902,6 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 
 	local duration = customDuration or GetCooldownDuration(addon.Cooldowns[spellID])
 	local charges = addon.Cooldowns[spellID].charges
-	local opt_charges = addon.Cooldowns[spellID].opt_charges
-	local trackPet = addon.Cooldowns[spellID].trackPet
 
 	-- child doesn't have custom charges, use parent
 	if (not charges) then
@@ -923,12 +921,12 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 	self.spellCasts[name] = self.spellCasts[name] or {}
 	self.spellCasts[name][spellID] = {
 		charges = charges,
-		opt_charges = opt_charges,
+		opt_charges = addon.Cooldowns[spellID].opt_charges,
 		duration = duration,
 		opt_lower_cd = addon.Cooldowns[spellID].opt_lower_cd,
 		specID = addon.Cooldowns[spellID].specID,
 		filterBySpec = addon.Cooldowns[spellID].filterBySpec,
-		trackPet = trackPet,
+		trackPet = addon.Cooldowns[spellID].trackPet,
 		event = event,
 		expires = now + duration,
 		ownerName = ownerName,
@@ -969,7 +967,7 @@ end
 
 function OmniBar:COMBAT_LOG_EVENT_UNFILTERED()
 	local _, event, _, sourceGUID, sourceName, sourceFlags, _,_,_,_,_, spellID, spellName = CombatLogGetCurrentEventInfo()
-	if (event == "SPELL_CAST_SUCCESS" or event == "SPELL_AURA_APPLIED" or event == "SPELL_AURA_REMOVED" or event == "SPELL_CAST_START" or event == "SPELL_INTERRUPT") then
+	if (event == "SPELL_CAST_SUCCESS" or event == "SPELL_AURA_APPLIED" or event == "SPELL_AURA_REMOVED" or event == "SPELL_INTERRUPT") then
 		if spellID == 0 and SPELL_ID_BY_NAME then spellID = SPELL_ID_BY_NAME[spellName] end
 		self:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellID)
 	end
@@ -983,7 +981,6 @@ end
 local function Omnibar_ARENA_PREP_OPPONENT_SPECIALIZATIONS(self)
 	if WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE then return end
 	if self.disabled or (not self.adaptive) or (not self.settings.showUnused) then return end
-
 	for i = 1, MAX_ARENA_SIZE do
 		if self.settings.trackUnit == "ENEMY" or self.settings.trackUnit == "arena" .. i then
 			local specID = GetArenaOpponentSpec(i)
@@ -1230,7 +1227,9 @@ function OmniBar_IsUnitEnabled(self, info)
 
 	local name = info.ownerName or info.sourceName
 
-	if self.settings.trackUnit == "ENEMY" and IsSourceHostile(info.sourceFlags) then
+	local isHostile = IsSourceHostile(info.sourceFlags)
+
+	if self.settings.trackUnit == "ENEMY" and isHostile then
 		return true
 	end
 
