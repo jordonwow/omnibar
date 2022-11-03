@@ -304,7 +304,7 @@ addon.Cooldowns = {
 
     -- Warrior
 
-    [100] = { duration = 20, class = "WARRIOR", opt_charges = true, opt_lower_cd = 17 }, -- Charge
+    [100] = { duration = 17, class = "WARRIOR", charges = true }, -- Charge
     [147833] = {duration = 30, class = "WARRIOR" }, -- Intervene
     [1719] = { duration = 90, class = "WARRIOR" }, -- Recklessness
     [6544] = { duration = 30, class = "WARRIOR" }, -- Heroic Leap

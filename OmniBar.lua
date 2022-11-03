@@ -824,17 +824,9 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 		end
 	end
 
-	-- Update Fist of Justice
-	if sourceGUID and ( event == "SPELL_CAST_START" ) and ( spellID == addon.DisableHoJ.track_cast_start ) then
-		addon.DisableFistOfJustice(sourceGUID);
-		return;
-	elseif sourceGUID and ( event == "SPELL_CAST_SUCCESS" ) and ( spellID == addon.DisableHoJ.track_cast_success ) then
-		addon.DisableFistOfJustice(sourceGUID); -- Continue to track cooldown of Blinding Light
-	end
-
 	-- Check if there is a HOJ to reduce
 	local spellID_HoJ = 853;
-	if self.spellCasts[sourceName] and self.spellCasts[sourceName][spellID_HoJ] and ( not addon.FistOfJusticeDisabled(sourceGUID) ) and ( event == "SPELL_CAST_SUCCESS" ) then
+	if self.spellCasts[sourceName] and self.spellCasts[sourceName][spellID_HoJ] and ( event == "SPELL_CAST_SUCCESS" ) then
 		local cost = GetSpellPowerCost(spellID);
 		if cost and cost[1] and ( cost[1].type == Enum.PowerType.HolyPower ) then
 			self.spellCasts[sourceName][spellID_HoJ].duration = self.spellCasts[sourceName][spellID_HoJ].duration - 6

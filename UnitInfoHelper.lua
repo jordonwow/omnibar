@@ -29,9 +29,6 @@ local arenaInfo = {
 
     -- Key: unitGUID-spellID, value: whether opt_lower_cd is enabled
     opt_lower_cd = {},
-
-    -- Key: unitGUID, value: whether Fist of Justice is disabled
-    no_hoj_cdr = {},
 };
 
 local arenaInfoFrame = CreateFrame('Frame');
@@ -42,7 +39,6 @@ arenaInfoFrame:SetScript("OnEvent", function ()
     arenaInfo.spec = {};
     arenaInfo.charges = {};
     arenaInfo.opt_lower_cd = {};
-    arenaInfo.no_hoj_cdr = {};
 end);
 
 local function updateArenaInfo(unitId, index)
@@ -94,12 +90,4 @@ addon.OptLowerCooldownEnabled = function (info)
     if ( not info.sourceGUID ) then return end
 
     return arenaInfo.opt_lower_cd[info.sourceGUID .. "-" .. info.spellID]
-end
-
-addon.DisableFistOfJustice = function (sourceGUID)
-    arenaInfo.no_hoj_cdr[sourceGUID] = true
-end
-
-addon.FistOfJusticeDisabled = function (sourceGUID)
-    return arenaInfo.no_hoj_cdr[sourceGUID]
 end
