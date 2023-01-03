@@ -673,7 +673,7 @@ addon.Cooldowns = {
     [383005] = { duration = 90, class = "EVOKER" }, -- Chrono Loop
     [378464] = { duration = 90, class = "EVOKER" }, -- Nullifying Shroud
     [370388] = { duration = 90, class = "EVOKER" }, -- Swoop Up
-   
+
         -- Devastation
 
         [365585] = { duration = 10, class = "EVOKER", specID = { 1467 } }, -- Expunge
