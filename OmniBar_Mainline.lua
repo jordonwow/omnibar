@@ -176,10 +176,9 @@ addon.Cooldowns = {
 		[199448] = {parent = 6940, duration = 120}, -- Ultimate Sacrifice
     [20066] = {duration = 15, class = "PALADIN"}, -- Repentance
     [31884] = {duration = 120, class = "PALADIN"}, -- Avenging Wrath
-		[31842] = {parent = 31884}, -- Avenging Wrath (Holy)
 		[216331] = {parent = 31884}, -- Avenging Crusader
-		[224668] = {parent = 31884}, -- Crusade
 		[231895] = {parent = 31884}, -- Crusade
+		[389539] = {parent = 31884}, -- Sentinel
     [115750] = {duration = 90, class = "PALADIN"}, -- Blinding Light
     [375576] = {duration = 60, class = "PALADIN"}, -- Divine Toll
     [105809] = {duration = 90, class = "PALADIN"}, -- Holy Avenger
@@ -236,6 +235,7 @@ addon.Cooldowns = {
     [106839] = {default = true, duration = 15, class = "DRUID"}, -- Skull Bash
     [99] = {duration = 30, class = "DRUID"}, -- Incapacitating Roar
     [102793] = {duration = 60, class = "DRUID"}, -- Ursol's Vortex
+    [124974] = {duration = 90, class = "DRUID"}, -- Nature's Vigil
 
 		-- Balance
 
@@ -246,6 +246,7 @@ addon.Cooldowns = {
 		[202770] = {duration = 60, class = "DRUID", specID = {102}}, -- Fury of Elune
 		[205636] = {duration = 60, class = "DRUID", specID = {102}}, -- Force of Nature
 		[209749] = {duration = 30, class = "DRUID", specID = {102}}, -- Faerie Swarm
+		[202359] = {duration = 60, class = "DRUID", specID = {102}}, -- Astral Communion
 		[2782] = {duration = 8, class = "DRUID", specID = {102, 103, 104}}, -- Remove Corruption
 
 		-- Feral
@@ -256,6 +257,7 @@ addon.Cooldowns = {
 		[106898] = {duration = 120, class = "DRUID", specID = {103, 104}}, -- Stampeding Roar
 		[106951] = {duration = 180, class = "DRUID", specID = {103}}, -- Berserk
 		[274837] = {duration = 45, class = "DRUID", specID = {103}}, -- Feral Frenzy
+		[391888] = {duration = 25, class = "DRUID", specID = {103, 105}}, -- Adaptive Swarm
 
 		-- Guardian
 
@@ -279,24 +281,24 @@ addon.Cooldowns = {
 		[88423] = {duration = 8, class = "DRUID", specID = {105}}, -- Nature's Cure
 		[132158] = {duration = 60, class = "DRUID", specID = {105}}, -- Nature's Swiftness
 
-	-- Warrior
+    -- Warrior
 
-	[100] = {duration = 17, class = "WARRIOR", charges = 2}, -- Charge
-	[3411] = {duration = 30, class = "WARRIOR"}, -- Intervene
-	[6544] = {duration = 30, class = "WARRIOR", charges = 2}, -- Heroic Leap
-	[6552] = {default = true, duration = 15, class = "WARRIOR"}, -- Pummel
-	[18499] = {duration = 60, class = "WARRIOR"}, -- Berserker Rage
+    [100] = {duration = 17, class = "WARRIOR", charges = 2}, -- Charge
+    [3411] = {duration = 30, class = "WARRIOR"}, -- Intervene
+    [6544] = {duration = 30, class = "WARRIOR", charges = 2}, -- Heroic Leap
+    [6552] = {default = true, duration = 14, class = "WARRIOR"}, -- Pummel
+    [18499] = {duration = 60, class = "WARRIOR"}, -- Berserker Rage
 		[384100] = {parent = 18499, duration = 60}, -- Berserker Shout
-	[23920] = {duration = 25, class = "WARRIOR"}, -- Spell Reflection
-	[46968] = {duration = 40, class = "WARRIOR"}, -- Shockwave
-	[107570] = {duration = 30, class = "WARRIOR"}, -- Storm Bolt
-	[107574] = {duration = 90, class = "WARRIOR"}, -- Avatar
-	[236077] = {duration = 45, class = "WARRIOR"}, -- Disarm
-	[376079] = {duration = 90, class = "WARRIOR"}, -- Spear of Bastion
-	[5246] = {duration = 90, class = "WARRIOR"}, -- Intimidating Shout
-	[97462] = {duration = 180, class = "WARRIOR"}, -- Rallying Cry
-	[386208] = {duration = 3, class = "WARRIOR"}, -- Defensive Stance
-	[384318] = {duration = 90, class = "WARRIOR"}, -- Thunderous Roar
+    [23920] = {duration = 25, class = "WARRIOR"}, -- Spell Reflection
+    [46968] = {duration = 40, class = "WARRIOR"}, -- Shockwave
+    [107570] = {duration = 30, class = "WARRIOR"}, -- Storm Bolt
+    [107574] = {duration = 90, class = "WARRIOR"}, -- Avatar
+    [236077] = {duration = 45, class = "WARRIOR"}, -- Disarm
+    [376079] = {duration = 90, class = "WARRIOR"}, -- Spear of Bastion
+    [5246] = {duration = 90, class = "WARRIOR"}, -- Intimidating Shout
+    [97462] = {duration = 180, class = "WARRIOR"}, -- Rallying Cry
+    [386208] = {duration = 3, class = "WARRIOR"}, -- Defensive Stance
+    [384318] = {duration = 90, class = "WARRIOR"}, -- Thunderous Roar
 
 		-- Arms
 
@@ -358,7 +360,6 @@ addon.Cooldowns = {
     [333889] = {duration = 120, class = "WARLOCK"}, -- Fel Domination
     [328774] = {duration = 20, class = "WARLOCK"}, -- Amplify Curse
     [212623] = {duration = 15, class = "WARLOCK"}, -- Singe Magic
-		[137178] = {parent = 212623}, -- Singe Magic
 		[89808] = {parent = 212623}, -- Singe Magic
 		[119905] = {parent = 212623}, -- Singe Magic
 
@@ -388,7 +389,7 @@ addon.Cooldowns = {
 		[264130] = {duration = 30, class = "WARLOCK", specID = {266}}, -- Power Siphon
 		[264119] = {duration = 45, class = "WARLOCK", specID = {266}}, -- Summon Vilefiend
 
-		--  Destruction
+		-- Destruction
 
 		[17962] = {duration = 12, class = "WARLOCK", specID = {267}, charges = 2}, -- Conflagrate
 		[80240] = {duration = 30, class = "WARLOCK", specID = {267}}, -- Havoc
@@ -510,6 +511,7 @@ addon.Cooldowns = {
 		[359844] = {duration = 180, class = "HUNTER", specID = {253}}, -- Call of the Wild
 		[205691] = {duration = 120, class = "HUNTER", specID = {253}}, -- Dire Beast: Basilisk
 		[356707] = {duration = 60, class = "HUNTER", specID = {253}}, -- Wild Kingdom
+		[321530] = {duration = 60, class = "HUNTER", specID = {253}}, -- Bloodshed
 
 		-- Marksmanship
 
@@ -567,6 +569,8 @@ addon.Cooldowns = {
 		[30449] = {duration = 30, class = "MAGE", specID = {62}}, -- Spellsteal (Kleptomania)
 		[198111] = {duration = 45, class = "MAGE", specID = {62}}, -- Temporal Shield
 		[353128] = {duration = 45, class = "MAGE", specID = {62}}, -- Arcanosphere
+		[376103] = {duration = 30, class = "MAGE", specID = {62}}, -- Radiant Spark
+		[321507] = {duration = 45, class = "MAGE", specID = {62}}, -- Touch of the Magi
 
 		-- Fire
 
