@@ -531,6 +531,7 @@ addon.Cooldowns = {
 		[212640] = {duration = 25, class = "HUNTER", specID = {255}}, -- Mending Bandage
 		[360952] = {duration = 120, class = "HUNTER", specID = {255}}, -- Coordinated Assault
 		[360966] = {duration = 90, class = "HUNTER", specID = {255}}, -- Spearhead
+		[269751] = {duration = 30, class = "HUNTER", specID = {255}}, -- Flanking Strike
 		[212638] = {duration = 25, class = "HUNTER", specID = {255}}, -- Tracker's Net
 
     -- Mage
