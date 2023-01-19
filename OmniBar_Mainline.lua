@@ -34,6 +34,7 @@ addon.Cooldowns = {
     [48743] = {duration = 120, class = "DEATHKNIGHT"}, -- Death Pact
     [43265] = {duration = 30, class = "DEATHKNIGHT", charges = 2}, -- Death and Decay
 		[152280] = {parent = 43265, duration = 20, specID = {252}}, -- Defile
+    [49039] = {duration = 120, class = "DEATHKNIGHT"}, -- Lichborne
 
 		-- Blood
 
@@ -89,6 +90,7 @@ addon.Cooldowns = {
     [370965] = {duration = 90, class = "DEMONHUNTER"}, -- The Hunt
     [204596] = {duration = 30, class = "DEMONHUNTER"}, -- Sigil of Flame
     [207684] = {duration = 90, class = "DEMONHUNTER"}, -- Sigil of Misery
+    [278326] = {duration = 10, class = "DEMONHUNTER"}, -- Consume Magic
 
 		-- Havoc
 
@@ -110,7 +112,7 @@ addon.Cooldowns = {
 
     -- Priest
 
-    [586] = {duration = 30, class = "PRIEST"}, -- Fade
+    [586] = {duration = 20, class = "PRIEST"}, -- Fade
     [32375] = {duration = 45, class = "PRIEST"}, -- Mass Dispel
     [375901] = {duration = 45, class = "PRIEST"}, -- Mindgames
     [316262] = {duration = 90, class = "PRIEST"}, -- Thoughtsteal
@@ -354,7 +356,7 @@ addon.Cooldowns = {
     [353294] = {duration = 60, class = "WARLOCK"}, -- Shadow Rift
     [48020] = {duration = 30, class = "WARLOCK"}, -- Demonic Circle Teleport
     [333889] = {duration = 120, class = "WARLOCK"}, -- Fel Domination
-    [328774] = {duration = 30, class = "WARLOCK"}, -- Amplify Curse
+    [328774] = {duration = 20, class = "WARLOCK"}, -- Amplify Curse
     [212623] = {duration = 15, class = "WARLOCK"}, -- Singe Magic
 		[137178] = {parent = 212623}, -- Singe Magic
 		[89808] = {parent = 212623}, -- Singe Magic
@@ -395,6 +397,7 @@ addon.Cooldowns = {
 		[196447] = {duration = 25, class = "WARLOCK", specID = {267}}, -- Channel Demonfire
 		[387976] = {duration = 45, class = "WARLOCK", specID = {267}, charges = 3}, -- Dimensional Rift
 		[1122] = {duration = 180, class = "WARLOCK", specID = {267}}, -- Summon Infernal
+		[6353] = {duration = 45, class = "WARLOCK", specID = {267}}, -- Soul Fire
 
     -- Shaman
 
@@ -649,7 +652,7 @@ addon.Cooldowns = {
     [386276] = {duration = 60, class = "MONK"}, -- Bonedust Brew
     [115203] = {duration = 360, class = "MONK"}, -- Fortifying Brew
     [116705] = {default = true, duration = 15, class = "MONK"}, -- Spear Hand Strike
-    [202370] = {duration = 60, class = "MONK"}, -- Mighty Ox Kick
+    [202370] = {duration = 30, class = "MONK"}, -- Mighty Ox Kick
     [322109] = {duration = 90, class = "MONK"}, -- Touch of Death
     [233759] = {duration = 45, class = "MONK"}, -- Grapple Weapon
 
