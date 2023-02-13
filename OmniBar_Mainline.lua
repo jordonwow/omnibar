@@ -43,7 +43,7 @@ addon.Cooldowns = {
 		[108199] = {duration = 120, class = "DEATHKNIGHT", specID = {250}}, -- Gorefiend's Grasp
 		[194679] = {duration = 25, class = "DEATHKNIGHT", specID = {250}, charges = 2}, -- Rune Tap
 		[194844] = {duration = 60, class = "DEATHKNIGHT", specID = {250}}, -- Bonestorm
-		[203173] = {duration = 15, class = "DEATHKNIGHT", specID = {250}}, -- Death Chain
+		[203173] = {duration = 30, class = "DEATHKNIGHT", specID = {250}}, -- Death Chain
 		[274156] = {duration = 30, class = "DEATHKNIGHT", specID = {250}}, -- Consumption
 		[206931] = {duration = 30, class = "DEATHKNIGHT", specID = {250}}, -- Blooddrinker
 		[219809] = {duration = 60, class = "DEATHKNIGHT", specID = {250}}, -- Tombstone
@@ -105,8 +105,8 @@ addon.Cooldowns = {
 		[202137] = {duration = 60, class = "DEMONHUNTER", specID = {581}}, -- Sigil of Silence
 		[202138] = {duration = 120, class = "DEMONHUNTER", specID = {581}}, -- Sigil of Chains
 		[204021] = {duration = 60, class = "DEMONHUNTER", specID = {581}, charges = 2}, -- Fiery Brand
-		[205629] = {duration = 30, class = "DEMONHUNTER", specID = {581}}, -- Demonic Trample
-		[205630] = {duration = 90, class = "DEMONHUNTER", specID = {581}}, -- Illidan's Grasp
+		[205629] = {duration = 9, class = "DEMONHUNTER", specID = {581}, charges = 2}, -- Demonic Trample
+		[205630] = {duration = 60, class = "DEMONHUNTER", specID = {581}}, -- Illidan's Grasp
 		[263648] = {duration = 30, class = "DEMONHUNTER", specID = {581}}, -- Soul Barrier
 		[207407] = {duration = 60, class = "DEMONHUNTER", specID = {581}}, -- Soul Carver
 
@@ -166,7 +166,7 @@ addon.Cooldowns = {
 		[391109] = {duration = 60, class = "PRIEST", specID = {258}}, -- Dark Ascension
 		[213634] = {duration = 8, class = "PRIEST", specID = {258}}, -- Purify Disease
 
-	-- Paladin
+    -- Paladin
 
     [633] = {duration = 420, class = "PALADIN"}, -- Lay on Hands
     [642] = {duration = 210, class = "PALADIN"}, -- Divine Shield
@@ -267,6 +267,10 @@ addon.Cooldowns = {
 		[102558] = {duration = 180, class = "DRUID", specID = {104}}, -- Incarnation: Guardian of Ursoc
 		[200851] = {duration = 60, class = "DRUID", specID = {104}}, -- Rage of the Sleeper
 		[202246] = {duration = 25, class = "DRUID", specID = {104}}, -- Overrun
+		[80313] = {duration = 45, class = "DRUID", specID = {104}}, -- Pulverize
+		[204066] = {duration = 60, class = "DRUID", specID = {104}}, -- Lunar Beam
+		[201664] = {duration = 30, class = "DRUID", specID = {104}}, -- Demoralizing Roar
+		[354654] = {duration = 60, class = "DRUID", specID = {104}}, -- Grove Protection
 		[329042] = {duration = 120, class = "DRUID", specID = {104}}, -- Emerald Slumber
 
 		-- Restoration
@@ -285,9 +289,9 @@ addon.Cooldowns = {
 
     -- Warrior
 
-    [100] = {duration = 17, class = "WARRIOR", charges = 2}, -- Charge
+    [100] = {duration = 18, class = "WARRIOR", charges = 2}, -- Charge
     [3411] = {duration = 30, class = "WARRIOR"}, -- Intervene
-    [6544] = {duration = 30, class = "WARRIOR", charges = 2}, -- Heroic Leap
+    [6544] = {duration = 35, class = "WARRIOR"}, -- Heroic Leap
     [6552] = {default = true, duration = 14, class = "WARRIOR"}, -- Pummel
     [18499] = {duration = 60, class = "WARRIOR"}, -- Berserker Rage
 		[384100] = {parent = 18499, duration = 60}, -- Berserker Shout
@@ -601,7 +605,7 @@ addon.Cooldowns = {
 
     [1725] = {duration = 30, class = "ROGUE"}, -- Distract
     [1766] = {default = true, duration = 15, class = "ROGUE"}, -- Kick
-    [1856] = {duration = {default = 120, [261] = 80}, class = "ROGUE", charges = 2}, -- Vanish
+    [1856] = {duration = 120, class = "ROGUE", charges = 2}, -- Vanish
     [2983] = {duration = 60, class = "ROGUE"}, -- Sprint
     [31224] = {duration = 120, class = "ROGUE"}, -- Cloak of Shadows
     [57934] = {duration = 30, class = "ROGUE"}, -- Tricks of the Trade
@@ -674,7 +678,8 @@ addon.Cooldowns = {
 		[324312] = {duration = 30, class = "MONK", specID = {268}}, -- Clash
 		[202335] = {duration = 45, class = "MONK", specID = {268}}, -- Double Barrel
 		[325153] = {duration = 60, class = "MONK", specID = {268}}, -- Exploding Keg
-		[115176] = {duration = 300, class = "MONK", specID = {268}}, -- Zen Meditation
+		[115176] = {duration = 56, class = "MONK", specID = {268}}, -- Zen Meditation
+		[354540] = {duration = 90, class = "MONK", specID = {268}}, -- Nimble Brew
 		[218164] = {duration = 8, class = "MONK", specID = {268, 269}}, -- Detox
 		[386276] = {duration = 60, class = "MONK", specID = {268, 269}}, -- Bonedust Brew
 
@@ -697,6 +702,7 @@ addon.Cooldowns = {
 		[116849] = {duration = 75, class = "MONK", specID = {270}}, -- Life Cocoon
 		[197908] = {duration = 90, class = "MONK", specID = {270}}, -- Mana Tea
 		[198898] = {duration = 30, class = "MONK", specID = {270}}, -- Song of Chi-Ji
+		[205234] = {duration = 15, class = "MONK", specID = {270}, charges = 3}, -- Healing Sphere
 		[388193] = {duration = 30, class = "MONK", specID = {269, 270}}, -- Faeline Stomp
 		[322118] = {duration = 180, class = "MONK", specID = {270}}, -- Invoke Yu'Lon, the Jade Serpent
 			[325197] = {parent = 322118, duration = 60}, -- Invoke Chi-Ji, the Red Crane
