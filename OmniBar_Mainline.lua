@@ -137,7 +137,7 @@ addon.Cooldowns = {
 		[197862] = {duration = 60, class = "PRIEST", specID = {256}}, -- Archangel
 		[197871] = {duration = 60, class = "PRIEST", specID = {256}}, -- Dark Archangel
 		[314867] = {duration = 30, class = "PRIEST", specID = {256}}, -- Shadow Covenant
-		[194509] = {duration = 20, class = "PRIEST", specID = {256}, charges = 2}, -- Power Word: Radiance
+		[194509] = {duration = 15, class = "PRIEST", specID = {256}, charges = 2}, -- Power Word: Radiance
 		[214621] = {duration = 24, class = "PRIEST", specID = {256}}, -- Schism
 		[527] = {duration = 8, class = "PRIEST", specID = {256, 257}, charges = 2}, -- Purify
 
@@ -174,8 +174,8 @@ addon.Cooldowns = {
     [1022] = {duration = 300, class = "PALADIN", charges = 2}, -- Blessing of Protection
 		[204018] = {parent = 1022, duration = 180}, -- Blessing of Spellwarding
     [1044] = {duration = 25, class = "PALADIN", charges = 2}, -- Blessing of Freedom
-    [6940] = {duration = 120, class = "PALADIN"}, -- Blessing of Sacrifice
-		[199448] = {parent = 6940, duration = 120}, -- Ultimate Sacrifice
+    [6940] = {duration = 60, class = "PALADIN"}, -- Blessing of Sacrifice
+		[199448] = {parent = 6940, duration = 60}, -- Ultimate Sacrifice
     [20066] = {duration = 15, class = "PALADIN"}, -- Repentance
     [31884] = {duration = 120, class = "PALADIN"}, -- Avenging Wrath
 		[216331] = {parent = 31884, duration = 45}, -- Avenging Crusader
@@ -304,7 +304,7 @@ addon.Cooldowns = {
     [5246] = {duration = 90, class = "WARRIOR"}, -- Intimidating Shout
     [97462] = {duration = 180, class = "WARRIOR"}, -- Rallying Cry
     [386208] = {duration = 3, class = "WARRIOR"}, -- Defensive Stance
-    [384318] = {duration = 90, class = "WARRIOR"}, -- Thunderous Roar
+    [384318] = {duration = 60, class = "WARRIOR"}, -- Thunderous Roar
     [64382] = {duration = 180, class = "WARRIOR"}, -- Shattering Throw
     [384110] = {duration = 45, class = "WARRIOR"}, -- Wrecking Throw
 
@@ -565,6 +565,7 @@ addon.Cooldowns = {
     [353082] = {duration = 25, class = "MAGE"}, -- Ring of Fire
     [352278] = {duration = 90, class = "MAGE"}, -- Ice Wall
     [122] = {duration = 30, class = "MAGE", charges = 2}, -- Frost Nova
+    [342245] = {duration = 50, class = "MAGE"}, -- Alter Time
     [475] = {duration = 8, class = "MAGE"}, -- Remove Curse
 
 		-- Arcane
@@ -648,7 +649,7 @@ addon.Cooldowns = {
 		[121471] = {duration = 120, class = "ROGUE", specID = {261}}, -- Shadow Blades
 		[207736] = {duration = 120, class = "ROGUE", specID = {261}}, -- Shadowy Duel
 		[384631] = {duration = 90, class = "ROGUE", specID = {261}}, -- Flagellation
-		[280719] = {duration = 60, class = "ROGUE", specID = {261}}, -- Secret Technique
+		[280719] = {duration = 45, class = "ROGUE", specID = {261}}, -- Secret Technique
 
     -- Monk
 
