@@ -243,7 +243,9 @@ addon.Cooldowns = {
 
 		[78675] = {default = true, duration = 60, class = "DRUID", specID = {102}}, -- Solar Beam
 		[102560] = {duration = 180, class = "DRUID", specID = {102}}, -- Incarnation: Chosen of Elune
+			[390414] = {parent = 102560, duration = 120}, -- Incarnation: Chosen of Elune (Orbital Strike)
 		[194223] = {duration = 180, class = "DRUID", specID = {102}}, -- Celestial Alignment
+			[383410] = {parent = 194223, duration = 120}, -- Celestial Alignment (Orbital Strike)
 		[202425] = {duration = 45, class = "DRUID", specID = {102}}, -- Warrior of Elune
 		[202770] = {duration = 60, class = "DRUID", specID = {102}}, -- Fury of Elune
 		[205636] = {duration = 60, class = "DRUID", specID = {102}}, -- Force of Nature
