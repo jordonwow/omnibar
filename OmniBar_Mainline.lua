@@ -304,6 +304,7 @@ addon.Cooldowns = {
     [236077] = {duration = 45, class = "WARRIOR"}, -- Disarm
     [376079] = {duration = 90, class = "WARRIOR"}, -- Spear of Bastion
     [5246] = {duration = 90, class = "WARRIOR"}, -- Intimidating Shout
+		[316593] = {parent = 5246, duration = 90}, -- Intimidating Shout (Menace)
     [97462] = {duration = 180, class = "WARRIOR"}, -- Rallying Cry
     [386208] = {duration = 3, class = "WARRIOR"}, -- Defensive Stance
     [384318] = {duration = 60, class = "WARRIOR"}, -- Thunderous Roar
