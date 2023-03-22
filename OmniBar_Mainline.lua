@@ -152,6 +152,7 @@ addon.Cooldowns = {
 		[215769] = {duration = 120, class = "PRIEST", specID = {257}}, -- Spirit of Redemption
 		[88625] = {duration = 60, class = "PRIEST", specID = {257}}, -- Holy Word: Chastise
 		[328530] = {duration = 60, class = "PRIEST", specID = {257}}, -- Divine Ascension
+		[372835] = {duration = 120, class = "PRIEST", specID = {257}}, -- Lightwell
 
 		-- Shadow
 
@@ -171,13 +172,12 @@ addon.Cooldowns = {
     [633] = {duration = 420, class = "PALADIN"}, -- Lay on Hands
     [642] = {duration = 210, class = "PALADIN"}, -- Divine Shield
     [853] = {duration = 60, class = "PALADIN"}, -- Hammer of Justice
-    [1022] = {duration = 300, class = "PALADIN", charges = 2}, -- Blessing of Protection
-		[204018] = {parent = 1022, duration = 180}, -- Blessing of Spellwarding
+    [1022] = {duration = 240, class = "PALADIN", charges = 2}, -- Blessing of Protection
     [1044] = {duration = 25, class = "PALADIN", charges = 2}, -- Blessing of Freedom
     [6940] = {duration = 60, class = "PALADIN"}, -- Blessing of Sacrifice
 		[199448] = {parent = 6940, duration = 60}, -- Ultimate Sacrifice
     [20066] = {duration = 15, class = "PALADIN"}, -- Repentance
-    [31884] = {duration = 120, class = "PALADIN"}, -- Avenging Wrath
+    [31884] = {duration = 60, class = "PALADIN"}, -- Avenging Wrath
 		[216331] = {parent = 31884, duration = 45}, -- Avenging Crusader
 		[231895] = {parent = 31884}, -- Crusade
 		[389539] = {parent = 31884}, -- Sentinel
@@ -190,7 +190,8 @@ addon.Cooldowns = {
 
 		-- Holy
 
-		[498] = {duration = 60, class = "PALADIN", specID = {65, 70}}, -- Divine Protection
+		[498] = {duration = 42, class = "PALADIN", specID = {65, 70}}, -- Divine Protection
+			[403876] = {parent = 498, duration = 60}, -- Divine Protection (Retribution)
 		[31821] = {duration = 180, class = "PALADIN", specID = {65}}, -- Aura Mastery
 		[200652] = {duration = 90, class = "PALADIN", specID = {65}}, -- Tyr's Deliverance
 		[210294] = {duration = 45, class = "PALADIN", specID = {65}}, -- Divine Favor
@@ -209,15 +210,14 @@ addon.Cooldowns = {
 		[213644] = {duration = 8, class = "PALADIN", specID = {66, 70}}, -- Cleanse Toxins
 		[378974] = {duration = 120, class = "PALADIN", specID = {66}}, -- Bastion of Light
 		[327193] = {duration = 90, class = "PALADIN", specID = {66}}, -- Moment of Glory
+		[204018] = {duration = 240, class = "PALADIN", specID = {66, 70}}, -- Blessing of Spellwarding
 
 		-- Retribution
 
 		[184662] = {duration = 60, class = "PALADIN", specID = {70}}, -- Shield of Vengeance
-		[205191] = {duration = 60, class = "PALADIN", specID = {70}}, -- Eye for an Eye
-		[255937] = {duration = 45, class = "PALADIN", specID = {70}}, -- Wake of Ashes
-			[384052] = {parent = 255937, duration = 15}, -- Radiant Decree
+		[255937] = {duration = 30, class = "PALADIN", specID = {70}}, -- Wake of Ashes
 		[210256] = {duration = 45, class = "PALADIN", specID = {70}}, -- Blessing of Sanctuary
-		[343527] = {duration = 60, class = "PALADIN", specID = {70}}, -- Execution Sentence
+		[343527] = {duration = 30, class = "PALADIN", specID = {70}}, -- Execution Sentence
 		[343721] = {duration = 60, class = "PALADIN", specID = {70}}, -- Final Reckoning
 
     -- Druid
@@ -414,7 +414,7 @@ addon.Cooldowns = {
     -- Shaman
 
     [20608] = {duration = 1800, class = "SHAMAN"}, -- Reincarnation
-    [51485] = {duration = 60, class = "SHAMAN"}, -- Earthgrab Totem
+    [51485] = {duration = 54, class = "SHAMAN"}, -- Earthgrab Totem
     [51514] = {duration = {default = 30, [264] = 10}, class = "SHAMAN"}, -- Hex
 		[196932] = {parent = 51514}, -- Voodoo Totem
 		[210873] = {parent = 51514}, -- Hex (Compy)
@@ -427,12 +427,12 @@ addon.Cooldowns = {
 		[309328] = {parent = 51514}, -- Hex (Living Honey)
     [57994] = {default = true, duration = 12, class = "SHAMAN"}, -- Wind Shear
     [108271] = {duration = 90, class = "SHAMAN"}, -- Astral Shift
-    [192058] = {duration = 60, class = "SHAMAN"}, -- Capacitor
-    [192077] = {duration = 120, class = "SHAMAN"}, -- Wind Rush Totem
-    [204330] = {duration = 40, class = "SHAMAN"}, -- Skyfury Totem
-    [204331] = {duration = 45, class = "SHAMAN"}, -- Counterstrike Totem
-    [8143] = {duration = 60, class = "SHAMAN"}, -- Tremor Totem
-    [51490] = {duration = 45, class = "SHAMAN"}, -- Thunderstorm
+    [192058] = {duration = 54, class = "SHAMAN"}, -- Capacitor
+    [192077] = {duration = 114, class = "SHAMAN"}, -- Wind Rush Totem
+    [204330] = {duration = 34, class = "SHAMAN"}, -- Skyfury Totem
+    [204331] = {duration = 39, class = "SHAMAN"}, -- Counterstrike Totem
+    [8143] = {duration = 54, class = "SHAMAN"}, -- Tremor Totem
+    [51490] = {duration = 30, class = "SHAMAN"}, -- Thunderstorm
     [108281] = {duration = 120, class = "SHAMAN"}, -- Ancestral Guidance
     [192063] = {duration = 30, class = "SHAMAN"}, -- Gust of Wind
     [198103] = {duration = 300, class = "SHAMAN"}, -- Earth Elemental
@@ -440,17 +440,17 @@ addon.Cooldowns = {
     [375982] = {duration = 45, class = "SHAMAN"}, -- Primordial Wave
     [58875] = {duration = 60, class = "SHAMAN"}, -- Spirit Walk
     [79206] = {duration = 120, class = "SHAMAN"}, -- Spiritwalker's Grace
-    [204336] = {duration = 30, class = "SHAMAN"}, -- Grounding Totem
+    [204336] = {duration = 24, class = "SHAMAN"}, -- Grounding Totem
     [356736] = {duration = 30, class = "SHAMAN"}, -- Unleash Shield
-    [383017] = {duration = 30, class = "SHAMAN"}, -- Stoneskin Totem
-    [383019] = {duration = 60, class = "SHAMAN"}, -- Tranquil Air Totem
-    [383013] = {duration = 45, class = "SHAMAN"}, -- Poison Cleansing Totem
+    [383017] = {duration = 24, class = "SHAMAN"}, -- Stoneskin Totem
+    [383019] = {duration = 54, class = "SHAMAN"}, -- Tranquil Air Totem
+    [383013] = {duration = 39, class = "SHAMAN"}, -- Poison Cleansing Totem
     [378773] = {duration = 12, class = "SHAMAN"}, -- Greater Purge
     [108285] = {duration = 180, class = "SHAMAN"}, -- Totemic Recall
 
 		-- Elemental
 
-		[192222] = {duration = 60, class = "SHAMAN", specID = {262}}, -- Liquid Magma Totem
+		[192222] = {duration = 54, class = "SHAMAN", specID = {262}}, -- Liquid Magma Totem
 		[198067] = {duration = 150, class = "SHAMAN", specID = {262}}, -- Fire Elemental
 			[192249] = {parent = 198067}, -- Storm Elemental
 		[191634] = {duration = 60, class = "SHAMAN", specID = {262}, charges = 2}, -- Stormkeeper
@@ -473,12 +473,12 @@ addon.Cooldowns = {
 
 		-- Restoration
 
-		[5394] = {duration = 30, class = "SHAMAN", specID = {264}, charges = 2}, -- Healing Stream Totem
-		[98008] = {duration = 180, class = "SHAMAN", specID = {264}}, -- Spirit Link Totem
-		[108280] = {duration = 90, class = "SHAMAN", specID = {264}}, -- Healing Tide Totem
-		[157153] = {duration = 45, class = "SHAMAN", specID = {264}, charges = 2}, -- Cloudburst Totem
-		[198838] = {duration = 60, class = "SHAMAN", specID = {264}}, -- Earthen Wall Totem
-		[207399] = {duration = 300, class = "SHAMAN", specID = {264}}, -- Ancestral Protection Totem
+		[5394] = {duration = 24, class = "SHAMAN", specID = {264}, charges = 2}, -- Healing Stream Totem
+		[98008] = {duration = 174, class = "SHAMAN", specID = {264}}, -- Spirit Link Totem
+		[108280] = {duration = 111, class = "SHAMAN", specID = {264}}, -- Healing Tide Totem
+		[157153] = {duration = 39, class = "SHAMAN", specID = {264}, charges = 2}, -- Cloudburst Totem
+		[198838] = {duration = 54, class = "SHAMAN", specID = {264}}, -- Earthen Wall Totem
+		[207399] = {duration = 294, class = "SHAMAN", specID = {264}}, -- Ancestral Protection Totem
 		[383009] = {duration = 60, class = "SHAMAN", specID = {264}}, -- Stormkeeper
 		[77130] = {duration = 8, class = "SHAMAN", specID = {264}}, -- Purify Spirit
 		[114052] = {duration = 180, class = "SHAMAN", specID = {264}}, -- Ascendance (Restoration)
@@ -733,7 +733,7 @@ addon.Cooldowns = {
     [358267] = {duration = 30, class = "EVOKER", charges = 2}, -- Hover
     [357208] = {duration = 30, class = "EVOKER"}, -- Fire Breath
     [357210] = {duration = 60, class = "EVOKER"}, -- Deep Breath
-    [383005] = {duration = 90, class = "EVOKER"}, -- Chrono Loop
+    [383005] = {duration = 60, class = "EVOKER"}, -- Chrono Loop
     [378441] = {duration = 120, class = "EVOKER"}, -- Time Stop
     [370388] = {duration = 90, class = "EVOKER"}, -- Swoop Up
     [378464] = {duration = 90, class = "EVOKER"}, -- Nullifying Shroud
