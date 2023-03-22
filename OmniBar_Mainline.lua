@@ -184,7 +184,7 @@ addon.Cooldowns = {
     [115750] = {duration = 90, class = "PALADIN"}, -- Blinding Light
     [375576] = {duration = 60, class = "PALADIN"}, -- Divine Toll
     [105809] = {duration = 90, class = "PALADIN"}, -- Holy Avenger
-    [96231] = {default = true, duration = 15, class = "PALADIN"}, -- Rebuke    
+    [96231] = {default = true, duration = 15, class = "PALADIN"}, -- Rebuke
     [190784] = {duration = 45, class = "PALADIN", charges = 2}, -- Divine Steed
 
 		-- Holy
