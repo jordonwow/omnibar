@@ -74,7 +74,7 @@ addon.Cooldowns = {
 
     -- Demon Hunter
 
-    [179057] = {duration = 60, class = "DEMONHUNTER"}, -- Chaos Nova
+    [179057] = {duration = 48, class = "DEMONHUNTER"}, -- Chaos Nova
     [183752] = {default = true, duration = 15, class = "DEMONHUNTER"}, -- Disrupt
     [188501] = {duration = 30, class = "DEMONHUNTER"}, -- Spectral Sight
     [191427] = {duration = 180, class = "DEMONHUNTER"}, -- Metamorphosis
@@ -179,8 +179,8 @@ addon.Cooldowns = {
     [20066] = {duration = 15, class = "PALADIN"}, -- Repentance
     [31884] = {duration = 60, class = "PALADIN"}, -- Avenging Wrath
 		[216331] = {parent = 31884, duration = 45}, -- Avenging Crusader
-		[231895] = {parent = 31884}, -- Crusade
-		[389539] = {parent = 31884}, -- Sentinel
+		[231895] = {parent = 31884, duration = 120}, -- Crusade
+		[389539] = {parent = 31884, duration = 120}, -- Sentinel
     [115750] = {duration = 90, class = "PALADIN"}, -- Blinding Light
     [375576] = {duration = 60, class = "PALADIN"}, -- Divine Toll
     [105809] = {duration = 90, class = "PALADIN"}, -- Holy Avenger
@@ -190,7 +190,7 @@ addon.Cooldowns = {
 		-- Holy
 
 		[498] = {duration = 42, class = "PALADIN", specID = {65, 70}}, -- Divine Protection
-			[403876] = {parent = 498, duration = 60}, -- Divine Protection (Retribution)
+			[403876] = {parent = 498, duration = 63}, -- Divine Protection (Retribution)
 		[31821] = {duration = 180, class = "PALADIN", specID = {65}}, -- Aura Mastery
 		[200652] = {duration = 90, class = "PALADIN", specID = {65}}, -- Tyr's Deliverance
 		[210294] = {duration = 45, class = "PALADIN", specID = {65}}, -- Divine Favor
@@ -213,11 +213,11 @@ addon.Cooldowns = {
 
 		-- Retribution
 
-		[184662] = {duration = 60, class = "PALADIN", specID = {70}}, -- Shield of Vengeance
-		[255937] = {duration = 30, class = "PALADIN", specID = {70}}, -- Wake of Ashes
+		[184662] = {duration = 63, class = "PALADIN", specID = {70}}, -- Shield of Vengeance
+		[255937] = {duration = 24, class = "PALADIN", specID = {70}}, -- Wake of Ashes
 		[210256] = {duration = 45, class = "PALADIN", specID = {70}}, -- Blessing of Sanctuary
-		[343527] = {duration = 30, class = "PALADIN", specID = {70}}, -- Execution Sentence
-		[343721] = {duration = 60, class = "PALADIN", specID = {70}}, -- Final Reckoning
+		[343527] = {duration = 27, class = "PALADIN", specID = {70}}, -- Execution Sentence
+		[343721] = {duration = 54, class = "PALADIN", specID = {70}}, -- Final Reckoning
 
     -- Druid
 
