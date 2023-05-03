@@ -579,7 +579,7 @@ addon.Cooldowns = {
 		[157980] = {duration = 25, class = "MAGE", specID = {62}}, -- Supernova
 		[198158] = {duration = 60, class = "MAGE", specID = {62}}, -- Mass Invisibility
 		[205025] = {duration = 45, class = "MAGE", specID = {62}}, -- Presence of Mind
-		[30449] = {duration = 30, class = "MAGE", specID = {62}}, -- Spellsteal (Kleptomania)
+		[198100] = {duration = 20, class = "MAGE", specID = {62}}, -- Spellsteal (Kleptomania)
 		[198111] = {duration = 45, class = "MAGE", specID = {62}}, -- Temporal Shield
 		[353128] = {duration = 45, class = "MAGE", specID = {62}}, -- Arcanosphere
 		[376103] = {duration = 30, class = "MAGE", specID = {62}}, -- Radiant Spark
