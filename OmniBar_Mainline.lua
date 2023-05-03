@@ -371,6 +371,7 @@ addon.Cooldowns = {
     [328774] = {duration = 20, class = "WARLOCK"}, -- Amplify Curse
     [410598] = {duration = 60, class = "WARLOCK"}, -- Soul Rip
     [201996] = {duration = 60, class = "WARLOCK"}, -- Call Observer
+    [353753] = {duration = 30, class = "WARLOCK"}, -- Bonds of Fel
     [212623] = {duration = 15, class = "WARLOCK"}, -- Singe Magic
 		[89808] = {parent = 212623}, -- Singe Magic
 		[119905] = {parent = 212623}, -- Singe Magic
