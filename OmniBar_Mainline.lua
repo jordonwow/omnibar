@@ -465,7 +465,7 @@ addon.Cooldowns = {
 		-- Enhancement
 
 		[196884] = {duration = 30, class = "SHAMAN", specID = {263}}, -- Feral Lunge
-		[197214] = {duration = 40, class = "SHAMAN", specID = {263}}, -- Sundering		
+		[197214] = {duration = 40, class = "SHAMAN", specID = {263}}, -- Sundering
 		[384352] = {duration = 90, class = "SHAMAN", specID = {263}}, -- Doom Winds
 		[51533] = {duration = 90, class = "SHAMAN", specID = {263}}, -- Feral Spirits
 		[204361] = {duration = 60, class = "SHAMAN", specID = {263}}, -- Bloodlust (Shamanism)
@@ -500,7 +500,7 @@ addon.Cooldowns = {
     [209997] = {duration = 30, class = "HUNTER"}, -- Play Dead
     [781] = {duration = 20, class = "HUNTER"}, -- Disengage
     [19577] = {duration = 60, class = "HUNTER"}, -- Intimidation
-    [109248] = {duration = 45, class = "HUNTER"}, -- Binding Shot    
+    [109248] = {duration = 45, class = "HUNTER"}, -- Binding Shot
     [34477] = {duration = 45, class = "HUNTER"}, -- Misdirection (Interlope)
     [199483] = {duration = 60, class = "HUNTER"}, -- Camouflage
     [213691] = {duration = 30, class = "HUNTER"}, -- Scatter Shot
