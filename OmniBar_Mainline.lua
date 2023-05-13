@@ -120,7 +120,7 @@ addon.Cooldowns = {
     [32379] = {duration = 10, class = "PRIEST"}, -- Shadow Word: Death
     [10060] = {duration = 120, class = "PRIEST"}, -- Power Infusion
     [8122] = {duration = 30, class = "PRIEST"}, -- Psychic Scream
-    [73325] = {duration = 90, class = "PRIEST"}, -- Leap of Faith
+    [73325] = {duration = 60, class = "PRIEST"}, -- Leap of Faith
     [19236] = {duration = 90, class = "PRIEST"}, -- Desperate Prayer
     [108920] = {duration = 60, class = "PRIEST"}, -- Void Tendrils
     [108968] = {duration = 300, class = "PRIEST"}, -- Void Shift
@@ -317,7 +317,7 @@ addon.Cooldowns = {
 		[118038] = {duration = 90, class = "WARRIOR", specID = {71}}, -- Die by the Sword
 		[167105] = {duration = 45, class = "WARRIOR", specID = {71}}, -- Colossus Smash
 			[262161] = {parent = 167105}, -- Warbreaker
-		[198817] = {duration = 25, class = "WARRIOR", specID = {71}}, -- Sharpen Blade
+		[198817] = {duration = 30, class = "WARRIOR", specID = {71}}, -- Sharpen Blade
 		[227847] = {duration = 60, class = "WARRIOR", specID = {71}}, -- Bladestorm (Arms)
 			[389774] = {parent = 227847}, -- Bladestorm (Hurricane)
 		[236273] = {duration = 60, class = "WARRIOR", specID = {71}}, -- Duel
