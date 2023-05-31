@@ -4,6 +4,7 @@
 ## Version: @project-version@
 ## Author: Jordon
 ## SavedVariables: OmniBarDB
+## IconTexture: Interface\AddOns\OmniBar\Media\Textures\icon.blp
 ## X-Curse-Project-ID: 85814
 ## X-Wago-ID: BO678XK3
 ## X-WoWI-ID: 23235
