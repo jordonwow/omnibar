@@ -160,7 +160,7 @@ addon.Cooldowns = {
 		[15487] = {duration = 45, class = "PRIEST", specID = {258}}, -- Silence
 		[47585] = {duration = 90, class = "PRIEST", specID = {258}}, -- Dispersion
 		[64044] = {duration = 45, class = "PRIEST", specID = {258}}, -- Psychic Horror
-		[263165] = {duration = 45, class = "PRIEST", specID = {258}}, -- Void Torrent
+		[263165] = {duration = 30, class = "PRIEST", specID = {258}}, -- Void Torrent
 		[205369] = {duration = 30, class = "PRIEST", specID = {258}}, -- Mind Bomb
 		[211522] = {duration = 45, class = "PRIEST", specID = {258}}, -- Psyfiend
 		[205385] = {duration = 20, class = "PRIEST", specID = {258}}, -- Shadow Crash
