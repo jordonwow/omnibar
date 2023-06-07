@@ -160,7 +160,7 @@ addon.Cooldowns = {
 		[15487] = {duration = 45, class = "PRIEST", specID = {258}}, -- Silence
 		[47585] = {duration = 90, class = "PRIEST", specID = {258}}, -- Dispersion
 		[64044] = {duration = 45, class = "PRIEST", specID = {258}}, -- Psychic Horror
-		[263165] = {duration = 45, class = "PRIEST", specID = {258}}, -- Void Torrent
+		[263165] = {duration = 30, class = "PRIEST", specID = {258}}, -- Void Torrent
 		[205369] = {duration = 30, class = "PRIEST", specID = {258}}, -- Mind Bomb
 		[211522] = {duration = 45, class = "PRIEST", specID = {258}}, -- Psyfiend
 		[205385] = {duration = 20, class = "PRIEST", specID = {258}}, -- Shadow Crash
@@ -368,7 +368,7 @@ addon.Cooldowns = {
     [353294] = {duration = 60, class = "WARLOCK"}, -- Shadow Rift
     [48020] = {duration = 30, class = "WARLOCK"}, -- Demonic Circle Teleport
     [333889] = {duration = 120, class = "WARLOCK"}, -- Fel Domination
-    [328774] = {duration = 20, class = "WARLOCK"}, -- Amplify Curse
+    [328774] = {duration = 45, class = "WARLOCK"}, -- Amplify Curse
     [410598] = {duration = 60, class = "WARLOCK"}, -- Soul Rip
     [201996] = {duration = 60, class = "WARLOCK"}, -- Call Observer
     [353753] = {duration = 30, class = "WARLOCK"}, -- Bonds of Fel
