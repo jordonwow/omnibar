@@ -199,6 +199,7 @@ addon.Cooldowns = {
 		[148039] = {duration = 30, class = "PALADIN", specID = {65}}, -- Barrier of Faith
 	        [414273] = {duration = 90, class = "PALADIN", specID = {65}}, -- Hand of Divinity
 	        [414170] = {duration = 60, class = "PALADIN", specID = {65}}, -- Daybreak
+	        [114165] = {duration = 20, class = "PALADIN", specID = {65}}, -- Holy Prism
 
 		-- Protection
 
