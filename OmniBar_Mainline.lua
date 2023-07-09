@@ -558,7 +558,7 @@ addon.Cooldowns = {
     [2139] = {default = true, duration = 24, class = "MAGE"}, -- Counterspell
     [11426] = {duration = 25, class = "MAGE"}, -- Ice Barrier
     [45438] = {duration = 180, class = "MAGE"}, -- Ice Block
-	        [414659] = {parent = 45438}, -- Ice Cold
+	        [414658] = {parent = 45438}, -- Ice Cold
     [55342] = {duration = 120, class = "MAGE"}, -- Mirror Image
     [80353] = {duration = 300, class = "MAGE"}, -- Time Warp
     [108839] = {duration = 20, class = "MAGE", charges = 3}, -- Ice Floes
@@ -760,13 +760,13 @@ addon.Cooldowns = {
 		[370960] = {duration = 180, class = "EVOKER", specID = {1468}}, -- Emerald Communion
 		[359816] = {duration = 120, class = "EVOKER", specID = {1468}}, -- Dream Flight
 		[370537] = {duration = 90, class = "EVOKER", specID = {1468}}, -- Stasis
-		[377509] = {duration = 60, class = "EVOKER", specID = {1468}}, -- Dream Projection
+		[377509] = {duration = 60, class = "EVOKER", specID = {1468, 1473}}, -- Dream Projection
 		[360823] = {duration = 8, class = "EVOKER", specID = {1468}} -- Naturalize
 
 	        -- Augmentation
 
 		[395152] = {duration = 30, class = "EVOKER", specID = {1473}}, -- Ebon Might
-		[396286] = {duration = 40, class = "EVOKER", specID = {1473}}, -- Upheaval
+		[408092] = {duration = 40, class = "EVOKER", specID = {1473}}, -- Upheaval
 		[403631] = {duration = 120, class = "EVOKER", specID = {1473}}, -- Breath of Eons
 		[408233] = {duration = 60, class = "EVOKER", specID = {1473}}, -- Bestow Weyrnstone
 		[360827] = {duration = 30, class = "EVOKER", specID = {1473}}, -- Blistering Scales
