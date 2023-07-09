@@ -331,6 +331,7 @@ addon.Cooldowns = {
 		[385059] = {duration = 45, class = "WARRIOR", specID = {72}}, -- Odyn's Fury
 		[1719] = {duration = 90, class = "WARRIOR", specID = {72}}, -- Recklessness
 		[228920] = {duration = 90, class = "WARRIOR", specID = {72, 73}, charges = 2}, -- Ravager
+	        [315720] = {duration = 15, class = "WARRIOR", specID = {72}}, -- Onslaught
 
 		-- Protection
 
@@ -556,7 +557,7 @@ addon.Cooldowns = {
 		[212653] = {parent = 1953, duration = 23, charges = 2}, -- Shimmer
     [2139] = {default = true, duration = 24, class = "MAGE"}, -- Counterspell
     [11426] = {duration = 25, class = "MAGE"}, -- Ice Barrier
-    [45438] = {duration = 180, class = "MAGE", charges = 2}, -- Ice Block
+    [45438] = {duration = 180, class = "MAGE"}, -- Ice Block
 	        [414659] = {parent = 45438}, -- Ice Cold
     [55342] = {duration = 120, class = "MAGE"}, -- Mirror Image
     [80353] = {duration = 300, class = "MAGE"}, -- Time Warp
