@@ -564,7 +564,7 @@ addon.Cooldowns = {
     [108839] = {duration = 20, class = "MAGE", charges = 3}, -- Ice Floes
     [113724] = {duration = 45, class = "MAGE"}, -- Ring of Frost
     [389713] = {duration = 45, class = "MAGE"}, -- Displacement
-    [31661] = {duration = 45, class = "MAGE"}, -- Dragon's Breath    
+    [31661] = {duration = 45, class = "MAGE"}, -- Dragon's Breath
     [157981] = {duration = 25, class = "MAGE"}, -- Blast Wave
     [382440] = {duration = 60, class = "MAGE"}, -- Shifting Power
     [157997] = {duration = 25, class = "MAGE"}, -- Ice Nova
