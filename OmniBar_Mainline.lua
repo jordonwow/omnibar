@@ -725,7 +725,7 @@ addon.Cooldowns = {
     [360995] = {duration = 16, class = "EVOKER"}, -- Verdant Embrace
     [357214] = {duration = 90, class = "EVOKER"}, -- Wing Buffet
     [368970] = {duration = 90, class = "EVOKER"}, -- Tail Swipe
-    [351338] = {default = true, duration = {default = 40, [1467, 1473] = 20}, class = "EVOKER"}, -- Quell
+    [351338] = {default = true, duration = {default = 40, [1467] = 20, [1473] = 20}, class = "EVOKER"}, -- Quell
     [374251] = {duration = 60, class = "EVOKER"}, -- Cauterizing Flame
     [360806] = {duration = 15, class = "EVOKER"}, -- Sleep Walk
     [370553] = {duration = 120, class = "EVOKER"}, -- Tip the Scales
@@ -761,7 +761,7 @@ addon.Cooldowns = {
 		[359816] = {duration = 120, class = "EVOKER", specID = {1468}}, -- Dream Flight
 		[370537] = {duration = 90, class = "EVOKER", specID = {1468}}, -- Stasis
 		[377509] = {duration = 60, class = "EVOKER", specID = {1468, 1473}}, -- Dream Projection
-		[360823] = {duration = 8, class = "EVOKER", specID = {1468}} -- Naturalize
+		[360823] = {duration = 8, class = "EVOKER", specID = {1468}}, -- Naturalize
 
 	        -- Augmentation
 
