@@ -18,7 +18,7 @@ addon.Cooldowns = {
 
     [47528] = {default = true, duration = 15, class = "DEATHKNIGHT"}, -- Mind Freeze
     [48265] = {duration = 45, class = "DEATHKNIGHT", charges = 2}, -- Death's Advance
-    [48707] = {duration = 40, class = "DEATHKNIGHT"}, -- Anti-Magic Shell
+    [48707] = {duration = 30, class = "DEATHKNIGHT"}, -- Anti-Magic Shell
     [49576] = {duration = 25, class = "DEATHKNIGHT", charges = 2}, -- Death Grip
     [51052] = {duration = 120, class = "DEATHKNIGHT"}, -- Anti-Magic Zone
     [61999] = {duration = 600, class = "DEATHKNIGHT"}, -- Raise Ally
@@ -60,7 +60,6 @@ addon.Cooldowns = {
 		-- Unholy
 
 		[42650] = {duration = 480, class = "DEATHKNIGHT", specID = {252}}, -- Army of the Dead
-		[288853] = {duration = 90, class = "DEATHKNIGHT", specID = {252}}, -- Raise Abomination
 		[63560] = {duration = 45, class = "DEATHKNIGHT", specID = {252}}, -- Dark Transformation
 		[47481] = {duration = 90, class = "DEATHKNIGHT", specID = {252}}, -- Gnaw (Ghoul)
 		[47482] = {duration = 30, class = "DEATHKNIGHT", specID = {252}}, -- Leap (Ghoul)
@@ -114,7 +113,7 @@ addon.Cooldowns = {
     -- Priest
 
     [586] = {duration = 20, class = "PRIEST"}, -- Fade
-    [32375] = {duration = 45, class = "PRIEST"}, -- Mass Dispel
+    [32375] = {duration = 25, class = "PRIEST"}, -- Mass Dispel
     [375901] = {duration = 45, class = "PRIEST"}, -- Mindgames
     [316262] = {duration = 90, class = "PRIEST"}, -- Thoughtsteal
     [32379] = {duration = 10, class = "PRIEST"}, -- Shadow Word: Death
@@ -135,6 +134,7 @@ addon.Cooldowns = {
 			[200174] = {parent = 34433, duration = 60}, -- Mindbender (Shadow)
 		[47536] = {duration = 90, class = "PRIEST", specID = {256}}, -- Rapture
 		[62618] = {duration = 180, class = "PRIEST", specID = {256}}, -- Power Word: Barrier
+	                [271466] = {parent = 34433}, -- Luminous Barrier
 		[197862] = {duration = 60, class = "PRIEST", specID = {256}}, -- Archangel
 		[197871] = {duration = 60, class = "PRIEST", specID = {256}}, -- Dark Archangel
 		[314867] = {duration = 30, class = "PRIEST", specID = {256}}, -- Shadow Covenant
@@ -145,7 +145,7 @@ addon.Cooldowns = {
 		-- Holy
 
 		[47788] = {duration = 180, class = "PRIEST", specID = {257}}, -- Guardian Spirit
-		[64843] = {duration = 180, class = "PRIEST", specID = {257}}, -- Divine Hymn
+		[64843] = {duration = 120, class = "PRIEST", specID = {257}}, -- Divine Hymn
 		[64901] = {duration = 180, class = "PRIEST", specID = {257}}, -- Symbol of Hope
 		[197268] = {duration = 90, class = "PRIEST", specID = {257}}, -- Ray of Hope
 		[200183] = {duration = 120, class = "PRIEST", specID = {257}}, -- Apotheosis
@@ -179,26 +179,27 @@ addon.Cooldowns = {
 		[199448] = {parent = 6940, duration = 60}, -- Ultimate Sacrifice
     [20066] = {duration = 15, class = "PALADIN"}, -- Repentance
     [31884] = {duration = 60, class = "PALADIN"}, -- Avenging Wrath
-		[216331] = {parent = 31884, duration = 45}, -- Avenging Crusader
+		[216331] = {parent = 31884, duration = 60}, -- Avenging Crusader
 		[231895] = {parent = 31884, duration = 120}, -- Crusade
 		[389539] = {parent = 31884, duration = 120}, -- Sentinel
     [115750] = {duration = 90, class = "PALADIN"}, -- Blinding Light
     [375576] = {duration = 60, class = "PALADIN"}, -- Divine Toll
-    [105809] = {duration = 90, class = "PALADIN"}, -- Holy Avenger
     [96231] = {default = true, duration = 15, class = "PALADIN"}, -- Rebuke
     [190784] = {duration = 45, class = "PALADIN", charges = 2}, -- Divine Steed
-    [410126] = {duration = 60, class = "PALADIN"}, -- Searing Glare
+    [410126] = {duration = 45, class = "PALADIN"}, -- Searing Glare
 
 		-- Holy
 
 		[498] = {duration = 42, class = "PALADIN", specID = {65, 70}}, -- Divine Protection
 			[403876] = {parent = 498, duration = 63}, -- Divine Protection (Retribution)
-		[31821] = {duration = 180, class = "PALADIN", specID = {65}}, -- Aura Mastery
+		[31821] = {duration = 90, class = "PALADIN", specID = {65}}, -- Aura Mastery
 		[200652] = {duration = 90, class = "PALADIN", specID = {65}}, -- Tyr's Deliverance
-		[210294] = {duration = 45, class = "PALADIN", specID = {65}}, -- Divine Favor
-		[214202] = {duration = 30, class = "PALADIN", specID = {65}, charges = 2}, -- Rule of Law
+		[210294] = {duration = 30, class = "PALADIN", specID = {65}}, -- Divine Favor
 		[4987] = {duration = 8, class = "PALADIN", specID = {65}}, -- Cleanse
 		[148039] = {duration = 30, class = "PALADIN", specID = {65}}, -- Barrier of Faith
+	        [414273] = {duration = 90, class = "PALADIN", specID = {65}}, -- Hand of Divinity
+	        [414170] = {duration = 60, class = "PALADIN", specID = {65}}, -- Daybreak
+	        [114165] = {duration = 20, class = "PALADIN", specID = {65}}, -- Holy Prism
 
 		-- Protection
 
@@ -248,7 +249,7 @@ addon.Cooldowns = {
 		[194223] = {duration = 180, class = "DRUID", specID = {102}}, -- Celestial Alignment
 			[383410] = {parent = 194223, duration = 120}, -- Celestial Alignment (Orbital Strike)
 		[202425] = {duration = 45, class = "DRUID", specID = {102}}, -- Warrior of Elune
-		[202770] = {duration = 60, class = "DRUID", specID = {102}}, -- Fury of Elune
+		[202770] = {duration = 45, class = "DRUID", specID = {102}}, -- Fury of Elune
 		[205636] = {duration = 60, class = "DRUID", specID = {102}}, -- Force of Nature
 		[209749] = {duration = 30, class = "DRUID", specID = {102}}, -- Faerie Swarm
 		[202359] = {duration = 60, class = "DRUID", specID = {102}}, -- Astral Communion
@@ -330,6 +331,7 @@ addon.Cooldowns = {
 		[385059] = {duration = 45, class = "WARRIOR", specID = {72}}, -- Odyn's Fury
 		[1719] = {duration = 90, class = "WARRIOR", specID = {72}}, -- Recklessness
 		[228920] = {duration = 90, class = "WARRIOR", specID = {72, 73}, charges = 2}, -- Ravager
+	        [315720] = {duration = 15, class = "WARRIOR", specID = {72}}, -- Onslaught
 
 		-- Protection
 
@@ -384,6 +386,7 @@ addon.Cooldowns = {
 		[205180] = {duration = 120, class = "WARLOCK", specID = {265}}, -- Summon Darkglare
 		[386997] = {duration = 60, class = "WARLOCK", specID = {265}}, -- Soul Rot
 		[108503] = {duration = 30, class = "WARLOCK", specID = {265, 267}}, -- Grimoire of Sacrifice
+	        [417537] = {duration = 45, class = "WARLOCK", specID = {265}}, -- Oblivion
 
 		-- Demonology
 
@@ -530,7 +533,7 @@ addon.Cooldowns = {
 		[260243] = {duration = 45, class = "HUNTER", specID = {254}}, -- Volley
 		[400456] = {duration = 45, class = "HUNTER", specID = {254}}, -- Salvo
 		[257044] = {duration = 20, class = "HUNTER", specID = {254}}, -- Rapid Fire
-		[288613] = {duration = 120, class = "HUNTER", specID = {254}}, -- Trueshot
+		[288613] = {duration = 100, class = "HUNTER", specID = {254}}, -- Trueshot
 		[392060] = {duration = 60, class = "HUNTER", specID = {254, 253}}, -- Wailing Arrow
 
 		-- Survival
@@ -554,15 +557,14 @@ addon.Cooldowns = {
 		[212653] = {parent = 1953, duration = 23, charges = 2}, -- Shimmer
     [2139] = {default = true, duration = 24, class = "MAGE"}, -- Counterspell
     [11426] = {duration = 25, class = "MAGE"}, -- Ice Barrier
-    [45438] = {duration = 200, class = "MAGE", charges = 2}, -- Ice Block
+    [45438] = {duration = 180, class = "MAGE"}, -- Ice Block
+	        [414658] = {parent = 45438}, -- Ice Cold
     [55342] = {duration = 120, class = "MAGE"}, -- Mirror Image
     [80353] = {duration = 300, class = "MAGE"}, -- Time Warp
     [108839] = {duration = 20, class = "MAGE", charges = 3}, -- Ice Floes
     [113724] = {duration = 45, class = "MAGE"}, -- Ring of Frost
-    [116011] = {duration = 45, class = "MAGE", charges = 2}, -- Rune of Power
     [389713] = {duration = 45, class = "MAGE"}, -- Displacement
     [31661] = {duration = 45, class = "MAGE"}, -- Dragon's Breath
-    [153561] = {duration = 45, class = "MAGE"}, -- Meteor
     [157981] = {duration = 25, class = "MAGE"}, -- Blast Wave
     [382440] = {duration = 60, class = "MAGE"}, -- Shifting Power
     [157997] = {duration = 25, class = "MAGE"}, -- Ice Nova
@@ -571,6 +573,8 @@ addon.Cooldowns = {
     [122] = {duration = 30, class = "MAGE", charges = 2}, -- Frost Nova
     [342245] = {duration = 50, class = "MAGE"}, -- Alter Time
     [475] = {duration = 8, class = "MAGE"}, -- Remove Curse
+    [414660] = {duration = 120, class = "MAGE"}, -- Mass Barrier
+    [414664] = {duration = 60, class = "MAGE"}, -- Mass Invisibility
 
 		-- Arcane
 
@@ -592,16 +596,16 @@ addon.Cooldowns = {
 		[190319] = {duration = 120, class = "MAGE", specID = {63}}, -- Combustion
 		[194466] = {duration = 25, class = "MAGE", specID = {63}, charges = 3}, -- Phoenix's Flames
 		[203286] = {duration = 15, class = "MAGE", specID = {63}}, -- Greater Pyroblast
+	        [153561] = {duration = 30, class = "MAGE", specID = {63}}, -- Meteor
 
 		-- Frost
 
-		[12472] = {duration = 180, class = "MAGE", specID = {64}}, -- Icy Veins
+		[12472] = {duration = 120, class = "MAGE", specID = {64}}, -- Icy Veins
 			[198144] = {parent = 12472, duration = 60}, -- Ice Form
 		[31687] = {duration = 30, class = "MAGE", specID = {64}}, -- Summon Water Elemental
 		[84714] = {duration = 60, class = "MAGE", specID = {64}}, -- Frozen Orb
 		[153595] = {duration = 30, class = "MAGE", specID = {64}}, -- Comet Storm
-		[205021] = {duration = 75, class = "MAGE", specID = {64}}, -- Ray of Frost
-		[257537] = {duration = 45, class = "MAGE", specID = {64}}, -- Ebonbolt
+		[205021] = {duration = 60, class = "MAGE", specID = {64}}, -- Ray of Frost
 		[389794] = {duration = 45, class = "MAGE", specID = {64}}, -- Snowdrift
 		[390612] = {duration = 15, class = "MAGE", specID = {64}}, -- Frost Bomb
 		[235219] = {duration = 300, class = "MAGE", specID = {64}}, -- Cold Snap
@@ -721,7 +725,7 @@ addon.Cooldowns = {
     [360995] = {duration = 16, class = "EVOKER"}, -- Verdant Embrace
     [357214] = {duration = 90, class = "EVOKER"}, -- Wing Buffet
     [368970] = {duration = 90, class = "EVOKER"}, -- Tail Swipe
-    [351338] = {default = true, duration = {default = 40, [1467] = 20}, class = "EVOKER"}, -- Quell
+    [351338] = {default = true, duration = {default = 40, [1467, 1473] = 20}, class = "EVOKER"}, -- Quell
     [374251] = {duration = 60, class = "EVOKER"}, -- Cauterizing Flame
     [360806] = {duration = 15, class = "EVOKER"}, -- Sleep Walk
     [370553] = {duration = 120, class = "EVOKER"}, -- Tip the Scales
@@ -735,7 +739,7 @@ addon.Cooldowns = {
     [357208] = {duration = 30, class = "EVOKER"}, -- Fire Breath
     [357210] = {duration = 60, class = "EVOKER"}, -- Deep Breath
     [383005] = {duration = 60, class = "EVOKER"}, -- Chrono Loop
-    [378441] = {duration = 90, class = "EVOKER"}, -- Time Stop
+    [378441] = {duration = 60, class = "EVOKER"}, -- Time Stop
     [370388] = {duration = 90, class = "EVOKER"}, -- Swoop Up
     [378464] = {duration = 90, class = "EVOKER"}, -- Nullifying Shroud
 
@@ -756,6 +760,17 @@ addon.Cooldowns = {
 		[370960] = {duration = 180, class = "EVOKER", specID = {1468}}, -- Emerald Communion
 		[359816] = {duration = 120, class = "EVOKER", specID = {1468}}, -- Dream Flight
 		[370537] = {duration = 90, class = "EVOKER", specID = {1468}}, -- Stasis
-		[377509] = {duration = 60, class = "EVOKER", specID = {1468}}, -- Dream Projection
+		[377509] = {duration = 60, class = "EVOKER", specID = {1468, 1473}}, -- Dream Projection
 		[360823] = {duration = 8, class = "EVOKER", specID = {1468}} -- Naturalize
+
+	        -- Augmentation
+
+		[395152] = {duration = 30, class = "EVOKER", specID = {1473}}, -- Ebon Might
+		[408092] = {duration = 40, class = "EVOKER", specID = {1473}}, -- Upheaval
+		[403631] = {duration = 120, class = "EVOKER", specID = {1473}}, -- Breath of Eons
+		[408233] = {duration = 60, class = "EVOKER", specID = {1473}}, -- Bestow Weyrnstone
+		[360827] = {duration = 30, class = "EVOKER", specID = {1473}}, -- Blistering Scales
+		[406732] = {duration = 120, class = "EVOKER", specID = {1473}}, -- Spatial Paradox
+		[409311] = {duration = 12, class = "EVOKER", specID = {1473}}, -- Prescience
+	        [404977] = {duration = 180, class = "EVOKER", specID = {1473}}, -- Time Skip
 }
