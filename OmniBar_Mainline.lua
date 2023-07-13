@@ -582,7 +582,6 @@ addon.Cooldowns = {
 		[12051] = {duration = 90, class = "MAGE", specID = {62}}, -- Evocation
 		[153626] = {duration = 20, class = "MAGE", specID = {62}, charges = 2}, -- Arcane Orb
 		[157980] = {duration = 25, class = "MAGE", specID = {62}}, -- Supernova
-		[198158] = {duration = 60, class = "MAGE", specID = {62}}, -- Mass Invisibility
 		[205025] = {duration = 45, class = "MAGE", specID = {62}}, -- Presence of Mind
 		[198100] = {duration = 20, class = "MAGE", specID = {62}}, -- Spellsteal (Kleptomania)
 		[198111] = {duration = 45, class = "MAGE", specID = {62}}, -- Temporal Shield
@@ -602,7 +601,6 @@ addon.Cooldowns = {
 
 		[12472] = {duration = 120, class = "MAGE", specID = {64}}, -- Icy Veins
 			[198144] = {parent = 12472, duration = 60}, -- Ice Form
-		[31687] = {duration = 30, class = "MAGE", specID = {64}}, -- Summon Water Elemental
 		[84714] = {duration = 60, class = "MAGE", specID = {64}}, -- Frozen Orb
 		[153595] = {duration = 30, class = "MAGE", specID = {64}}, -- Comet Storm
 		[205021] = {duration = 60, class = "MAGE", specID = {64}}, -- Ray of Frost
