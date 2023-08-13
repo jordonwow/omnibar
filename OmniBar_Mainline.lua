@@ -124,7 +124,7 @@ addon.Cooldowns = {
     [108920] = {duration = 60, class = "PRIEST"}, -- Void Tendrils
     [108968] = {duration = 300, class = "PRIEST"}, -- Void Shift
     [373481] = {duration = 30, class = "PRIEST"}, -- Power Word: Life
-    [15286] = {duration = 75, class = "PRIEST"}, -- Vampiric Embrace
+    [15286] = {duration = 90, class = "PRIEST"}, -- Vampiric Embrace
 
 		-- Discipline
 
