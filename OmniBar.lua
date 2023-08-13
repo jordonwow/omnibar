@@ -184,9 +184,14 @@ function OmniBar:OnInitialize()
 		if (not major) or (not minor) then return end
 		if major < self.version.major then return end
 		if major == self.version.major and minor <= self.version.minor then return end
+		if (not self.outdatedSender) or self.outdatedSender == sender then
+			self.outdatedSender = sender
+			return
+		end
 		if self.nextWarn and self.nextWarn > GetTime() then return end
 		self.nextWarn = GetTime() + 1800
 		self:Print(L.UPDATE_AVAILABLE)
+		self.outdatedSender = nil
 	end)
 
 	self:RegisterEvent("ZONE_CHANGED_NEW_AREA", "SendVersion")
