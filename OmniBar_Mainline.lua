@@ -238,6 +238,8 @@ addon.Cooldowns = {
     [22570] = {duration = 20, class = "DRUID"}, -- Maim
     [106839] = {default = true, duration = 15, class = "DRUID"}, -- Skull Bash
     [99] = {duration = 30, class = "DRUID"}, -- Incapacitating Roar
+    [106898] = {duration = 60, class = "DRUID"}, -- Stampeding Roar
+		[77761] = {parent = 106898, duration = 60}, -- Stampeding Roar
     [102793] = {duration = 60, class = "DRUID"}, -- Ursol's Vortex
     [124974] = {duration = 90, class = "DRUID"}, -- Nature's Vigil
 
@@ -260,7 +262,6 @@ addon.Cooldowns = {
 		[5217] = {duration = 30, class = "DRUID", specID = {103}}, -- Tiger's Fury
 		[61336] = {duration = {default = 180, [104] = 120}, class = "DRUID", specID = {103, 104}, charges = 2}, -- Survival Instincts
 		[102543] = {duration = 180, class = "DRUID", specID = {103}}, -- Incarnation: Avatar of Ashamane
-		[106898] = {duration = 120, class = "DRUID", specID = {103, 104}}, -- Stampeding Roar
 		[106951] = {duration = 180, class = "DRUID", specID = {103}}, -- Berserk
 		[274837] = {duration = 45, class = "DRUID", specID = {103}}, -- Feral Frenzy
 		[391888] = {duration = 25, class = "DRUID", specID = {103, 105}}, -- Adaptive Swarm
@@ -289,6 +290,7 @@ addon.Cooldowns = {
 		[392160] = {duration = 20, class = "DRUID", specID = {105}}, -- Invigorate
 		[305497] = {duration = 45, class = "DRUID", specID = {102, 103, 105}}, -- Thorns
 		[88423] = {duration = 8, class = "DRUID", specID = {105}}, -- Nature's Cure
+	        [102693] = {duration = 20, class = "DRUID", specID = {105}, charges = 3}, -- Grove Guardians
 		[132158] = {duration = 60, class = "DRUID", specID = {105}}, -- Nature's Swiftness
 
     -- Warrior
