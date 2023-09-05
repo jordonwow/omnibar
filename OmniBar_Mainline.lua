@@ -53,7 +53,7 @@ addon.Cooldowns = {
 
 		[51271] = {duration = 60, class = "DEATHKNIGHT", specID = {251}}, -- Pillar of Frost
 		[152279] = {duration = 120, class = "DEATHKNIGHT", specID = {251}}, -- Breath of Sindragosa
-		[196770] = {duration = 20, class = "DEATHKNIGHT", specID = {251}}, -- Remorseless Winter
+		[196770] = {duration = 30, class = "DEATHKNIGHT", specID = {251}}, -- Remorseless Winter
 		[305392] = {duration = 45, class = "DEATHKNIGHT", specID = {251}}, -- Chill Streak
 		[279302] = {duration = 90, class = "DEATHKNIGHT", specID = {251}}, -- Frostwyrm's Fury
 
@@ -120,7 +120,7 @@ addon.Cooldowns = {
     [10060] = {duration = 120, class = "PRIEST"}, -- Power Infusion
     [8122] = {duration = 30, class = "PRIEST"}, -- Psychic Scream
     [73325] = {duration = 60, class = "PRIEST"}, -- Leap of Faith
-    [19236] = {duration = 90, class = "PRIEST"}, -- Desperate Prayer
+    [19236] = {duration = 70, class = "PRIEST"}, -- Desperate Prayer
     [108920] = {duration = 60, class = "PRIEST"}, -- Void Tendrils
     [108968] = {duration = 300, class = "PRIEST"}, -- Void Shift
     [373481] = {duration = 30, class = "PRIEST"}, -- Power Word: Life
@@ -707,12 +707,11 @@ addon.Cooldowns = {
 			[388615] = {parent = 115310, duration = 90}, -- Restoral
 		[116680] = {duration = 30, class = "MONK", specID = {270}}, -- Thunder Focus Tea
 		[116849] = {duration = 75, class = "MONK", specID = {270}}, -- Life Cocoon
-		[197908] = {duration = 90, class = "MONK", specID = {270}}, -- Mana Tea
 		[198898] = {duration = 30, class = "MONK", specID = {270}}, -- Song of Chi-Ji
 		[205234] = {duration = 15, class = "MONK", specID = {270}, charges = 3}, -- Healing Sphere
 		[388193] = {duration = 30, class = "MONK", specID = {269, 270}}, -- Faeline Stomp
 		[322118] = {duration = 180, class = "MONK", specID = {270}}, -- Invoke Yu'Lon, the Jade Serpent
-			[325197] = {parent = 322118, duration = 60}, -- Invoke Chi-Ji, the Red Crane
+		[325197] = {duration = 60, class = "MONK", specID = {270}}, -- Invoke Chi-Ji, the Red Crane
 		[122281] = {duration = 30, class = "MONK", specID = {268, 270}, charges = 2}, -- Healing Elixir
 		[115450] = {duration = 8, class = "MONK", specID = {270}}, -- Detox
 
@@ -723,7 +722,7 @@ addon.Cooldowns = {
     [360995] = {duration = 16, class = "EVOKER"}, -- Verdant Embrace
     [357214] = {duration = 90, class = "EVOKER"}, -- Wing Buffet
     [368970] = {duration = 90, class = "EVOKER"}, -- Tail Swipe
-    [351338] = {default = true, duration = {default = 40, [1467] = 20, [1473] = 20}, class = "EVOKER"}, -- Quell
+    [351338] = {default = true, duration = {default = 20, [1468] = 40}, class = "EVOKER"}, -- Quell
     [374251] = {duration = 60, class = "EVOKER"}, -- Cauterizing Flame
     [360806] = {duration = 15, class = "EVOKER"}, -- Sleep Walk
     [370553] = {duration = 120, class = "EVOKER"}, -- Tip the Scales
