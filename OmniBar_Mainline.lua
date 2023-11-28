@@ -188,8 +188,7 @@ addon.Cooldowns = {
 
 		-- Holy
 
-		[498] = {duration = 42, class = "PALADIN", specID = {65, 70}}, -- Divine Protection
-			[403876] = {parent = 498, duration = 63}, -- Divine Protection (Retribution)
+		[498] = {duration = 42, class = "PALADIN", specID = {65}}, -- Divine Protection
 		[31821] = {duration = 90, class = "PALADIN", specID = {65}}, -- Aura Mastery
 		[200652] = {duration = 90, class = "PALADIN", specID = {65}}, -- Tyr's Deliverance
 		[210294] = {duration = 30, class = "PALADIN", specID = {65}}, -- Divine Favor
@@ -217,6 +216,7 @@ addon.Cooldowns = {
 		-- Retribution
 
 		[184662] = {duration = 63, class = "PALADIN", specID = {70}}, -- Shield of Vengeance
+	        [403876] = {duration = 63, class = "PALADIN", specID = {70}}, -- Divine Protection (Retribution)
 		[255937] = {duration = 24, class = "PALADIN", specID = {70}}, -- Wake of Ashes
 	        [231895] = {duration = 120, class = "PALADIN", specID = {70}}, -- Crusade
 		[210256] = {duration = 45, class = "PALADIN", specID = {70}}, -- Blessing of Sanctuary
@@ -555,8 +555,8 @@ addon.Cooldowns = {
 
     [66] = {duration = 300, class = "MAGE"}, -- Invisibility
     [110959] = {duration = 120, class = "MAGE"}, -- Greater Invisibility
-    [1953] = {duration = 13, class = "MAGE"}, -- Blink
-		[212653] = {parent = 1953, duration = 23, charges = 2}, -- Shimmer
+    [1953] = {duration = 11, class = "MAGE"}, -- Blink
+    [212653] = {duration = 21, class = "MAGE", charges = 2}, -- Shimmer
     [2139] = {default = true, duration = 24, class = "MAGE"}, -- Counterspell
     [11426] = {duration = 25, class = "MAGE"}, -- Ice Barrier
     [45438] = {duration = 180, class = "MAGE"}, -- Ice Block
@@ -630,7 +630,7 @@ addon.Cooldowns = {
     [2094] = {duration = {default = 120, [260] = 90}, class = "ROGUE"}, -- Blind
     [385408] = {duration = 90, class = "ROGUE"}, -- Sepsis
     [212182] = {duration = 180, class = "ROGUE", specID = {259, 260}}, -- Smoke Bomb
-		[359053] = {parent = 212182, duration = 120, specID = {261}}, -- Smoke Bomb (Subtlety)
+    [359053] = {duration = 120, class = "ROGUE", specID = {261}}, -- Smoke Bomb (Subtlety)
     [185313] = {duration = 60, class = "ROGUE", charges = 2}, -- Shadow Dance
     [382245] = {duration = 45, class = "ROGUE"}, -- Cold Blood
     [185311] = {duration = 30, class = "ROGUE"}, -- Crimson Vial
