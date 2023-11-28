@@ -865,6 +865,9 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 
 	local now = GetTime()
 
+	local charges = addon.Cooldowns[spellID].charges
+	local duration = customDuration or GetCooldownDuration(addon.Cooldowns[spellID])
+
 	-- make sure spellID is parent
 	spellID = addon.Cooldowns[spellID].parent or spellID
 
@@ -879,9 +882,6 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 
 	-- only track players and their pets
 	if (not ownerName) and bit_band(sourceFlags, COMBATLOG_OBJECT_TYPE_PLAYER) == 0 then return end
-
-	local duration = customDuration or GetCooldownDuration(addon.Cooldowns[spellID])
-	local charges = addon.Cooldowns[spellID].charges
 
 	-- child doesn't have custom charges, use parent
 	if (not charges) then
