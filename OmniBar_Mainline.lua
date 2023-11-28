@@ -179,10 +179,7 @@ addon.Cooldowns = {
     [6940] = {duration = 60, class = "PALADIN"}, -- Blessing of Sacrifice
 		[199448] = {parent = 6940, duration = 60}, -- Ultimate Sacrifice
     [20066] = {duration = 15, class = "PALADIN"}, -- Repentance
-    [31884] = {duration = 60, class = "PALADIN"}, -- Avenging Wrath
-		[216331] = {parent = 31884, duration = 60}, -- Avenging Crusader
-		[231895] = {parent = 31884, duration = 120}, -- Crusade
-		[389539] = {parent = 31884, duration = 120}, -- Sentinel
+    [31884] = {duration = 120, class = "PALADIN"}, -- Avenging Wrath
     [115750] = {duration = 90, class = "PALADIN"}, -- Blinding Light
     [375576] = {duration = 60, class = "PALADIN"}, -- Divine Toll
     [96231] = {default = true, duration = 15, class = "PALADIN"}, -- Rebuke
@@ -200,6 +197,7 @@ addon.Cooldowns = {
 		[148039] = {duration = 30, class = "PALADIN", specID = {65}}, -- Barrier of Faith
 	        [414273] = {duration = 90, class = "PALADIN", specID = {65}}, -- Hand of Divinity
 	        [414170] = {duration = 60, class = "PALADIN", specID = {65}}, -- Daybreak
+	        [216331] = {duration = 60, class = "PALADIN", specID = {65}}, -- Avenging Crusader
 	        [114165] = {duration = 20, class = "PALADIN", specID = {65}}, -- Holy Prism
 
 		-- Protection
@@ -213,12 +211,14 @@ addon.Cooldowns = {
 		[213644] = {duration = 8, class = "PALADIN", specID = {66, 70}}, -- Cleanse Toxins
 		[378974] = {duration = 120, class = "PALADIN", specID = {66}}, -- Bastion of Light
 		[327193] = {duration = 90, class = "PALADIN", specID = {66}}, -- Moment of Glory
+	        [389539] = {duration = 120, class = "PALADIN", specID = {66}}, -- Sentinel
 		[204018] = {duration = 240, class = "PALADIN", specID = {66, 70}}, -- Blessing of Spellwarding
 
 		-- Retribution
 
 		[184662] = {duration = 63, class = "PALADIN", specID = {70}}, -- Shield of Vengeance
 		[255937] = {duration = 24, class = "PALADIN", specID = {70}}, -- Wake of Ashes
+	        [231895] = {duration = 120, class = "PALADIN", specID = {70}}, -- Crusade
 		[210256] = {duration = 45, class = "PALADIN", specID = {70}}, -- Blessing of Sanctuary
 		[343527] = {duration = 27, class = "PALADIN", specID = {70}}, -- Execution Sentence
 		[343721] = {duration = 54, class = "PALADIN", specID = {70}}, -- Final Reckoning
@@ -247,10 +247,10 @@ addon.Cooldowns = {
 		-- Balance
 
 		[78675] = {default = true, duration = 60, class = "DRUID", specID = {102}}, -- Solar Beam
-		[102560] = {duration = 180, class = "DRUID", specID = {102}}, -- Incarnation: Chosen of Elune
-			[390414] = {parent = 102560, duration = 120}, -- Incarnation: Chosen of Elune (Orbital Strike)
-		[194223] = {duration = 180, class = "DRUID", specID = {102}}, -- Celestial Alignment
-			[383410] = {parent = 194223, duration = 120}, -- Celestial Alignment (Orbital Strike)
+		[390414] = {duration = 120, class = "DRUID", specID = {102}}, -- Incarnation: Chosen of Elune (Orbital Strike)
+			[102560] = {parent = 102560, duration = 180}, -- Incarnation: Chosen of Elune
+		[383410] = {duration = 120, class = "DRUID", specID = {102}}, -- Celestial Alignment (Orbital Strike)
+			[194223] = {parent = 194223, duration = 180}, -- Celestial Alignment
 		[202425] = {duration = 45, class = "DRUID", specID = {102}}, -- Warrior of Elune
 		[202770] = {duration = 45, class = "DRUID", specID = {102}}, -- Fury of Elune
 		[205636] = {duration = 60, class = "DRUID", specID = {102}}, -- Force of Nature
@@ -308,8 +308,8 @@ addon.Cooldowns = {
     [107574] = {duration = 90, class = "WARRIOR"}, -- Avatar
     [236077] = {duration = 45, class = "WARRIOR"}, -- Disarm
     [376079] = {duration = 90, class = "WARRIOR"}, -- Spear of Bastion
-    [5246] = {duration = 90, class = "WARRIOR"}, -- Intimidating Shout
-		[316593] = {parent = 5246, duration = 90}, -- Intimidating Shout (Menace)
+    [5246] = {duration = 75, class = "WARRIOR"}, -- Intimidating Shout
+		[316593] = {parent = 5246, duration = 75}, -- Intimidating Shout (Menace)
     [97462] = {duration = 180, class = "WARRIOR"}, -- Rallying Cry
     [386208] = {duration = 3, class = "WARRIOR"}, -- Defensive Stance
     [384318] = {duration = 60, class = "WARRIOR"}, -- Thunderous Roar
@@ -736,8 +736,8 @@ addon.Cooldowns = {
     [358267] = {duration = 30, class = "EVOKER", charges = 2}, -- Hover
     [357208] = {duration = 30, class = "EVOKER"}, -- Fire Breath
     [357210] = {duration = 60, class = "EVOKER"}, -- Deep Breath
-    [383005] = {duration = 60, class = "EVOKER"}, -- Chrono Loop
-    [378441] = {duration = 60, class = "EVOKER"}, -- Time Stop
+    [383005] = {duration = 45, class = "EVOKER"}, -- Chrono Loop
+    [378441] = {duration = 45, class = "EVOKER"}, -- Time Stop
     [370388] = {duration = 90, class = "EVOKER"}, -- Swoop Up
     [378464] = {duration = 90, class = "EVOKER"}, -- Nullifying Shroud
 
