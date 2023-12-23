@@ -18,7 +18,8 @@ addon.Cooldowns = {
 
     [47528] = {default = true, duration = 15, class = "DEATHKNIGHT"}, -- Mind Freeze
     [48265] = {duration = 45, class = "DEATHKNIGHT", charges = 2}, -- Death's Advance
-    [48707] = {duration = 30, class = "DEATHKNIGHT"}, -- Anti-Magic Shell
+    [48707] = {duration = 40, class = "DEATHKNIGHT"}, -- Anti-Magic Shell
+		[410358] = {parent = 48707, duration = 30}, -- Anti-Magic Shell (Spellwarden)
     [49576] = {duration = 25, class = "DEATHKNIGHT", charges = 2}, -- Death Grip
     [51052] = {duration = 120, class = "DEATHKNIGHT"}, -- Anti-Magic Zone
     [61999] = {duration = 600, class = "DEATHKNIGHT"}, -- Raise Ally
@@ -557,7 +558,7 @@ addon.Cooldowns = {
     [110959] = {duration = 120, class = "MAGE"}, -- Greater Invisibility
     [1953] = {duration = 11, class = "MAGE"}, -- Blink
     [212653] = {duration = 21, class = "MAGE", charges = 2}, -- Shimmer
-    [2139] = {default = true, duration = 24, class = "MAGE"}, -- Counterspell
+    [2139] = {default = true, duration = 20, class = "MAGE"}, -- Counterspell
     [11426] = {duration = 25, class = "MAGE"}, -- Ice Barrier
     [45438] = {duration = 180, class = "MAGE"}, -- Ice Block
 	        [414658] = {parent = 45438}, -- Ice Cold
