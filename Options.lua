@@ -106,6 +106,14 @@ local function GetBars(key)
 	return bars
 end
 
+local descriptions = CreateFrame("Frame");
+descriptions:SetScript("OnEvent", function(self, event, spellID, success)
+	if success then
+		self[spellID] = GetSpellDescription(spellID);
+	end
+end);
+descriptions:RegisterEvent("SPELL_DATA_LOAD_RESULT");
+
 local function GetSpells()
 	local spells = {
 		uncheck = {
@@ -149,7 +157,6 @@ local function GetSpells()
 			order = 3,
 		},
 	}
-	local descriptions = {}
 	for i = 0, MAX_CLASSES do
 
 		spells[CLASS_SORT_ORDER_WITH_GENERAL[i]] = {
@@ -179,11 +186,11 @@ local function GetSpells()
 					if string.len(spellName) > 25 then
 						spellName = string.sub(spellName, 0, 22) .. "..."
 					end
-					local s = Spell:CreateFromSpellID(spellID)
-					s:ContinueOnSpellLoad(function()
-						descriptions[spellID] = s:GetSpellDescription()
-					end)
-
+					
+					if not descriptions[spellID] then
+						C_Spell.RequestLoadSpellData(spellID);
+					end
+					
 					spells[CLASS_SORT_ORDER_WITH_GENERAL[i]].args[tostring(spellID)] = {
 						type = "toggle",
 						get = IsSpellEnabled,
