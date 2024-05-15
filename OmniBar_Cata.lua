@@ -386,9 +386,6 @@ addon.Cooldowns = {
 
     [64901] = { duration = 360, class = "PRIEST" }, -- Hymn of Hope
 
-    -- 78501: Soul Warding (Reduces the cooldown of your Power Word: Shield ability by 3 sec.)
-    [17] = { duration = 3, class = "PRIEST", adjust = -3 }, -- Power Word: Shield
-
     [73325] = { duration = 90, class = "PRIEST" }, -- Leap of Faith
 
     -- 81625: Tome of Light (Reduces the cooldown of your Holy Word spells by 30%.)
@@ -777,7 +774,7 @@ addon.Cooldowns = {
 
     [17735] = { duration = 120, class = "WARLOCK" }, -- Suffering (Rank 1)
 
-        [19647] = { parent = 19244 }, -- Spell Lock (Rank 2)
+    [19647] = { duration = 24, class = "WARLOCK", default = true }, -- Spell Lock
 
     [19505] = { duration = 8, class = "WARLOCK" }, -- Devour Magic (Rank 1)
 
@@ -1549,7 +1546,7 @@ addon.Cooldowns = {
 
     [31884] = { duration = 180, class = "PALADIN", adjust = { Retribution = -60 } }, -- Avenging Wrath
 
-    [31935] = { duration = 30, class = "PALADIN" }, -- Avenger's Shield (Rank 1)
+    [31935] = { duration = 30, class = "PALADIN", default = true }, -- Avenger's Shield (Rank 1)
 
     [35395] = { duration = 4, class = "PALADIN" }, -- Crusader Strike
 
@@ -1626,7 +1623,7 @@ addon.Cooldowns = {
     -- 84854: Shield of the Templar (Reduces the cooldown of Avenging Wrath by 60 sec and Guardian of Ancient Kings by 120 sec. In addition, your Divine Plea will generate 3 Holy Power.)
     [86150] = { duration = 300, class = "PALADIN", adjust = -120 }, -- Guardian of Ancient Kings
 
-    [96231] = { duration = 10, class = "PALADIN" }, -- Rebuke
+    [96231] = { duration = 10, class = "PALADIN", default = true }, -- Rebuke
 
     [31850] = { duration = 180, class = "PALADIN" }, -- Ardent Defender
 
@@ -2074,8 +2071,6 @@ addon.Cooldowns = {
       https://www.wowhead.com/wotlk/spell=61256
 
     --]]
-
-        [63672] = { parent = 63668 }, -- Black Arrow (Rank 6)
 
     -- Hunter Pets
 
