@@ -386,6 +386,26 @@ addon.Cooldowns = {
 
     [64901] = { duration = 360, class = "PRIEST" }, -- Hymn of Hope
 
+    -- 78501: Soul Warding (Reduces the cooldown of your Power Word: Shield ability by 3 sec.)
+    [17] = { duration = 3, class = "PRIEST", adjust = -3 }, -- Power Word: Shield
+
+    [73325] = { duration = 90, class = "PRIEST" }, -- Leap of Faith
+
+    -- 81625: Tome of Light (Reduces the cooldown of your Holy Word spells by 30%.)
+    [88625] = { duration = 30, class = "PRIEST", adjust = -9 }, -- Holy Word: Chastise
+
+    -- 81625: Tome of Light (Reduces the cooldown of your Holy Word spells by 30%.)
+    [88684] = { duration = 10, class = "PRIEST", adjust = -3  }, -- Holy Word: Serenity
+
+    -- 81625: Tome of Light (Reduces the cooldown of your Holy Word spells by 30%.)
+    [88685] = { duration = 40, class = "PRIEST", adjust = -12 }, -- Holy Word: Sanctuary
+
+    [62618] = { duration = 180, class = "PRIEST" }, -- Power Word: Barrier
+
+    [81700] = { duration = 30, class = "PRIEST" }, -- Archangel
+
+    [89485] = { duration = 45, class = "PRIEST" }, -- Inner Focus
+
     -- Warlock
 
     --[[ Curse of Doom Modifiers
@@ -780,6 +800,24 @@ addon.Cooldowns = {
     --]]
 
     [54049] = { duration = 6, class = "WARLOCK" }, -- Shadow Bite (Rank 1)
+
+    [54785] = { duration = 45, class = "WARLOCK" }, -- Demon Leap
+
+    [54786] = { duration = 45, class = "WARLOCK" }, -- Demon Leap
+
+    -- 63121: Nemesis (Reduces the cooldown of your Soulburn, Demonic Empowerment and Metamorphosis spells by 30%.)
+    [74434] = { duration = 45, class = "WARLOCK", adjust = -13.5 }, -- Soulburn
+
+    -- 63121: Nemesis (Reduces the cooldown of your Soulburn, Demonic Empowerment and Metamorphosis spells by 30%.)
+    [77801] = { duration = 120, class = "WARLOCK", adjust = -36 }, -- Demon Soul
+
+    [79268] = { duration = 30, class = "WARLOCK" }, -- Soul Harvest
+
+    [88448] = { duration = 180, class = "WARLOCK" }, -- Demonic Rebirth
+
+    [91711] = { duration = 30, class = "WARLOCK" }, -- Nether Ward
+
+    [71521] = { duration = 12, class = "WARLOCK" }, -- Hand of Gul'dan
 
     -- Shaman
 
@@ -1213,6 +1251,25 @@ addon.Cooldowns = {
 
     [61295] = { duration = 6, class = "SHAMAN" }, -- Riptide (Rank 1)
 
+    [8143] = { duration = 60, class = "SHAMAN" }, -- Tremor Totem
+
+    [73680] = { duration = 15, class = "SHAMAN" }, -- Unleash Elements
+
+    [73899] = { duration = 8, class = "SHAMAN" }, -- Primal Strike
+
+    [73920] = { duration = 10, class = "SHAMAN" }, -- Healing Rain
+
+    [79206] = { duration = 120, class = "SHAMAN" }, -- Spiritwalker's Grace
+
+    [86958] = { duration = 6, class = "SHAMAN" }, -- Cleansing Waters
+
+    [86961] = { duration = 6, class = "SHAMAN" }, -- Cleansing Waters
+
+    -- 60188: Elemental Fury (Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 100%, and removes the cooldown from your Chain Lightning spell.)
+    [61882] = { duration = 10, class = "SHAMAN" }, -- Earthquake
+
+    [98008] = { duration = 180, class = "SHAMAN" }, -- Spirit Link Totem
+
     -- Paladin
 
     --[[ Divine Protection Modifiers
@@ -1565,6 +1622,17 @@ addon.Cooldowns = {
     [62124] = { duration = 8, class = "PALADIN" }, -- Hand of Reckoning
 
     [64205] = { duration = 120, class = "PALADIN" }, -- Divine Sacrifice
+
+    -- 84854: Shield of the Templar (Reduces the cooldown of Avenging Wrath by 60 sec and Guardian of Ancient Kings by 120 sec. In addition, your Divine Plea will generate 3 Holy Power.)
+    [86150] = { duration = 300, class = "PALADIN", adjust = -120 }, -- Guardian of Ancient Kings
+
+    [96231] = { duration = 10, class = "PALADIN" }, -- Rebuke
+
+    [31850] = { duration = 180, class = "PALADIN" }, -- Ardent Defender
+
+    [70940] = { duration = 180, class = "PALADIN" }, -- Divine Guardian
+
+    [85696] = { duration = 120, class = "PALADIN" }, -- Zealotry
 
     -- Hunter
 
@@ -2964,6 +3032,24 @@ addon.Cooldowns = {
 
     [63900] = { duration = 10, class = "HUNTER", adjust = { ["Beast Mastery"] = -3} }, -- Thunderstomp
 
+    [51753] = { duration = 60, class = "HUNTER" }, -- Camouflage
+
+    -- 34493: Resourcefulness (Reduces the cooldown of all traps and Black Arrow by 6 sec.)
+    [82939] = { duration = 30, class = "HUNTER", adjust = -6 }, -- Explosive Trap
+
+    -- 34493: Resourcefulness (Reduces the cooldown of all traps and Black Arrow by 6 sec.)
+    [82941] = { duration = 30, class = "HUNTER", adjust = -6 }, -- Ice Trap
+
+    -- 34493: Resourcefulness (Reduces the cooldown of all traps and Black Arrow by 6 sec.)
+    [82945] = { duration = 30, class = "HUNTER", adjust = -6 }, -- Immolation Trap
+
+    -- 34493: Resourcefulness (Reduces the cooldown of all traps and Black Arrow by 6 sec.)
+    [82948] = { duration = 30, class = "HUNTER", adjust = -6 }, -- Snake Trap
+
+    [82692] = { duration = 15, class = "HUNTER" }, -- Focus Fire
+
+    [82726] = { duration = 120, class = "HUNTER" }, -- Fervor
+
     -- Druid
 
     --[[ Tranquility Modifiers
@@ -3340,6 +3426,15 @@ addon.Cooldowns = {
 
     [55342] = { duration = 180, class = "MAGE" }, -- Mirror Image
 
+    -- 70937: Glyph of Mana Shield (Reduces the cooldown of your Mana Shield by 2 sec.)
+    [1463] = { duration = 12, class = "MAGE", adjust = -2 }, -- Mana Shield
+
+    [80353] = { duration = 300, class = "MAGE" }, -- Time Warp
+
+    [82676] = { duration = 120, class = "MAGE" }, -- Ring of Frost
+
+    [82731] = { duration = 60, class = "MAGE" }, -- Flame Orb
+
      -- Rogue
 
     [408] = { duration = 20, class = "ROGUE" }, -- Kidney Shot (Rank 1)
@@ -3530,6 +3625,15 @@ addon.Cooldowns = {
     --]]
 
     [57934] = { duration = 30, class = "ROGUE", adjust = { Subtlety = -10 } }, -- Tricks of the Trade
+
+    [73981] = { duration = 60, class = "ROGUE" }, -- Redirect
+
+    -- 14066: Elusiveness (Reduces the cooldown of your Vanish and Blind abilities by 60 sec, and your Cloak of Shadows and Combat Readiness abilities by 30 sec.)
+    [74001] = { duration = 120, class = "ROGUE", adjust = -30 }, -- Combat Readiness
+
+    [76577] = { duration = 180, class = "ROGUE" }, -- Smoke Bomb
+
+    [79140] = { duration = 120, class = "ROGUE" }, -- Vendetta
 
     -- Warrior
 
@@ -3842,6 +3946,33 @@ addon.Cooldowns = {
 
     [64382] = { duration = 300, class = "WARRIOR" }, -- Shattering Throw
 
+    [78] = { duration = 3, class = "WARRIOR" }, -- Heroic Strike
+
+    -- 12835: Booming Voice (Reduces the cooldown of your Battle Shout and Commanding Shout by 30 sec and causes those abilities to generate 10 additional Rage.)
+    [469] = { duration = 60, class = "WARRIOR", adjust = -30 }, -- Commanding Shout
+
+    [845] = { duration = 3, class = "WARRIOR" }, -- Cleave
+
+    [1134] = { duration = 30, class = "WARRIOR" }, -- Inner Rage
+
+    -- 29889: Skirmisher (Reduces the cooldown of your Intercept by 10 sec and your Heroic Leap by 20 sec.)
+    [6544] = { duration = 60, class = "WARRIOR", adjust = -20 }, -- Heroic Leap
+
+    -- 12835: Booming Voice (Reduces the cooldown of your Battle Shout and Commanding Shout by 30 sec and causes those abilities to generate 10 additional Rage.)
+    [6673] = { duration = 60, class = "WARRIOR", adjust = -30 }, -- Battle Shout
+
+    [86346] = { duration = 20, class = "WARRIOR" }, -- Colossus Smash
+
+    [88161] = { duration = 3, class = "WARRIOR" }, -- Strike
+
+    [97462] = { duration = 180, class = "WARRIOR" }, -- Rallying Cry
+
+    [85288] = { duration = 6, class = "WARRIOR" }, -- Raging Blow
+
+    [85388] = { duration = 45, class = "WARRIOR" }, -- Throwdown
+
+    [85730] = { duration = 120, class = "WARRIOR" }, -- Deadly Calm
+
     -- Death Knight
 
     --[[ Army of the Dead Modifiers
@@ -3983,5 +4114,12 @@ addon.Cooldowns = {
     [47481] = { duration = 60, class = "DEATHKNIGHT" }, -- Gnaw
     [47484] = { duration = 45, class = "DEATHKNIGHT" }, -- Huddle
     [47482] = { duration = 20, class = "DEATHKNIGHT" }, -- Leap
+
+    [50977] = { duration = 60, class = "DEATHKNIGHT" }, -- Death Gate
+
+    -- 50029: Veteran of the Third War (Increases your total Stamina by 9%, your expertise by 6, and reduces the cooldown of Outbreak by 30 sec.)
+    [77575] = { duration = 60, class = "DEATHKNIGHT", adjust = -30 }, -- Outbreak
+
+    [77606] = { duration = 60, class = "DEATHKNIGHT" }, -- Dark Simulacrum
 
 }
