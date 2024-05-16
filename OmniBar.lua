@@ -160,47 +160,33 @@ function OmniBar:OnInitialize()
 		self:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellID, serverTime)
 	end)
 
-	-- Check if update available
-	self.version = { string = GetAddOnMetadata(addonName, "Version") or "" }
-	self.version.major, self.version.minor = self.version.string:match("(%d+)%.(%d+)")
-
-	-- dev version
-	if self.version.string:match("project%-version") then
-		self.version.string = "dev"
-		self.version.major = 999
-		self.version.minor = 999
-		self.version.dev = true
+	-- Set version
+	local version, major, minor = C_AddOns.GetAddOnMetadata(addonName, "Version") or "", 0, 0
+	if version:sub(1, 1) == "@" then
+		version = "Development"
+	else
+		major, minor = version:match("v(%d+)%.?(%d*)")
 	end
-
-	self.version.major = tonumber(self.version.major)
-	self.version.minor = tonumber(self.version.minor)
-
-	self:RegisterComm("OmniBarVersion", function(_, payload, _, sender)
-		self.sender = sender
-		if (not payload) or type(payload) ~= "string" then return end
-		local major, minor = payload:match("(%d+)%.(%d+)")
-		major = tonumber(major)
-		minor = tonumber(minor)
-		if (not major) or (not minor) then return end
-		if major < self.version.major then return end
-		if major == self.version.major and minor <= self.version.minor then return end
-		if (not self.outdatedSender) or self.outdatedSender == sender then
-			self.outdatedSender = sender
-			return
+	self.version = setmetatable({
+		string = version,
+		major = tonumber(major),
+		minor = tonumber(minor) or 0,
+	}, {
+		__tostring = function()
+			return version
 		end
-		if self.nextWarn and self.nextWarn > GetTime() then return end
-		self.nextWarn = GetTime() + 1800
-		self:Print(L.UPDATE_AVAILABLE)
-		self.outdatedSender = nil
-	end)
+	})
 
-	self:RegisterEvent("ZONE_CHANGED_NEW_AREA", "SendVersion")
-
-	C_Timer_After(10, function()
-		self:SendVersion()
-		if IsInGuild() then self:SendVersion("GUILD") end
-		self:SendVersion("YELL")
-	end)
+	-- Check if update available
+	if self.version.major > 0 then
+		self:RegisterComm("OmniBarVersion", "ReceiveVersion")
+		self:RegisterEvent("ZONE_CHANGED_NEW_AREA", "SendVersion")
+		C_Timer_After(10, function()
+			self:SendVersion()
+			if IsInGuild() then self:SendVersion("GUILD") end
+			self:SendVersion("YELL")
+		end)
+	end
 
 	-- Remove invalid custom cooldowns
 	for k,v in pairs(self.db.global.cooldowns) do
@@ -231,8 +217,27 @@ local function GetDefaultCommChannel()
 	end
 end
 
+function OmniBar:ReceiveVersion(_, payload, _, sender)
+	self.sender = sender
+	if (not payload) or type(payload) ~= "string" then return end
+	local major, minor = payload:match("v(%d+)%.?(%d*)")
+	major = tonumber(major)
+	minor = tonumber(minor) or 0
+	if (not major) or (not minor) then return end
+	if major < self.version.major then return end
+	if major == self.version.major and minor <= self.version.minor then return end
+	if (not self.outdatedSender) or self.outdatedSender == sender then
+		self.outdatedSender = sender
+		return
+	end
+	if self.nextWarn and self.nextWarn > GetTime() then return end
+	self.nextWarn = GetTime() + 1800
+	self:Print(L.UPDATE_AVAILABLE)
+	self.outdatedSender = nil
+end
+
 function OmniBar:SendVersion(distribution)
-	if (not self.version) or self.version.dev then return end
+	if (not self.version) or self.version.major == 0 then return end
 	self:SendCommMessage("OmniBarVersion", self.version.string, distribution or GetDefaultCommChannel())
 end
 
