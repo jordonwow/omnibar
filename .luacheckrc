@@ -23,6 +23,7 @@ read_globals = {
     "COMBATLOG_OBJECT_AFFILIATION_MINE",
     "COMBATLOG_OBJECT_REACTION_HOSTILE",
     "COMBATLOG_OBJECT_TYPE_PLAYER",
+    "C_AddOns",
     "C_PvP",
     "C_Spell",
     "C_Timer",
