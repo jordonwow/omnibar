@@ -3512,7 +3512,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [2983] = { duration = 180, class = "ROGUE", adjust = { Combat = -60 } }, -- Sprint (Rank 1)
+    [2983] = { duration = 60, class = "ROGUE" }, -- Sprint (Rank 1)
 
     --[[ Evasion Modifiers
 
@@ -3530,7 +3530,7 @@ addon.Cooldowns = {
 
     [13750] = { duration = 180, class = "ROGUE" }, -- Adrenaline Rush
 
-    [13877] = { duration = 120, class = "ROGUE" }, -- Blade Flurry
+    [13877] = { duration = 10, class = "ROGUE" }, -- Blade Flurry
 
     [14177] = { duration = 180, class = "ROGUE" }, -- Cold Blood
 
@@ -3552,7 +3552,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [14185] = { duration = 480, class = "ROGUE", adjust = { Subtlety = -180 } }, -- Preparation
+    [14185] = { duration = 300, class = "ROGUE" }, -- Preparation
 
     [14251] = { duration = 6, class = "ROGUE" }, -- Riposte
 
@@ -3577,7 +3577,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [31224] = { duration = 90, class = "ROGUE", adjust = -30 }, -- Cloak of Shadows
+    [31224] = { duration = 90, class = "ROGUE" }, -- Cloak of Shadows
 
     --[[ Shadowstep Modifiers
 
@@ -3591,7 +3591,7 @@ addon.Cooldowns = {
 
     --]]
 
-    [36554] = { duration = 30, class = "ROGUE", adjust = -10 }, -- Shadowstep
+    [36554] = { duration = 24, class = "ROGUE" }, -- Shadowstep
 
     --[[ Killing Spree Modifiers
 
