@@ -450,6 +450,19 @@ function OmniBar_SpellCast(self, event, name, spellID)
 	OmniBar_AddIcon(self, self.spellCasts[name][spellID])
 end
 
+local lastClickTime = 0
+local doubleClickThreshold = 0.3
+
+function HandleDoubleClick(self)
+    local currentTime = GetTime()
+    if currentTime - lastClickTime <= doubleClickThreshold then
+        lastClickTime = 0
+        InterfaceOptionsFrame_OpenToCategory("OmniBar")
+    else
+        lastClickTime = currentTime
+    end
+end
+
 function OmniBar:Initialize(key, name)
 	if (not self.db.profile.bars[key]) then
 		self.db.profile.bars[key] = { name = name }
