@@ -216,7 +216,7 @@ addon.Cooldowns = {
 
 		[184662] = {duration = 63, class = "PALADIN", specID = {70}}, -- Shield of Vengeance
 	        [403876] = {duration = 63, class = "PALADIN", specID = {70}}, -- Divine Protection (Retribution)
-		[255937] = {duration = 24, class = "PALADIN", specID = {70}}, -- Wake of Ashes
+		[255937] = {duration = 30, class = "PALADIN", specID = {70}}, -- Wake of Ashes
 	        [231895] = {duration = 120, class = "PALADIN", specID = {70}}, -- Crusade
 	        [198034] = {duration = 120, class = "PALADIN", specID = {70}}, -- Divine Hammer
 		[210256] = {duration = 45, class = "PALADIN", specID = {70}}, -- Blessing of Sanctuary
