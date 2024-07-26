@@ -464,7 +464,7 @@ addon.Cooldowns = {
 		[197214] = {duration = 40, class = "SHAMAN", specID = {263}}, -- Sundering
 		[384352] = {duration = 90, class = "SHAMAN", specID = {263}}, -- Doom Winds
 		[51533] = {duration = 90, class = "SHAMAN", specID = {263}}, -- Feral Spirits
-	        [204361] = {duration = 60, class = "SHAMAN", specID = {262, 263}}, -- Bloodlust (Shamanism)
+	        [204361] = {duration = 60, class = "SHAMAN", specID = {263}}, -- Bloodlust (Shamanism)
 			[204362] = {parent = 204361}, -- Heroism (Shamanism)
 		[114051] = {duration = 180, class = "SHAMAN", specID = {263}}, -- Ascendance (Enhancement)
 
