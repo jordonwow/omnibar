@@ -20,7 +20,7 @@ addon.Cooldowns = {
     [48265] = {duration = 45, class = "DEATHKNIGHT", charges = 2}, -- Death's Advance
     [48707] = {duration = 40, class = "DEATHKNIGHT"}, -- Anti-Magic Shell
 		[410358] = {parent = 48707, duration = 30}, -- Anti-Magic Shell (Spellwarden)
-    [49576] = {duration = 25, class = "DEATHKNIGHT", charges = 2}, -- Death Grip
+    [49576] = {duration = {default = 25, [250] = 15}, class = "DEATHKNIGHT", charges = 2}, -- Death Grip
     [51052] = {duration = 120, class = "DEATHKNIGHT"}, -- Anti-Magic Zone
     [61999] = {duration = 600, class = "DEATHKNIGHT"}, -- Raise Ally
     [77606] = {duration = 20, class = "DEATHKNIGHT"}, -- Dark Simulacrum
@@ -140,7 +140,6 @@ addon.Cooldowns = {
 		[197871] = {duration = 60, class = "PRIEST", specID = {256}}, -- Dark Archangel
 		[421453] = {duration = 240, class = "PRIEST", specID = {256}}, -- Ultimate Penitence
 		[194509] = {duration = 15, class = "PRIEST", specID = {256}, charges = 2}, -- Power Word: Radiance
-		[214621] = {duration = 24, class = "PRIEST", specID = {256}}, -- Schism
 		[527] = {duration = 8, class = "PRIEST", specID = {256, 257}, charges = 2}, -- Purify
 
 		-- Holy
