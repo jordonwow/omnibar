@@ -311,6 +311,7 @@ addon.Cooldowns = {
     [97462] = {duration = 180, class = "WARRIOR"}, -- Rallying Cry
     [386208] = {duration = 3, class = "WARRIOR"}, -- Defensive Stance
     [384318] = {duration = 45, class = "WARRIOR"}, -- Thunderous Roar
+    [228920] = {duration = 60, class = "WARRIOR", charges = 2}, -- Ravager
     [64382] = {duration = 180, class = "WARRIOR"}, -- Shattering Throw
     [384110] = {duration = 45, class = "WARRIOR"}, -- Wrecking Throw
 
@@ -320,7 +321,7 @@ addon.Cooldowns = {
 		[167105] = {duration = 45, class = "WARRIOR", specID = {71}}, -- Colossus Smash
 			[262161] = {parent = 167105}, -- Warbreaker
 		[198817] = {duration = 30, class = "WARRIOR", specID = {71}}, -- Sharpen Blade
-		[227847] = {duration = 60, class = "WARRIOR", specID = {71,73}}, -- Bladestorm
+		[227847] = {duration = 60, class = "WARRIOR", specID = {71,72}}, -- Bladestorm
 		[236273] = {duration = 60, class = "WARRIOR", specID = {71}}, -- Duel
 		[236320] = {duration = 90, class = "WARRIOR", specID = {71}}, -- War Banner
 		[260643] = {duration = 21, class = "WARRIOR", specID = {71}}, -- Skullsplitter
@@ -330,7 +331,6 @@ addon.Cooldowns = {
 		[184364] = {duration = 114, class = "WARRIOR", specID = {72}}, -- Enraged Regeneration
 		[385059] = {duration = 45, class = "WARRIOR", specID = {72}}, -- Odyn's Fury
 		[1719] = {duration = 90, class = "WARRIOR", specID = {72}}, -- Recklessness
-		[228920] = {duration = 60, class = "WARRIOR", specID = {72, 73}, charges = 2}, -- Ravager
 	        [315720] = {duration = 15, class = "WARRIOR", specID = {72}}, -- Onslaught
 
 		-- Protection
