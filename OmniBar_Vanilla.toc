@@ -1,4 +1,4 @@
-## Interface: 11502
+## Interface: 11503
 ## Title: OmniBar
 ## Notes: Tracks enemy cooldowns
 ## Version: @project-version@
