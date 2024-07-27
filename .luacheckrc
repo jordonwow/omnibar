@@ -72,6 +72,7 @@ read_globals = {
     "PARTY",
     "PLAYER",
     "SecondsToTime",
+    "Settings",
     "Spell",
     "StaticPopup_Show",
     "TARGET",
