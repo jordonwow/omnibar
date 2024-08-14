@@ -26,7 +26,8 @@ local GetSpecialization = GetSpecialization
 local GetSpecializationInfo = GetSpecializationInfo
 local GetSpecializationInfoByID = GetSpecializationInfoByID
 local GetSpecializationInfoForClassID = GetSpecializationInfoForClassID
-local GetSpellInfo = GetSpellInfo
+local GetSpellInfo = C_Spell and C_Spell.GetSpellInfo or GetSpellInfo
+local GetSpellTexture = C_Spell and C_Spell.GetSpellTexture or GetSpellTexture
 local GetTime = GetTime
 local GetUnitName = GetUnitName
 local GetZonePVPInfo = GetZonePVPInfo
@@ -63,6 +64,14 @@ local date = date
 local tinsert = tinsert
 local wipe = wipe
 local tContains = tContains
+
+local function GetSpellName(id)
+    if C_Spell and C_Spell.GetSpellName then
+        return C_Spell.GetSpellName(id)
+    else
+        return GetSpellInfo(id)
+    end
+end
 
 OmniBar = LibStub("AceAddon-3.0"):NewAddon("OmniBar", "AceEvent-3.0", "AceComm-3.0", "AceSerializer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("OmniBar")
@@ -197,7 +206,14 @@ function OmniBar:OnInitialize()
 
 	-- Populate cooldowns with spell names and icons
 	for spellId,_ in pairs(self.cooldowns) do
-		local name, _, icon = GetSpellInfo(spellId)
+		local name, icon
+		if C_Spell and C_Spell.GetSpellInfo then
+			local spellInfo = C_Spell.GetSpellInfo(spellId)
+			name = spellInfo and spellInfo.name
+			icon = spellInfo and spellInfo.iconID
+		else
+			name, _, icon = GetSpellInfo(spellId)
+		end
 		self.cooldowns[spellId].icon = self.cooldowns[spellId].icon or icon
 		self.cooldowns[spellId].name = name
 	end
@@ -404,7 +420,7 @@ local SPELL_ID_BY_NAME
 if WOW_PROJECT_ID == WOW_PROJECT_CLASSIC then
 	SPELL_ID_BY_NAME = {}
 	for id, value in pairs(addon.Cooldowns) do
-		if (not value.parent) then SPELL_ID_BY_NAME[GetSpellInfo(id)] = id end
+		if (not value.parent) then SPELL_ID_BY_NAME[GetSpellName(id)] = id end
 	end
 end
 
@@ -416,7 +432,14 @@ function OmniBar:AddCustomSpells()
 
 	-- Add custom spells
 	for k,v in pairs(self.db.global.cooldowns) do
-		local name, _, icon = GetSpellInfo(k)
+		local name, _, icon
+		if C_Spell and C_Spell.GetSpellInfo then
+			local spellInfo = C_Spell.GetSpellInfo(k)
+			name = spellInfo and spellInfo.name
+			icon = spellInfo and spellInfo.iconID
+		else
+			name, _, icon = GetSpellInfo(k)
+		end
 		if name then
 			-- Backup if we are going to override
 			if addon.Cooldowns[k] and (not addon.Cooldowns[k].custom) and (not self.BackupCooldowns[k]) then
@@ -915,7 +938,7 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 		sourceGUID = sourceGUID,
 		sourceName = sourceName,
 		spellID = spellID,
-		spellName = GetSpellInfo(spellID),
+		spellName = GetSpellName(spellID),
 		timestamp = now,
 	}
 

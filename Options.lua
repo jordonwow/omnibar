@@ -11,9 +11,9 @@ local DELETE = DELETE
 local GENERAL = GENERAL
 local GetAddOnMetadata = GetAddOnMetadata
 local GetSpecializationInfoByID = GetSpecializationInfoByID
-local GetSpellDescription = GetSpellDescription
-local GetSpellInfo = GetSpellInfo
-local GetSpellTexture = GetSpellTexture
+local GetSpellDescription = C_Spell and C_Spell.GetSpellDescription or GetSpellDescription
+local GetSpellInfo = C_Spell and C_Spell.GetSpellInfo or GetSpellInfo
+local GetSpellTexture = C_Spell and C_Spell.GetSpellTexture or GetSpellTexture
 local LOCALIZED_CLASS_NAMES_MALE = LOCALIZED_CLASS_NAMES_MALE
 local LibStub = LibStub
 local MAX_CLASSES = MAX_CLASSES
@@ -35,6 +35,14 @@ local WOW_PROJECT_MAINLINE = WOW_PROJECT_MAINLINE
 local YES = YES
 local format = format
 local nop = nop
+
+local function GetSpellName(id)
+    if C_Spell and C_Spell.GetSpellName then
+        return C_Spell.GetSpellName(id)
+    else
+        return GetSpellInfo(id)
+    end
+end
 
 local OmniBar = LibStub("AceAddon-3.0"):GetAddon("OmniBar")
 local L = LibStub("AceLocale-3.0"):GetLocale("OmniBar")
@@ -182,7 +190,7 @@ local function GetSpells()
 
 		for spellID, spell in pairs(addon.Cooldowns) do
 			if spell.class and spell.class == CLASS_SORT_ORDER_WITH_GENERAL[i] then
-				local spellName = GetSpellInfo(spellID)
+				local spellName = GetSpellName(spellID)
 				if spellName then
 					local spellTexture = OmniBar:GetSpellTexture(spellID) or ""
 					if string.len(spellName) > 25 then
@@ -945,7 +953,7 @@ local customSpells = {
 		type = "input",
 		set = function(info, state, data)
 			local spellId = tonumber(state)
-			local name = GetSpellInfo(spellId)
+			local name = GetSpellName(spellId)
 			if OmniBar.db.global.cooldowns[spellId] then return end
 			if spellId and name then
 				OmniBar.db.global.cooldowns[spellId] = data or addon.Cooldowns[spellId] or { custom = true, duration = { default = 30 } , class = "GENERAL" }
@@ -1092,7 +1100,7 @@ function OmniBar:SetupOptions()
 
 	for spellId, spell in pairs(OmniBar.db.global.cooldowns) do
 		customSpells[tostring(spellId)] = {
-			name = GetSpellInfo(spellId),
+			name = GetSpellName(spellId),
 			type = "group",
 			childGroups = "tab",
 			args = customSpellInfo,
