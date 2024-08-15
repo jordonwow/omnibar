@@ -83,7 +83,7 @@ addon.Cooldowns = {
     [196718] = {duration = 180, class = "DEMONHUNTER"}, -- Darkness
     [198793] = {duration = {default = 25, [577] = 20}, class = "DEMONHUNTER"}, -- Vengeful Retreat
     [205604] = {duration = 60, class = "DEMONHUNTER"}, -- Reverse Magic
-    [206803] = {duration = 60, class = "DEMONHUNTER"}, -- Rain from Above
+    [206803] = {duration = 90, class = "DEMONHUNTER"}, -- Rain from Above
     [212800] = {duration = 60, class = "DEMONHUNTER"}, -- Blur
     [196555] = {duration = 180, class = "DEMONHUNTER"}, -- Netherwalk
     [217832] = {duration = 45, class = "DEMONHUNTER"}, -- Imprison
@@ -106,7 +106,7 @@ addon.Cooldowns = {
 
 		[202137] = {duration = 60, class = "DEMONHUNTER", specID = {581}}, -- Sigil of Silence
 		[202138] = {duration = 120, class = "DEMONHUNTER", specID = {581}}, -- Sigil of Chains
-		[204021] = {duration = 45, class = "DEMONHUNTER", specID = {581}, charges = 2}, -- Fiery Brand
+		[204021] = {duration = 48, class = "DEMONHUNTER", specID = {581}, charges = 2}, -- Fiery Brand
 		[205629] = {duration = 9, class = "DEMONHUNTER", specID = {581}, charges = 2}, -- Demonic Trample
 		[205630] = {duration = 60, class = "DEMONHUNTER", specID = {581}}, -- Illidan's Grasp
 		[263648] = {duration = 30, class = "DEMONHUNTER", specID = {581}}, -- Soul Barrier
@@ -335,12 +335,12 @@ addon.Cooldowns = {
 
 		-- Protection
 
-		[871] = {duration = 171, class = "WARRIOR", specID = {73}}, -- Shield Wall
-		[1160] = {duration = 45, class = "WARRIOR", specID = {73}}, -- Demoralizing Shout
+		[871] = {duration = 156, class = "WARRIOR", specID = {73}}, -- Shield Wall
+		[1160] = {duration = 30, class = "WARRIOR", specID = {73}}, -- Demoralizing Shout
 		[12975] = {duration = 180, class = "WARRIOR", specID = {73}}, -- Last Stand
 		[206572] = {duration = 20, class = "WARRIOR", specID = {73}}, -- Dragon Charge
 		[213871] = {duration = 15, class = "WARRIOR", specID = {73}}, -- Bodyguard
-		[386071] = {duration = 78, class = "WARRIOR", specID = {73}}, -- Disrupting Shout
+		[386071] = {duration = 90, class = "WARRIOR", specID = {73}}, -- Disrupting Shout
 		[392966] = {duration = 90, class = "WARRIOR", specID = {73}}, -- Spell Block
 		[385952] = {duration = 45, class = "WARRIOR", specID = {73}}, -- Shield Charge
 
@@ -380,6 +380,7 @@ addon.Cooldowns = {
 		-- Affliction
 
 		[48181] = {duration = 15, class = "WARLOCK", specID = {265}}, -- Haunt
+	        [386951] = {duration = 30, class = "WARLOCK", specID = {265}}, -- Soul Swap
 		[205179] = {duration = 45, class = "WARLOCK", specID = {265}}, -- Phantom Singularity
 		[205180] = {duration = 120, class = "WARLOCK", specID = {265}}, -- Summon Darkglare
 		[386997] = {duration = 60, class = "WARLOCK", specID = {265}}, -- Soul Rot
@@ -434,13 +435,13 @@ addon.Cooldowns = {
     [192063] = {duration = 20, class = "SHAMAN"}, -- Gust of Wind
     [198103] = {duration = 300, class = "SHAMAN"}, -- Earth Elemental
     [305483] = {duration = 45, class = "SHAMAN"}, -- Lightning Lasso
-    [375982] = {duration = {default = 30, [263] = 45}, class = "SHAMAN"}, -- Primordial Wave
+    [375982] = {duration = 30, class = "SHAMAN"}, -- Primordial Wave
 	       [428332] = {parent = 375982}, -- Primordial Wave (Restoration)
     [58875] = {duration = 60, class = "SHAMAN"}, -- Spirit Walk
     [79206] = {duration = 120, class = "SHAMAN"}, -- Spiritwalker's Grace
     [204336] = {duration = 24, class = "SHAMAN"}, -- Grounding Totem
     [356736] = {duration = 30, class = "SHAMAN"}, -- Unleash Shield
-    [108270] = {duration = 114, class = "SHAMAN"}, -- Stone Bulwark Totem
+    [108270] = {duration = 174, class = "SHAMAN"}, -- Stone Bulwark Totem
     [383013] = {duration = 39, class = "SHAMAN"}, -- Poison Cleansing Totem
     [378773] = {duration = 12, class = "SHAMAN"}, -- Greater Purge
     [108285] = {duration = 180, class = "SHAMAN"}, -- Totemic Recall
@@ -449,7 +450,7 @@ addon.Cooldowns = {
 
 		-- Elemental
 
-		[192222] = {duration = 54, class = "SHAMAN", specID = {262}}, -- Liquid Magma Totem
+		[192222] = {duration = 24, class = "SHAMAN", specID = {262}}, -- Liquid Magma Totem
 		[198067] = {duration = 150, class = "SHAMAN", specID = {262}}, -- Fire Elemental
 			[192249] = {parent = 198067}, -- Storm Elemental
 		[191634] = {duration = 60, class = "SHAMAN", specID = {262}, charges = 2}, -- Stormkeeper
@@ -461,7 +462,7 @@ addon.Cooldowns = {
 
 		[196884] = {duration = 30, class = "SHAMAN", specID = {263}}, -- Feral Lunge
 		[197214] = {duration = 40, class = "SHAMAN", specID = {263}}, -- Sundering
-		[384352] = {duration = 90, class = "SHAMAN", specID = {263}}, -- Doom Winds
+		[384352] = {duration = 60, class = "SHAMAN", specID = {263}}, -- Doom Winds
 		[51533] = {duration = 90, class = "SHAMAN", specID = {263}}, -- Feral Spirits
 		[204361] = {duration = 60, class = "SHAMAN", specID = {262,263}}, -- Bloodlust (Shamanism)
 			[204362] = {parent = 204361}, -- Heroism (Shamanism)
@@ -561,7 +562,7 @@ addon.Cooldowns = {
     [342245] = {duration = 50, class = "MAGE"}, -- Alter Time
     [475] = {duration = 8, class = "MAGE"}, -- Remove Curse
     [157980] = {duration = 45, class = "MAGE"}, -- Supernova
-    [414660] = {duration = 120, class = "MAGE"}, -- Mass Barrier
+    [414660] = {duration = 180, class = "MAGE"}, -- Mass Barrier
     [383121] = {duration = 60, class = "MAGE"}, -- Mass Polymorph
     [414664] = {duration = 60, class = "MAGE"}, -- Mass Invisibility
 
@@ -582,7 +583,7 @@ addon.Cooldowns = {
 		[190319] = {duration = 120, class = "MAGE", specID = {63}}, -- Combustion
 		[194466] = {duration = 25, class = "MAGE", specID = {63}, charges = 3}, -- Phoenix's Flames
 		[203286] = {duration = 15, class = "MAGE", specID = {63}}, -- Greater Pyroblast
-	        [153561] = {duration = 30, class = "MAGE", specID = {63}}, -- Meteor
+	        [153561] = {duration = 35, class = "MAGE", specID = {63}}, -- Meteor
 
 		-- Frost
 
@@ -604,14 +605,14 @@ addon.Cooldowns = {
     [31224] = {duration = 120, class = "ROGUE"}, -- Cloak of Shadows
     [57934] = {duration = 30, class = "ROGUE"}, -- Tricks of the Trade
     [152150] = {duration = 30, class = "ROGUE"}, -- Death from Above
-    [408] = {duration = 20, class = "ROGUE"}, -- Kidney Shot
+    [408] = {duration = 30, class = "ROGUE"}, -- Kidney Shot
     [5277] = {duration = 120, class = "ROGUE"}, -- Evasion
     [36554] = {duration = 30, class = "ROGUE", charges = 2}, -- Shadowstep
     [5938] = {duration = 30, class = "ROGUE", charges = 2}, -- Shiv
     [207777] = {duration = 45, class = "ROGUE"}, -- Dismantle
     [381623] = {duration = 60, class = "ROGUE", specID = {63}, charges = 3}, -- Thistle Tea
     [385616] = {duration = 45, class = "ROGUE"}, -- Echoing Reprimand
-    [1776] = {duration = 20, class = "ROGUE"}, -- Gouge
+    [1776] = {duration = 25, class = "ROGUE"}, -- Gouge
     [2094] = {duration = {default = 120, [260] = 90}, class = "ROGUE"}, -- Blind
     [212182] = {duration = 180, class = "ROGUE", specID = {259, 260}}, -- Smoke Bomb
     [359053] = {duration = 120, class = "ROGUE", specID = {261}}, -- Smoke Bomb (Subtlety)
@@ -657,7 +658,7 @@ addon.Cooldowns = {
     [115203] = {duration = 90, class = "MONK"}, -- Fortifying Brew
     [116705] = {default = true, duration = 15, class = "MONK"}, -- Spear Hand Strike
     [322109] = {duration = 180, class = "MONK"}, -- Touch of Death
-    [324312] = {duration = 45, class = "MONK"}, -- Clash
+    [324312] = {duration = 60, class = "MONK"}, -- Clash
     [233759] = {duration = 45, class = "MONK"}, -- Grapple Weapon
 
 		-- Brewmaster
