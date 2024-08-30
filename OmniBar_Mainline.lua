@@ -18,6 +18,7 @@ addon.Cooldowns = {
 
     [47528] = {default = true, duration = 15, class = "DEATHKNIGHT"}, -- Mind Freeze
     [48265] = {duration = 45, class = "DEATHKNIGHT", charges = 2}, -- Death's Advance
+		[444347] = {parent = 48265}, -- Death Charge
     [48707] = {duration = 40, class = "DEATHKNIGHT"}, -- Anti-Magic Shell
 		[410358] = {parent = 48707, duration = 30}, -- Anti-Magic Shell (Spellwarden)
     [49576] = {duration = {default = 25, [250] = 15}, class = "DEATHKNIGHT", charges = 2}, -- Death Grip
@@ -127,6 +128,7 @@ addon.Cooldowns = {
     [108968] = {duration = 300, class = "PRIEST"}, -- Void Shift
     [373481] = {duration = 15, class = "PRIEST"}, -- Power Word: Life
     [15286] = {duration = 90, class = "PRIEST"}, -- Vampiric Embrace
+    [428924] = {duration = 45, class = "PRIEST", specID = {256, 257}, charges = 2}, -- Premonition
     [34433] = {duration = 180, class = "PRIEST"}, -- Shadowfiend
 
 		-- Discipline
@@ -312,6 +314,7 @@ addon.Cooldowns = {
     [386208] = {duration = 3, class = "WARRIOR"}, -- Defensive Stance
     [384318] = {duration = 45, class = "WARRIOR"}, -- Thunderous Roar
     [228920] = {duration = 60, class = "WARRIOR", charges = 2}, -- Ravager
+    [436358] = {duration = 45, class = "WARRIOR", specID = {71,73}}, -- Demolish
     [64382] = {duration = 180, class = "WARRIOR"}, -- Shattering Throw
     [384110] = {duration = 45, class = "WARRIOR"}, -- Wrecking Throw
 
@@ -373,6 +376,7 @@ addon.Cooldowns = {
     [410598] = {duration = 60, class = "WARLOCK"}, -- Soul Rip
     [201996] = {duration = 60, class = "WARLOCK"}, -- Call Observer
     [353753] = {duration = 30, class = "WARLOCK"}, -- Bonds of Fel
+    [442726] = {duration = 60, class = "WARLOCK", specID = {265, 267}}, -- Malevolence
     [212623] = {duration = 15, class = "WARLOCK"}, -- Singe Magic
 		[89808] = {parent = 212623}, -- Singe Magic
 		[119905] = {parent = 212623}, -- Singe Magic
@@ -446,6 +450,9 @@ addon.Cooldowns = {
     [378773] = {duration = 12, class = "SHAMAN"}, -- Greater Purge
     [108285] = {duration = 180, class = "SHAMAN"}, -- Totemic Recall
     [355580] = {duration = 84, class = "SHAMAN"}, -- Static Field Totem
+    [378081] = {duration = 60, class = "SHAMAN"}, -- Nature's Swiftness (Shaman)
+	       [443454] = {parent = 378081, duration = 30}, -- Ancestral Swiftness
+    [444995] = {duration = 24, class = "SHAMAN", specID = {263, 264}}, -- Surging Totem
     [409293] = {duration = 120, class = "SHAMAN"}, -- Burrow
 
 		-- Elemental
@@ -659,6 +666,7 @@ addon.Cooldowns = {
     [116705] = {default = true, duration = 15, class = "MONK"}, -- Spear Hand Strike
     [322109] = {duration = 180, class = "MONK"}, -- Touch of Death
     [324312] = {duration = 60, class = "MONK"}, -- Clash
+    [443028] = {duration = 90, class = "MONK", specID = {269, 270}}, -- Celestial Conduit
     [233759] = {duration = 45, class = "MONK"}, -- Grapple Weapon
 
 		-- Brewmaster
