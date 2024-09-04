@@ -138,7 +138,7 @@ addon.Cooldowns = {
 
 		[33206] = {duration = 180, class = "PRIEST", specID = {256}, charges = 2}, -- Pain Suppression
 		[123040] = {duration = 60, class = "PRIEST", specID = {256}}, -- Mindbender (Discipline)
-			[451235] = {parent = 123040}, -- Voidwrath
+		[451235] = { duration = 60, class = "PRIEST", specID = { 256, 258 } }, -- Voidwrath
 		[47536] = {duration = 90, class = "PRIEST", specID = {256}}, -- Rapture
 		[62618] = {duration = 180, class = "PRIEST", specID = {256}}, -- Power Word: Barrier
 	                [271466] = {parent = 34433}, -- Luminous Barrier
@@ -165,7 +165,6 @@ addon.Cooldowns = {
 
 		[15487] = {duration = 45, class = "PRIEST", specID = {258}}, -- Silence
 		[200174] = {duration = 60, class = "PRIEST", specID = {258}}, -- Mindbender (Shadow)
-			[451235] = {parent = 200174}, -- Voidwrath
 		[47585] = {duration = 90, class = "PRIEST", specID = {258}}, -- Dispersion
 		[64044] = {duration = 45, class = "PRIEST", specID = {258}}, -- Psychic Horror
 		[263165] = {duration = 30, class = "PRIEST", specID = {258}}, -- Void Torrent
