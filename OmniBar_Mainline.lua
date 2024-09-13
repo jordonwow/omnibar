@@ -731,8 +731,8 @@ addon.Cooldowns = {
     [374227] = {duration = 120, class = "EVOKER"}, -- Zephyr
     [358267] = {duration = 25, class = "EVOKER", charges = 2}, -- Hover
     [357208] = {duration = 30, class = "EVOKER"}, -- Fire Breath
-    [357210] = {duration = 60, class = "EVOKER"}, -- Deep Breath
-	[433874] = {parent = 357210}, -- Deep Breath (Maneuverability)
+    [357210] = {duration = {default = 120, [1467] = 60}, class = "EVOKER"}, -- Deep Breath
+	[433874] = {parent = 357210, duration = 60}, -- Deep Breath (Maneuverability)
     [383005] = {duration = 45, class = "EVOKER"}, -- Chrono Loop
     [378441] = {duration = 45, class = "EVOKER"}, -- Time Stop
     [370388] = {duration = 90, class = "EVOKER"}, -- Swoop Up
