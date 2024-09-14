@@ -701,8 +701,8 @@ addon.Cooldowns = {
 
 		-- Mistweaver
 
-		[115310] = {duration = 120, class = "MONK", specID = {270}}, -- Revival
-			[388615] = {parent = 115310, duration = 120}, -- Restoral
+		[115310] = {duration = 150, class = "MONK", specID = {270}}, -- Revival
+			[388615] = {parent = 115310, duration = 150}, -- Restoral
 		[116680] = {duration = 30, class = "MONK", specID = {270}}, -- Thunder Focus Tea
 		[116849] = {duration = 75, class = "MONK", specID = {270}}, -- Life Cocoon
 		[198898] = {duration = 30, class = "MONK", specID = {270}}, -- Song of Chi-Ji
@@ -731,7 +731,8 @@ addon.Cooldowns = {
     [374227] = {duration = 120, class = "EVOKER"}, -- Zephyr
     [358267] = {duration = 25, class = "EVOKER", charges = 2}, -- Hover
     [357208] = {duration = 30, class = "EVOKER"}, -- Fire Breath
-    [357210] = {duration = 60, class = "EVOKER"}, -- Deep Breath
+    [357210] = {duration = {default = 120, [1467] = 60}, class = "EVOKER"}, -- Deep Breath
+	[433874] = {parent = 357210, duration = 60}, -- Deep Breath (Maneuverability)
     [383005] = {duration = 45, class = "EVOKER"}, -- Chrono Loop
     [378441] = {duration = 45, class = "EVOKER"}, -- Time Stop
     [370388] = {duration = 90, class = "EVOKER"}, -- Swoop Up
@@ -764,6 +765,7 @@ addon.Cooldowns = {
 		[395152] = {duration = 30, class = "EVOKER", specID = {1473}}, -- Ebon Might
 		[408092] = {duration = 40, class = "EVOKER", specID = {1473}}, -- Upheaval
 		[403631] = {duration = 120, class = "EVOKER", specID = {1473}}, -- Breath of Eons
+			[442204] = {parent = 403631}, -- Breath of Eons (Maneuverability)
 		[408233] = {duration = 60, class = "EVOKER", specID = {1473}}, -- Bestow Weyrnstone
 		[360827] = {duration = 30, class = "EVOKER", specID = {1473}}, -- Blistering Scales
 		[409311] = {duration = 12, class = "EVOKER", specID = {1473}, charges = 2}, -- Prescience
