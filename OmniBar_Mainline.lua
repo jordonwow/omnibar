@@ -178,6 +178,7 @@ addon.Cooldowns = {
     -- Paladin
 
     [633] = {duration = 420, class = "PALADIN"}, -- Lay on Hands
+		[471195] = {parent = 633}, -- Lay on Hands (30% Armor increase)
     [642] = {duration = 210, class = "PALADIN"}, -- Divine Shield
     [853] = {duration = 30, class = "PALADIN"}, -- Hammer of Justice
     [1022] = {duration = 240, class = "PALADIN", charges = 2}, -- Blessing of Protection
