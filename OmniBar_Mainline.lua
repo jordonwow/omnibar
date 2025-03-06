@@ -503,6 +503,7 @@ addon.Cooldowns = {
     [209997] = {duration = 30, class = "HUNTER"}, -- Play Dead
     [781] = {duration = 20, class = "HUNTER"}, -- Disengage
     [19577] = {duration = 50, class = "HUNTER"}, -- Intimidation
+		[474421] = {parent = 19577}, -- Intimidation (Marksman)
     [109248] = {duration = 45, class = "HUNTER"}, -- Binding Shot
     [34477] = {duration = 45, class = "HUNTER"}, -- Misdirection (Interlope)
     [199483] = {duration = 60, class = "HUNTER"}, -- Camouflage
