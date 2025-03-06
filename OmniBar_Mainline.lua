@@ -623,7 +623,7 @@ addon.Cooldowns = {
     [207777] = {duration = 45, class = "ROGUE"}, -- Dismantle
     [381623] = {duration = 60, class = "ROGUE", specID = {63}, charges = 3}, -- Thistle Tea
     [1776] = {duration = 25, class = "ROGUE"}, -- Gouge
-    [2094] = {duration = {default = 120, [260] = 90}, class = "ROGUE"}, -- Blind
+    [2094] = {duration = {default = 120, [260] = 81}, class = "ROGUE"}, -- Blind
     [212182] = {duration = 180, class = "ROGUE", specID = {259, 260}}, -- Smoke Bomb
     [359053] = {duration = 120, class = "ROGUE", specID = {261}}, -- Smoke Bomb (Subtlety)
     [382245] = {duration = 45, class = "ROGUE"}, -- Cold Blood
