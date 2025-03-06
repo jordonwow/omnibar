@@ -92,6 +92,7 @@ addon.Cooldowns = {
 		[221527] = {parent = 217832}, -- Imprison (Detainment)
     [370965] = {duration = 90, class = "DEMONHUNTER"}, -- The Hunt
     [204596] = {duration = 30, class = "DEMONHUNTER"}, -- Sigil of Flame
+		[452490] = {parent = 204596}, -- Sigil of Doom
     [207684] = {duration = 90, class = "DEMONHUNTER"}, -- Sigil of Misery
     [278326] = {duration = 10, class = "DEMONHUNTER"}, -- Consume Magic
 
@@ -101,6 +102,7 @@ addon.Cooldowns = {
 		[211881] = {duration = 30, class = "DEMONHUNTER", specID = {577}}, -- Fel Eruption
 		[390163] = {duration = 60, class = "DEMONHUNTER", specID = {577, 581}}, -- Elysian Decree
 		[198013] = {duration = 40, class = "DEMONHUNTER", specID = {577}}, -- Eye Beam
+			[452497] = {parent = 198013}, -- Abyssal Gaze
 		[258860] = {duration = 40, class = "DEMONHUNTER", specID = {577}}, -- Essence Break
 	        [342817] = {duration = 21, class = "DEMONHUNTER", specID = {577}}, -- Glaive Tempest
 
