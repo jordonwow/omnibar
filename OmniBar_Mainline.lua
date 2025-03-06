@@ -319,6 +319,7 @@ addon.Cooldowns = {
     [384318] = {duration = 45, class = "WARRIOR"}, -- Thunderous Roar
     [228920] = {duration = 60, class = "WARRIOR", charges = 2}, -- Ravager
     [436358] = {duration = 45, class = "WARRIOR", specID = {71,73}}, -- Demolish
+    [206572] = {duration = 30, class = "WARRIOR"}, -- Dragon Charge
     [64382] = {duration = 180, class = "WARRIOR"}, -- Shattering Throw
     [384110] = {duration = 45, class = "WARRIOR"}, -- Wrecking Throw
 
@@ -343,7 +344,6 @@ addon.Cooldowns = {
 		[871] = {duration = 120, class = "WARRIOR", specID = {73}, charges = 2}, -- Shield Wall
 		[1160] = {duration = 30, class = "WARRIOR", specID = {73}}, -- Demoralizing Shout
 		[12975] = {duration = 180, class = "WARRIOR", specID = {73}}, -- Last Stand
-		[206572] = {duration = 20, class = "WARRIOR", specID = {73}}, -- Dragon Charge
 		[213871] = {duration = 15, class = "WARRIOR", specID = {73}}, -- Bodyguard
 		[386071] = {duration = 90, class = "WARRIOR", specID = {73}}, -- Disrupting Shout
 		[392966] = {duration = 90, class = "WARRIOR", specID = {73}}, -- Spell Block
