@@ -168,7 +168,6 @@ addon.Cooldowns = {
 		[47585] = {duration = 90, class = "PRIEST", specID = {258}}, -- Dispersion
 		[64044] = {duration = 45, class = "PRIEST", specID = {258}}, -- Psychic Horror
 		[263165] = {duration = 30, class = "PRIEST", specID = {258}}, -- Void Torrent
-		[205369] = {duration = 30, class = "PRIEST", specID = {258}}, -- Mind Bomb
 		[211522] = {duration = 45, class = "PRIEST", specID = {258}}, -- Psyfiend
 		[205385] = {duration = 20, class = "PRIEST", specID = {258}}, -- Shadow Crash
 		[228260] = {duration = 120, class = "PRIEST", specID = {258}}, -- Void Form
@@ -182,7 +181,7 @@ addon.Cooldowns = {
     [642] = {duration = 210, class = "PALADIN"}, -- Divine Shield
     [853] = {duration = 30, class = "PALADIN"}, -- Hammer of Justice
     [1022] = {duration = 240, class = "PALADIN"}, -- Blessing of Protection
-    [204018] = {duration = {default = 240, [66] = 210}, class = "PALADIN"}, -- Blessing of Spellwarding	
+    [204018] = {duration = {default = 240, [66] = 210}, class = "PALADIN"}, -- Blessing of Spellwarding
     [1044] = {duration = 25, class = "PALADIN"}, -- Blessing of Freedom
     [6940] = {duration = 60, class = "PALADIN"}, -- Blessing of Sacrifice
 		[199448] = {parent = 6940, duration = 60}, -- Ultimate Sacrifice
@@ -517,7 +516,6 @@ addon.Cooldowns = {
     [236776] = {duration = 35, class = "HUNTER"}, -- High Explosive Trap
     [462031] = {duration = 55, class = "HUNTER"}, -- Implosive Trap
     [186387] = {duration = 30, class = "HUNTER"}, -- Bursting Shot
-    [430703] = {duration = 30, class = "HUNTER", specID = {253, 254}}, -- Black Arrow
     [212431] = {duration = 30, class = "HUNTER"}, -- Explosive Shot
 
 		-- Beast Mastery
