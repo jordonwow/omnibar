@@ -1,4 +1,4 @@
-## Interface: 40400
+## Interface: 40402, 40401
 ## Title: OmniBar
 ## Notes: Tracks enemy cooldowns
 ## Version: @project-version@
