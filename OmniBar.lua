@@ -1023,13 +1023,19 @@ function OmniBar_OnEvent(self, event, ...)
 	elseif event == "ARENA_OPPONENT_UPDATE" then
 		if self.disabled or (not self.settings.showUnused) then return end
 
+		local unit, reason = ...
+
+		if reason == "cleared" then
+			wipe(self.detected)
+			wipe(self.spellCasts)
+			OmniBar_Refresh(self)
+		end
+
 		-- we get the info from ARENA_PREP_OPPONENT_SPECIALIZATIONS on retail
 		if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
 			OmniBar_OnEvent(self, "ARENA_PREP_OPPONENT_SPECIALIZATIONS")
 			return
 		end
-
-		local unit = ...
 
 		if (not unit) or (not UnitIsPlayer(unit)) then return end
 
