@@ -426,6 +426,22 @@ function OmniBar:AddBarToOptions(key, refresh)
 						type = "description",
 						order = 19,
 					},
+					iconSorting = {
+						name = L["Sort Icons By:"],
+						desc = L["Choose the order in which icons are sorted."],
+						type = "select",
+						values = {
+							TIME_REMAINING = L["Time Remaining"],
+							TIME_ADDED = L["Time Added"],
+						},
+						set = function(info, state)
+							local option = info[#info]
+							self.db.profile.bars[key][option] = state
+							OmniBar_Position(_G[key])
+						end,
+						disabled = function() return self.db.profile.bars[key].used end,
+						order = 20,
+					},
 					align = {
 						name = L["Alignment"],
 						desc = L["Set the alignment of the icons to the anchor"],
@@ -440,12 +456,12 @@ function OmniBar:AddBarToOptions(key, refresh)
 							self.db.profile.bars[key][option] = state
 							self:Refresh(true)
 						end,
-						order = 20,
+						order = 21,
 					},
 					lb5 = {
 						name = "",
 						type = "description",
-						order = 21,
+						order = 22,
 					},
 					size = {
 						name = L["Size"],
