@@ -121,6 +121,7 @@ local DEFAULTS = {
 	growUpward           = true,
 	highlightFocus       = false,
 	highlightTarget      = true,
+	iconSorting		     = "TIME_ADDED",
 	locked               = false,
 	maxIcons             = 32,
 	multiple             = true,
