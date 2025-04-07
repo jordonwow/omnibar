@@ -439,7 +439,7 @@ function OmniBar:AddBarToOptions(key, refresh)
 							self.db.profile.bars[key][option] = state
 							OmniBar_Position(_G[key])
 						end,
-						disabled = function() return self.db.profile.bars[key].used end,
+						disabled = function() return self.db.profile.bars[key].showUnused end,
 						order = 20,
 					},
 					align = {
