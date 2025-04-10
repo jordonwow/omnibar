@@ -1557,7 +1557,7 @@ end
 
 local function SortIconsByRemainingTime(self)
     table.sort(self.active, function(a, b)
-        return a.expires == b.expires and a.spellID < b.spellID or a.expires < b.expires 
+        return a.expires == b.expires and a.spellID < b.spellID or a.expires < b.expires
     end)
 end
 
