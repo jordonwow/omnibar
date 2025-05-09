@@ -224,7 +224,7 @@ addon.Cooldowns = {
 		[255937] = {duration = 30, class = "PALADIN", specID = {70}}, -- Wake of Ashes
 	        [231895] = {duration = 120, class = "PALADIN", specID = {70}}, -- Crusade
 	        [198034] = {duration = 60, class = "PALADIN", specID = {70}}, -- Divine Hammer
-		[210256] = {duration = 45, class = "PALADIN", specID = {70}}, -- Blessing of Sanctuary
+		[210256] = {duration = 60, class = "PALADIN", specID = {70}}, -- Blessing of Sanctuary
 		[343527] = {duration = 27, class = "PALADIN", specID = {70}}, -- Execution Sentence
 		[343721] = {duration = 54, class = "PALADIN", specID = {70}}, -- Final Reckoning
 
