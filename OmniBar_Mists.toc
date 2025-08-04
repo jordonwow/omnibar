@@ -1,0 +1,31 @@
+## Interface: 50500
+## Title: OmniBar
+## Notes: Tracks enemy cooldowns
+## Version: v27
+## Author: Jordon
+## SavedVariables: OmniBarDB
+## IconTexture: Interface\AddOns\OmniBar\Media\Textures\icon.blp
+## X-Curse-Project-ID: 85814
+## X-Wago-ID: BO678XK3
+## X-WoWI-ID: 23235
+
+#@no-lib-strip@
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+Libs\AceAddon-3.0\AceAddon-3.0.xml
+Libs\AceDB-3.0\AceDB-3.0.xml
+Libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
+Libs\AceComm-3.0\AceComm-3.0.xml
+Libs\AceEvent-3.0\AceEvent-3.0.xml
+Libs\AceGUI-3.0\AceGUI-3.0.xml
+Libs\AceConfig-3.0\AceConfig-3.0.xml
+Libs\AceLocale-3.0\AceLocale-3.0.xml
+Libs\AceSerializer-3.0\AceSerializer-3.0.xml
+Libs\LibDeflate\LibDeflate.lua
+#@end-no-lib-strip@
+
+Locales\Locales.xml
+OmniBar.xml
+OmniBar_Mists.lua
+OmniBar.lua
+Options.lua
