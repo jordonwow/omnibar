@@ -1,4 +1,3 @@
-
 -- OmniBar by Jordon
 
 local addonName, addon = ...
@@ -66,18 +65,18 @@ local wipe = wipe
 local tContains = tContains
 
 local function GetSpellName(id)
-    if C_Spell and C_Spell.GetSpellName then
-        return C_Spell.GetSpellName(id)
-    else
-        return GetSpellInfo(id)
-    end
+	if C_Spell and C_Spell.GetSpellName then
+		return C_Spell.GetSpellName(id)
+	else
+		return GetSpellInfo(id)
+	end
 end
 
 OmniBar = LibStub("AceAddon-3.0"):NewAddon("OmniBar", "AceEvent-3.0", "AceComm-3.0", "AceSerializer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("OmniBar")
 
 -- Apply cooldown adjustments
-for k,v in pairs(addon.Cooldowns) do
+for k, v in pairs(addon.Cooldowns) do
 	if v.duration and type(v.duration) == "number" then
 		local adjust = v.adjust or 0
 		if type(adjust) == "table" then
@@ -109,33 +108,33 @@ local MAX_ARENA_SIZE = addon.MAX_ARENA_SIZE or 0
 local PLAYER_NAME = GetUnitName("player")
 
 local DEFAULTS = {
-	adaptive             = false,
-	align                = "CENTER",
-	arena                = true,
-	battleground         = true,
-	border               = true,
-	center               = false,
-	columns              = 8,
-	cooldownCount        = true,
-	glow                 = true,
-	growUpward           = true,
-	highlightFocus       = false,
-	highlightTarget      = true,
-	iconSorting		     = "TIME_ADDED",
-	locked               = false,
-	maxIcons             = 32,
-	multiple             = true,
-	names                = false,
-	padding              = 2,
-	ratedBattleground    = true,
-	scenario             = true,
-	showUnused           = false,
-	size                 = 40,
-	swipeAlpha           = 0.65,
-	tooltips             = true,
-	trackUnit            = "ENEMY",
-	unusedAlpha          = 0.45,
-	world                = true,
+	adaptive          = false,
+	align             = "CENTER",
+	arena             = true,
+	battleground      = true,
+	border            = true,
+	center            = false,
+	columns           = 8,
+	cooldownCount     = true,
+	glow              = true,
+	growUpward        = true,
+	highlightFocus    = false,
+	highlightTarget   = true,
+	iconSorting       = "TIME_ADDED",
+	locked            = false,
+	maxIcons          = 32,
+	multiple          = true,
+	names             = false,
+	padding           = 2,
+	ratedBattleground = true,
+	scenario          = true,
+	showUnused        = false,
+	size              = 40,
+	swipeAlpha        = 0.65,
+	tooltips          = true,
+	trackUnit         = "ENEMY",
+	unusedAlpha       = 0.45,
+	world             = true,
 }
 
 local DB_VERSION = 4
@@ -199,14 +198,14 @@ function OmniBar:OnInitialize()
 	end
 
 	-- Remove invalid custom cooldowns
-	for k,v in pairs(self.db.global.cooldowns) do
+	for k, v in pairs(self.db.global.cooldowns) do
 		if (not GetSpellInfo(k)) then
 			self.db.global.cooldowns[k] = nil
 		end
 	end
 
 	-- Populate cooldowns with spell names and icons
-	for spellId,_ in pairs(self.cooldowns) do
+	for spellId, _ in pairs(self.cooldowns) do
 		local name, icon
 		if C_Spell and C_Spell.GetSpellInfo then
 			local spellInfo = C_Spell.GetSpellInfo(spellId)
@@ -270,7 +269,7 @@ function OmniBar:OnEnable()
 		table.remove(self.bars, i)
 	end
 
-	for key,_ in pairs(self.db.profile.bars) do
+	for key, _ in pairs(self.db.profile.bars) do
 		self:Initialize(key)
 		self.index = self.index + 1
 	end
@@ -281,7 +280,7 @@ function OmniBar:OnEnable()
 		self.index = 2
 	end
 
-	for key,_ in pairs(self.db.profile.bars) do
+	for key, _ in pairs(self.db.profile.bars) do
 		self:AddBarToOptions(key)
 	end
 
@@ -333,7 +332,7 @@ function OmniBar:ImportProfile(data)
 	self.db:SetProfile(profile)
 
 	-- merge custom spells
-	for k,v in pairs(data.customSpells) do
+	for k, v in pairs(data.customSpells) do
 		self.db.global.cooldowns[k] = nil
 		self.options.args.customSpells.args.spellId.set(nil, k, v)
 	end
@@ -349,7 +348,6 @@ function OmniBar:ShowExport()
 	self.export.editBox:SetFocus()
 	self.export.editBox:HighlightText()
 	-- self.export.editBox:HighlightText(0, self.export.editBox.editBox:GetNumLetters())
-
 end
 
 function OmniBar:ShowImport()
@@ -389,7 +387,7 @@ OmniBar.BackupCooldowns = {}
 function OmniBar:CopyCooldown(cooldown)
 	local copy = {}
 
-	for _,v in pairs({"class", "charges", "parent", "name", "icon"}) do
+	for _, v in pairs({ "class", "charges", "parent", "name", "icon" }) do
 		if cooldown[v] then
 			copy[v] = cooldown[v]
 		end
@@ -427,12 +425,12 @@ end
 
 function OmniBar:AddCustomSpells()
 	-- Restore any overrides
-	for k,v in pairs(self.BackupCooldowns) do
+	for k, v in pairs(self.BackupCooldowns) do
 		addon.Cooldowns[k] = self:CopyCooldown(v)
 	end
 
 	-- Add custom spells
-	for k,v in pairs(self.db.global.cooldowns) do
+	for k, v in pairs(self.db.global.cooldowns) do
 		local name, _, icon
 		if C_Spell and C_Spell.GetSpellInfo then
 			local spellInfo = C_Spell.GetSpellInfo(k)
@@ -477,7 +475,7 @@ end
 function OmniBar:Initialize(key, name)
 	if (not self.db.profile.bars[key]) then
 		self.db.profile.bars[key] = { name = name }
-		for a,b in pairs(DEFAULTS) do
+		for a, b in pairs(DEFAULTS) do
 			self.db.profile.bars[key][a] = b
 		end
 	end
@@ -507,7 +505,7 @@ function OmniBar:Initialize(key, name)
 
 	-- Remove invalid spells
 	if f.settings.spells then
-		for k,_ in pairs(f.settings.spells) do
+		for k, _ in pairs(f.settings.spells) do
 			if (not addon.Cooldowns[k]) or addon.Cooldowns[k].parent then f.settings.spells[k] = nil end
 		end
 	end
@@ -515,13 +513,13 @@ function OmniBar:Initialize(key, name)
 	f.adaptive = OmniBar_IsAdaptive(f)
 
 	-- Upgrade custom spells
-	for k,v in pairs(f.settings) do
+	for k, v in pairs(f.settings) do
 		local spellID = tonumber(k:match("^spell(%d+)"))
 		if spellID then
 			if (not f.settings.spells) then
 				f.settings.spells = {}
 				if (not f.settings.noDefault) then
-					for k,v in pairs(addon.Cooldowns) do
+					for k, v in pairs(addon.Cooldowns) do
 						if v.default then f.settings.spells[k] = true end
 					end
 				end
@@ -536,7 +534,7 @@ function OmniBar:Initialize(key, name)
 	OmniBar_LoadSettings(f)
 
 	-- Create the icons
-	for spellID,_ in pairs(addon.Cooldowns) do
+	for spellID, _ in pairs(addon.Cooldowns) do
 		if OmniBar_IsSpellEnabled(f, spellID) then
 			OmniBar_CreateIcon(f)
 		end
@@ -578,7 +576,7 @@ end
 
 function OmniBar:Create()
 	while true do
-		local key = "OmniBar"..self.index
+		local key = "OmniBar" .. self.index
 		self.index = self.index + 1
 		if (not self.db.profile.bars[key]) then
 			self:Initialize(key, "OmniBar " .. (self.index - 1))
@@ -591,10 +589,10 @@ end
 
 function OmniBar:Refresh(full)
 	self:GetSpecs()
-	for key,_ in pairs(self.db.profile.bars) do
+	for key, _ in pairs(self.db.profile.bars) do
 		local f = _G[key]
 		if f then
-			f.container:SetScale(f.settings.size/BASE_ICON_SIZE)
+			f.container:SetScale(f.settings.size / BASE_ICON_SIZE)
 			if full then
 				f.adaptive = OmniBar_IsAdaptive(f)
 				OmniBar_OnEvent(f, "PLAYER_ENTERING_WORLD")
@@ -647,8 +645,8 @@ function OmniBar_CreateIcon(self)
 	if InCombatLockdown() then return end
 	self.numIcons = self.numIcons + 1
 	local name = self:GetName()
-	local key = name.."Icon"..self.numIcons
-	local f = _G[key] or CreateFrame("Button", key, _G[name.."Icons"], "OmniBarButtonTemplate")
+	local key = name .. "Icon" .. self.numIcons
+	local f = _G[key] or CreateFrame("Button", key, _G[name .. "Icons"], "OmniBarButtonTemplate")
 	table.insert(self.icons, f)
 end
 
@@ -785,30 +783,29 @@ function OmniBar_SetZone(self, refresh)
 			OmniBar_OnEvent(self, "ARENA_OPPONENT_UPDATE")
 		end
 	end
-
 end
 
 local UNITNAME_SUMMON_TITLES = {
-    UNITNAME_SUMMON_TITLE1,
-    UNITNAME_SUMMON_TITLE2,
-    UNITNAME_SUMMON_TITLE3,
+	UNITNAME_SUMMON_TITLE1,
+	UNITNAME_SUMMON_TITLE2,
+	UNITNAME_SUMMON_TITLE3,
 }
 local tooltip = CreateFrame("GameTooltip", "OmniBarPetTooltip", nil, "GameTooltipTemplate")
 local tooltipText = OmniBarPetTooltipTextLeft2
 local function UnitOwnerName(guid)
-    if (not guid) then return end
-    for i = 1, 3 do
-        _G["UNITNAME_SUMMON_TITLE" .. i] = "OmniBar %s"
-    end
-    tooltip:SetOwner(UIParent, "ANCHOR_NONE")
-    tooltip:SetHyperlink("unit:" .. guid)
-    local name = tooltipText:GetText()
-    for i = 1, 3 do
-        _G["UNITNAME_SUMMON_TITLE" .. i] = UNITNAME_SUMMON_TITLES[i]
-    end
-    if (not name) then return end
-    local owner = name:match("OmniBar (.+)")
-    if owner then return owner end
+	if (not guid) then return end
+	for i = 1, 3 do
+		_G["UNITNAME_SUMMON_TITLE" .. i] = "OmniBar %s"
+	end
+	tooltip:SetOwner(UIParent, "ANCHOR_NONE")
+	tooltip:SetHyperlink("unit:" .. guid)
+	local name = tooltipText:GetText()
+	for i = 1, 3 do
+		_G["UNITNAME_SUMMON_TITLE" .. i] = UNITNAME_SUMMON_TITLES[i]
+	end
+	if (not name) then return end
+	local owner = name:match("OmniBar (.+)")
+	if owner then return owner end
 end
 
 local function IsSourceHostile(sourceFlags)
@@ -872,25 +869,98 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 
 	if (not name) then return end
 
-	if addon.Resets[spellID] and self.spellCasts[name] and event == "SPELL_CAST_SUCCESS" then
-		for i = 1, #addon.Resets[spellID] do
-			local reset = addon.Resets[spellID][i]
-			if type(reset) == "table" and reset.amount then
-				if self.spellCasts[name][reset.spellID] then
-					self.spellCasts[name][reset.spellID].duration = self.spellCasts[name][reset.spellID].duration - reset.amount
-					if self.spellCasts[name][reset.spellID].duration < 1 then
-						self.spellCasts[name][reset.spellID] = nil
+	if WOW_PROJECT_ID == WOW_PROJECT_MISTS_CLASSIC then
+		if addon.Resets[spellID] and self.spellCasts[name] and (event == "SPELL_CAST_SUCCESS" or "SPELL_INTERRUPT") then
+			for i = 1, #addon.Resets[spellID] do
+				local reset = addon.Resets[spellID][i]
+				if type(reset) == "table" and ((event == "SPELL_CAST_SUCCESS" and reset.amount) or (event == "SPELL_INTERRUPT" and reset.interrupt)) then
+					if self.spellCasts[name][reset.spellID] then
+						local reductionAmount = event == "SPELL_CAST_SUCCESS" and reset.amount or reset.interrupt
+						if type(reductionAmount) == "boolean" then reductionAmount = self.spellCasts[name]
+							[reset.spellID].duration end
+						self.spellCasts[name][reset.spellID].duration = self.spellCasts[name][reset.spellID].duration -
+						reductionAmount
+						if self.spellCasts[name][reset.spellID].duration < 1 then
+							self.spellCasts[name][reset.spellID] = nil
+						end
+					end
+					self:SendMessage("OmniBar_ResetSpellCast", name, reset.spellID)
+				elseif event == "SPELL_CAST_SUCCESS" then
+					if type(reset) == "table" and reset.useBeforeCD then -- special skip cases
+						if reset.skipFirst then                      -- Clemency or similar
+							self.spellCasts[name].special = self.spellCasts[name].special or {}
+							for i = 1, #reset.spellID do
+								if not self.spellCasts[name].special[reset.spellID[i]] then
+									self.spellCasts[name].special[reset.spellID[i]] = self.spellCasts[name].special
+									[reset.spellID[i]] or {}
+									self.spellCasts[name].special[reset.spellID[i]].skipFirst = reset.skipFirst
+									self.spellCasts[name][reset.spellID[i]] = nil
+								end
+							end
+						elseif self.spellCasts[name][spellID] and reset.reduction then -- there must be some CD reduction talent (e.g. Unbreakable Spirit)
+							self.spellCasts[name].special = self.spellCasts[name].special or {}
+							for i = 1, #reset.spellID do
+								if not self.spellCasts[name].special[reset.spellID[i]] then
+									self.spellCasts[name].special[reset.spellID[i]] = self.spellCasts[name].special
+									[reset.spellID[i]] or {}
+									self.spellCasts[name].special[reset.spellID[i]].reduction = reset.reduction
+									self.spellCasts[name].special[reset.spellID[i]].absolute = reset.absolute and true or
+									false
+									if self.spellCasts[name][reset.spellID[i]] then -- update already showing CDs to reflect the CD reduction
+										local duration = (self.spellCasts[name][reset.spellID[i]].timestamp - self.spellCasts[name][reset.spellID[i]].expires)
+										if reset.reduction and reset.absolute then
+											duration = duration - reset.reduction
+										else
+											duration = duration * reset.reduction
+										end
+										self.spellCasts[name][reset.spellID[i]].duration = duration
+									end
+								end
+							end
+						elseif self.spellCasts[name][spellID] and reset.skipTimeFromFirstUse then -- ability is re-usable without CD
+							now = GetTime()
+							local timeSinceUse = now - self.spellCasts[name][spellID].timestamp
+							if timeSinceUse < reset.skipTimeFromFirstUse then
+								return
+							end
+						end
+						self:SendMessage("OmniBar_ResetSpellCast", name, spellID)
+					else
+						self.spellCasts[name][reset] = nil
+						self:SendMessage("OmniBar_ResetSpellCast", name, reset)
 					end
 				end
-			else
-				if type(reset) == "table" then reset = reset.spellID end
-				self.spellCasts[name][reset] = nil
 			end
 		end
-		self:SendMessage("OmniBar_ResetSpellCast", name, spellID)
+	else
+		if addon.Resets[spellID] and self.spellCasts[name] and event == "SPELL_CAST_SUCCESS" then
+			for i = 1, #addon.Resets[spellID] do
+				local reset = addon.Resets[spellID][i]
+				if type(reset) == "table" and reset.amount then
+					if self.spellCasts[name][reset.spellID] then
+						self.spellCasts[name][reset.spellID].duration = self.spellCasts[name][reset.spellID].duration -
+							reset.amount
+						if self.spellCasts[name][reset.spellID].duration < 1 then
+							self.spellCasts[name][reset.spellID] = nil
+						end
+					end
+				else
+					if type(reset) == "table" then reset = reset.spellID end
+					self.spellCasts[name][reset] = nil
+				end
+			end
+			self:SendMessage("OmniBar_ResetSpellCast", name, spellID)
+		end
 	end
 
 	if (not addon.Cooldowns[spellID]) then return end
+
+	if WOW_PROJECT_ID == WOW_PROJECT_MISTS_CLASSIC then
+		local blockEvent = addon.Resets[spellID] and addon.Resets[spellID][1] and
+			type(addon.Resets[spellID][1]) == "table" and
+			addon.Resets[spellID][1].blockEvent or ""
+		if blockEvent == event then return end
+	end
 
 	local now = GetTime()
 
@@ -902,7 +972,7 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 
 	-- make sure we aren't adding a duplicate,
 	-- and if it is a shared cooldown make sure we don't overwrite
-	if  self.spellCasts[name] and
+	if self.spellCasts[name] and
 		self.spellCasts[name][spellID] and
 		(customDuration or self.spellCasts[name][spellID].serverTime == serverTime)
 	then
@@ -970,7 +1040,8 @@ function OmniBar:UNIT_SPELLCAST_SUCCEEDED(event, unit, _, spellID)
 end
 
 function OmniBar:COMBAT_LOG_EVENT_UNFILTERED()
-	local _, event, _, sourceGUID, sourceName, sourceFlags, _,_,_,_,_, spellID, spellName = CombatLogGetCurrentEventInfo()
+	local _, event, _, sourceGUID, sourceName, sourceFlags, _, _, _, _, _, spellID, spellName =
+		CombatLogGetCurrentEventInfo()
 	if (event == "SPELL_CAST_SUCCESS" or event == "SPELL_AURA_APPLIED") then
 		if spellID == 0 and SPELL_ID_BY_NAME then spellID = SPELL_ID_BY_NAME[spellName] end
 		self:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellID)
@@ -986,17 +1057,14 @@ function OmniBar_OnEvent(self, event, ...)
 	if event == "PLAYER_ENTERING_WORLD" then
 		OmniBar_SetZone(self, true)
 		OmniBar_OnEvent(self, "ARENA_PREP_OPPONENT_SPECIALIZATIONS")
-
 	elseif event == "ZONE_CHANGED_NEW_AREA" then
 		OmniBar_SetZone(self, true)
-
 	elseif event == "UPDATE_BATTLEFIELD_STATUS" then -- IsRatedBattleground() doesn't return valid response until this event
 		if self.disabled or self.zone ~= "pvp" then return end
 		if (not self.rated) and IsRatedBattleground() then OmniBar_SetZone(self) end
-
 	elseif event == "UPDATE_BATTLEFIELD_SCORE" then
 		for i = 1, GetNumBattlefieldScores() do
-			local name, _,_,_,_,_,_,_, classToken, _,_,_,_,_,_, talentSpec = GetBattlefieldScore(i)
+			local name, _, _, _, _, _, _, _, classToken, _, _, _, _, _, _, talentSpec = GetBattlefieldScore(i)
 			if name and SPEC_ID_BY_NAME[classToken] and SPEC_ID_BY_NAME[classToken][talentSpec] then
 				if (not self.specs[name]) then
 					self.specs[name] = SPEC_ID_BY_NAME[classToken][talentSpec]
@@ -1004,7 +1072,6 @@ function OmniBar_OnEvent(self, event, ...)
 				end
 			end
 		end
-
 	elseif event == "ARENA_PREP_OPPONENT_SPECIALIZATIONS" then
 		if WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE then return end
 		if self.disabled or (not self.adaptive) or (not self.settings.showUnused) then return end
@@ -1012,7 +1079,7 @@ function OmniBar_OnEvent(self, event, ...)
 			if self.settings.trackUnit == "ENEMY" or self.settings.trackUnit == "arena" .. i then
 				local specID = GetArenaOpponentSpec(i)
 				if specID and specID > 0 and (not self.detected[i]) then
-					local _,_,_,_,_, class = GetSpecializationInfoByID(specID)
+					local _, _, _, _, _, class = GetSpecializationInfoByID(specID)
 					if class then
 						self.detected[i] = class
 						OmniBar_AddIconsByClass(self, class, i, specID)
@@ -1020,7 +1087,6 @@ function OmniBar_OnEvent(self, event, ...)
 				end
 			end
 		end
-
 	elseif event == "ARENA_OPPONENT_UPDATE" then
 		if self.disabled or (not self.settings.showUnused) then return end
 
@@ -1055,18 +1121,15 @@ function OmniBar_OnEvent(self, event, ...)
 				end
 			end
 		end
-
 	elseif event == "GROUP_ROSTER_UPDATE" then
 		if self.disabled then return end
 		if self.settings.trackUnit == "GROUP" or self.settings.trackUnit:match("^party") then
 			OmniBar_Refresh(self)
 		end
-
 	elseif event == "PVP_MATCH_ACTIVE" then
 		if self.zone == "arena" then
 			OmniBar_ResetIcons(self)
 		end
-
 	elseif event == "PLAYER_TARGET_CHANGED" or event == "PLAYER_FOCUS_CHANGED" or event == "PLAYER_REGEN_DISABLED" then
 		if self.disabled then return end
 
@@ -1106,9 +1169,8 @@ function OmniBar_OnEvent(self, event, ...)
 end
 
 function OmniBar_LoadSettings(self)
-
 	-- Set the scale
-	self.container:SetScale(self.settings.size/BASE_ICON_SIZE)
+	self.container:SetScale(self.settings.size / BASE_ICON_SIZE)
 
 	OmniBar_LoadPosition(self)
 	OmniBar_ResetIcons(self)
@@ -1201,7 +1263,7 @@ function OmniBar:GetSpecs()
 		return
 	end
 	for i = 1, GetNumGroupMembers() do
-		local name, _,_,_,_, class = GetRaidRosterInfo(i)
+		local name, _, _, _, _, class = GetRaidRosterInfo(i)
 		if name and (not self.specs[name]) and (not UnitIsUnit("player", name)) and CanInspect(name) then
 			self.inspectUnit = name
 			self.lastInspect = GetTime()
@@ -1278,9 +1340,9 @@ end
 
 function OmniBar_Center(self)
 	local parentWidth = UIParent:GetWidth()
-	local clamp = self.settings.center and (1 - parentWidth)/2 or 0
+	local clamp = self.settings.center and (1 - parentWidth) / 2 or 0
 	self:SetClampRectInsets(clamp, -clamp, 0, 0)
-	clamp = self.settings.center and (self.anchor:GetWidth() - parentWidth)/2 or 0
+	clamp = self.settings.center and (self.anchor:GetWidth() - parentWidth) / 2 or 0
 	self.anchor:SetClampRectInsets(clamp, -clamp, 0, 0)
 end
 
@@ -1314,7 +1376,7 @@ function OmniBar_CooldownFinish(self, force)
 		if icon.TargetTexture:GetAlpha() == 0 and
 			icon.FocusTexture:GetAlpha() == 0 and
 			bar.settings.unusedAlpha then
-				icon:SetAlpha(bar.settings.unusedAlpha)
+			icon:SetAlpha(bar.settings.unusedAlpha)
 		end
 	end
 	bar:StopMovingOrSizing()
@@ -1326,8 +1388,8 @@ function OmniBar_ReplaySpellCasts(self)
 
 	local now = GetTime()
 
-	for name,_ in pairs(self.spellCasts) do
-		for k,v in pairs(self.spellCasts[name]) do
+	for name, _ in pairs(self.spellCasts) do
+		for k, v in pairs(self.spellCasts[name]) do
 			if now >= v.expires then
 				self.spellCasts[name][k] = nil
 			else
@@ -1367,7 +1429,7 @@ function OmniBar_ResetIcons(self)
 	if self.settings.showUnused then
 		if self.settings.trackUnit == "ENEMY" then
 			if (not self.adaptive) then
-				for spellID,_ in pairs(addon.Cooldowns) do
+				for spellID, _ in pairs(addon.Cooldowns) do
 					if OmniBar_IsSpellEnabled(self, spellID) then
 						OmniBar_AddIcon(self, { spellID = spellID })
 					end
@@ -1375,7 +1437,7 @@ function OmniBar_ResetIcons(self)
 			end
 		elseif self.settings.trackUnit == "GROUP" then
 			for i = 1, GetNumGroupMembers() do
-				local name, _,_,_,_, class = GetRaidRosterInfo(i)
+				local name, _, _, _, _, class = GetRaidRosterInfo(i)
 				local guid = UnitGUID(name)
 				if class and (not UnitIsUnit("player", name)) then
 					OmniBar_AddIconsByClass(self, class, UnitGUID(name), self.specs[name])
@@ -1424,7 +1486,6 @@ function OmniBar_AddIcon(self, info)
 					icon = self.active[i]
 					break
 				end
-
 			end
 		end
 	end
@@ -1452,7 +1513,7 @@ function OmniBar_AddIcon(self, info)
 	icon.icon:SetTexture(addon.Cooldowns[info.spellID].icon)
 	icon.spellID = info.spellID
 	icon.timestamp = info.test and GetTime() or info.timestamp
-	icon.duration = info.test and math.random(5,30) or info.duration
+	icon.duration = info.test and math.random(5, 30) or info.duration
 	icon.added = GetTime()
 	icon.expires = info.test and icon.timestamp + icon.duration or info.expires
 
@@ -1491,7 +1552,7 @@ function OmniBar_AddIcon(self, info)
 			Normal = icon:GetNormalTexture(),
 			Disabled = false,
 			Checked = false,
-			Border = _G[icon:GetName().."Border"],
+			Border = _G[icon:GetName() .. "Border"],
 			AutoCastable = false,
 			Highlight = false,
 			Hotkey = false,
@@ -1534,7 +1595,6 @@ function OmniBar_UpdateIcons(self)
 
 		-- Masque
 		if self.icons[i].MasqueGroup then self.icons[i].MasqueGroup:ReSkin() end
-
 	end
 end
 
@@ -1543,11 +1603,11 @@ function OmniBar_Test(self)
 	self.disabled = nil
 	OmniBar_ResetIcons(self)
 	if self.settings.spells then
-		for k,v in pairs(self.settings.spells) do
+		for k, v in pairs(self.settings.spells) do
 			OmniBar_AddIcon(self, { spellID = k, test = true })
 		end
 	else
-		for k,v in pairs(addon.Cooldowns) do
+		for k, v in pairs(addon.Cooldowns) do
 			if v.default then
 				OmniBar_AddIcon(self, { spellID = k, test = true })
 			end
@@ -1556,15 +1616,15 @@ function OmniBar_Test(self)
 end
 
 local function SortIconsByRemainingTime(self)
-    table.sort(self.active, function(a, b)
-        return a.expires == b.expires and a.spellID < b.spellID or a.expires < b.expires
-    end)
+	table.sort(self.active, function(a, b)
+		return a.expires == b.expires and a.spellID < b.spellID or a.expires < b.expires
+	end)
 end
 
 local function SortIconsByTimeAdded(self)
-    table.sort(self.active, function(a, b)
-        return a.added == b.added and a.spellID < b.spellID or a.added < b.added
-    end)
+	table.sort(self.active, function(a, b)
+		return a.added == b.added and a.spellID < b.spellID or a.added < b.added
+	end)
 end
 
 function OmniBar_Position(self)
@@ -1615,24 +1675,27 @@ function OmniBar_Position(self)
 			count = count + 1
 			if count >= columns then
 				if self.settings.align == "CENTER" then
-					self.active[i]:SetPoint("CENTER", self.anchor, "CENTER", (-BASE_ICON_SIZE-padding)*(columns-1)/2, (BASE_ICON_SIZE+padding)*rows*grow)
+					self.active[i]:SetPoint("CENTER", self.anchor, "CENTER",
+						(-BASE_ICON_SIZE - padding) * (columns - 1) /
+						2, (BASE_ICON_SIZE + padding) * rows * grow)
 				else
-					self.active[i]:SetPoint(self.settings.align, self.anchor, self.settings.align, 0, (BASE_ICON_SIZE+padding)*rows*grow)
+					self.active[i]:SetPoint(self.settings.align, self.anchor, self.settings.align, 0,
+						(BASE_ICON_SIZE + padding) * rows * grow)
 				end
 
 				count = 0
 				rows = rows + 1
 			else
 				if self.settings.align == "RIGHT" then
-					self.active[i]:SetPoint("TOPRIGHT", self.active[i-1], "TOPLEFT", -1 * padding, 0)
+					self.active[i]:SetPoint("TOPRIGHT", self.active[i - 1], "TOPLEFT", -1 * padding, 0)
 				else
-					self.active[i]:SetPoint("TOPLEFT", self.active[i-1], "TOPRIGHT", padding, 0)
+					self.active[i]:SetPoint("TOPLEFT", self.active[i - 1], "TOPRIGHT", padding, 0)
 				end
 			end
-
 		else
 			if self.settings.align == "CENTER" then
-				self.active[i]:SetPoint("CENTER", self.anchor, "CENTER", (-BASE_ICON_SIZE-padding)*(columns-1)/2, 0)
+				self.active[i]:SetPoint("CENTER", self.anchor, "CENTER", (-BASE_ICON_SIZE - padding) * (columns - 1) / 2,
+					0)
 			else
 				self.active[i]:SetPoint(self.settings.align, self.anchor, self.settings.align, 0, 0)
 			end
@@ -1642,7 +1705,7 @@ function OmniBar_Position(self)
 end
 
 function OmniBar:Test()
-	for key,_ in pairs(self.db.profile.bars) do
+	for key, _ in pairs(self.db.profile.bars) do
 		OmniBar_Test(_G[key])
 	end
 end
@@ -1651,9 +1714,9 @@ SLASH_OmniBar1 = "/ob"
 SLASH_OmniBar2 = "/omnibar"
 SlashCmdList.OmniBar = function()
 	if Settings and Settings.OpenToCategory then
-        Settings.OpenToCategory(addonName)
-    else
-        InterfaceOptionsFrame_OpenToCategory(addonName)
-        InterfaceOptionsFrame_OpenToCategory(addonName)
-    end
+		Settings.OpenToCategory(addonName)
+	else
+		InterfaceOptionsFrame_OpenToCategory(addonName)
+		InterfaceOptionsFrame_OpenToCategory(addonName)
+	end
 end
