@@ -918,7 +918,7 @@ function OmniBar:AddSpellCast(event, sourceGUID, sourceName, sourceFlags, spellI
 								end
 							end
 						elseif self.spellCasts[name][spellID] and reset.skipTimeFromFirstUse then -- ability is re-usable without CD
-							now = GetTime()
+							local now = GetTime()
 							local timeSinceUse = now - self.spellCasts[name][spellID].timestamp
 							if timeSinceUse < reset.skipTimeFromFirstUse then
 								return
