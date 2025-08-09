@@ -53,7 +53,7 @@ addon.Cooldowns = {
 		-- Frost
 
 		[51271] = {duration = 60, class = "DEATHKNIGHT", specID = {251}}, -- Pillar of Frost
-		[152279] = {duration = 90, class = "DEATHKNIGHT", specID = {251}}, -- Breath of Sindragosa
+		[1249658] = {duration = 90, class = "DEATHKNIGHT", specID = {251}}, -- Breath of Sindragosa
 		[196770] = {duration = 20, class = "DEATHKNIGHT", specID = {251}}, -- Remorseless Winter
 	    [47568] = {duration = 30, class = "DEATHKNIGHT", specID = {251}, charges = 2}, -- Empower Rune Weapon
 		[279302] = {duration = 90, class = "DEATHKNIGHT", specID = {251}}, -- Frostwyrm's Fury
