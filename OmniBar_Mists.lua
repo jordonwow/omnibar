@@ -1,3 +1,9 @@
+-- This file was brought to you by:
+-- https://github.com/muleyo
+-- https://github.com/ManneN1 - special thanks for the MoP-specific optimizations
+--
+-- Be sure to thank them if you see them on your server!
+
 local addonName, addon = ...
 
 addon.MAX_ARENA_SIZE = 5
