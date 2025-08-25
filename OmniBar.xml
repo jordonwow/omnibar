@@ -42,6 +42,7 @@
 						bar:StartMoving()
 					</OnMouseDown>
 					<OnMouseUp>
+						HandleDoubleClick(self)
 						local bar = self:GetParent()
 						bar:StopMovingOrSizing()
 						OmniBar_SavePosition(bar)
